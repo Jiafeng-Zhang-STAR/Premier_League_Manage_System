@@ -9,6 +9,8 @@ import UserInterface.Club.Health.Doctor.DoctorJFrame;
 //导入Doctor的UI界面类 Import the Doctor UI class
 import UserInterface.League.Match.Manager.ManagerJFrame;
 //导入Manager的UI界面类 Import the Manager UI class
+import java.sql.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Jiafeng
@@ -60,7 +62,7 @@ public class TestMainJFrame extends javax.swing.JFrame {
             }
         });
 
-        roleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Accountant", "Doctor", "Manager" }));
+        roleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doctor", "Accountant", "Manager" }));
 
         usernameTextField.setText("email");
 
@@ -121,6 +123,102 @@ public class TestMainJFrame extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
+        String userName = usernameTextField.getText();
+        String passWord = passwordTextField.getText();
+        String enterpriseType = String.valueOf(enterpriseComboBox.getSelectedItem());
+        String roleType = String.valueOf(roleComboBox.getSelectedItem());
+        
+        //获取登录界面输入的值 Get the value entered in the login screen
+        int enterpriseTypeValue;
+        int roleTypeValue;
+        switch(enterpriseType){
+            case "Club":
+                enterpriseTypeValue = 1;
+                break;
+            case "League":
+                enterpriseTypeValue = 2;
+                break;
+            default :
+                enterpriseTypeValue = 0;
+        }
+        switch(roleType){
+            case "Doctor":
+                roleTypeValue = 1;
+                break;
+            case "Accountant":
+                roleTypeValue = 2;
+                break;
+            case "Manager":
+                roleTypeValue = 3;
+                break;
+            default :
+                roleTypeValue = 0;
+        }
+        
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://localhost:3306/premierleague";
+            String username = "root";
+            String password = "abcd1234!";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement statement = connection.createStatement();
+            
+            String sql = "SELECT * FROM user_info WHERE "+
+                         "username=\'"+userName+"\' AND "+
+                         "password=\'"+passWord+"\' AND "+
+                         "enterprise_type=\'"+enterpriseTypeValue+"\' AND "+
+                         "role_type=\'"+roleTypeValue+"\'";
+
+            ResultSet resultSet = statement.executeQuery(sql);
+            
+            //作为中间变量，便于将变量导入对象中 需要知道在哪个企业 负责哪个角色 且所属club是哪个
+            //As an intermediate variable, it is easy to import the variables into the object. 
+            //You need to know which company is responsible for which role and which club you belong to.
+            String userNameLink = "";
+            String passWordLink = "";
+            int enterpriseTypeLink = 0;
+            int roleTypeLink = 0;
+            String clubLink = "";
+            int genderLink = 0;
+            int ageLink = 0;
+            String nationLink = "";
+            String addressLink = "";
+            String zipLink = "";
+            
+            //不是一定要加的，用来判断有多少个结果，只是为了错误提示所以加上 
+            //Not necessarily added, to determine how many results, just for the error message so add
+            int number = 0; 
+            
+            while(resultSet.next()){
+                    userNameLink = resultSet.getString("username");
+                    passWordLink = resultSet.getString("password");
+                    enterpriseTypeLink = resultSet.getInt("enterprise_type");
+                    roleTypeLink = resultSet.getInt("role_type");
+                    clubLink = resultSet.getString("club");
+                    genderLink = resultSet.getInt("gender");
+                    ageLink = resultSet.getInt("age");
+                    nationLink = resultSet.getString("nation");
+                    addressLink = resultSet.getString("address");
+                    zipLink = resultSet.getString("zip");
+                    
+                    System.out.println(userNameLink + " "+ addressLink);//数据库测试点 核对数据正确与否 Database test points Verify data is correct or not
+                    number++;
+            }
+            if(number==0){
+                 JOptionPane.showMessageDialog(rootPane, "Invalid username, password or type");
+            }
+            else{
+                
+            }
+        }
+        catch(ClassNotFoundException | SQLException e)
+        {
+            e.printStackTrace();
+        }
+        
+        
+       
+        
     }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
