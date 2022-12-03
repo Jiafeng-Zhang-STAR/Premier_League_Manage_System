@@ -190,22 +190,23 @@ public class TestMainJFrame extends javax.swing.JFrame {
             int number = 0; 
             
             while(resultSet.next()){
-                    userNameLink = resultSet.getString("username");
-                    passWordLink = resultSet.getString("password");
-                    enterpriseTypeLink = resultSet.getInt("enterprise_type");
-                    roleTypeLink = resultSet.getInt("role_type");
-                    clubLink = resultSet.getString("club");
-                    genderLink = resultSet.getInt("gender");
-                    ageLink = resultSet.getInt("age");
-                    nationLink = resultSet.getString("nation");
-                    addressLink = resultSet.getString("address");
-                    zipLink = resultSet.getString("zip");
-                    
-                    System.out.println(userNameLink + " "+ addressLink);//数据库测试点 核对数据正确与否 Database test points Verify data is correct or not
-                    number++;
+                userNameLink = resultSet.getString("username");
+                passWordLink = resultSet.getString("password");
+                enterpriseTypeLink = resultSet.getInt("enterprise_type");
+                roleTypeLink = resultSet.getInt("role_type");
+                clubLink = resultSet.getString("club");
+                genderLink = resultSet.getInt("gender");
+                ageLink = resultSet.getInt("age");
+                nationLink = resultSet.getString("nation");
+                addressLink = resultSet.getString("address");
+                zipLink = resultSet.getString("zip");
+
+                System.out.println(userNameLink + " "+ addressLink);//数据库测试点 核对数据正确与否 Database test points Verify data is correct or not
+                number++;
             }
+            
             if(number==0){
-                 JOptionPane.showMessageDialog(rootPane, "Invalid username, password or type");
+                JOptionPane.showMessageDialog(rootPane, "Invalid username, password or type");
             }
             else{
                 
