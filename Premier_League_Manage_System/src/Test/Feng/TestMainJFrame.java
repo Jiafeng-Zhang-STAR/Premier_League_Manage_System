@@ -190,7 +190,7 @@ public class TestMainJFrame extends javax.swing.JFrame {
             
             //不是一定要加的，用来判断有多少个结果，只是为了错误提示所以加上 
             //Not necessarily added, to determine how many results, just for the error message so add
-            boolean findOrNot = false; 
+            boolean notFound = true; 
             
             while(resultSet.next()){
                 userNameLink = resultSet.getString("username");
@@ -205,10 +205,10 @@ public class TestMainJFrame extends javax.swing.JFrame {
                 zipLink = resultSet.getString("zip");
 
                 System.out.println(userNameLink + " "+ addressLink);//数据库测试点 核对数据正确与否 Database test points Verify data is correct or not
-                findOrNot = true;
+                notFound = false;
             }
             
-            if(findOrNot){
+            if(notFound){
                 JOptionPane.showMessageDialog(rootPane, "Invalid username, password or type");
             }
             else{
