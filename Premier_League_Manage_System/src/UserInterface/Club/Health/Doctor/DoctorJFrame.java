@@ -4,6 +4,8 @@
  */
 package UserInterface.Club.Health.Doctor;
 
+import TheSystem.Common.Person.Person;
+
 /**
  *
  * @author Jiafeng
@@ -13,10 +15,11 @@ public class DoctorJFrame extends javax.swing.JFrame {
     /**
      * Creates new form DoctorJFrame
      */
-    public DoctorJFrame() {
+    
+    public DoctorJFrame(Person doctor) {
         initComponents();
     }
-     //构造器 用于初始化 Constructor Used to initialize
+    //构造器 用于初始化 Constructor Used to initialize
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,17 +29,27 @@ public class DoctorJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Doctor");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(155, 155, 155)
+                .addComponent(jLabel1)
+                .addContainerGap(208, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel1)
+                .addContainerGap(269, Short.MAX_VALUE))
         );
 
         pack();
@@ -78,5 +91,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

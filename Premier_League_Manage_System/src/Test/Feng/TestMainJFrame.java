@@ -65,7 +65,7 @@ public class TestMainJFrame extends javax.swing.JFrame {
             }
         });
 
-        roleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doctor", "Accountant", "Manager" }));
+        roleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Accountant", "Doctor", "Manager" }));
 
         usernameTextField.setText("email");
 
@@ -145,10 +145,10 @@ public class TestMainJFrame extends javax.swing.JFrame {
                 enterpriseTypeValue = 0;
         }
         switch(roleType){
-            case "Doctor":
+            case "Accountant":
                 roleTypeValue = 1;
                 break;
-            case "Accountant":
+            case "Doctor":
                 roleTypeValue = 2;
                 break;
             case "Manager":
@@ -177,34 +177,34 @@ public class TestMainJFrame extends javax.swing.JFrame {
             //作为中间变量，便于将变量导入对象中 需要知道在哪个企业 负责哪个角色 且所属club是哪个
             //As an intermediate variable, it is easy to import the variables into the object. 
             //You need to know which company is responsible for which role and which club you belong to.
-            String userNameLink = "";
-            String passWordLink = "";
-            int enterpriseTypeLink = 0;
-            int roleTypeLink = 0;
-            String clubLink = "";
-            int genderLink = 0;
-            int ageLink = 0;
-            String nationLink = "";
-            String addressLink = "";
-            String zipLink = "";
+            String userNameTemp = "";
+            String passWordTemp = "";
+            int enterpriseTypeTemp = 0;
+            int roleTypeTemp = 0;
+            String clubTemp = "";
+            int genderTemp = 0;
+            int ageTemp = 0;
+            String nationTemp = "";
+            String addressTemp = "";
+            String zipTemp = "";
             
             //不是一定要加的，用来判断有多少个结果，只是为了错误提示所以加上 
             //Not necessarily added, to determine how many results, just for the error message so add
             boolean notFound = true; 
             
             while(resultSet.next()){
-                userNameLink = resultSet.getString("username");
-                passWordLink = resultSet.getString("password");
-                enterpriseTypeLink = resultSet.getInt("enterprise_type");
-                roleTypeLink = resultSet.getInt("role_type");
-                clubLink = resultSet.getString("club");
-                genderLink = resultSet.getInt("gender");
-                ageLink = resultSet.getInt("age");
-                nationLink = resultSet.getString("nation");
-                addressLink = resultSet.getString("address");
-                zipLink = resultSet.getString("zip");
+                userNameTemp = resultSet.getString("username");
+                passWordTemp = resultSet.getString("password");
+                enterpriseTypeTemp = resultSet.getInt("enterprise_type");
+                roleTypeTemp = resultSet.getInt("role_type");
+                clubTemp = resultSet.getString("club");
+                genderTemp = resultSet.getInt("gender");
+                ageTemp = resultSet.getInt("age");
+                nationTemp = resultSet.getString("nation");
+                addressTemp = resultSet.getString("address");
+                zipTemp = resultSet.getString("zip");
 
-                System.out.println(userNameLink + " "+ addressLink);//数据库测试点 核对数据正确与否 Database test points Verify data is correct or not
+                System.out.println(userNameTemp + " "+ addressTemp);//数据库测试点 核对数据正确与否 Database test points Verify data is correct or not
                 notFound = false;
             }
             
@@ -212,17 +212,54 @@ public class TestMainJFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Invalid username, password or type");
             }
             else{
-                
+                if (enterpriseTypeTemp == 1 && roleTypeTemp == 1) {
+                    Person person = new Person();
+                    person.setUsername(userNameTemp);
+                    person.setPassword(passWordTemp);
+                    person.setEnterpriseType(enterpriseTypeTemp);
+                    person.setRoleType(roleTypeTemp);
+                    person.setClub(clubTemp);
+                    person.setGender(genderTemp);
+                    person.setAge(ageTemp);
+                    person.setNation(nationTemp);
+                    person.setZip(zipTemp);
+                    dispose();
+                    new AccountantJFrame(person).setVisible(true);
+                } else if (enterpriseTypeTemp == 1 && roleTypeTemp == 2) {
+                    Person person = new Person();
+                    person.setUsername(userNameTemp);
+                    person.setPassword(passWordTemp);
+                    person.setEnterpriseType(enterpriseTypeTemp);
+                    person.setRoleType(roleTypeTemp);
+                    person.setClub(clubTemp);
+                    person.setGender(genderTemp);
+                    person.setAge(ageTemp);
+                    person.setNation(nationTemp);
+                    person.setZip(zipTemp);
+                    dispose();
+                    new DoctorJFrame(person).setVisible(true);
+                } else if(enterpriseTypeTemp == 2 && roleTypeTemp == 3) {
+                    Person person = new Person();
+                    person.setUsername(userNameTemp);
+                    person.setPassword(passWordTemp);
+                    person.setEnterpriseType(enterpriseTypeTemp);
+                    person.setRoleType(roleTypeTemp);
+                    person.setClub(clubTemp);
+                    person.setGender(genderTemp);
+                    person.setAge(ageTemp);
+                    person.setNation(nationTemp);
+                    person.setZip(zipTemp);
+                    dispose();
+                    new ManagerJFrame(person).setVisible(true);
+                } else{
+                    JOptionPane.showMessageDialog(rootPane, "Invalid type");
+                }
             }
         }
         catch(ClassNotFoundException | SQLException e)
         {
             e.printStackTrace();
-        }
-        
-        
-       
-        
+        } 
     }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
