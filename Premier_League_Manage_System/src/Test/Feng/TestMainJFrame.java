@@ -11,6 +11,7 @@ import UserInterface.League.Match.Manager.ManagerJFrame;
 //导入Manager的UI界面类 Import the Manager UI class
 
 import TheSystem.Common.Person.Person;
+//导入Common的个人原始信息类 Import Common's personal original information class
 
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -44,8 +45,12 @@ public class TestMainJFrame extends javax.swing.JFrame {
         usernameTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(600, 600));
+        setMinimumSize(new java.awt.Dimension(600, 600));
         setResizable(false);
 
+        jPanel1.setMaximumSize(new java.awt.Dimension(600, 600));
+        jPanel1.setMinimumSize(new java.awt.Dimension(600, 600));
         jPanel1.setPreferredSize(new java.awt.Dimension(600, 600));
 
         loginButton.setText("Login");
@@ -108,13 +113,17 @@ public class TestMainJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -222,6 +231,7 @@ public class TestMainJFrame extends javax.swing.JFrame {
                     person.setGender(genderTemp);
                     person.setAge(ageTemp);
                     person.setNation(nationTemp);
+                    person.setAddress(addressTemp);
                     person.setZip(zipTemp);
                     dispose();
                     new AccountantJFrame(person).setVisible(true);
@@ -235,6 +245,7 @@ public class TestMainJFrame extends javax.swing.JFrame {
                     person.setGender(genderTemp);
                     person.setAge(ageTemp);
                     person.setNation(nationTemp);
+                    person.setAddress(addressTemp);
                     person.setZip(zipTemp);
                     dispose();
                     new DoctorJFrame(person).setVisible(true);
@@ -248,6 +259,7 @@ public class TestMainJFrame extends javax.swing.JFrame {
                     person.setGender(genderTemp);
                     person.setAge(ageTemp);
                     person.setNation(nationTemp);
+                    person.setAddress(addressTemp);
                     person.setZip(zipTemp);
                     dispose();
                     new ManagerJFrame(person).setVisible(true);

@@ -4,10 +4,12 @@
  */
 package TheClub.Finance.Accountant;
 
+import TheClub.Team.Team;
+
 /**
  *
  * @author Jiafeng
  */
 public class Accountant {
-    
+    Team team;
 }
