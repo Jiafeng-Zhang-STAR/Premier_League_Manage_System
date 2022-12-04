@@ -175,7 +175,7 @@ public class TestMainJFrame extends javax.swing.JFrame {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
             
-            String sql = "SELECT * FROM user_info WHERE "+
+            String sql = "SELECT * FROM system_user_info WHERE "+
                          "username=\'"+userName+"\' AND "+
                          "password=\'"+passWord+"\' AND "+
                          "enterprise_type=\'"+enterpriseTypeValue+"\' AND "+

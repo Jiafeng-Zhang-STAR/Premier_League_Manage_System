@@ -16,7 +16,7 @@ public class AccountantJFrame extends javax.swing.JFrame {
      * Creates new form AccountantJFrame
      */
     
-    public AccountantJFrame(Person Accountant) {
+    public AccountantJFrame(Person personTemp) {
         initComponents();
     }
     //构造器 用于初始化 Constructor Used to initialize

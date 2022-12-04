@@ -6,6 +6,8 @@ package UserInterface.Club.Health.Doctor;
 
 import UserInterface.Club.Finance.Accountant.*;
 import TheSystem.Common.Person.Person;
+import TheClub.Health.Doctor.Doctor;
+import TheClub.Team.Team;
 
 /**
  *
@@ -17,8 +19,14 @@ public class DoctorJFrame extends javax.swing.JFrame {
      * Creates new form AccountantJFrame
      */
     
-    public DoctorJFrame(Person Accountant) {
+    public DoctorJFrame(Person personTemp) {
         initComponents();
+        Team team = new Team(personTemp);
+        Doctor doctor = team.getDoctor();
+        int length = doctor.getTeam().getPlayerCata().size();
+        for(int i=0;i<length;i++){
+        System.out.println(doctor.getTeam().getPlayerCata().get(i).getUsername());
+        }
     }
     //构造器 用于初始化 Constructor Used to initialize
     /**

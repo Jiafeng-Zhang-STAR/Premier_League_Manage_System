@@ -17,7 +17,7 @@ public class ManagerJFrame extends javax.swing.JFrame {
      * Creates new form AccountantJFrame
      */
     
-    public ManagerJFrame(Person Accountant) {
+    public ManagerJFrame(Person personTemp) {
         initComponents();
     }
     //构造器 用于初始化 Constructor Used to initialize
