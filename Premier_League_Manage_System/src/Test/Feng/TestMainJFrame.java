@@ -9,6 +9,9 @@ import UserInterface.Club.Health.Doctor.DoctorJFrame;
 //导入Doctor的UI界面类 Import the Doctor UI class
 import UserInterface.League.Match.Manager.ManagerJFrame;
 //导入Manager的UI界面类 Import the Manager UI class
+
+import TheSystem.Common.Person.Person;
+
 import java.sql.*;
 import javax.swing.JOptionPane;
 /**
@@ -187,7 +190,7 @@ public class TestMainJFrame extends javax.swing.JFrame {
             
             //不是一定要加的，用来判断有多少个结果，只是为了错误提示所以加上 
             //Not necessarily added, to determine how many results, just for the error message so add
-            int number = 0; 
+            boolean findOrNot = false; 
             
             while(resultSet.next()){
                 userNameLink = resultSet.getString("username");
@@ -202,10 +205,10 @@ public class TestMainJFrame extends javax.swing.JFrame {
                 zipLink = resultSet.getString("zip");
 
                 System.out.println(userNameLink + " "+ addressLink);//数据库测试点 核对数据正确与否 Database test points Verify data is correct or not
-                number++;
+                findOrNot = true;
             }
             
-            if(number==0){
+            if(findOrNot){
                 JOptionPane.showMessageDialog(rootPane, "Invalid username, password or type");
             }
             else{
