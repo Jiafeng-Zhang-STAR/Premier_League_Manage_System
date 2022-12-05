@@ -2,22 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package TheClub.Health.Doctor;
+package TheClub.Team;
 
+import TheClub.Team.Player.Player;
 import TheSystem.Common.Person.Person;
-//导入Common的个人原始信息类 Import Common's personal original information class
-import TheClub.Team.Team;
-//
+import java.util.ArrayList;
 import java.sql.*; 
 /**
  *
  * @author Jiafeng
  */
-public class Doctor extends Person{
-    Team team;
+public class PlayerCatalog {
     
-    public Doctor(Team teamTemp, String doctorClubTemp) {
-        
+    ArrayList<Player> PlayerCata;
+    
+    public PlayerCatalog(Person personTemp) {
+        this.PlayerCata = new ArrayList<Player>();
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/premierleague";
@@ -27,8 +27,8 @@ public class Doctor extends Person{
             Statement statement = connection.createStatement();
             
             String sql = "SELECT * FROM system_user_info WHERE "+
-                         "club=\'"+doctorClubTemp+"\' AND "+
-                         "role_type=\'"+2+"\'"; //4 represent doctor
+                         "club=\'"+personTemp.getClub()+"\' AND "+
+                         "role_type=\'"+4+"\'"; //4 represent player
 
             ResultSet resultSet = statement.executeQuery(sql);
             
@@ -59,33 +59,36 @@ public class Doctor extends Person{
                 addressTemp = resultSet.getString("address");
                 zipTemp = resultSet.getString("zip");
                 
-                this.setUsername(userNameTemp);
-                this.setPassword(passWordTemp);
-                this.setEnterpriseType(enterpriseTypeTemp);
-                this.setRoleType(roleTypeTemp);
-                this.setClub(clubTemp);
-                this.setGender(genderTemp);
-                this.setAge(ageTemp);
-                this.setNation(nationTemp);
-                this.setAddress(addressTemp);
-                this.setZip(zipTemp);
+                Player playerTemp = new Player();
+                playerTemp.setUsername(userNameTemp);
+                playerTemp.setPassword(passWordTemp);
+                playerTemp.setEnterpriseType(enterpriseTypeTemp);
+                playerTemp.setRoleType(roleTypeTemp);
+                playerTemp.setClub(clubTemp);
+                playerTemp.setGender(genderTemp);
+                playerTemp.setAge(ageTemp);
+                playerTemp.setNation(nationTemp);
+                playerTemp.setAddress(addressTemp);
+                playerTemp.setZip(zipTemp);
                 
+                this.PlayerCata.add(playerTemp);
+                
+//                System.out.println(playerTemp.getUsername() + " "+ playerTemp.getClub());//数据库测试点 核对数据正确与否 Database test points Verify data is correct or not
             }
         }
         catch(ClassNotFoundException | SQLException e)
         {
             e.printStackTrace();
         } 
-        
-        this.team = teamTemp;
     }
 
-    public Team getTeam() {
-        return team;
+    public ArrayList<Player> getPlayerCata() {
+        return PlayerCata;
     }
 
-    public void setTeam(Team team) {
-        this.team = team;
+    public void setPlayerCata(ArrayList<Player> PlayerCata) {
+        this.PlayerCata = PlayerCata;
     }
+    
     
 }
