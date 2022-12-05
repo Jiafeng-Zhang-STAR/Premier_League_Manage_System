@@ -19,9 +19,11 @@ import TheClub.Health.Doctor.Doctor;
 public class Team {
     Doctor doctor;
     PlayerCatalog playerCatalog;
+    DoctorCatalog doctorCatalog;
     
     public Team(Person personTemp) {
-        this.doctor =new Doctor(this,personTemp.getClub());
+        this.doctorCatalog = new DoctorCatalog(this,personTemp);
+//        this.doctor =new Doctor(this,personTemp.getClub());
         this.playerCatalog=new PlayerCatalog(personTemp); 
     }
 
@@ -40,6 +42,16 @@ public class Team {
     public void setPlayerCatalog(PlayerCatalog playerCatalog) {
         this.playerCatalog = playerCatalog;
     }
+
+    public DoctorCatalog getDoctorCatalog() {
+        return doctorCatalog;
+    }
+
+    public void setDoctorCatalog(DoctorCatalog doctorCatalog) {
+        this.doctorCatalog = doctorCatalog;
+    }
+    
+    
 
 }
 

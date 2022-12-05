@@ -4,21 +4,20 @@
  */
 package TheClub.Team;
 
-import TheClub.Team.Player.Player;
+import TheClub.Health.Doctor.Doctor;
 import TheSystem.Common.Person.Person;
 import java.util.ArrayList;
 import java.sql.*; 
+
 /**
  *
  * @author Jiafeng
  */
-public class PlayerCatalog {
+public class DoctorCatalog {
+    ArrayList<Doctor> DoctorCata;
     
-    ArrayList<Player> PlayerCata;
-    
-    
-    public PlayerCatalog(Person personTemp) {
-        this.PlayerCata = new ArrayList<Player>();
+    public DoctorCatalog(Team teamTemp, Person personTemp) {
+        this.DoctorCata = new ArrayList<Doctor>();
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/premierleague";
@@ -29,7 +28,7 @@ public class PlayerCatalog {
             
             String sql = "SELECT * FROM system_user_info WHERE "+
                          "club=\'"+personTemp.getClub()+"\' AND "+
-                         "role_type=\'"+4+"\'"; //4 represent player
+                         "role_type=\'"+2+"\'"; //2 represent doctor
 
             ResultSet resultSet = statement.executeQuery(sql);
             
@@ -60,19 +59,19 @@ public class PlayerCatalog {
                 addressTemp = resultSet.getString("address");
                 zipTemp = resultSet.getString("zip");
                 
-                Player playerTemp = new Player();
-                playerTemp.setUsername(userNameTemp);
-                playerTemp.setPassword(passWordTemp);
-                playerTemp.setEnterpriseType(enterpriseTypeTemp);
-                playerTemp.setRoleType(roleTypeTemp);
-                playerTemp.setClub(clubTemp);
-                playerTemp.setGender(genderTemp);
-                playerTemp.setAge(ageTemp);
-                playerTemp.setNation(nationTemp);
-                playerTemp.setAddress(addressTemp);
-                playerTemp.setZip(zipTemp);
+                Doctor doctorTemp = new Doctor(teamTemp);
+                doctorTemp.setUsername(userNameTemp);
+                doctorTemp.setPassword(passWordTemp);
+                doctorTemp.setEnterpriseType(enterpriseTypeTemp);
+                doctorTemp.setRoleType(roleTypeTemp);
+                doctorTemp.setClub(clubTemp);
+                doctorTemp.setGender(genderTemp);
+                doctorTemp.setAge(ageTemp);
+                doctorTemp.setNation(nationTemp);
+                doctorTemp.setAddress(addressTemp);
+                doctorTemp.setZip(zipTemp);
                 
-                this.PlayerCata.add(playerTemp);
+                this.DoctorCata.add(doctorTemp);
                 
 //                System.out.println(playerTemp.getUsername() + " "+ playerTemp.getClub());//数据库测试点 核对数据正确与否 Database test points Verify data is correct or not
             }
@@ -83,12 +82,12 @@ public class PlayerCatalog {
         } 
     }
 
-    public ArrayList<Player> getPlayerCata() {
-        return PlayerCata;
+    public ArrayList<Doctor> getDoctorCata() {
+        return DoctorCata;
     }
 
-    public void setPlayerCata(ArrayList<Player> PlayerCata) {
-        this.PlayerCata = PlayerCata;
+    public void setDoctorCata(ArrayList<Doctor> DoctorCata) {
+        this.DoctorCata = DoctorCata;
     }
     
     

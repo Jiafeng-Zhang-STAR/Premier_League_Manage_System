@@ -21,14 +21,23 @@ public class DoctorJFrame extends javax.swing.JFrame {
     
     public DoctorJFrame(Person personTemp) {
         initComponents();
-        Team team = new Team(personTemp);
-        Doctor doctor = team.getDoctor();
+        Team team = new Team(personTemp); //初始化Team对象 里面含有全部的Doctor
         
-        int length = doctor.getTeam().getPlayerCatalog().getPlayerCata().size();
-        for(int i=0;i<length;i++){
+        Doctor doctor = null;
+        int length = team.getDoctorCatalog().getDoctorCata().size();
+        System.out.println(length);
+        for(int i =0; i<length ; i++){
+            Doctor doctorTemp = team.getDoctorCatalog().getDoctorCata().get(i);
+            if(doctorTemp.getUsername().equals(personTemp.getUsername())){
+                doctor=doctorTemp;
+            }
+        }
+        
+        
+        int length2 = doctor.getTeam().getPlayerCatalog().getPlayerCata().size();
+        for(int i=0;i<length2;i++){
         System.out.println(doctor.getTeam().getPlayerCatalog().getPlayerCata().get(i).getUsername());  
         }
-        System.out.println(doctor.getUsername());
     }
     //构造器 用于初始化 Constructor Used to initialize
     /**
