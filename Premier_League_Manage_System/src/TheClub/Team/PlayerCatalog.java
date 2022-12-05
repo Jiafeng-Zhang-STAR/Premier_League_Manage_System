@@ -13,11 +13,10 @@ import java.sql.*;
  * @author Jiafeng
  */
 public class PlayerCatalog {
-    
     ArrayList<Player> PlayerCata;
     
     
-    public PlayerCatalog(Person personTemp) {
+    public PlayerCatalog(Team teamTemp, Person personTemp) {
         this.PlayerCata = new ArrayList<Player>();
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -41,6 +40,7 @@ public class PlayerCatalog {
             int enterpriseTypeTemp = 0;
             int roleTypeTemp = 0;
             String clubTemp = "";
+            String nameTemp = "";
             int genderTemp = 0;
             int ageTemp = 0;
             String nationTemp = "";
@@ -54,18 +54,21 @@ public class PlayerCatalog {
                 enterpriseTypeTemp = resultSet.getInt("enterprise_type");
                 roleTypeTemp = resultSet.getInt("role_type");
                 clubTemp = resultSet.getString("club");
+                nameTemp = resultSet.getString("name");
                 genderTemp = resultSet.getInt("gender");
                 ageTemp = resultSet.getInt("age");
                 nationTemp = resultSet.getString("nation");
                 addressTemp = resultSet.getString("address");
                 zipTemp = resultSet.getString("zip");
                 
-                Player playerTemp = new Player();
+                Player playerTemp = new Player(teamTemp);
+                
                 playerTemp.setUsername(userNameTemp);
                 playerTemp.setPassword(passWordTemp);
                 playerTemp.setEnterpriseType(enterpriseTypeTemp);
                 playerTemp.setRoleType(roleTypeTemp);
                 playerTemp.setClub(clubTemp);
+                playerTemp.setName(nameTemp);
                 playerTemp.setGender(genderTemp);
                 playerTemp.setAge(ageTemp);
                 playerTemp.setNation(nationTemp);

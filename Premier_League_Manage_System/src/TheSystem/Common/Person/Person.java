@@ -14,6 +14,7 @@ public class Person {
     private int enterpriseType;
     private int roleType;
     private String club;
+    private String name;
     private int gender;
     private int age;
     private String nation;
@@ -60,6 +61,14 @@ public class Person {
         this.club = club;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getGender() {
         return gender;
     }
@@ -99,4 +108,5 @@ public class Person {
     public void setZip(String zip) {
         this.zip = zip;
     }
+ 
 }

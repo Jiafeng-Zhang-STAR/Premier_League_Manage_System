@@ -24,7 +24,7 @@ public class Team {
     public Team(Person personTemp) {
         this.doctorCatalog = new DoctorCatalog(this,personTemp);
 //        this.doctor =new Doctor(this,personTemp.getClub());
-        this.playerCatalog=new PlayerCatalog(personTemp); 
+        this.playerCatalog=new PlayerCatalog(this,personTemp);
     }
 
     public Doctor getDoctor() {

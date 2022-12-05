@@ -39,13 +39,10 @@ public class TestMainJFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         loginButton = new javax.swing.JButton();
-        enterpriseComboBox = new javax.swing.JComboBox<>();
         passwordTextField = new javax.swing.JTextField();
-        roleComboBox = new javax.swing.JComboBox<>();
         usernameTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(600, 600));
         setMinimumSize(new java.awt.Dimension(600, 600));
         setResizable(false);
 
@@ -61,16 +58,12 @@ public class TestMainJFrame extends javax.swing.JFrame {
             }
         });
 
-        enterpriseComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Club", "League" }));
-
         passwordTextField.setText("123");
         passwordTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordTextFieldActionPerformed(evt);
             }
         });
-
-        roleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Accountant", "Doctor", "Manager" }));
 
         usernameTextField.setText("email");
 
@@ -82,12 +75,8 @@ public class TestMainJFrame extends javax.swing.JFrame {
                 .addGap(214, 214, 214)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(enterpriseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(roleComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(116, Short.MAX_VALUE))
+                    .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(249, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -98,13 +87,9 @@ public class TestMainJFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(207, 207, 207)
                 .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(enterpriseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(roleComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
                 .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(268, Short.MAX_VALUE))
         );
@@ -137,35 +122,8 @@ public class TestMainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         String userName = usernameTextField.getText();
         String passWord = passwordTextField.getText();
-        String enterpriseType = String.valueOf(enterpriseComboBox.getSelectedItem());
-        String roleType = String.valueOf(roleComboBox.getSelectedItem());
         
-        //获取登录界面输入的值 Get the value entered in the login screen
-        int enterpriseTypeValue;
-        int roleTypeValue;
-        switch(enterpriseType){
-            case "Club":
-                enterpriseTypeValue = 1;
-                break;
-            case "League":
-                enterpriseTypeValue = 2;
-                break;
-            default :
-                enterpriseTypeValue = 0;
-        }
-        switch(roleType){
-            case "Accountant":
-                roleTypeValue = 1;
-                break;
-            case "Doctor":
-                roleTypeValue = 2;
-                break;
-            case "Manager":
-                roleTypeValue = 3;
-                break;
-            default :
-                roleTypeValue = 0;
-        }
+
         
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -177,9 +135,7 @@ public class TestMainJFrame extends javax.swing.JFrame {
             
             String sql = "SELECT * FROM system_user_info WHERE "+
                          "username=\'"+userName+"\' AND "+
-                         "password=\'"+passWord+"\' AND "+
-                         "enterprise_type=\'"+enterpriseTypeValue+"\' AND "+
-                         "role_type=\'"+roleTypeValue+"\'";
+                         "password=\'"+passWord+"\'";
 
             ResultSet resultSet = statement.executeQuery(sql);
             
@@ -191,6 +147,7 @@ public class TestMainJFrame extends javax.swing.JFrame {
             int enterpriseTypeTemp = 0;
             int roleTypeTemp = 0;
             String clubTemp = "";
+            String nameTemp = "";
             int genderTemp = 0;
             int ageTemp = 0;
             String nationTemp = "";
@@ -207,6 +164,7 @@ public class TestMainJFrame extends javax.swing.JFrame {
                 enterpriseTypeTemp = resultSet.getInt("enterprise_type");
                 roleTypeTemp = resultSet.getInt("role_type");
                 clubTemp = resultSet.getString("club");
+                nameTemp = resultSet.getString("name");
                 genderTemp = resultSet.getInt("gender");
                 ageTemp = resultSet.getInt("age");
                 nationTemp = resultSet.getString("nation");
@@ -228,6 +186,7 @@ public class TestMainJFrame extends javax.swing.JFrame {
                     person.setEnterpriseType(enterpriseTypeTemp);
                     person.setRoleType(roleTypeTemp);
                     person.setClub(clubTemp);
+                    person.setName(nameTemp);
                     person.setGender(genderTemp);
                     person.setAge(ageTemp);
                     person.setNation(nationTemp);
@@ -242,6 +201,7 @@ public class TestMainJFrame extends javax.swing.JFrame {
                     person.setEnterpriseType(enterpriseTypeTemp);
                     person.setRoleType(roleTypeTemp);
                     person.setClub(clubTemp);
+                    person.setName(nameTemp);
                     person.setGender(genderTemp);
                     person.setAge(ageTemp);
                     person.setNation(nationTemp);
@@ -256,6 +216,7 @@ public class TestMainJFrame extends javax.swing.JFrame {
                     person.setEnterpriseType(enterpriseTypeTemp);
                     person.setRoleType(roleTypeTemp);
                     person.setClub(clubTemp);
+                    person.setName(nameTemp);
                     person.setGender(genderTemp);
                     person.setAge(ageTemp);
                     person.setNation(nationTemp);
@@ -310,11 +271,9 @@ public class TestMainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> enterpriseComboBox;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginButton;
     private javax.swing.JTextField passwordTextField;
-    private javax.swing.JComboBox<String> roleComboBox;
     private javax.swing.JTextField usernameTextField;
     // End of variables declaration//GEN-END:variables
 }

@@ -40,6 +40,7 @@ public class DoctorCatalog {
             int enterpriseTypeTemp = 0;
             int roleTypeTemp = 0;
             String clubTemp = "";
+            String nameTemp = "";
             int genderTemp = 0;
             int ageTemp = 0;
             String nationTemp = "";
@@ -53,6 +54,7 @@ public class DoctorCatalog {
                 enterpriseTypeTemp = resultSet.getInt("enterprise_type");
                 roleTypeTemp = resultSet.getInt("role_type");
                 clubTemp = resultSet.getString("club");
+                nameTemp = resultSet.getString("name");
                 genderTemp = resultSet.getInt("gender");
                 ageTemp = resultSet.getInt("age");
                 nationTemp = resultSet.getString("nation");
@@ -60,11 +62,13 @@ public class DoctorCatalog {
                 zipTemp = resultSet.getString("zip");
                 
                 Doctor doctorTemp = new Doctor(teamTemp);
+                
                 doctorTemp.setUsername(userNameTemp);
                 doctorTemp.setPassword(passWordTemp);
                 doctorTemp.setEnterpriseType(enterpriseTypeTemp);
                 doctorTemp.setRoleType(roleTypeTemp);
                 doctorTemp.setClub(clubTemp);
+                doctorTemp.setName(nameTemp);
                 doctorTemp.setGender(genderTemp);
                 doctorTemp.setAge(ageTemp);
                 doctorTemp.setNation(nationTemp);

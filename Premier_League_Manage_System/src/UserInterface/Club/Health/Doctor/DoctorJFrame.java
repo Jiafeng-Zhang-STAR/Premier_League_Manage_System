@@ -21,20 +21,22 @@ public class DoctorJFrame extends javax.swing.JFrame {
     
     public DoctorJFrame(Person personTemp) {
         initComponents();
-        Team team = new Team(personTemp); //初始化Team对象 里面含有全部的Doctor
+        Team team = new Team(personTemp); //初始化Team对象 里面含有全部的医生 Initialize the Team object containing all the Doctors
         
         Doctor doctor = null;
-        int length = team.getDoctorCatalog().getDoctorCata().size();
-        System.out.println(length);
+        int length = team.getDoctorCatalog().getDoctorCata().size();//计算catalog中有多少个医生 Calculate how many Doctors are in the catalog
         for(int i =0; i<length ; i++){
             Doctor doctorTemp = team.getDoctorCatalog().getDoctorCata().get(i);
             if(doctorTemp.getUsername().equals(personTemp.getUsername())){
-                doctor=doctorTemp;
+                doctor=doctorTemp; 
+                //找到在catalog中被初始化的那个doctor 和自己用户名一致的，将其对象指针传递过来
+                //Find the doctor that was initialized in catalog that matches your username and pass it the object pointer
             }
         }
         
-        
-        int length2 = doctor.getTeam().getPlayerCatalog().getPlayerCata().size();
+        int length2 = doctor.getTeam().getPlayerCatalog().getPlayerCata().size(); 
+        //医生对象中的Team对象，找到队员总数 
+        //Find the total number of team members in the Team object of the Doctor object
         for(int i=0;i<length2;i++){
         System.out.println(doctor.getTeam().getPlayerCatalog().getPlayerCata().get(i).getUsername());  
         }
