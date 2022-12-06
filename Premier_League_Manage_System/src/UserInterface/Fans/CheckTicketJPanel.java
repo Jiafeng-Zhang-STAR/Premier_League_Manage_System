@@ -66,6 +66,7 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
         tbMySession = new javax.swing.JTable();
         btnPay = new javax.swing.JButton();
         btnRefund = new javax.swing.JButton();
+        btnCancelBook = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(500, 600));
         setMinimumSize(new java.awt.Dimension(500, 600));
@@ -108,6 +109,13 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnCancelBook.setText("CancelBook");
+        btnCancelBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelBookActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,7 +127,9 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
                         .addGap(6, 6, 6)
                         .addComponent(btnPay, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
-                        .addComponent(btnRefund, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnRefund, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(btnCancelBook))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
@@ -130,7 +140,8 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPay)
-                    .addComponent(btnRefund))
+                    .addComponent(btnRefund)
+                    .addComponent(btnCancelBook))
                 .addContainerGap(406, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -178,33 +189,37 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
             String sql = "UPDATE fan_match SET status = \'Complete\' WHERE email =\'"+email +"\'and hometeam =\'"+homeTeam +"\'and awayteam =\'"+awayTeam +"\'and date =\'"+date +"\'and price ="+price;
             
             int isBooked = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
-
             if (isBooked ==1){
-                //populateTable(); //Refresh table
-                JOptionPane.showMessageDialog(this, "Booked successfully.");
+                populateTable(); //Refresh table
+                JOptionPane.showMessageDialog(this, "Paid successfully.");
             }
-            /*4.`match_info`中left_amount会-1 */
-            /*4.1 找出之前剩余票数 */
-            String sqlLeftAmount = "SELECT left_amount FROM match_info WHERE date = \'"+ date +"\' and hometeam =\'"+homeTeam +"\'and awayteam =\'"+awayTeam +"\'"; 
-                
-            ResultSet resultSet = statement.executeQuery(sqlLeftAmount);   //搭配select使用，其他update什么的都不用
-            int leftAmount;
-            while(resultSet.next()){
-            leftAmount = Integer.parseInt(String.valueOf(resultSet.getObject("left_amount")));
-            }
-            /*4.2 left_amount会-1 再插进去*/
-            String sqlInsertLeftAmount = "UPDATE fan_match SET status = \'Complete\' WHERE email =\'"+email +"\'and hometeam =\'"+homeTeam +"\'and awayteam =\'"+awayTeam +"\'and date =\'"+date +"\'and price ="+price;
             
-            int isInsertLeftAmount = statement.executeUpdate(sqlInsertLeftAmount);//executeQuery(sql)是查询  executeUpdate是删改
-            resultSet.close();//close  搭配select使用，其他update什么的都不用
+//            /*4.`match_info`中left_amount会-1 */
+//            /*4.1 找出之前剩余票数 */
+//            String sqlLeftAmount = "SELECT left_amount FROM match_info WHERE date = \'"+ date +"\' and home =\'"+homeTeam +"\'and away =\'"+awayTeam +"\'"; 
+//                
+//            ResultSet resultSet = statement.executeQuery(sqlLeftAmount);   //搭配select使用，其他update什么的都不用
+//            int leftAmount = 0;
+//            while(resultSet.next()){
+//            leftAmount = Integer.parseInt(String.valueOf(resultSet.getObject("left_amount")));
+//            }
+//            /*4.2 left_amount会-1 再插进去*/
+//            String sqlInsertLeftAmount = "UPDATE match_info SET left_amount = "+ (leftAmount-1) +" WHERE home =\'"+homeTeam +"\'and away =\'"+awayTeam +"\'and date =\'"+date +"\'and price ="+price;
+//            
+//            int isInsertLeftAmount = statement.executeUpdate(sqlInsertLeftAmount);//executeQuery(sql)是查询  executeUpdate是删改
+//            if (isBooked ==1&&isInsertLeftAmount==1){
+//                //populateTable(); //Refresh table
+//                JOptionPane.showMessageDialog(this, "Paid successfully.");
+//            }
+//            
+//            resultSet.close();//close  搭配select使用，其他update什么的都不用
             statement.close();
             connection.close();
             
         
         } catch (ClassNotFoundException | SQLException e) {
         }
-        /*5.刷新表格 */
-        populateTable();
+        
         
         
         
@@ -256,10 +271,25 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
             
             int isBooked = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
 
-            if (isBooked ==1){
+            /*4.`match_info`中left_amount会+1 */
+            /*4.1 找出之前剩余票数 */
+            String sqlLeftAmount = "SELECT left_amount FROM match_info WHERE date = \'"+ date +"\' and home =\'"+homeTeam +"\'and away =\'"+awayTeam +"\'"; 
+                
+            ResultSet resultSet = statement.executeQuery(sqlLeftAmount);   //搭配select使用，其他update什么的都不用
+            int leftAmount = 0;
+            while(resultSet.next()){
+            leftAmount = Integer.parseInt(String.valueOf(resultSet.getObject("left_amount")));
+            }
+            /*4.2 left_amount会+1 再插进去*/
+            String sqlInsertLeftAmount = "UPDATE match_info SET left_amount = "+ (leftAmount+1) +" WHERE home =\'"+homeTeam +"\'and away =\'"+awayTeam +"\'and date =\'"+date +"\'and price ="+price;
+            
+            int isInsertLeftAmount = statement.executeUpdate(sqlInsertLeftAmount);//executeQuery(sql)是查询  executeUpdate是删改
+            if (isBooked ==1&&isInsertLeftAmount==1){
                 //populateTable(); //Refresh table
                 JOptionPane.showMessageDialog(this, "Refund successfully.");
             }
+            
+            resultSet.close();//close  搭配select使用，其他update什么的都不用
            
             statement.close();
             connection.close();
@@ -269,6 +299,68 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
         /*4.刷新表格 */
         populateTable();
     }//GEN-LAST:event_btnRefundActionPerformed
+
+    private void btnCancelBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelBookActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = tbMySession.getSelectedRow();
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a row.");
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) tbMySession.getModel();
+
+        String date = model.getValueAt(selectedRowIndex , 0).toString();//获得选中的行的第2列的内容
+        String homeTeam = model.getValueAt(selectedRowIndex , 1).toString();//获得选中的行的第2列的内容
+        String awayTeam = model.getValueAt(selectedRowIndex , 2).toString();//获得选中的行的第2列的内容
+        int price = Integer.parseInt(model.getValueAt(selectedRowIndex , 3).toString());//获得选中的行的第2列的内容
+        
+        
+        
+        /*改状态到cancel */
+        try {
+            /* create jdbc connection */
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
+            String username = "root";
+
+            String password = "abcd1234!";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement statement = connection.createStatement();
+
+            String sql = "UPDATE fan_match SET status = \'Canceled\' WHERE email =\'"+email +"\'and hometeam =\'"+homeTeam +"\'and awayteam =\'"+awayTeam +"\'and date =\'"+date +"\'and price ="+price;
+            
+            int isBooked = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
+
+            /*4.`match_info`中left_amount会+1 */
+            /*4.1 找出之前剩余票数 */
+            String sqlLeftAmount = "SELECT left_amount FROM match_info WHERE date = \'"+ date +"\' and home =\'"+homeTeam +"\'and away =\'"+awayTeam +"\'"; 
+                
+            ResultSet resultSet = statement.executeQuery(sqlLeftAmount);   //搭配select使用，其他update什么的都不用
+            int leftAmount = 0;
+            while(resultSet.next()){
+            leftAmount = Integer.parseInt(String.valueOf(resultSet.getObject("left_amount")));
+            }
+            /*4.2 left_amount会+1 再插进去*/
+            String sqlInsertLeftAmount = "UPDATE match_info SET left_amount = "+ (leftAmount+1) +" WHERE home =\'"+homeTeam +"\'and away =\'"+awayTeam +"\'and date =\'"+date +"\'and price ="+price;
+            
+            int isInsertLeftAmount = statement.executeUpdate(sqlInsertLeftAmount);//executeQuery(sql)是查询  executeUpdate是删改
+            if (isBooked ==1&&isInsertLeftAmount==1){
+                //populateTable(); //Refresh table
+                JOptionPane.showMessageDialog(this, "Cancel successfully.");
+            }
+            
+            resultSet.close();//close  搭配select使用，其他update什么的都不用
+           
+            statement.close();
+            connection.close();
+        } catch (ClassNotFoundException | SQLException e) {
+        }
+        
+        /*4.刷新表格 */
+        populateTable();
+    }//GEN-LAST:event_btnCancelBookActionPerformed
 
 private void populateTable() {
                // TODO add your handling code here:
@@ -381,6 +473,7 @@ private void populateTable() {
             }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelBook;
     private javax.swing.JButton btnPay;
     private javax.swing.JButton btnRefund;
     private javax.swing.JScrollPane jScrollPane1;
@@ -388,7 +481,5 @@ private void populateTable() {
     // End of variables declaration//GEN-END:variables
 
     
-    private void If(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 }

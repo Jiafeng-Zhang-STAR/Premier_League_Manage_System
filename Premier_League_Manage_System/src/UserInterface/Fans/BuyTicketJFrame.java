@@ -14,6 +14,10 @@ import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+/*获取当前时间*/
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author yidia
@@ -22,9 +26,10 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
     
     String fromDate;
     String toDate;
+    String balance;
     /*Lu email在登录后打开这个界面时传入，*/
     String email = "haoranlv@qq.com"; 
-    String balance;
+    
     
     /**
      * Creates new form BuyTicket
@@ -47,7 +52,7 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         SplitPane = new javax.swing.JSplitPane();
-        jPanel1 = new javax.swing.JPanel();
+        ControlPanel = new javax.swing.JPanel();
         btnBookTicket = new javax.swing.JButton();
         btnCheckTicket = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -96,24 +101,24 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
 
         lb_Balance.setText(" ");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout ControlPanelLayout = new javax.swing.GroupLayout(ControlPanel);
+        ControlPanel.setLayout(ControlPanelLayout);
+        ControlPanelLayout.setHorizontalGroup(
+            ControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ControlPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(btnBookTicket, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnCheckTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lb_Account, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lb_Balance, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        ControlPanelLayout.setVerticalGroup(
+            ControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ControlPanelLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -129,7 +134,7 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
                 .addContainerGap(400, Short.MAX_VALUE))
         );
 
-        SplitPane.setLeftComponent(jPanel1);
+        SplitPane.setLeftComponent(ControlPanel);
 
         BookTicketJPanel.setPreferredSize(new java.awt.Dimension(423, 600));
 
@@ -217,7 +222,7 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
                             .addComponent(btnWait, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         BookTicketJPanelLayout.setVerticalGroup(
             BookTicketJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -338,7 +343,7 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
                 statement.close();
                 connection.close();
             } catch (ClassNotFoundException | SQLException e) {
-                JOptionPane.showMessageDialog(this, "No doctor available");
+                JOptionPane.showMessageDialog(this, "You need to check before search");
                 return;
             }
     
@@ -360,7 +365,7 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
         String price = model.getValueAt(selectedRowIndex , 3).toString();//获得选中的行的第2列的内容
         int leftAmount = Integer.parseInt(model.getValueAt(selectedRowIndex , 4).toString());//获得选中的行的第2列的内容
         if(leftAmount==0){
-            JOptionPane.showMessageDialog(this, "There is no ticket, you can choose to wait.");
+            JOptionPane.showMessageDialog(this, "There is no ticket, you can choose to join the waitlist.");
             return;
         }
         
@@ -386,11 +391,32 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
                     //populateTable(); //Refresh table
                     JOptionPane.showMessageDialog(this, "Booked successfully.");
                 }
-                
+                /*4.`match_info`中left_amount会-1 */
+                /*4.1 找出之前剩余票数 */
+                String sqlLeftAmount = "SELECT left_amount FROM match_info WHERE date = \'"+ date +"\' and home =\'"+homeTeam +"\'and away =\'"+awayTeam +"\'"; 
+
+                ResultSet resultSet = statement.executeQuery(sqlLeftAmount);   //搭配select使用，其他update什么的都不用
+
+
+                /*4.2 left_amount会-1 再插进去*/
+                String sqlInsertLeftAmount = "UPDATE match_info SET left_amount = "+ (leftAmount-1) +" WHERE home =\'"+homeTeam +"\'and away =\'"+awayTeam +"\'and date =\'"+date +"\'and price ="+price;
+
+                int isInsertLeftAmount = statement.executeUpdate(sqlInsertLeftAmount);//executeQuery(sql)是查询  executeUpdate是删改
+                if (isBooked ==1&&isInsertLeftAmount==1){
+                    //populateTable(); //Refresh table
+                    JOptionPane.showMessageDialog(this, "Paid successfully.");
+                }
+
+                resultSet.close();//close  搭配select使用，其他update什么的都不用
                 statement.close();
                 connection.close();
-            } catch (ClassNotFoundException | SQLException e) {
+                CheckTicketJPanel checkticketjpanel = new CheckTicketJPanel(email,balance,lb_Balance);///跳转页面
+                SplitPane.setRightComponent(checkticketjpanel);
+                } catch (ClassNotFoundException | SQLException e) {
+                    JOptionPane.showMessageDialog(this, "You need to check before book.");
+                    return;
             }
+            
     }//GEN-LAST:event_btnBookActionPerformed
 
     private void btnBookTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookTicketActionPerformed
@@ -406,6 +432,60 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
 
     private void btnWaitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWaitActionPerformed
         // TODO add your handling code here:
+                // TODO add your handling code here:
+        int selectedRowIndex = tbSessionSearch.getSelectedRow();
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a row.");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tbSessionSearch.getModel();
+        
+        String date = model.getValueAt(selectedRowIndex , 0).toString();//获得选中的行的第2列的内容
+        String homeTeam = model.getValueAt(selectedRowIndex , 1).toString();//获得选中的行的第2列的内容
+        String awayTeam = model.getValueAt(selectedRowIndex , 2).toString();//获得选中的行的第2列的内容
+        String price = model.getValueAt(selectedRowIndex , 3).toString();//获得选中的行的第2列的内容
+        int leftAmount = Integer.parseInt(model.getValueAt(selectedRowIndex , 4).toString());//获得选中的行的第2列的内容
+        if(leftAmount>0){
+            JOptionPane.showMessageDialog(this, "There are available tickets, you can choose to book.");
+            return;
+        }
+        
+        try {
+                /* create jdbc connection */
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                
+                String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
+                String username = "root";
+                
+                String password = "abcd1234!";
+                Connection connection = DriverManager.getConnection(url, username, password);
+                Statement statement = connection.createStatement();
+                
+                /*获取当前时间*/
+                SimpleDateFormat sdf = new SimpleDateFormat();// 格式化时间 
+                sdf.applyPattern("yyyy-MM-dd HH:mm:ss");// 
+                Date currentDate = new Date();// 获取当前时间 
+                String cuDate = sdf.format(currentDate);
+            
+                /* Insert */
+                String sql = "INSERT INTO fan_match (email, hometeam, awayteam, date, price,status, waitfrom) VALUES (\'" + email +"\',\'" + homeTeam +"\',\'" +awayTeam+"\',\'"+ date +"\',\'"+ price +"\','Waiting',\'"+cuDate+"\')"; 
+                int isBooked = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
+               
+                if (isBooked ==1){
+                    //populateTable(); //Refresh table
+                    JOptionPane.showMessageDialog(this, "Joined into waitlist successfully.");
+                }
+                
+                statement.close();
+                connection.close();
+                CheckTicketJPanel checkticketjpanel = new CheckTicketJPanel(email,balance,lb_Balance);///跳转页面
+                SplitPane.setRightComponent(checkticketjpanel);
+            } catch (ClassNotFoundException | SQLException e) {
+                JOptionPane.showMessageDialog(this, "You need to check before book.");
+                return;
+            }
+            
     }//GEN-LAST:event_btnWaitActionPerformed
 
     /**
@@ -477,6 +557,7 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BookTicketJPanel;
+    private javax.swing.JPanel ControlPanel;
     private javax.swing.JSplitPane SplitPane;
     private javax.swing.JButton btnBook;
     private javax.swing.JButton btnBookTicket;
@@ -488,7 +569,6 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb_Account;
     private javax.swing.JLabel lb_Balance;
