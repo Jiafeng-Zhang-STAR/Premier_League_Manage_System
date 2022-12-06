@@ -20,28 +20,22 @@ public class PlayerJFrame extends javax.swing.JFrame {
     /**
      * Creates new form AccountantJFrame
      */
-    
+    Player player = null;
     public PlayerJFrame(Person personTemp) {
         initComponents();
         Team team = new Team(personTemp); //初始化Team对象 里面含有全部的球员
         
-        Player player = null;
-        int length = team.getPlayerCatalog().getPlayerCata().size();//计算catalog中有多少个医生 Calculate how many Doctors are in the catalog
+        
+        int length = team.getPlayerCatalog().getPlayerCata().size();//计算catalog中有多少个队员 Calculate how many Doctors are in the catalog
         for(int i =0; i<length ; i++){
             Player playerTemp = team.getPlayerCatalog().getPlayerCata().get(i);
             if(playerTemp.getUsername().equals(personTemp.getUsername())){
-                player=playerTemp; 
+                this.player=playerTemp; 
                 //找到在catalog中被初始化的那个doctor 和自己用户名一致的，将其对象指针传递过来
                 //Find the doctor that was initialized in catalog that matches your username and pass it the object pointer
             }
         }
         
-        int length2 = player.getTeam().getPlayerCatalog().getPlayerCata().size(); 
-        //医生对象中的Team对象，找到队员总数 
-        //Find the total number of team members in the Team object of the Doctor object
-        for(int i=0;i<length2;i++){
-        System.out.println(player.getTeam().getPlayerCatalog().getPlayerCata().get(i).getUsername());  
-        }
     }
     //构造器 用于初始化 Constructor Used to initialize
     /**
@@ -155,7 +149,7 @@ public class PlayerJFrame extends javax.swing.JFrame {
 
     private void healthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_healthButtonActionPerformed
         // TODO add your handling code here:
-        PlayerHealthJPanel playerHealthJPanel = new PlayerHealthJPanel();
+        PlayerHealthJPanel playerHealthJPanel = new PlayerHealthJPanel(player);
         jSplitPane1.setRightComponent(playerHealthJPanel);   
     }//GEN-LAST:event_healthButtonActionPerformed
 
