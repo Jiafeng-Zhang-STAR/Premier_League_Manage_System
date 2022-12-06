@@ -134,33 +134,33 @@ public class PlayerAppearanceJPanel extends javax.swing.JPanel {
         String upcoming_Date = "";
         String team_Name;
         team_Name = person.getClub();
-        try{
+        try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
             String username = "root";
             String password = "150823";
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM match_info WHERE home=\'"+team_Name+"\' "
-                    + "OR away=\'"+team_Name+"\' ORDER BY date ASC";
+            String sql = "SELECT * FROM match_info WHERE home=\'" + team_Name + "\' "
+                    + "OR away=\'" + team_Name + "\' ORDER BY date ASC";
             ResultSet resultSet = statement.executeQuery(sql);
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 upcoming_Home = String.valueOf(resultSet.getObject("home"));
                 upcoming_Away = String.valueOf(resultSet.getObject("away"));
                 upcoming_Date = String.valueOf(resultSet.getObject("date"));
                 break;
             }
-            this.upcomingMatchLabel.setText(upcoming_Home+" VS "+upcoming_Away);
-            if(upcoming_Home.equals(team_Name)){
+            this.upcomingMatchLabel.setText(upcoming_Home + " VS " + upcoming_Away);
+            if (upcoming_Home.equals(team_Name)) {
                 this.ComponentLabel.setText(upcoming_Away);
-            }else{
+            } else {
                 this.ComponentLabel.setText(upcoming_Home);
             }
             this.upcomingDateLabel.setText(upcoming_Date);
             resultSet.close();
             statement.close();
             connection.close();
-        }catch(ClassNotFoundException | SQLException e){
+        } catch (ClassNotFoundException | SQLException e) {
         }
     }
 

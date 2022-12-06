@@ -169,7 +169,7 @@ public class PlayerInfoJPanel extends javax.swing.JPanel {
                 this.usernameLabel.setText(String.valueOf(resultSet.getObject("username")));
                 this.clubLabel.setText(String.valueOf(resultSet.getObject("club")));
                 this.nameLabel.setText(String.valueOf(resultSet.getObject("name")));
-                if(Integer.valueOf(String.valueOf(resultSet.getObject("gender")))==1){
+                if(Integer.parseInt(String.valueOf(resultSet.getObject("gender")))==1){
                     this.genderLabel.setText("male");
                 }else{
                     this.genderLabel.setText("female");
