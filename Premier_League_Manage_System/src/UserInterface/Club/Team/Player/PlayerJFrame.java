@@ -2,25 +2,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package UserInterface.Club.Health.Doctor;
+package UserInterface.Club.Team.Player;
 
+import UserInterface.Club.Health.Doctor.*;
 import UserInterface.Club.Finance.Accountant.*;
 import TheSystem.Common.Person.Person;
 import TheClub.Health.Doctor.Doctor;
 import TheClub.Team.Team;
-import java.awt.Graphics;
 
 /**
  *
  * @author Jiafeng
  */
-public class DoctorJFrame extends javax.swing.JFrame {
+public class PlayerJFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form AccountantJFrame
      */
     
-    public DoctorJFrame(Person personTemp) {
+    public PlayerJFrame(Person personTemp) {
         initComponents();
         Team team = new Team(personTemp); //初始化Team对象 里面含有全部的医生 Initialize the Team object containing all the Doctors
         
@@ -41,8 +41,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
         for(int i=0;i<length2;i++){
         System.out.println(doctor.getTeam().getPlayerCatalog().getPlayerCata().get(i).getUsername());  
         }
-        DoctorDiagnoseAppointmentJPanel doctorDiagnoseAppointmentJPanel = new DoctorDiagnoseAppointmentJPanel(doctor);
-        jSplitPane1.setRightComponent(doctorDiagnoseAppointmentJPanel);
     }
     //构造器 用于初始化 Constructor Used to initialize
     /**
@@ -176,8 +174,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
 
     private void dignoseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dignoseButtonActionPerformed
         // TODO add your handling code here:
-        DoctorDiagnoseJPanel doctorDiagnoseJPanel = new DoctorDiagnoseJPanel();
-        jSplitPane1.setRightComponent(doctorDiagnoseJPanel);   
     }//GEN-LAST:event_dignoseButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
