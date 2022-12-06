@@ -8,6 +8,7 @@ import UserInterface.Club.Health.Doctor.*;
 import UserInterface.Club.Finance.Accountant.*;
 import TheSystem.Common.Person.Person;
 import TheClub.Health.Doctor.Doctor;
+import TheClub.Team.Player.Player;
 import TheClub.Team.Team;
 
 /**
@@ -22,24 +23,24 @@ public class PlayerJFrame extends javax.swing.JFrame {
     
     public PlayerJFrame(Person personTemp) {
         initComponents();
-        Team team = new Team(personTemp); //初始化Team对象 里面含有全部的医生 Initialize the Team object containing all the Doctors
+        Team team = new Team(personTemp); //初始化Team对象 里面含有全部的球员
         
-        Doctor doctor = null;
-        int length = team.getDoctorCatalog().getDoctorCata().size();//计算catalog中有多少个医生 Calculate how many Doctors are in the catalog
+        Player player = null;
+        int length = team.getPlayerCatalog().getPlayerCata().size();//计算catalog中有多少个医生 Calculate how many Doctors are in the catalog
         for(int i =0; i<length ; i++){
-            Doctor doctorTemp = team.getDoctorCatalog().getDoctorCata().get(i);
-            if(doctorTemp.getUsername().equals(personTemp.getUsername())){
-                doctor=doctorTemp; 
+            Player playerTemp = team.getPlayerCatalog().getPlayerCata().get(i);
+            if(playerTemp.getUsername().equals(personTemp.getUsername())){
+                player=playerTemp; 
                 //找到在catalog中被初始化的那个doctor 和自己用户名一致的，将其对象指针传递过来
                 //Find the doctor that was initialized in catalog that matches your username and pass it the object pointer
             }
         }
         
-        int length2 = doctor.getTeam().getPlayerCatalog().getPlayerCata().size(); 
+        int length2 = player.getTeam().getPlayerCatalog().getPlayerCata().size(); 
         //医生对象中的Team对象，找到队员总数 
         //Find the total number of team members in the Team object of the Doctor object
         for(int i=0;i<length2;i++){
-        System.out.println(doctor.getTeam().getPlayerCatalog().getPlayerCata().get(i).getUsername());  
+        System.out.println(player.getTeam().getPlayerCatalog().getPlayerCata().get(i).getUsername());  
         }
     }
     //构造器 用于初始化 Constructor Used to initialize
@@ -58,9 +59,7 @@ public class PlayerJFrame extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        dignoseButton = new javax.swing.JButton();
-        diagnoseHistoryButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        healthButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
@@ -84,25 +83,13 @@ public class PlayerJFrame extends javax.swing.JFrame {
         jPanel1.setMaximumSize(new java.awt.Dimension(500, 600));
         jPanel1.setMinimumSize(new java.awt.Dimension(100, 600));
 
-        dignoseButton.setText("Dignose");
-        dignoseButton.setMaximumSize(new java.awt.Dimension(100, 23));
-        dignoseButton.setMinimumSize(new java.awt.Dimension(72, 23));
-        dignoseButton.setPreferredSize(new java.awt.Dimension(72, 23));
-        dignoseButton.addActionListener(new java.awt.event.ActionListener() {
+        healthButton.setText("Health");
+        healthButton.setMaximumSize(new java.awt.Dimension(100, 23));
+        healthButton.setMinimumSize(new java.awt.Dimension(72, 23));
+        healthButton.setPreferredSize(new java.awt.Dimension(72, 23));
+        healthButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dignoseButtonActionPerformed(evt);
-            }
-        });
-
-        diagnoseHistoryButton.setText("History");
-        diagnoseHistoryButton.setMaximumSize(new java.awt.Dimension(100, 23));
-        diagnoseHistoryButton.setMinimumSize(new java.awt.Dimension(72, 23));
-        diagnoseHistoryButton.setPreferredSize(new java.awt.Dimension(72, 23));
-
-        jButton1.setText("切换Menu布局");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                healthButtonActionPerformed(evt);
             }
         });
 
@@ -120,23 +107,17 @@ public class PlayerJFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dignoseButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(diagnoseHistoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
+                    .addComponent(healthButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
+                .addGap(46, 46, 46)
                 .addComponent(jButton2)
-                .addGap(125, 125, 125)
-                .addComponent(diagnoseHistoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
-                .addComponent(dignoseButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(217, 217, 217)
+                .addComponent(healthButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(292, Short.MAX_VALUE))
         );
 
@@ -172,13 +153,11 @@ public class PlayerJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void dignoseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dignoseButtonActionPerformed
+    private void healthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_healthButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_dignoseButtonActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        PlayerHealthJPanel playerHealthJPanel = new PlayerHealthJPanel();
+        jSplitPane1.setRightComponent(playerHealthJPanel);   
+    }//GEN-LAST:event_healthButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -220,9 +199,7 @@ public class PlayerJFrame extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton diagnoseHistoryButton;
-    private javax.swing.JButton dignoseButton;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton healthButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;

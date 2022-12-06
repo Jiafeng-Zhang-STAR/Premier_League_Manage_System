@@ -11,6 +11,7 @@ import UserInterface.League.Match.Manager.ManagerJFrame;
 //导入Manager的UI界面类 Import the Manager UI class
 
 import TheSystem.Common.Person.Person;
+import UserInterface.Club.Team.Player.PlayerJFrame;
 //导入Common的个人原始信息类 Import Common's personal original information class
 
 import java.sql.*;
@@ -209,6 +210,21 @@ public class TestMainJFrame extends javax.swing.JFrame {
                     person.setZip(zipTemp);
                     dispose();
                     new DoctorJFrame(person).setVisible(true);
+                } else if (enterpriseTypeTemp == 1 && roleTypeTemp == 4) {
+                    Person person = new Person();
+                    person.setUsername(userNameTemp);
+                    person.setPassword(passWordTemp);
+                    person.setEnterpriseType(enterpriseTypeTemp);
+                    person.setRoleType(roleTypeTemp);
+                    person.setClub(clubTemp);
+                    person.setName(nameTemp);
+                    person.setGender(genderTemp);
+                    person.setAge(ageTemp);
+                    person.setNation(nationTemp);
+                    person.setAddress(addressTemp);
+                    person.setZip(zipTemp);
+                    dispose();
+                    new PlayerJFrame(person).setVisible(true);
                 } else if(enterpriseTypeTemp == 2 && roleTypeTemp == 3) {
                     Person person = new Person();
                     person.setUsername(userNameTemp);
