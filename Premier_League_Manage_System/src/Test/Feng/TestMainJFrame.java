@@ -66,7 +66,7 @@ public class TestMainJFrame extends javax.swing.JFrame {
             }
         });
 
-        usernameTextField.setText("player11");
+        usernameTextField.setText("email22");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
