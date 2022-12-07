@@ -8,6 +8,7 @@ import TheClub.Team.Player.Player;
 import java.text.SimpleDateFormat;
 import java.sql.*; 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 //import java.awt.Graphics;
 
 /**
@@ -33,6 +34,9 @@ public class PlayerHealthJPanel extends javax.swing.JPanel {
         for(int i=0;i<length1;i++){
          doctorjComboBox1.addItem(player.getTeam().getDoctorCatalog().getDoctorCata().get(i).getName());  
         }
+        
+        System.out.print("123");
+        fillingAppointmentHistoryTable();
         
 //        cardLayout = (CardLayout)(cards.getLayout());
 //        cardLayout.show(cardjPanel, "jPanel1");
@@ -67,6 +71,9 @@ public class PlayerHealthJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         showJPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        appointmentHistoryTable = new javax.swing.JTable();
+        jButton4 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -198,24 +205,25 @@ public class PlayerHealthJPanel extends javax.swing.JPanel {
         calendarJPanelLayout.setHorizontalGroup(
             calendarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(calendarJPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(calendarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGap(30, 30, 30)
+                .addGroup(calendarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(calendarJPanelLayout.createSequentialGroup()
                         .addComponent(chooseDate)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(clearDate, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jCalendar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         calendarJPanelLayout.setVerticalGroup(
             calendarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(calendarJPanelLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(19, 19, 19)
                 .addComponent(jCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(calendarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(calendarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(chooseDate)
-                    .addComponent(clearDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(clearDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 6, Short.MAX_VALUE))
         );
 
         jLabel3.setText("Date:");
@@ -227,15 +235,47 @@ public class PlayerHealthJPanel extends javax.swing.JPanel {
 
         showJPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        appointmentHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Player", "Doctor", "Date", "Status", "Result"
+            }
+        ));
+        jScrollPane1.setViewportView(appointmentHistoryTable);
+
+        jButton4.setText("Fresh Table");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout showJPanelLayout = new javax.swing.GroupLayout(showJPanel);
         showJPanel.setLayout(showJPanelLayout);
         showJPanelLayout.setHorizontalGroup(
             showJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 448, Short.MAX_VALUE)
+            .addGroup(showJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showJPanelLayout.createSequentialGroup()
+                .addContainerGap(339, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addGap(19, 19, 19))
         );
         showJPanelLayout.setVerticalGroup(
             showJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 432, Short.MAX_VALUE)
+            .addGroup(showJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout appointmentCard3Layout = new javax.swing.GroupLayout(appointmentCard3);
@@ -263,7 +303,7 @@ public class PlayerHealthJPanel extends javax.swing.JPanel {
                                 .addComponent(doctorjComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(saveDateButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(appointmentCard3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(appointmentCard3Layout.createSequentialGroup()
                     .addContainerGap()
@@ -285,7 +325,7 @@ public class PlayerHealthJPanel extends javax.swing.JPanel {
                     .addComponent(saveDateButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(calendarJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(18, Short.MAX_VALUE))
             .addGroup(appointmentCard3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, appointmentCard3Layout.createSequentialGroup()
                     .addContainerGap(85, Short.MAX_VALUE)
@@ -414,6 +454,7 @@ public class PlayerHealthJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         String dateTemp = datejTextField1.getText();
         String doctorName = doctorjComboBox1.getSelectedItem().toString();
+        String doctorNameTemp = null;
         
         String doctorUsernameTemp = null;
         String playerUsernameTemp = player.getUsername();
@@ -423,7 +464,8 @@ public class PlayerHealthJPanel extends javax.swing.JPanel {
         int length1 = player.getTeam().getDoctorCatalog().getDoctorCata().size();        
         for(int i=0;i<length1;i++){
             doctorUsernameTemp=player.getTeam().getDoctorCatalog().getDoctorCata().get(i).getUsername();
-         if(doctorName.equals(doctorUsernameTemp)){
+            doctorNameTemp=player.getTeam().getDoctorCatalog().getDoctorCata().get(i).getName();
+         if(doctorName.equals(doctorNameTemp)){
              break;
          }
         }
@@ -452,9 +494,73 @@ public class PlayerHealthJPanel extends javax.swing.JPanel {
         }  
     }//GEN-LAST:event_saveDateButton5ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        fillingAppointmentHistoryTable();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
+private void fillingAppointmentHistoryTable() {
+        DefaultTableModel model = (DefaultTableModel) appointmentHistoryTable.getModel();
+        model.setRowCount(0);
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://localhost:3306/premierleague";
+            String username = "root";
+            String password = "abcd1234!";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement statement = connection.createStatement();
+            
+            String sql = "SELECT * FROM club_diagnose_appointment WHERE "+
+                         "player_id=\'"+this.player.getUsername()+"\'";
+            System.out.print("45454");
+            ResultSet resultSet = statement.executeQuery(sql);
+            
+            while(resultSet.next()){
+                String doctorUsernameTemp;
+                String doctorNameTemp = null;
+                
+
+                
+                Object[] row = new Object[6];
+                
+                row[0] = resultSet.getObject("id");
+                
+                
+                row[1] = this.player.getName();
+
+                
+                String doctorUsername = resultSet.getObject("doctor_id").toString();        
+                int length1 = player.getTeam().getDoctorCatalog().getDoctorCata().size();
+                for(int i=0;i<length1;i++){
+                        doctorUsernameTemp=player.getTeam().getDoctorCatalog().getDoctorCata().get(i).getUsername();
+                        doctorNameTemp=player.getTeam().getDoctorCatalog().getDoctorCata().get(i).getName();
+                    if(doctorUsernameTemp.equals(doctorUsername)){
+                         break;
+                     }
+                 }
+                row[2] = doctorNameTemp;
+//                                row[2] = resultSet.getObject("doctor_id");
+               
+                
+                row[3] = resultSet.getObject("date");
+                row[4] = resultSet.getObject("status");
+                row[5] = resultSet.getObject("result");
+                model.addRow(row);
+          }
+            resultSet.close();
+            statement.close();
+            connection.close();
+        }catch(ClassNotFoundException e){
+            e.printStackTrace();
+                
+        }catch(SQLException b){
+            b.printStackTrace();
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel appointmentCard3;
+    private javax.swing.JTable appointmentHistoryTable;
     private javax.swing.JPanel calendarJPanel;
     private javax.swing.JPanel cards;
     private javax.swing.JButton chooseDate;
@@ -465,12 +571,14 @@ public class PlayerHealthJPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private com.toedter.calendar.JCalendar jCalendar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel onlineDiagnosisCard2;
     private javax.swing.JButton openCalendarButton4;
     private javax.swing.JButton saveDateButton5;
