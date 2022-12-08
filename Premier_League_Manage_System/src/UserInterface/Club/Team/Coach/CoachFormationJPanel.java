@@ -22,8 +22,14 @@ import javax.swing.JOptionPane;
  */
 public class CoachFormationJPanel extends javax.swing.JPanel {
     Person person;
+    String upcoming_Home;
+    String upcoming_Away;
+    String upcoming_Date;
+    String formation;
     ArrayList<String> playerList = new ArrayList<>();
+    // List used to submit first line-up 
     ArrayList<String> firstPlayerList = new ArrayList<>();
+    // list used to sumit alternate
     ArrayList<String> substitutePlayerList = new ArrayList<>();
     /**
      * Creates new form CoachFormationJPanel
@@ -37,6 +43,7 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
         this.SubstitutionComboBox.setEnabled(false);
         this.AddButton.setEnabled(false);
         this.DeleteButton.setEnabled(false);
+        this.SubmitButton.setEnabled(false);
     }
 
     /**
@@ -82,10 +89,54 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
         FourFourTwojPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        BLWMComboBox = new javax.swing.JComboBox<>();
+        BRWMComboBox = new javax.swing.JComboBox<>();
+        BLMComboBox = new javax.swing.JComboBox<>();
+        BRMComboBox = new javax.swing.JComboBox<>();
+        BLSComboBox = new javax.swing.JComboBox<>();
+        BRSComboBox = new javax.swing.JComboBox<>();
+        BLWBComboBox = new javax.swing.JComboBox<>();
+        BLBComboBox = new javax.swing.JComboBox<>();
+        BRBComboBox = new javax.swing.JComboBox<>();
+        BRWBComboBox = new javax.swing.JComboBox<>();
+        BGKComboBox = new javax.swing.JComboBox<>();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
         FiveThreeTwojPanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         ThreeFiveTwojPanel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        DLWMComboBox = new javax.swing.JComboBox<>();
+        DRWMComboBox = new javax.swing.JComboBox<>();
+        DRMComboBox = new javax.swing.JComboBox<>();
+        DLMComboBox = new javax.swing.JComboBox<>();
+        DCMComboBox = new javax.swing.JComboBox<>();
+        DCBComboBox = new javax.swing.JComboBox<>();
+        DRBComboBox = new javax.swing.JComboBox<>();
+        DLBComboBox = new javax.swing.JComboBox<>();
+        DRSComboBox = new javax.swing.JComboBox<>();
+        DLSComboBox = new javax.swing.JComboBox<>();
+        DGKComboBox = new javax.swing.JComboBox<>();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
         FourTwoFourjPanel = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         FourFiveOnejPanel = new javax.swing.JPanel();
@@ -298,7 +349,41 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
 
         FormationMainjPanel.add(FourThreeThreejPanel, "FourThreeThree");
 
+        jLabel5.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
         jLabel5.setText("4-4-2");
+
+        jLabel23.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel23.setText("LS");
+
+        jLabel24.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel24.setText("RS");
+
+        jLabel25.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel25.setText("LWM");
+
+        jLabel26.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel26.setText("LM");
+
+        jLabel27.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel27.setText("RM");
+
+        jLabel28.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel28.setText("RWM");
+
+        jLabel29.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel29.setText("LWB");
+
+        jLabel30.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel30.setText("LB");
+
+        jLabel31.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel31.setText("RB");
+
+        jLabel32.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel32.setText("RWB");
+
+        jLabel33.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel33.setText("GK");
 
         javax.swing.GroupLayout FourFourTwojPanelLayout = new javax.swing.GroupLayout(FourFourTwojPanel);
         FourFourTwojPanel.setLayout(FourFourTwojPanelLayout);
@@ -306,15 +391,99 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
             FourFourTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FourFourTwojPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5)
-                .addContainerGap(411, Short.MAX_VALUE))
+                .addGroup(FourFourTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FourFourTwojPanelLayout.createSequentialGroup()
+                        .addComponent(BLWMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(FourFourTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BLMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BLSComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel26)))
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel25)
+                    .addGroup(FourFourTwojPanelLayout.createSequentialGroup()
+                        .addGroup(FourFourTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BLWBComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel29))
+                        .addGap(18, 18, 18)
+                        .addGroup(FourFourTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel30)
+                            .addComponent(BLBComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addGroup(FourFourTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FourFourTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(BRSComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(FourFourTwojPanelLayout.createSequentialGroup()
+                            .addGroup(FourFourTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(BRMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel27))
+                            .addGap(18, 18, 18)
+                            .addGroup(FourFourTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel28)
+                                .addComponent(BRWMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FourFourTwojPanelLayout.createSequentialGroup()
+                            .addGroup(FourFourTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(BRBComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel31))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(FourFourTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(BRWBComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel24))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FourFourTwojPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(FourFourTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel33)
+                    .addComponent(BGKComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(186, 186, 186))
         );
         FourFourTwojPanelLayout.setVerticalGroup(
             FourFourTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FourFourTwojPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(FourFourTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BLSComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BRSComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(FourFourTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FourFourTwojPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(FourFourTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BLWMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BLMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BRMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BRWMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(FourFourTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(FourFourTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel25)
+                                .addComponent(jLabel26)
+                                .addComponent(jLabel27))
+                            .addComponent(jLabel28))
+                        .addGap(25, 25, 25)
+                        .addGroup(FourFourTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BLWBComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BLBComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BRBComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BRWBComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel24))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(FourFourTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel29)
+                    .addComponent(jLabel30)
+                    .addGroup(FourFourTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel31)
+                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(10, 10, 10)
+                .addComponent(BGKComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel33)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         FormationMainjPanel.add(FourFourTwojPanel, "FourFourTwo");
@@ -340,7 +509,41 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
 
         FormationMainjPanel.add(FiveThreeTwojPanel, "FiveThreeTwo");
 
+        jLabel7.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
         jLabel7.setText("3-5-2");
+
+        jLabel34.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel34.setText("LS");
+
+        jLabel35.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel35.setText("RS");
+
+        jLabel36.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel36.setText("LWM");
+
+        jLabel37.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel37.setText("LM");
+
+        jLabel38.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel38.setText("CM");
+
+        jLabel39.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel39.setText("RM");
+
+        jLabel40.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel40.setText("RWM");
+
+        jLabel41.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel41.setText("LB");
+
+        jLabel42.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel42.setText("CB");
+
+        jLabel43.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel43.setText("RB");
+
+        jLabel44.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel44.setText("GK");
 
         javax.swing.GroupLayout ThreeFiveTwojPanelLayout = new javax.swing.GroupLayout(ThreeFiveTwojPanel);
         ThreeFiveTwojPanel.setLayout(ThreeFiveTwojPanelLayout);
@@ -348,15 +551,105 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
             ThreeFiveTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ThreeFiveTwojPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel7)
-                .addContainerGap(411, Short.MAX_VALUE))
+                .addGroup(ThreeFiveTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ThreeFiveTwojPanelLayout.createSequentialGroup()
+                        .addGroup(ThreeFiveTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel34)
+                            .addGroup(ThreeFiveTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(DLSComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DLBComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel41))
+                        .addGap(18, 18, 18))
+                    .addGroup(ThreeFiveTwojPanelLayout.createSequentialGroup()
+                        .addGroup(ThreeFiveTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DLWMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel36))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(ThreeFiveTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel37)
+                            .addComponent(DLMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)))
+                .addGroup(ThreeFiveTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ThreeFiveTwojPanelLayout.createSequentialGroup()
+                        .addGroup(ThreeFiveTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ThreeFiveTwojPanelLayout.createSequentialGroup()
+                                .addComponent(DCMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(DRMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ThreeFiveTwojPanelLayout.createSequentialGroup()
+                                .addGroup(ThreeFiveTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(DGKComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(ThreeFiveTwojPanelLayout.createSequentialGroup()
+                                        .addComponent(DCBComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(ThreeFiveTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(DRSComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(DRBComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel35)
+                                            .addComponent(jLabel43)))
+                                    .addGroup(ThreeFiveTwojPanelLayout.createSequentialGroup()
+                                        .addComponent(jLabel38)
+                                        .addGap(85, 85, 85)
+                                        .addComponent(jLabel39)))
+                                .addGap(0, 8, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(ThreeFiveTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DRWMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel40)))
+                    .addGroup(ThreeFiveTwojPanelLayout.createSequentialGroup()
+                        .addGroup(ThreeFiveTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel44)
+                            .addComponent(jLabel42))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         ThreeFiveTwojPanelLayout.setVerticalGroup(
             ThreeFiveTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ThreeFiveTwojPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addGap(1, 1, 1)
+                .addGroup(ThreeFiveTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DRSComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DLSComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ThreeFiveTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ThreeFiveTwojPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel34)
+                        .addGap(28, 28, 28)
+                        .addGroup(ThreeFiveTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(DLWMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DRWMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DRMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DLMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DCMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel35))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ThreeFiveTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ThreeFiveTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel36)
+                        .addComponent(jLabel37)
+                        .addComponent(jLabel38))
+                    .addComponent(jLabel39)
+                    .addComponent(jLabel40))
+                .addGap(14, 14, 14)
+                .addGroup(ThreeFiveTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DCBComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DRBComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DLBComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ThreeFiveTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ThreeFiveTwojPanelLayout.createSequentialGroup()
+                        .addGroup(ThreeFiveTwojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel41)
+                            .addComponent(jLabel43))
+                        .addGap(7, 7, 7)
+                        .addComponent(DGKComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel42))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel44)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         FormationMainjPanel.add(ThreeFiveTwojPanel, "ThreeFiveTwo");
@@ -439,6 +732,7 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
 
         jLabel22.setText("Substitution:");
 
+        AddButton.setFont(new java.awt.Font("Consolas", 2, 12)); // NOI18N
         AddButton.setText("Add");
         AddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -446,6 +740,7 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
             }
         });
 
+        SubmitButton.setFont(new java.awt.Font("Consolas", 2, 12)); // NOI18N
         SubmitButton.setText("Submit");
         SubmitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -453,6 +748,7 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
             }
         });
 
+        DeleteButton.setFont(new java.awt.Font("Consolas", 2, 12)); // NOI18N
         DeleteButton.setText("Delete");
         DeleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -538,7 +834,7 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel22)
                     .addComponent(SubstitutionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DeleteButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addComponent(SubmitButton)
                 .addContainerGap())
         );
@@ -550,6 +846,7 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
 
     private void FormationConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormationConfirmButtonActionPerformed
         // TODO add your handling code here:
+        formation = (String) this.FormationComboBox.getSelectedItem();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
@@ -596,18 +893,66 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
                 CardLayout card = (CardLayout) FormationMainjPanel.getLayout();
                 card.show(FormationMainjPanel, "FourThreeThree");
             }
-            case "4-4-2" ->                 {
-                    CardLayout card = (CardLayout)FormationMainjPanel.getLayout();
-                    card.show(FormationMainjPanel, "FourFourTwo");
+            case "4-4-2" -> {
+                for (String name : playerList) {
+                    this.BLSComboBox.addItem(name);
+                    this.BRSComboBox.addItem(name);
+                    this.BLWMComboBox.addItem(name);
+                    this.BLMComboBox.addItem(name);
+                    this.BRMComboBox.addItem(name);
+                    this.BRWMComboBox.addItem(name);
+                    this.BLWBComboBox.addItem(name);
+                    this.BLBComboBox.addItem(name);
+                    this.BRBComboBox.addItem(name);
+                    this.BRWBComboBox.addItem(name);
+                    this.BGKComboBox.addItem(name);
                 }
+                this.BLSComboBox.setSelectedIndex(-1);
+                this.BRSComboBox.setSelectedIndex(-1);
+                this.BLWMComboBox.setSelectedIndex(-1);
+                this.BLMComboBox.setSelectedIndex(-1);
+                this.BRMComboBox.setSelectedIndex(-1);
+                this.BRWMComboBox.setSelectedIndex(-1);
+                this.BLWBComboBox.setSelectedIndex(-1);
+                this.BLBComboBox.setSelectedIndex(-1);
+                this.BRBComboBox.setSelectedIndex(-1);
+                this.BRWBComboBox.setSelectedIndex(-1);
+                this.BGKComboBox.setSelectedIndex(-1);
+                CardLayout card = (CardLayout) FormationMainjPanel.getLayout();
+                card.show(FormationMainjPanel, "FourFourTwo");
+            }
             case "5-3-2" ->                 {
                     CardLayout card = (CardLayout)FormationMainjPanel.getLayout();
                     card.show(FormationMainjPanel, "FiveThreeTwo");
                 }
-            case "3-5-2" ->                 {
-                    CardLayout card = (CardLayout)FormationMainjPanel.getLayout();
-                    card.show(FormationMainjPanel, "ThreeFiveTwo");
+            case "3-5-2" -> {
+                for (String name : playerList) {
+                    this.DLSComboBox.addItem(name);
+                    this.DRSComboBox.addItem(name);
+                    this.DLWMComboBox.addItem(name);
+                    this.DLMComboBox.addItem(name);
+                    this.DCMComboBox.addItem(name);
+                    this.DRMComboBox.addItem(name);
+                    this.DRWMComboBox.addItem(name);
+                    this.DLBComboBox.addItem(name);
+                    this.DCBComboBox.addItem(name);
+                    this.DRBComboBox.addItem(name);
+                    this.DGKComboBox.addItem(name);
                 }
+                this.DLSComboBox.setSelectedIndex(-1);
+                this.DRSComboBox.setSelectedIndex(-1);
+                this.DLWMComboBox.setSelectedIndex(-1);
+                this.DLMComboBox.setSelectedIndex(-1);
+                this.DCMComboBox.setSelectedIndex(-1);
+                this.DRMComboBox.setSelectedIndex(-1);
+                this.DRWMComboBox.setSelectedIndex(-1);
+                this.DLBComboBox.setSelectedIndex(-1);
+                this.DCBComboBox.setSelectedIndex(-1);
+                this.DRBComboBox.setSelectedIndex(-1);
+                this.DGKComboBox.setSelectedIndex(-1);
+                CardLayout card = (CardLayout) FormationMainjPanel.getLayout();
+                card.show(FormationMainjPanel, "ThreeFiveTwo");
+            }
             case "4-2-4" ->                 {
                     CardLayout card = (CardLayout)FormationMainjPanel.getLayout();
                     card.show(FormationMainjPanel, "FourTwoFour");
@@ -681,8 +1026,111 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
                 this.SubstitutionComboBox.setEnabled(true);
                 this.AddButton.setEnabled(true);
                 this.DeleteButton.setEnabled(true);
+                this.SubmitButton.setEnabled(true);
             }
-            
+        }else if(this.FormationComboBox.getSelectedItem().equals("4-4-2")){
+            compare_PlayerList.add((String) this.BLSComboBox.getSelectedItem());
+            compare_PlayerList.add((String) this.BRSComboBox.getSelectedItem());
+            compare_PlayerList.add((String) this.BLWMComboBox.getSelectedItem());
+            compare_PlayerList.add((String) this.BLMComboBox.getSelectedItem());
+            compare_PlayerList.add((String) this.BRMComboBox.getSelectedItem());
+            compare_PlayerList.add((String) this.BRWMComboBox.getSelectedItem());
+            compare_PlayerList.add((String) this.BLWBComboBox.getSelectedItem());
+            compare_PlayerList.add((String) this.BLBComboBox.getSelectedItem());
+            compare_PlayerList.add((String) this.BRBComboBox.getSelectedItem());
+            compare_PlayerList.add((String) this.BRWBComboBox.getSelectedItem());
+            compare_PlayerList.add((String) this.BGKComboBox.getSelectedItem());
+            if(judgeDuplicate(compare_PlayerList)){
+                JOptionPane.showMessageDialog(ARBComboBox, "Duplicate Selection or Empty Selection Exists!", "Warning", JOptionPane.DEFAULT_OPTION);
+            } else {
+                firstPlayerList.add((String) this.BLSComboBox.getSelectedItem());
+                firstPlayerList.add((String) this.BRSComboBox.getSelectedItem());
+                firstPlayerList.add((String) this.BLWMComboBox.getSelectedItem());
+                firstPlayerList.add((String) this.BLMComboBox.getSelectedItem());
+                firstPlayerList.add((String) this.BRMComboBox.getSelectedItem());
+                firstPlayerList.add((String) this.BRWMComboBox.getSelectedItem());
+                firstPlayerList.add((String) this.BLWBComboBox.getSelectedItem());
+                firstPlayerList.add((String) this.BLBComboBox.getSelectedItem());
+                firstPlayerList.add((String) this.BRBComboBox.getSelectedItem());
+                firstPlayerList.add((String) this.BRWBComboBox.getSelectedItem());
+                firstPlayerList.add((String) this.BGKComboBox.getSelectedItem());
+                
+                temp_PlayerList.remove((String) this.BLSComboBox.getSelectedItem());
+                temp_PlayerList.remove((String) this.BRSComboBox.getSelectedItem());
+                temp_PlayerList.remove((String) this.BLWMComboBox.getSelectedItem());
+                temp_PlayerList.remove((String) this.BLMComboBox.getSelectedItem());
+                temp_PlayerList.remove((String) this.BRMComboBox.getSelectedItem());
+                temp_PlayerList.remove((String) this.BRWMComboBox.getSelectedItem());
+                temp_PlayerList.remove((String) this.BLWBComboBox.getSelectedItem());
+                temp_PlayerList.remove((String) this.BLBComboBox.getSelectedItem());
+                temp_PlayerList.remove((String) this.BRBComboBox.getSelectedItem());
+                temp_PlayerList.remove((String) this.BRWBComboBox.getSelectedItem());
+                temp_PlayerList.remove((String) this.BGKComboBox.getSelectedItem());
+
+                this.NamelistComboBox.setEnabled(true);
+                
+                for (String str : temp_PlayerList) {
+                    this.NamelistComboBox.addItem(str); 
+                }   
+                this.NamelistComboBox.setSelectedIndex(-1);
+                this.PlayerConfirmButton.setEnabled(false);
+                this.NamelistComboBox.setEnabled(true);
+                this.SubstitutionComboBox.setEnabled(true);
+                this.AddButton.setEnabled(true);
+                this.DeleteButton.setEnabled(true);
+                this.SubmitButton.setEnabled(true);
+            }
+        }else if(this.FormationComboBox.getSelectedItem().equals("3-5-2")){
+            compare_PlayerList.add((String) this.DLSComboBox.getSelectedItem());
+            compare_PlayerList.add((String) this.DRSComboBox.getSelectedItem());
+            compare_PlayerList.add((String) this.DLWMComboBox.getSelectedItem());
+            compare_PlayerList.add((String) this.DLMComboBox.getSelectedItem());
+            compare_PlayerList.add((String) this.DCMComboBox.getSelectedItem());
+            compare_PlayerList.add((String) this.DRMComboBox.getSelectedItem());
+            compare_PlayerList.add((String) this.DRWMComboBox.getSelectedItem());
+            compare_PlayerList.add((String) this.DLBComboBox.getSelectedItem());
+            compare_PlayerList.add((String) this.DCBComboBox.getSelectedItem());
+            compare_PlayerList.add((String) this.DRBComboBox.getSelectedItem());
+            compare_PlayerList.add((String) this.DGKComboBox.getSelectedItem());
+            if(judgeDuplicate(compare_PlayerList)){
+                JOptionPane.showMessageDialog(ARBComboBox, "Duplicate Selection or Empty Selection Exists!", "Warning", JOptionPane.DEFAULT_OPTION);
+            } else {
+                firstPlayerList.add((String) this.DLSComboBox.getSelectedItem());
+                firstPlayerList.add((String) this.DRSComboBox.getSelectedItem());
+                firstPlayerList.add((String) this.DLWMComboBox.getSelectedItem());
+                firstPlayerList.add((String) this.DLMComboBox.getSelectedItem());
+                firstPlayerList.add((String) this.DCMComboBox.getSelectedItem());
+                firstPlayerList.add((String) this.DRMComboBox.getSelectedItem());
+                firstPlayerList.add((String) this.DRWMComboBox.getSelectedItem());
+                firstPlayerList.add((String) this.DLBComboBox.getSelectedItem());
+                firstPlayerList.add((String) this.DCBComboBox.getSelectedItem());
+                firstPlayerList.add((String) this.DRBComboBox.getSelectedItem());
+                firstPlayerList.add((String) this.DGKComboBox.getSelectedItem());
+                
+                temp_PlayerList.remove((String) this.DLSComboBox.getSelectedItem());
+                temp_PlayerList.remove((String) this.DRSComboBox.getSelectedItem());
+                temp_PlayerList.remove((String) this.DLWMComboBox.getSelectedItem());
+                temp_PlayerList.remove((String) this.DLMComboBox.getSelectedItem());
+                temp_PlayerList.remove((String) this.DCMComboBox.getSelectedItem());
+                temp_PlayerList.remove((String) this.DRMComboBox.getSelectedItem());
+                temp_PlayerList.remove((String) this.DRWMComboBox.getSelectedItem());
+                temp_PlayerList.remove((String) this.DLBComboBox.getSelectedItem());
+                temp_PlayerList.remove((String) this.DCBComboBox.getSelectedItem());
+                temp_PlayerList.remove((String) this.DRBComboBox.getSelectedItem());
+                temp_PlayerList.remove((String) this.DGKComboBox.getSelectedItem());
+                
+                this.NamelistComboBox.setEnabled(true);
+                for (String str : temp_PlayerList) {
+                    this.NamelistComboBox.addItem(str); 
+                }   
+                this.NamelistComboBox.setSelectedIndex(-1);
+                this.PlayerConfirmButton.setEnabled(false);
+                this.NamelistComboBox.setEnabled(true);
+                this.SubstitutionComboBox.setEnabled(true);
+                this.AddButton.setEnabled(true);
+                this.DeleteButton.setEnabled(true);
+                this.SubmitButton.setEnabled(true);
+            }
         }
         
     }//GEN-LAST:event_PlayerConfirmButtonActionPerformed
@@ -706,19 +1154,74 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
 
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
         // TODO add your handling code here:
-        int n = JOptionPane.showConfirmDialog(ARBComboBox, "Are you sure want to add this player to the substitution?", "Confirmation", JOptionPane.YES_NO_OPTION);
-        if (n == 0) {
-            this.SubstitutionComboBox.addItem((String) this.NamelistComboBox.getSelectedItem());
-            this.NamelistComboBox.removeItemAt(this.NamelistComboBox.getSelectedIndex());
+        if(((String)this.NamelistComboBox.getSelectedItem()).length()==0){
+            JOptionPane.showMessageDialog(ARBComboBox, "Please select a Player first!", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            int n = JOptionPane.showConfirmDialog(ARBComboBox, "Are you sure want to add this player to the substitution?", "Confirmation", JOptionPane.YES_NO_OPTION);
+            if (n == 0) {
+                this.SubstitutionComboBox.addItem((String) this.NamelistComboBox.getSelectedItem());
+                this.NamelistComboBox.removeItemAt(this.NamelistComboBox.getSelectedIndex());
+                this.NamelistComboBox.setSelectedIndex(-1);
+                this.SubstitutionComboBox.setSelectedIndex(-1);
+            }
         }
+        
     }//GEN-LAST:event_AddButtonActionPerformed
 
     private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
         // TODO add your handling code here:
-        if(this.SubstitutionComboBox.getItemCount()==0){
+        if (this.SubstitutionComboBox.getItemCount() == 0) {
             JOptionPane.showMessageDialog(ARBComboBox, "There's no one in the substitution list!", "Warning", JOptionPane.ERROR_MESSAGE);
-        }else{
-        
+        } else {
+            for (int i = 0; i < this.SubstitutionComboBox.getItemCount(); i++) {
+                this.substitutePlayerList.add(this.SubstitutionComboBox.getItemAt(i));
+            }
+            String alternate = "";
+            for (String str : substitutePlayerList) {
+                alternate = alternate + str + ",";
+            }
+            String line_Up = "";
+            for (String str : firstPlayerList) {
+                line_Up = line_Up + str + ",";
+            }
+            boolean home_away;
+            if (upcoming_Home.equals(this.person.getClub())) {
+                home_away = true;
+            } else {
+                home_away = false;
+            }
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
+                String username = "root";
+                String password = "150823";
+                Connection connection = DriverManager.getConnection(url, username, password);
+                Statement statement = connection.createStatement();
+                String sql = null;
+                if (home_away) {
+                    sql = "UPDATE match_info SET home_formation=\'" + formation + "\', home_lineup=\'" + line_Up + "\', home_alternate=\'" + alternate + "\'"
+                            + "WHERE home=\'" + upcoming_Home + "\' AND away=\'" + upcoming_Away + "\' AND date=\'" + upcoming_Date + "\'";
+                } else {
+                    sql = "UPDATE match_info SET away_formation=\'" + formation + "\', away_lineup=\'" + line_Up + "\', away_alternate=\'" + alternate + "\'"
+                            + "WHERE home=\'" + upcoming_Home + "\' AND away=\'" + upcoming_Away + "\' AND date=\'" + upcoming_Date + "\'";
+                }
+                int result = statement.executeUpdate(sql);
+                if (result == 1) {
+                    JOptionPane.showMessageDialog(ARBComboBox, "Successful!", "Congratulations!", JOptionPane.INFORMATION_MESSAGE);
+                    this.FormationComboBox.setEnabled(true);
+                    this.FormationConfirmButton.setEnabled(true);
+                    this.PlayerConfirmButton.setEnabled(false);
+                    this.NamelistComboBox.setEnabled(false);
+                    this.SubstitutionComboBox.setEnabled(false);
+                    this.AddButton.setEnabled(false);
+                    this.DeleteButton.setEnabled(false);
+                    this.SubmitButton.setEnabled(false);
+                }
+
+                statement.close();
+                connection.close();
+            } catch (ClassNotFoundException | SQLException e) {
+            }
         }
     }//GEN-LAST:event_SubmitButtonActionPerformed
 
@@ -727,19 +1230,22 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
         if (this.SubstitutionComboBox.getItemCount() == 0) {
             JOptionPane.showMessageDialog(ARBComboBox, "There's no one in the substitution list!", "Warning", JOptionPane.ERROR_MESSAGE);
         } else {
-            int n = JOptionPane.showConfirmDialog(ARBComboBox, "Are you sure want to delete this player from the substitution?", "Confirmation", JOptionPane.YES_NO_OPTION);
-            if (n == 0) {
-                this.NamelistComboBox.addItem((String) this.SubstitutionComboBox.getSelectedItem());
-                this.SubstitutionComboBox.removeItemAt(this.SubstitutionComboBox.getSelectedIndex());
+            if (((String) this.SubstitutionComboBox.getSelectedItem()).length() == 0) {
+                JOptionPane.showMessageDialog(ARBComboBox, "Please select a Player first!", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else {
+                int n = JOptionPane.showConfirmDialog(ARBComboBox, "Are you sure want to delete this player from the substitution?", "Confirmation", JOptionPane.YES_NO_OPTION);
+                if (n == 0) {
+                    this.NamelistComboBox.addItem((String) this.SubstitutionComboBox.getSelectedItem());
+                    this.SubstitutionComboBox.removeItemAt(this.SubstitutionComboBox.getSelectedIndex());
+                    this.NamelistComboBox.setSelectedIndex(-1);
+                    this.SubstitutionComboBox.setSelectedIndex(-1);
+                }
             }
         }
-        
     }//GEN-LAST:event_DeleteButtonActionPerformed
 
     public final void InitializeMatchInfo(){
-        String upcoming_Home = "";
-        String upcoming_Away = "";
-        String upcoming_Date = "";
+        
         String team_Name;
         team_Name = person.getClub();
         try {
@@ -785,6 +1291,28 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> ARWComboBox;
     private javax.swing.JComboBox<String> ASTComboBox;
     private javax.swing.JButton AddButton;
+    private javax.swing.JComboBox<String> BGKComboBox;
+    private javax.swing.JComboBox<String> BLBComboBox;
+    private javax.swing.JComboBox<String> BLMComboBox;
+    private javax.swing.JComboBox<String> BLSComboBox;
+    private javax.swing.JComboBox<String> BLWBComboBox;
+    private javax.swing.JComboBox<String> BLWMComboBox;
+    private javax.swing.JComboBox<String> BRBComboBox;
+    private javax.swing.JComboBox<String> BRMComboBox;
+    private javax.swing.JComboBox<String> BRSComboBox;
+    private javax.swing.JComboBox<String> BRWBComboBox;
+    private javax.swing.JComboBox<String> BRWMComboBox;
+    private javax.swing.JComboBox<String> DCBComboBox;
+    private javax.swing.JComboBox<String> DCMComboBox;
+    private javax.swing.JComboBox<String> DGKComboBox;
+    private javax.swing.JComboBox<String> DLBComboBox;
+    private javax.swing.JComboBox<String> DLMComboBox;
+    private javax.swing.JComboBox<String> DLSComboBox;
+    private javax.swing.JComboBox<String> DLWMComboBox;
+    private javax.swing.JComboBox<String> DRBComboBox;
+    private javax.swing.JComboBox<String> DRMComboBox;
+    private javax.swing.JComboBox<String> DRSComboBox;
+    private javax.swing.JComboBox<String> DRWMComboBox;
     private javax.swing.JLabel DateLabel;
     private javax.swing.JButton DeleteButton;
     private javax.swing.JPanel FiveThreeTwojPanel;
@@ -816,8 +1344,30 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
