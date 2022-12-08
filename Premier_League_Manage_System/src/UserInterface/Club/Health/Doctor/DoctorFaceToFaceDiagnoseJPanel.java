@@ -95,9 +95,9 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         previewPrintCard13 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
 
-        faceToFaceMenuBar.setMaximumSize(new java.awt.Dimension(495, 32768));
-        faceToFaceMenuBar.setMinimumSize(new java.awt.Dimension(495, 30));
-        faceToFaceMenuBar.setPreferredSize(new java.awt.Dimension(495, 30));
+        faceToFaceMenuBar.setMaximumSize(new java.awt.Dimension(700, 30));
+        faceToFaceMenuBar.setMinimumSize(new java.awt.Dimension(700, 30));
+        faceToFaceMenuBar.setPreferredSize(new java.awt.Dimension(700, 30));
 
         appointmentMenu.setText("Appointment");
         appointmentMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -257,16 +257,25 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 
         faceToFaceMenuBar.add(previewPrintMenu);
 
-        setMaximumSize(new java.awt.Dimension(495, 600));
-        setMinimumSize(new java.awt.Dimension(295, 600));
-        setPreferredSize(new java.awt.Dimension(495, 600));
+        setBackground(new java.awt.Color(0, 139, 69));
+        setMaximumSize(new java.awt.Dimension(700, 600));
+        setMinimumSize(new java.awt.Dimension(700, 600));
+        setPreferredSize(new java.awt.Dimension(700, 600));
 
-        faceToFaceMainjPanel.setMinimumSize(new java.awt.Dimension(495, 600));
+        faceToFaceMainjPanel.setBackground(new java.awt.Color(0, 139, 69));
+        faceToFaceMainjPanel.setMinimumSize(new java.awt.Dimension(700, 600));
+        faceToFaceMainjPanel.setPreferredSize(new java.awt.Dimension(700, 600));
 
-        cards.setMaximumSize(new java.awt.Dimension(495, 565));
-        cards.setMinimumSize(new java.awt.Dimension(495, 565));
-        cards.setPreferredSize(new java.awt.Dimension(495, 565));
+        cards.setBackground(new java.awt.Color(0, 139, 69));
+        cards.setMaximumSize(new java.awt.Dimension(700, 565));
+        cards.setMinimumSize(new java.awt.Dimension(700, 565));
+        cards.setPreferredSize(new java.awt.Dimension(700, 565));
         cards.setLayout(new java.awt.CardLayout());
+
+        chooseAppointmentCard1.setBackground(new java.awt.Color(0, 139, 69));
+        chooseAppointmentCard1.setMaximumSize(new java.awt.Dimension(700, 565));
+        chooseAppointmentCard1.setMinimumSize(new java.awt.Dimension(700, 565));
+        chooseAppointmentCard1.setPreferredSize(new java.awt.Dimension(700, 565));
 
         jLabel14.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         jLabel14.setText("Please Make Diagnosis Appointment");
@@ -300,7 +309,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, chooseAppointmentCard1Layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(chooseAppointmentCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -315,10 +324,14 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         cards.add(chooseAppointmentCard1, "card2");
+
+        basicInfoCard2.setBackground(new java.awt.Color(0, 139, 69));
+        basicInfoCard2.setMaximumSize(new java.awt.Dimension(700, 565));
+        basicInfoCard2.setMinimumSize(new java.awt.Dimension(700, 565));
 
         jLabel2.setText("jLabel2");
 
@@ -327,7 +340,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         basicInfoCard2Layout.setHorizontalGroup(
             basicInfoCard2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, basicInfoCard2Layout.createSequentialGroup()
-                .addContainerGap(334, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(123, 123, 123))
         );
@@ -336,10 +349,14 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
             .addGroup(basicInfoCard2Layout.createSequentialGroup()
                 .addGap(215, 215, 215)
                 .addComponent(jLabel2)
-                .addContainerGap(334, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         cards.add(basicInfoCard2, "card2");
+
+        vitalSignHistoryCard3.setBackground(new java.awt.Color(0, 139, 69));
+        vitalSignHistoryCard3.setMaximumSize(new java.awt.Dimension(700, 565));
+        vitalSignHistoryCard3.setMinimumSize(new java.awt.Dimension(700, 565));
 
         jLabel3.setText("jLabel3");
 
@@ -350,7 +367,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
             .addGroup(vitalSignHistoryCard3Layout.createSequentialGroup()
                 .addGap(171, 171, 171)
                 .addComponent(jLabel3)
-                .addContainerGap(286, Short.MAX_VALUE))
+                .addContainerGap(491, Short.MAX_VALUE))
         );
         vitalSignHistoryCard3Layout.setVerticalGroup(
             vitalSignHistoryCard3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -362,6 +379,10 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 
         cards.add(vitalSignHistoryCard3, "card2");
 
+        diagnosisHistoryCard4.setBackground(new java.awt.Color(0, 139, 69));
+        diagnosisHistoryCard4.setMaximumSize(new java.awt.Dimension(700, 565));
+        diagnosisHistoryCard4.setMinimumSize(new java.awt.Dimension(700, 565));
+
         jLabel4.setText("jLabel4");
 
         javax.swing.GroupLayout diagnosisHistoryCard4Layout = new javax.swing.GroupLayout(diagnosisHistoryCard4);
@@ -371,7 +392,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
             .addGroup(diagnosisHistoryCard4Layout.createSequentialGroup()
                 .addGap(200, 200, 200)
                 .addComponent(jLabel4)
-                .addContainerGap(257, Short.MAX_VALUE))
+                .addContainerGap(462, Short.MAX_VALUE))
         );
         diagnosisHistoryCard4Layout.setVerticalGroup(
             diagnosisHistoryCard4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -383,6 +404,10 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 
         cards.add(diagnosisHistoryCard4, "card2");
 
+        medicalPictureHistoryCard5.setBackground(new java.awt.Color(0, 139, 69));
+        medicalPictureHistoryCard5.setMaximumSize(new java.awt.Dimension(700, 565));
+        medicalPictureHistoryCard5.setMinimumSize(new java.awt.Dimension(700, 565));
+
         jLabel5.setText("jLabel5");
 
         javax.swing.GroupLayout medicalPictureHistoryCard5Layout = new javax.swing.GroupLayout(medicalPictureHistoryCard5);
@@ -392,7 +417,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
             .addGroup(medicalPictureHistoryCard5Layout.createSequentialGroup()
                 .addGap(172, 172, 172)
                 .addComponent(jLabel5)
-                .addContainerGap(285, Short.MAX_VALUE))
+                .addContainerGap(490, Short.MAX_VALUE))
         );
         medicalPictureHistoryCard5Layout.setVerticalGroup(
             medicalPictureHistoryCard5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -404,6 +429,10 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 
         cards.add(medicalPictureHistoryCard5, "card2");
 
+        prescriptionHistoryCard6.setBackground(new java.awt.Color(0, 139, 69));
+        prescriptionHistoryCard6.setMaximumSize(new java.awt.Dimension(700, 565));
+        prescriptionHistoryCard6.setMinimumSize(new java.awt.Dimension(700, 565));
+
         jLabel6.setText("jLabel6");
 
         javax.swing.GroupLayout prescriptionHistoryCard6Layout = new javax.swing.GroupLayout(prescriptionHistoryCard6);
@@ -411,7 +440,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         prescriptionHistoryCard6Layout.setHorizontalGroup(
             prescriptionHistoryCard6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, prescriptionHistoryCard6Layout.createSequentialGroup()
-                .addContainerGap(251, Short.MAX_VALUE)
+                .addContainerGap(456, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addGap(206, 206, 206))
         );
@@ -425,6 +454,10 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 
         cards.add(prescriptionHistoryCard6, "card2");
 
+        solutionHistoryCard7.setBackground(new java.awt.Color(0, 139, 69));
+        solutionHistoryCard7.setMaximumSize(new java.awt.Dimension(700, 565));
+        solutionHistoryCard7.setMinimumSize(new java.awt.Dimension(700, 565));
+
         jLabel7.setText("jLabel7");
 
         javax.swing.GroupLayout solutionHistoryCard7Layout = new javax.swing.GroupLayout(solutionHistoryCard7);
@@ -434,7 +467,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
             .addGroup(solutionHistoryCard7Layout.createSequentialGroup()
                 .addGap(190, 190, 190)
                 .addComponent(jLabel7)
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addContainerGap(472, Short.MAX_VALUE))
         );
         solutionHistoryCard7Layout.setVerticalGroup(
             solutionHistoryCard7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -446,6 +479,10 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 
         cards.add(solutionHistoryCard7, "card2");
 
+        vitualSignsCard8.setBackground(new java.awt.Color(0, 139, 69));
+        vitualSignsCard8.setMaximumSize(new java.awt.Dimension(700, 565));
+        vitualSignsCard8.setMinimumSize(new java.awt.Dimension(700, 565));
+
         jLabel8.setText("jLabel8");
 
         javax.swing.GroupLayout vitualSignsCard8Layout = new javax.swing.GroupLayout(vitualSignsCard8);
@@ -455,7 +492,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
             .addGroup(vitualSignsCard8Layout.createSequentialGroup()
                 .addGap(159, 159, 159)
                 .addComponent(jLabel8)
-                .addContainerGap(298, Short.MAX_VALUE))
+                .addContainerGap(503, Short.MAX_VALUE))
         );
         vitualSignsCard8Layout.setVerticalGroup(
             vitualSignsCard8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -467,6 +504,10 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 
         cards.add(vitualSignsCard8, "card2");
 
+        symptomCard9.setBackground(new java.awt.Color(0, 139, 69));
+        symptomCard9.setMaximumSize(new java.awt.Dimension(700, 565));
+        symptomCard9.setMinimumSize(new java.awt.Dimension(700, 565));
+
         jLabel9.setText("jLabel9");
 
         javax.swing.GroupLayout symptomCard9Layout = new javax.swing.GroupLayout(symptomCard9);
@@ -474,7 +515,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         symptomCard9Layout.setHorizontalGroup(
             symptomCard9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, symptomCard9Layout.createSequentialGroup()
-                .addContainerGap(261, Short.MAX_VALUE)
+                .addContainerGap(466, Short.MAX_VALUE)
                 .addComponent(jLabel9)
                 .addGap(196, 196, 196))
         );
@@ -488,6 +529,10 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 
         cards.add(symptomCard9, "card2");
 
+        uploadPictureCard10.setBackground(new java.awt.Color(0, 139, 69));
+        uploadPictureCard10.setMaximumSize(new java.awt.Dimension(700, 565));
+        uploadPictureCard10.setMinimumSize(new java.awt.Dimension(700, 565));
+
         jLabel10.setText("jLabel10");
 
         javax.swing.GroupLayout uploadPictureCard10Layout = new javax.swing.GroupLayout(uploadPictureCard10);
@@ -495,7 +540,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         uploadPictureCard10Layout.setHorizontalGroup(
             uploadPictureCard10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, uploadPictureCard10Layout.createSequentialGroup()
-                .addContainerGap(235, Short.MAX_VALUE)
+                .addContainerGap(440, Short.MAX_VALUE)
                 .addComponent(jLabel10)
                 .addGap(215, 215, 215))
         );
@@ -509,6 +554,10 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 
         cards.add(uploadPictureCard10, "card2");
 
+        prescriptionCard11.setBackground(new java.awt.Color(0, 139, 69));
+        prescriptionCard11.setMaximumSize(new java.awt.Dimension(700, 565));
+        prescriptionCard11.setMinimumSize(new java.awt.Dimension(700, 565));
+
         jLabel11.setText("jLabel11");
 
         javax.swing.GroupLayout prescriptionCard11Layout = new javax.swing.GroupLayout(prescriptionCard11);
@@ -516,7 +565,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         prescriptionCard11Layout.setHorizontalGroup(
             prescriptionCard11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, prescriptionCard11Layout.createSequentialGroup()
-                .addContainerGap(294, Short.MAX_VALUE)
+                .addContainerGap(499, Short.MAX_VALUE)
                 .addComponent(jLabel11)
                 .addGap(156, 156, 156))
         );
@@ -530,6 +579,10 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 
         cards.add(prescriptionCard11, "card2");
 
+        solutionCard12.setBackground(new java.awt.Color(0, 139, 69));
+        solutionCard12.setMaximumSize(new java.awt.Dimension(700, 565));
+        solutionCard12.setMinimumSize(new java.awt.Dimension(700, 565));
+
         jLabel12.setText("jLabel12");
 
         javax.swing.GroupLayout solutionCard12Layout = new javax.swing.GroupLayout(solutionCard12);
@@ -537,7 +590,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         solutionCard12Layout.setHorizontalGroup(
             solutionCard12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, solutionCard12Layout.createSequentialGroup()
-                .addContainerGap(294, Short.MAX_VALUE)
+                .addContainerGap(499, Short.MAX_VALUE)
                 .addComponent(jLabel12)
                 .addGap(156, 156, 156))
         );
@@ -551,6 +604,10 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 
         cards.add(solutionCard12, "card2");
 
+        previewPrintCard13.setBackground(new java.awt.Color(0, 139, 69));
+        previewPrintCard13.setMaximumSize(new java.awt.Dimension(700, 565));
+        previewPrintCard13.setMinimumSize(new java.awt.Dimension(700, 565));
+
         jLabel13.setText("jLabel13");
 
         javax.swing.GroupLayout previewPrintCard13Layout = new javax.swing.GroupLayout(previewPrintCard13);
@@ -558,7 +615,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         previewPrintCard13Layout.setHorizontalGroup(
             previewPrintCard13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, previewPrintCard13Layout.createSequentialGroup()
-                .addContainerGap(235, Short.MAX_VALUE)
+                .addContainerGap(440, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addGap(215, 215, 215))
         );
@@ -577,14 +634,14 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         faceToFaceMainjPanelLayout.setHorizontalGroup(
             faceToFaceMainjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(faceToFaceMainjPanelLayout.createSequentialGroup()
-                .addComponent(cards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cards, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
         );
         faceToFaceMainjPanelLayout.setVerticalGroup(
             faceToFaceMainjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, faceToFaceMainjPanelLayout.createSequentialGroup()
                 .addGap(0, 35, Short.MAX_VALUE)
-                .addComponent(cards, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(cards, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -595,7 +652,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(faceToFaceMainjPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(faceToFaceMainjPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
