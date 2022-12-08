@@ -40,7 +40,6 @@ public class CoachMainJFrame extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 600));
 
         CoachSplitPane.setDividerLocation(100);
 
@@ -58,6 +57,11 @@ public class CoachMainJFrame extends javax.swing.JFrame {
 
         TrainingButton.setText("Training");
         TrainingButton.setPreferredSize(new java.awt.Dimension(72, 23));
+        TrainingButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TrainingButtonActionPerformed(evt);
+            }
+        });
 
         MedicalButton.setText("Medical");
 
@@ -131,6 +135,12 @@ public class CoachMainJFrame extends javax.swing.JFrame {
         CoachFormationJPanel CFJP = new CoachFormationJPanel(this.person);
         this.CoachSplitPane.setRightComponent(CFJP);
     }//GEN-LAST:event_FormationButtonActionPerformed
+
+    private void TrainingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrainingButtonActionPerformed
+        // TODO add your handling code here:
+        CoachTrainJPanel CTJP = new CoachTrainJPanel(this.person);
+        this.CoachSplitPane.setRightComponent(CTJP);
+    }//GEN-LAST:event_TrainingButtonActionPerformed
 
     /**
      * @param args the command line arguments
