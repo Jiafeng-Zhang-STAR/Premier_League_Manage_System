@@ -10,8 +10,10 @@ import TheClub.Health.Doctor.Doctor;
 import TheClub.Team.Team;
 //import java.awt.Graphics;
 import java.awt.Color;
+import java.awt.Image;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
+import javax.swing.ImageIcon;
 
 
 /**
@@ -45,8 +47,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
         for(int i=0;i<length2;i++){
         System.out.println(this.doctor.getTeam().getPlayerCatalog().getPlayerCata().get(i).getUsername());  
         }
-//        DoctorDiagnoseAppointmentJPanel doctorDiagnoseAppointmentJPanel = new DoctorDiagnoseAppointmentJPanel(this.doctor);
-//        jSplitPane1.setRightComponent(doctorDiagnoseAppointmentJPanel);
         
         Enumeration<AbstractButton> button;
         button=doctorJFrameButtonGroup.getElements();
@@ -54,17 +54,22 @@ public class DoctorJFrame extends javax.swing.JFrame {
         for(int i=0;i<doctorJFrameButtonGroup.getButtonCount();i++)
         {
               buttonChoose=button.nextElement();
-//            buttonChoose.setFocusPainted(false);
-//            buttonChoose.setMargin(new java.awt.Insets(0, 0, 0, 0));
-//            buttonChoose.setContentAreaFilled(false);
-//            buttonChoose.setBorderPainted(false);
-//            buttonChoose.setOpaque(true);
               buttonChoose.setBackground(new java.awt.Color(255, 255, 255));
               buttonChoose.setForeground(Color.black);
             
         }
-
+        
+        
     }
+    
+//    public void imageBackground(){
+//        ImageIcon oldIcon= new ImageIcon("/1234.png");
+//        Image oldImage = oldIcon.getImage();
+//        Image newImage= oldImage.getScaledInstance(backgroundPictureLabel.getWidth(), backgroundPictureLabel.getHeight(), Image.SCALE_AREA_AVERAGING);
+//        ImageIcon newIcon = new ImageIcon(newImage);
+//        backgroundPictureLabel.setIcon(newIcon);
+//    }
+    
     //构造器 用于初始化 Constructor Used to initialize
     /**
      * This method is called from within the constructor to initialize the form.
@@ -92,6 +97,7 @@ public class DoctorJFrame extends javax.swing.JFrame {
         positionMainLabel = new javax.swing.JLabel();
         userNameMainLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        backgroundPictureLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -113,7 +119,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
         onlineDignoseButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         onlineDignoseButton.setMaximumSize(new java.awt.Dimension(90, 23));
         onlineDignoseButton.setMinimumSize(new java.awt.Dimension(90, 23));
-        onlineDignoseButton.setPreferredSize(null);
         onlineDignoseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 onlineDignoseButtonActionPerformed(evt);
@@ -125,7 +130,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
         loginOutButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         loginOutButton.setMaximumSize(new java.awt.Dimension(100, 23));
         loginOutButton.setMinimumSize(new java.awt.Dimension(72, 23));
-        loginOutButton.setPreferredSize(null);
         loginOutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginOutButtonActionPerformed(evt);
@@ -152,7 +156,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
         personProfileButton.setText("<html>Person<br/>Profile</html>");
         doctorJFrameButtonGroup.add(personProfileButton);
         personProfileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        personProfileButton.setPreferredSize(null);
         personProfileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 personProfileButtonActionPerformed(evt);
@@ -182,7 +185,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
         faceToFaceDignoseButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         faceToFaceDignoseButton.setMaximumSize(new java.awt.Dimension(90, 23));
         faceToFaceDignoseButton.setMinimumSize(new java.awt.Dimension(90, 23));
-        faceToFaceDignoseButton.setPreferredSize(null);
         faceToFaceDignoseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 faceToFaceDignoseButtonActionPerformed(evt);
@@ -195,7 +197,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
         dignoseRecordsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         dignoseRecordsButton.setMaximumSize(new java.awt.Dimension(90, 23));
         dignoseRecordsButton.setMinimumSize(new java.awt.Dimension(90, 23));
-        dignoseRecordsButton.setPreferredSize(null);
         dignoseRecordsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dignoseRecordsButtonActionPerformed(evt);
@@ -231,7 +232,7 @@ public class DoctorJFrame extends javax.swing.JFrame {
                     .addComponent(dignoseRecordsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(onlineDignoseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(faceToFaceDignoseButton, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                    .addComponent(personProfileButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(personProfileButton)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(userNameMainLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -281,15 +282,25 @@ public class DoctorJFrame extends javax.swing.JFrame {
         jPanel2.setMinimumSize(new java.awt.Dimension(700, 600));
         jPanel2.setPreferredSize(new java.awt.Dimension(700, 600));
 
+        backgroundPictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TheSystem/Common/SelfDesignIcon/700_600_selfDesigned_Doctor.png"))); // NOI18N
+        backgroundPictureLabel.setMaximumSize(new java.awt.Dimension(700, 600));
+        backgroundPictureLabel.setMinimumSize(new java.awt.Dimension(700, 600));
+        backgroundPictureLabel.setPreferredSize(new java.awt.Dimension(700, 600));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(backgroundPictureLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addComponent(backgroundPictureLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -463,6 +474,7 @@ public class DoctorJFrame extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel backgroundPictureLabel;
     private javax.swing.JButton dignoseRecordsButton;
     private javax.swing.ButtonGroup doctorJFrameButtonGroup;
     private javax.swing.JButton faceToFaceDignoseButton;

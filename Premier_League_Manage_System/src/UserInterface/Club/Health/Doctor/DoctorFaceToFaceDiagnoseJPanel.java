@@ -7,6 +7,7 @@ package UserInterface.Club.Health.Doctor;
 import TheClub.Health.Doctor.Doctor;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Image;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
 import javax.swing.JMenuBar;
@@ -14,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JRootPane;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*; 
+import javax.swing.ImageIcon;
 //import javax.swing.ButtonModel;
 //import javax.swing.JButton;
 
@@ -32,6 +34,11 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 //        jPanel1.add(jMenuBar1,BorderLayout.NORTH);
     setJPanelMenuBar(this, faceToFaceMainjPanel,faceToFaceMenuBar);
 //      fillingAppointmentHistoryTable();
+        cards.removeAll();
+        cards.add(chooseAppointmentCard1);
+        cards.repaint();
+        cards.revalidate();
+//                imageBackground();
     }
 
     /**
@@ -70,6 +77,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         appointmentHistoryTable = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
+        backgroundPictureLabel = new javax.swing.JLabel();
         basicInfoCard2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         vitalSignHistoryCard3 = new javax.swing.JPanel();
@@ -95,9 +103,9 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         previewPrintCard13 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
 
-        faceToFaceMenuBar.setMaximumSize(new java.awt.Dimension(700, 30));
-        faceToFaceMenuBar.setMinimumSize(new java.awt.Dimension(700, 30));
-        faceToFaceMenuBar.setPreferredSize(new java.awt.Dimension(700, 30));
+        faceToFaceMenuBar.setMaximumSize(new java.awt.Dimension(700, 35));
+        faceToFaceMenuBar.setMinimumSize(new java.awt.Dimension(700, 35));
+        faceToFaceMenuBar.setPreferredSize(new java.awt.Dimension(700, 35));
 
         appointmentMenu.setText("Appointment");
         appointmentMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -300,20 +308,29 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
             }
         });
 
+        backgroundPictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TheSystem/Common/SelfDesignIcon/700_565_selfDesigned_SoccerField_Card.png"))); // NOI18N
+        backgroundPictureLabel.setMaximumSize(new java.awt.Dimension(700, 565));
+        backgroundPictureLabel.setMinimumSize(new java.awt.Dimension(700, 565));
+
         javax.swing.GroupLayout chooseAppointmentCard1Layout = new javax.swing.GroupLayout(chooseAppointmentCard1);
         chooseAppointmentCard1.setLayout(chooseAppointmentCard1Layout);
         chooseAppointmentCard1Layout.setHorizontalGroup(
             chooseAppointmentCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(chooseAppointmentCard1Layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, chooseAppointmentCard1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(chooseAppointmentCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29))
+                    .addGroup(chooseAppointmentCard1Layout.createSequentialGroup()
+                        .addGap(478, 478, 478)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, chooseAppointmentCard1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(132, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, chooseAppointmentCard1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(181, 181, 181))
+            .addGroup(chooseAppointmentCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(backgroundPictureLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         chooseAppointmentCard1Layout.setVerticalGroup(
             chooseAppointmentCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -322,9 +339,11 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
+            .addGroup(chooseAppointmentCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(backgroundPictureLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         cards.add(chooseAppointmentCard1, "card2");
@@ -662,6 +681,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         cards.add(chooseAppointmentCard1);
         cards.repaint();
         cards.revalidate();
+//        imageBackground();
     }//GEN-LAST:event_chooseAppointmentMenuItemActionPerformed
 
     private void basicInfoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_basicInfoMenuItemActionPerformed
@@ -765,6 +785,13 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 //        fillingAppointmentHistoryTable();
     }//GEN-LAST:event_jButton4ActionPerformed
 
+//    public void imageBackground(){
+//        ImageIcon oldIcon= new ImageIcon("/1234.png");
+//        Image oldImage = oldIcon.getImage();
+//        Image newImage= oldImage.getScaledInstance(backgroundPictureLabel.getWidth(), backgroundPictureLabel.getHeight(), Image.SCALE_SMOOTH);
+//        ImageIcon newIcon = new ImageIcon(newImage);
+//        backgroundPictureLabel.setIcon(newIcon);
+//    }
     public static void setJPanelMenuBar(JPanel parent, JPanel child, JMenuBar menuBar) {
         parent.removeAll();
         parent.setLayout(new BorderLayout());
@@ -836,6 +863,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable appointmentHistoryTable;
     private javax.swing.JMenu appointmentMenu;
+    private javax.swing.JLabel backgroundPictureLabel;
     private javax.swing.JPanel basicInfoCard2;
     private javax.swing.JMenuItem basicInfoMenuItem;
     private javax.swing.JPanel cards;
@@ -860,7 +888,6 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel medicalPictureHistoryCard5;
     private javax.swing.JMenuItem medicalPictureHistoryMenuItem;
