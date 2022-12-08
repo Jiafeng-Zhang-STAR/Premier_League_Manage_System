@@ -28,7 +28,7 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
     String toDate;
     String balance;
     /*Lu email在登录后打开这个界面时传入，*/
-    String email = "haoranlv@qq.com"; 
+    String email = "yidianhaoranlv07@outlook.com"; 
     
     
     /**
@@ -246,7 +246,7 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnWait))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(331, Short.MAX_VALUE))
+                .addContainerGap(309, Short.MAX_VALUE))
         );
 
         SplitPane.setRightComponent(BookTicketJPanel);
@@ -255,7 +255,7 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
+            .addComponent(SplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -379,18 +379,12 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
                 String password = "abcd1234!";
                 Connection connection = DriverManager.getConnection(url, username, password);
                 Statement statement = connection.createStatement();
-                
-                /*先把用户名写在这里*/
-                
-            
-                /* Insert */
+
+                /* 在fan_match中增加book记录 */
                 String sql = "INSERT INTO fan_match (email, hometeam, awayteam, date, price,status) VALUES (\'" + email +"\',\'" + homeTeam +"\',\'" +awayTeam+"\',\'"+ date +"\',\'"+ price +"\','Ordered')"; 
                 int isBooked = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
                
-                if (isBooked ==1){
-                    //populateTable(); //Refresh table
-                    JOptionPane.showMessageDialog(this, "Booked successfully.");
-                }
+                
                 /*4.`match_info`中left_amount会-1 */
                 /*4.1 找出之前剩余票数 */
                 String sqlLeftAmount = "SELECT left_amount FROM match_info WHERE date = \'"+ date +"\' and home =\'"+homeTeam +"\'and away =\'"+awayTeam +"\'"; 
@@ -404,13 +398,13 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
                 int isInsertLeftAmount = statement.executeUpdate(sqlInsertLeftAmount);//executeQuery(sql)是查询  executeUpdate是删改
                 if (isBooked ==1&&isInsertLeftAmount==1){
                     //populateTable(); //Refresh table
-                    JOptionPane.showMessageDialog(this, "Paid successfully.");
+                    JOptionPane.showMessageDialog(this, "Book successfully.");
                 }
 
                 resultSet.close();//close  搭配select使用，其他update什么的都不用
                 statement.close();
                 connection.close();
-                CheckTicketJPanel checkticketjpanel = new CheckTicketJPanel(email,balance,lb_Balance);///跳转页面
+                CheckTicketJPanel checkticketjpanel = new CheckTicketJPanel(email,balance,lb_Balance,SplitPane);///跳转页面
                 SplitPane.setRightComponent(checkticketjpanel);
                 } catch (ClassNotFoundException | SQLException e) {
                     JOptionPane.showMessageDialog(this, "You need to check before book.");
@@ -426,7 +420,7 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
 
     private void btnCheckTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckTicketActionPerformed
         // TODO add your handling code here:
-        CheckTicketJPanel checkticketjpanel = new CheckTicketJPanel(email,balance,lb_Balance);///跳转页面
+        CheckTicketJPanel checkticketjpanel = new CheckTicketJPanel(email,balance,lb_Balance,SplitPane);///跳转页面
         SplitPane.setRightComponent(checkticketjpanel);
     }//GEN-LAST:event_btnCheckTicketActionPerformed
 
@@ -479,7 +473,7 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
                 
                 statement.close();
                 connection.close();
-                CheckTicketJPanel checkticketjpanel = new CheckTicketJPanel(email,balance,lb_Balance);///跳转页面
+                CheckTicketJPanel checkticketjpanel = new CheckTicketJPanel(email,balance,lb_Balance,SplitPane);///跳转页面
                 SplitPane.setRightComponent(checkticketjpanel);
             } catch (ClassNotFoundException | SQLException e) {
                 JOptionPane.showMessageDialog(this, "You need to check before book.");

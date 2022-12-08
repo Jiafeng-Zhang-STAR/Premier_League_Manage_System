@@ -34,6 +34,8 @@
                       <Component id="btnRefund" min="-2" pref="78" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                       <Component id="btnCancelBook" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="btnRatePlayer" min="-2" pref="78" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" min="-2" pref="496" max="-2" attributes="0"/>
               </Group>
@@ -50,6 +52,7 @@
                   <Component id="btnPay" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnRefund" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnCancelBook" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRatePlayer" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="406" max="32767" attributes="0"/>
           </Group>
@@ -133,6 +136,17 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelBookActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRatePlayer">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="RatePlayer"/>
+        <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+          <Insets value="[0, 0, 0, 0]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRatePlayerActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

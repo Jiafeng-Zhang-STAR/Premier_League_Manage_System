@@ -12,6 +12,7 @@ import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
+import javax.swing.JSplitPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -26,29 +27,26 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
     String balance;
     int balanceInt;
     javax.swing.JLabel lb_Balance;
-    
+    JSplitPane SplitPane;
+    String date = "";
+    String homeTeam = "";
+    String awayTeam = "";
     /**
      * 发邮件所需变量
      */
-    String myEmailAccount = "yidianhaoranlv@126.com";
-    String myEmailPassword = "VTBKCYNTNIIYHNVU";
-
-    // 发件人邮箱的 SMTP 服务器地址, 必须准确, 不同邮件服务器地址不同, 一般(只是一般, 绝非绝对)格式为: smtp.xxx.com
-    // 网易163邮箱的 SMTP 服务器地址为: smtp.163.com
-    String myEmailSMTPHost = "smtp.126.com";
-
-    // 收件人邮箱（替换为自己知道的有效邮箱）
-    String receiveMailAccount = "yidianhaoranlv07@outlook.com";
+   
     /**
      * Creates new form CheckTicketJPanel
      */
     public CheckTicketJPanel() {
         initComponents();
     }
-    public CheckTicketJPanel(String email,String balance,javax.swing.JLabel lb_Balance) {
+    public CheckTicketJPanel(String email,String balance,javax.swing.JLabel lb_Balance, JSplitPane SplitPane) {
         this.email = email;
         this.balance = balance;
+        
         this.lb_Balance =lb_Balance;
+        this.SplitPane = SplitPane;
         initComponents();
         populateTable();
     }
@@ -67,6 +65,7 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
         btnPay = new javax.swing.JButton();
         btnRefund = new javax.swing.JButton();
         btnCancelBook = new javax.swing.JButton();
+        btnRatePlayer = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(500, 600));
         setMinimumSize(new java.awt.Dimension(500, 600));
@@ -116,6 +115,14 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnRatePlayer.setText("RatePlayer");
+        btnRatePlayer.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        btnRatePlayer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRatePlayerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -129,7 +136,9 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
                         .addGap(40, 40, 40)
                         .addComponent(btnRefund, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(52, 52, 52)
-                        .addComponent(btnCancelBook))
+                        .addComponent(btnCancelBook)
+                        .addGap(38, 38, 38)
+                        .addComponent(btnRatePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
@@ -141,7 +150,8 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPay)
                     .addComponent(btnRefund)
-                    .addComponent(btnCancelBook))
+                    .addComponent(btnCancelBook)
+                    .addComponent(btnRatePlayer))
                 .addContainerGap(406, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -156,11 +166,11 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
 
         DefaultTableModel model = (DefaultTableModel) tbMySession.getModel();
 
-        String date = model.getValueAt(selectedRowIndex , 0).toString();//获得选中的行的第2列的内容
-        String homeTeam = model.getValueAt(selectedRowIndex , 1).toString();//获得选中的行的第2列的内容
-        String awayTeam = model.getValueAt(selectedRowIndex , 2).toString();//获得选中的行的第2列的内容
+        date = model.getValueAt(selectedRowIndex , 0).toString();//获得选中的行的第2列的内容
+        homeTeam = model.getValueAt(selectedRowIndex , 1).toString();//获得选中的行的第2列的内容
+        awayTeam = model.getValueAt(selectedRowIndex , 2).toString();//获得选中的行的第2列的内容
         int price = Integer.parseInt(model.getValueAt(selectedRowIndex , 3).toString());//获得选中的行的第2列的内容
-        int balanceInt =Integer.parseInt(balance);
+        balanceInt =Integer.parseInt(balance);
         if(balanceInt-price<0){
             JOptionPane.showMessageDialog(this, "Balance is not enough.");
             return;
@@ -173,7 +183,7 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
             }   
         /*2.页面改balance*/
         lb_Balance.setText(String.valueOf(balanceInt-price));
-        
+        balanceInt = balanceInt -price;
         
         try {
             /* create jdbc connection */
@@ -236,16 +246,11 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
 
         DefaultTableModel model = (DefaultTableModel) tbMySession.getModel();
 
-        String date = model.getValueAt(selectedRowIndex , 0).toString();//获得选中的行的第2列的内容
-        String homeTeam = model.getValueAt(selectedRowIndex , 1).toString();//获得选中的行的第2列的内容
-        String awayTeam = model.getValueAt(selectedRowIndex , 2).toString();//获得选中的行的第2列的内容
+        date = model.getValueAt(selectedRowIndex , 0).toString();//获得选中的行的第2列的内容
+        homeTeam = model.getValueAt(selectedRowIndex , 1).toString();//获得选中的行的第2列的内容
+        awayTeam = model.getValueAt(selectedRowIndex , 2).toString();//获得选中的行的第2列的内容
         int price = Integer.parseInt(model.getValueAt(selectedRowIndex , 3).toString());//获得选中的行的第2列的内容
-        
-        int balanceInt =Integer.parseInt(balance);
-        
-        
-        
-        
+        balanceInt =Integer.parseInt(balance);
         /*1.数据库返回balance*/
         boolean refundSuccess = refundToDatabaseBalance(price);
         if(refundSuccess == false){
@@ -267,7 +272,7 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
 
-            String sql = "UPDATE fan_match SET status = \'Canceled\' WHERE email =\'"+email +"\'and hometeam =\'"+homeTeam +"\'and awayteam =\'"+awayTeam +"\'and date =\'"+date +"\'and price ="+price;
+            String sql = "UPDATE fan_match SET status = \'Refund\' WHERE email =\'"+email +"\'and hometeam =\'"+homeTeam +"\'and awayteam =\'"+awayTeam +"\'and date =\'"+date +"\'and price ="+price;
             
             int isBooked = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
 
@@ -310,9 +315,9 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
 
         DefaultTableModel model = (DefaultTableModel) tbMySession.getModel();
 
-        String date = model.getValueAt(selectedRowIndex , 0).toString();//获得选中的行的第2列的内容
-        String homeTeam = model.getValueAt(selectedRowIndex , 1).toString();//获得选中的行的第2列的内容
-        String awayTeam = model.getValueAt(selectedRowIndex , 2).toString();//获得选中的行的第2列的内容
+        date = model.getValueAt(selectedRowIndex , 0).toString();//获得选中的行的第2列的内容
+        homeTeam = model.getValueAt(selectedRowIndex , 1).toString();//获得选中的行的第2列的内容
+        awayTeam = model.getValueAt(selectedRowIndex , 2).toString();//获得选中的行的第2列的内容
         int price = Integer.parseInt(model.getValueAt(selectedRowIndex , 3).toString());//获得选中的行的第2列的内容
         
         
@@ -329,7 +334,7 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
 
-            String sql = "UPDATE fan_match SET status = \'Canceled\' WHERE email =\'"+email +"\'and hometeam =\'"+homeTeam +"\'and awayteam =\'"+awayTeam +"\'and date =\'"+date +"\'and price ="+price;
+            String sql = "DELETE from fan_match WHERE email =\'"+email +"\'and hometeam =\'"+homeTeam +"\'and awayteam =\'"+awayTeam +"\'and date =\'"+date +"\'and price ="+price;
             
             int isBooked = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
 
@@ -361,6 +366,23 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
         /*4.刷新表格 */
         populateTable();
     }//GEN-LAST:event_btnCancelBookActionPerformed
+
+    private void btnRatePlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRatePlayerActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = tbMySession.getSelectedRow();
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a match.");
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) tbMySession.getModel();
+
+        date = model.getValueAt(selectedRowIndex , 0).toString();//获得选中的行的第2列的内容
+        homeTeam = model.getValueAt(selectedRowIndex , 1).toString();//获得选中的行的第2列的内容
+        awayTeam = model.getValueAt(selectedRowIndex , 2).toString();//获得选中的行的第2列的内容
+        RatePlayerJPanel rateplayerjpanel = new RatePlayerJPanel(email,SplitPane,date,homeTeam,awayTeam);///跳转页面
+        SplitPane.setRightComponent(rateplayerjpanel);
+    }//GEN-LAST:event_btnRatePlayerActionPerformed
 
 private void populateTable() {
                // TODO add your handling code here:
@@ -449,13 +471,13 @@ private void populateTable() {
                 
                 String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
                 String username = "root";
-                
+                balanceInt =Integer.parseInt(balance);
                 String password = "abcd1234!";
                 Connection connection = DriverManager.getConnection(url, username, password);
                 Statement statement = connection.createStatement();
                 
                 /* get matchliset in these dates */
-                String sql = "UPDATE fan_balance SET balance ="+ (Integer.parseInt(balance)+price)+" WHERE email =\'"+email+"\'";  
+                String sql = "UPDATE fan_balance SET balance ="+ (balanceInt+price)+" WHERE email =\'"+email+"\'";  
                 
                 int isBooked = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
 
@@ -475,6 +497,7 @@ private void populateTable() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelBook;
     private javax.swing.JButton btnPay;
+    private javax.swing.JButton btnRatePlayer;
     private javax.swing.JButton btnRefund;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbMySession;

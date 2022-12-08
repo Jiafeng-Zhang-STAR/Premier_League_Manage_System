@@ -32,7 +32,7 @@ import javax.mail.MessagingException;
 public class TicketManagerJFrame extends javax.swing.JFrame {
     
     /*Lu email在登录后打开这个界面时传入，*/
-    String email = "haoranlv@qq.com"; 
+    String email = "yidianhaoranlv07@outlook.com"; 
     /**
      * Creates new form TicketManagerJFrame
      */
@@ -294,7 +294,7 @@ public class TicketManagerJFrame extends javax.swing.JFrame {
                     }
                     
                     
-                    JOptionPane.showMessageDialog(this, "");
+                    //JOptionPane.showMessageDialog(this, "");
                 }
                 /*把amount update到数据库*/
                 int leftAmount_Fianl = newAmount + leftAmount- oldAmount-sendTimes;
@@ -397,6 +397,7 @@ public class TicketManagerJFrame extends javax.swing.JFrame {
                 return;
             }
     }
+    
     /*邮件内容*/
     public static void sendEmail(String receiveMailAccount) throws Exception {
         // 1. 创建参数配置, 用于连接邮件服务器的参数配置
@@ -467,11 +468,11 @@ public class TicketManagerJFrame extends javax.swing.JFrame {
             message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiveMail, "Customer", "UTF-8"));
 
             // 4. Subject: 邮件主题（标题有广告嫌疑，避免被邮件服务器误认为是滥发广告以至返回失败，请修改标题）
-            message.setSubject("PremierLeague Ticket Confirmation", "UTF-8");
+            message.setSubject("PremierLeague Tickets Available To Pay", "UTF-8");
 
 
             // 5. Content: 邮件正文（可以使用html标签）（内容有广告嫌疑，避免被邮件服务器误认为是滥发广告以至返回失败，请修改发送内容）
-            message.setContent("Thank you for purchasing tickets online for the match. We look forward to welcoming you!", "text/html;charset=UTF-8");
+            message.setContent("Thank you for waiting fot the tickets. Now there are tickets available to pay!", "text/html;charset=UTF-8");
 
             // 6. 设置发件时间
             message.setSentDate(new Date());
