@@ -57,9 +57,7 @@ public class DoctorJFrame extends javax.swing.JFrame {
               buttonChoose.setBackground(new java.awt.Color(255, 255, 255));
               buttonChoose.setForeground(Color.black);
             
-        }
-        
-        
+        }   
     }
     
 //    public void imageBackground(){
