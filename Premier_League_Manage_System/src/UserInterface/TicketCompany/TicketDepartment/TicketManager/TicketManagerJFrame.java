@@ -90,7 +90,7 @@ public class TicketManagerJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lb_Account)
-                .addContainerGap(542, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         TicketManagerSplitPane.setLeftComponent(ControlPanel);
@@ -139,12 +139,11 @@ public class TicketManagerJFrame extends javax.swing.JFrame {
         ManageTicketJPanelLayout.setHorizontalGroup(
             ManageTicketJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ManageTicketJPanelLayout.createSequentialGroup()
+                .addGap(92, 92, 92)
                 .addGroup(ManageTicketJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(ManageTicketJPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ManageTicketJPanelLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
+                        .addGap(9, 9, 9)
                         .addGroup(ManageTicketJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(ManageTicketJPanelLayout.createSequentialGroup()
                                 .addComponent(btnSetAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -154,7 +153,7 @@ public class TicketManagerJFrame extends javax.swing.JFrame {
                                 .addComponent(btnSetPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
         ManageTicketJPanelLayout.setVerticalGroup(
             ManageTicketJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -398,7 +397,7 @@ public class TicketManagerJFrame extends javax.swing.JFrame {
             }
     }
     
-    /*邮件内容*/
+    /*发送邮件*/
     public static void sendEmail(String receiveMailAccount) throws Exception {
         // 1. 创建参数配置, 用于连接邮件服务器的参数配置
         Properties props = new Properties();                    // 参数配置
