@@ -4,6 +4,16 @@
  */
 package UserInterface.Club.ClubManagement.ClubManager;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author yidia
@@ -12,11 +22,13 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
      /*Lu email和club在登录后打开这个界面时传入*/
     String email = "yidianhaoranlv07@outlook.com"; 
     String club = "Bacelona";
+    int salesPrice;
     /**
      * Creates new form ClubManager
      */
     public ClubManagerJFrame(){
         initComponents();
+        populateTable();
     }
 
     /**
@@ -33,9 +45,18 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         lb_Account = new javax.swing.JLabel();
         btnCheckSponsor = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        btnCheckTransfer = new javax.swing.JButton();
+        btnTeamMember = new javax.swing.JButton();
+        ClubManagerViewJPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbMyClubPerson = new javax.swing.JTable();
+        tbClubManagerOverview = new javax.swing.JTable();
+        btnUpdate = new javax.swing.JButton();
+        btnFire = new javax.swing.JButton();
+        btnCreate = new javax.swing.JButton();
+        btnSell = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        txtTransferPrice = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,6 +73,20 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnCheckTransfer.setText("CheckTransfer");
+        btnCheckTransfer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckTransferActionPerformed(evt);
+            }
+        });
+
+        btnTeamMember.setText("TeamMember");
+        btnTeamMember.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTeamMemberActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -64,7 +99,10 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
                 .addGap(15, 15, 15))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnCheckSponsor)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCheckSponsor)
+                    .addComponent(btnCheckTransfer)
+                    .addComponent(btnTeamMember))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -74,58 +112,120 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lb_Account)
-                .addGap(67, 67, 67)
+                .addGap(18, 18, 18)
+                .addComponent(btnTeamMember)
+                .addGap(26, 26, 26)
                 .addComponent(btnCheckSponsor)
-                .addContainerGap(452, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(btnCheckTransfer)
+                .addContainerGap(400, Short.MAX_VALUE))
         );
 
         ClubManagerSplitPane.setLeftComponent(jPanel1);
 
-        tbMyClubPerson.setModel(new javax.swing.table.DefaultTableModel(
+        tbClubManagerOverview.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "Role"
+                "Name", "Role", "Gender", "Age", "Nation", "Address", "Zip", "Email"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tbMyClubPerson);
+        jScrollPane1.setViewportView(tbClubManagerOverview);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(425, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+
+        btnFire.setText("Fire");
+        btnFire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFireActionPerformed(evt);
+            }
+        });
+
+        btnCreate.setText("Create");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
+
+        btnSell.setText("Sell");
+        btnSell.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSellActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Please press Enter before Update");
+
+        jLabel2.setText("TransferPrice");
+
+        javax.swing.GroupLayout ClubManagerViewJPanelLayout = new javax.swing.GroupLayout(ClubManagerViewJPanel);
+        ClubManagerViewJPanel.setLayout(ClubManagerViewJPanelLayout);
+        ClubManagerViewJPanelLayout.setHorizontalGroup(
+            ClubManagerViewJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ClubManagerViewJPanelLayout.createSequentialGroup()
+                .addGap(0, 134, Short.MAX_VALUE)
+                .addGroup(ClubManagerViewJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 667, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(ClubManagerViewJPanelLayout.createSequentialGroup()
+                .addGap(227, 227, 227)
+                .addComponent(btnCreate)
+                .addGap(30, 30, 30)
+                .addComponent(btnUpdate)
+                .addGap(33, 33, 33)
+                .addComponent(btnFire)
+                .addGap(37, 37, 37)
+                .addComponent(btnSell)
+                .addGap(34, 34, 34)
+                .addGroup(ClubManagerViewJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtTransferPrice))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        ClubManagerViewJPanelLayout.setVerticalGroup(
+            ClubManagerViewJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ClubManagerViewJPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ClubManagerViewJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addGap(16, 16, 16)
+                .addGroup(ClubManagerViewJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUpdate)
+                    .addComponent(btnFire)
+                    .addComponent(btnCreate)
+                    .addComponent(btnSell)
+                    .addComponent(txtTransferPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
 
-        ClubManagerSplitPane.setRightComponent(jPanel2);
+        ClubManagerSplitPane.setRightComponent(ClubManagerViewJPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ClubManagerSplitPane)
+            .addComponent(ClubManagerSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,6 +240,156 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
         CheckClubSponsorJPanel checkclubsponsorjpanel = new CheckClubSponsorJPanel(email,club);///跳转页面
         ClubManagerSplitPane.setRightComponent(checkclubsponsorjpanel);
     }//GEN-LAST:event_btnCheckSponsorActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = tbClubManagerOverview.getSelectedRow();
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a row.");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tbClubManagerOverview.getModel();
+        
+        
+        String[] selectedRowColumn = new String[8];
+        for(int i=0;i<8;i++){
+            selectedRowColumn[i] = model.getValueAt(selectedRowIndex , i).toString();//添加内容
+        }
+        String email = selectedRowColumn[7];
+        try {
+            /* create jdbc connection */
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
+            String username = "root";
+
+            String password = "abcd1234!";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement statement = connection.createStatement();
+
+            /* write sql */
+            String sql = "UPDATE system_user_info SET name =\'"+ selectedRowColumn[0]+"\',role_type=\'"+selectedRowColumn[1]+"\',gender= \'"+selectedRowColumn[2]+"\',age="+selectedRowColumn[3]+",nation=\'"+selectedRowColumn[4]+"\',address=\'"+selectedRowColumn[5]+"\',zip= \'"+selectedRowColumn[6]+"\' WHERE username =\'"+email+"\'"; 
+            
+                int isUpdated = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
+               
+                if (isUpdated ==1){
+                    populateTable(); //Refresh table
+                    JOptionPane.showMessageDialog(this, "Updated.");
+                }
+
+            statement.close();
+            connection.close();
+            populateTable();
+            } catch (ClassNotFoundException | SQLException e) {
+            }
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        // TODO add your handling code here:
+        ClubManagerCreateJPanel clubmanagercreatejpanel = new ClubManagerCreateJPanel(ClubManagerSplitPane,club);///跳转页面
+        ClubManagerSplitPane.setRightComponent(clubmanagercreatejpanel);
+    }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void btnFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFireActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = tbClubManagerOverview.getSelectedRow();
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a row.");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tbClubManagerOverview.getModel();
+        String email = model.getValueAt(selectedRowIndex , 7).toString();
+        try {
+            /* create jdbc connection */
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
+            String username = "root";
+
+            String password = "abcd1234!";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement statement = connection.createStatement();
+
+            /* write sql */
+            String sql = "UPDATE system_user_info SET club=\'No\' WHERE username =\'"+email+"\'"; 
+            
+            int isUpdated = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
+
+            if (isUpdated ==1){
+                populateTable(); //Refresh table
+                JOptionPane.showMessageDialog(this, "Fired.");
+            }
+
+            statement.close();
+            connection.close();
+            populateTable();
+            } catch (ClassNotFoundException | SQLException e) {
+            }
+    }//GEN-LAST:event_btnFireActionPerformed
+
+    private void btnSellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSellActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = tbClubManagerOverview.getSelectedRow();
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a row.");
+            return;
+        }
+        try {
+            salesPrice = Integer.parseInt(txtTransferPrice.getText());
+        }catch(NumberFormatException t){
+            JOptionPane.showMessageDialog(this,"Please input an Integer");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tbClubManagerOverview.getModel();
+        String name = model.getValueAt(selectedRowIndex , 0).toString();
+        String email = model.getValueAt(selectedRowIndex , 7).toString();
+        try {
+            /* create jdbc connection */
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
+            String username = "root";
+
+            String password = "abcd1234!";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement statement = connection.createStatement();
+            
+            /*获取当前时间*/
+                SimpleDateFormat sdf = new SimpleDateFormat();// 格式化时间 
+                sdf.applyPattern("yyyy-MM-dd HH:mm:ss");// 
+                Date currentDate = new Date();// 获取当前时间 
+                String cuDate = sdf.format(currentDate);
+                
+            /* write sql */
+            String sql = "INSERT INTO club_transfer_info (time, name, club, transfer_price, status,email) VALUES (\'" + cuDate +"\',\'" + name +"\',\'" +club+"\',\'"+ salesPrice +"\',\'On Sales\',\'"+email+"\')"; 
+            
+            int isUpdated = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
+
+            if (isUpdated ==1){
+                populateTable(); //Refresh table
+                JOptionPane.showMessageDialog(this, "On Sales.");
+            }
+
+            statement.close();
+            connection.close();
+            populateTable();
+            } catch (ClassNotFoundException | SQLException e) {
+            }
+    }//GEN-LAST:event_btnSellActionPerformed
+
+    private void btnCheckTransferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckTransferActionPerformed
+        // TODO add your handling code here:
+        CheckTransferJPanel checktransferjpanel = new CheckTransferJPanel(email,club);///跳转页面
+        ClubManagerSplitPane.setRightComponent(checktransferjpanel);
+    }//GEN-LAST:event_btnCheckTransferActionPerformed
+
+    private void btnTeamMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTeamMemberActionPerformed
+        // TODO add your handling code here:
+        ClubManagerSplitPane.setRightComponent(ClubManagerViewJPanel);
+    }//GEN-LAST:event_btnTeamMemberActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,15 +426,69 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
             }
         });
     }
+    private void populateTable() {
+       DefaultTableModel model = (DefaultTableModel) tbClubManagerOverview.getModel();//生成table
+       model.setRowCount(0);
+       
+       
+       
+       
+       try {
+                /* create jdbc connection */
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                
+                String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
+                String username = "root";
 
+                String password = "abcd1234!";
+                Connection connection = DriverManager.getConnection(url, username, password);
+                Statement statement = connection.createStatement();
+                
+                /* write sql */
+                String sql = "SELECT * FROM system_user_info WHERE club =\'" + club +"\'"; 
+                ResultSet resultSet = statement.executeQuery(sql);   //搭配select使用，其他update什么的都不用
+               
+                while(resultSet.next()){
+                Object[] row = new Object[8];
+                
+                row[0] = String.valueOf(resultSet.getObject("name"));//添加内容
+                row[1] = String.valueOf(resultSet.getObject("role_type"));
+                row[2] = String.valueOf(resultSet.getObject("gender"));
+                row[3] = String.valueOf(resultSet.getObject("age"));
+                row[4] = String.valueOf(resultSet.getObject("nation"));
+                row[5] = String.valueOf(resultSet.getObject("address"));
+                row[6] = String.valueOf(resultSet.getObject("zip"));
+                row[7] = String.valueOf(resultSet.getObject("username"));
+                model.addRow(row);///添加的命令
+           
+                }       
+                
+                
+                
+                resultSet.close();//close  搭配select使用，其他update什么的都不用
+                statement.close();
+                connection.close();
+            } catch (ClassNotFoundException | SQLException e) {
+            }
+    
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSplitPane ClubManagerSplitPane;
+    private javax.swing.JPanel ClubManagerViewJPanel;
     private javax.swing.JButton btnCheckSponsor;
+    private javax.swing.JButton btnCheckTransfer;
+    private javax.swing.JButton btnCreate;
+    private javax.swing.JButton btnFire;
+    private javax.swing.JButton btnSell;
+    private javax.swing.JButton btnTeamMember;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb_Account;
-    private javax.swing.JTable tbMyClubPerson;
+    private javax.swing.JTable tbClubManagerOverview;
+    private javax.swing.JTextField txtTransferPrice;
     // End of variables declaration//GEN-END:variables
 }
