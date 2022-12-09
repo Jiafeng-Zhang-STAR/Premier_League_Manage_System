@@ -4,10 +4,16 @@
  */
 package TheLeague.Match.Manager;
 
+import TheSystem.Common.Person.Person;
+
+
 /**
  *
  * @author Jiafeng
  */
-public class Manager {
+public class Manager extends Person{
+
+    public Manager() {
+    }
     
 }
