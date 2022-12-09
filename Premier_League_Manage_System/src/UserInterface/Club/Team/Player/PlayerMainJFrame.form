@@ -6,9 +6,6 @@
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[600, 600]"/>
     </Property>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[800, 600]"/>
-    </Property>
     <Property name="resizable" type="boolean" value="false"/>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[800, 600]"/>
@@ -67,15 +64,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jButton1" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="UserNameLabel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="AppearButton" alignment="0" max="32767" attributes="0"/>
-                              <Component id="InfoButton" alignment="0" max="32767" attributes="0"/>
-                              <Component id="MedicalButton" alignment="0" pref="90" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="UserNameLabel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="AppearButton" alignment="0" max="32767" attributes="0"/>
+                          <Component id="InfoButton" alignment="0" max="32767" attributes="0"/>
+                          <Component id="MedicalButton" alignment="0" pref="90" max="32767" attributes="0"/>
                           <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="TrainButton" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -93,7 +89,9 @@
                       <Component id="InfoButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="MedicalButton" min="-2" pref="41" max="-2" attributes="0"/>
-                      <EmptySpace pref="420" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="TrainButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="385" max="32767" attributes="0"/>
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -151,6 +149,14 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="-------------"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="TrainButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Train"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TrainButtonActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

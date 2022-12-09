@@ -11,7 +11,7 @@ import TheSystem.Common.Person.Person;
  * @author Andrew Chou
  */
 public class PlayerMainJFrame extends javax.swing.JFrame {
-    Person person = new Person("CR7","1234567",1,2,"MUN",1,37,"POR","Manchester","02148");
+    Person person = new Person("Ronaldo","1234567",1,2,"MUN",1,37,"POR","Manchester","02148");
     /**
      * Creates new form PlayerMainJFrame
      */
@@ -43,11 +43,11 @@ public class PlayerMainJFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         UserNameLabel = new javax.swing.JLabel();
+        TrainButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(600, 600));
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
 
@@ -86,20 +86,27 @@ public class PlayerMainJFrame extends javax.swing.JFrame {
 
         UserNameLabel.setText("-------------");
 
+        TrainButton.setText("Train");
+        TrainButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TrainButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(UserNameLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(AppearButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(InfoButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(MedicalButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
-                    .addComponent(jLabel1))
+                    .addComponent(UserNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(AppearButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(InfoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(MedicalButton, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addComponent(TrainButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -114,7 +121,9 @@ public class PlayerMainJFrame extends javax.swing.JFrame {
                 .addComponent(InfoButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(MedicalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 420, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TrainButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 385, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -168,6 +177,12 @@ public class PlayerMainJFrame extends javax.swing.JFrame {
         PlayerSplitPane.setRightComponent(PMJP);
     }//GEN-LAST:event_MedicalButtonActionPerformed
 
+    private void TrainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrainButtonActionPerformed
+        // TODO add your handling code here:
+        PlayerTrainingJPanel PTJP = new PlayerTrainingJPanel(this.person);
+        PlayerSplitPane.setRightComponent(PTJP);
+    }//GEN-LAST:event_TrainButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -208,6 +223,7 @@ public class PlayerMainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton InfoButton;
     private javax.swing.JButton MedicalButton;
     private javax.swing.JSplitPane PlayerSplitPane;
+    private javax.swing.JButton TrainButton;
     private javax.swing.JLabel UserNameLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
