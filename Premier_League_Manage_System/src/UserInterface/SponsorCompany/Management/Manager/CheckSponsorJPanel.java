@@ -128,7 +128,7 @@ public class CheckSponsorJPanel extends javax.swing.JPanel {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
             /*捐赠成功后改状态到complete */
-            String sql = "UPDATE sponsorompany_sponsor_info SET status = \'Complete\' WHERE username =\'"+email +"\'and team =\'"+team +"\'and date =\'"+date +"\'and quote_price ="+quotaAmount;
+            String sql = "UPDATE sponsorompany_sponsor_info SET status = \'Complete\' WHERE username =\'"+email +"\'and team =\'"+team +"\'and time =\'"+date.replace("T", " ") +"\'and quote_price ="+quotaAmount;
             
             int isBooked = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
             if (isBooked ==1){

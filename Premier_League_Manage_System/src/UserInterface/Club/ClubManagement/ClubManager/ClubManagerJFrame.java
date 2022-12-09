@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 public class ClubManagerJFrame extends javax.swing.JFrame {
      /*Lu email和club在登录后打开这个界面时传入*/
     String email = "yidianhaoranlv07@outlook.com"; 
-    String club = "Bacelona";
+    String club = "RMA";
     int salesPrice;
     /**
      * Creates new form ClubManager
@@ -396,6 +396,7 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
     private void btnTeamMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTeamMemberActionPerformed
         // TODO add your handling code here:
         ClubManagerSplitPane.setRightComponent(ClubManagerViewJPanel);
+        populateTable();
     }//GEN-LAST:event_btnTeamMemberActionPerformed
 
     /**

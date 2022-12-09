@@ -851,7 +851,7 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
             String username = "root";
-            String password = "150823";
+            String password = "abcd1234!";
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
             String sql = "SELECT * FROM system_user_info WHERE club=\'" + this.person.getClub() + "\' AND role_type=\'2\'";
@@ -1194,7 +1194,7 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
                 String username = "root";
-                String password = "150823";
+                String password = "abcd1234!";
                 Connection connection = DriverManager.getConnection(url, username, password);
                 Statement statement = connection.createStatement();
                 String sql = null;
@@ -1252,7 +1252,7 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
             String username = "root";
-            String password = "150823";
+            String password = "abcd1234!";
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
             String sql = "SELECT * FROM match_info WHERE home=\'" + team_Name + "\' "

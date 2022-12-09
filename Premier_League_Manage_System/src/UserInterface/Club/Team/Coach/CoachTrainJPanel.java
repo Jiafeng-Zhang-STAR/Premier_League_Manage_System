@@ -704,7 +704,7 @@ public class CoachTrainJPanel extends javax.swing.JPanel {
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
                     String username = "root";
-                    String password = "150823";
+                    String password = "abcd1234!";
                     Connection connection = DriverManager.getConnection(url, username, password);
                     Statement statement = connection.createStatement();
                     String sql = "DELETE FROM training_plan WHERE date=\'" + this.SelectedDateLabel.getText() + "\'";
@@ -736,7 +736,7 @@ public class CoachTrainJPanel extends javax.swing.JPanel {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
                 String username = "root";
-                String password = "150823";
+                String password = "abcd1234!";
                 Connection connection = DriverManager.getConnection(url, username, password);
                 Statement statement = connection.createStatement();
                 String sql = "INSERT INTO training_plan VALUES(\'" + this.SelectedDateLabel.getText() + "\',\'" + new_Value + "\')";
@@ -767,7 +767,7 @@ public class CoachTrainJPanel extends javax.swing.JPanel {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
                 String username = "root";
-                String password = "150823";
+                String password = "abcd1234!";
                 Connection connection = DriverManager.getConnection(url, username, password);
                 Statement statement = connection.createStatement();
                 String sql = "UPDATE training_plan SET content=\'" + new_Value + "\' WHERE date=\'" + this.SelectedDateLabel.getText() + "\'";
@@ -883,7 +883,7 @@ public class CoachTrainJPanel extends javax.swing.JPanel {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
             String username = "root";
-            String password = "150823";
+            String password = "abcd1234!";
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
             String sql = "SELECT * FROM training_plan";

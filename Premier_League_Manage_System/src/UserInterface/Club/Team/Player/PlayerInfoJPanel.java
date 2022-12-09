@@ -160,7 +160,7 @@ public class PlayerInfoJPanel extends javax.swing.JPanel {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
             String username = "root";
-            String password = "150823";
+            String password = "abcd1234!";
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
             String sql = "SELECT * FROM system_user_info WHERE username=\'"+player_Name+"\'";
