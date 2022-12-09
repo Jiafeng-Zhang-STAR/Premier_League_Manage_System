@@ -41,6 +41,13 @@ public class TicketManagerJFrame extends javax.swing.JFrame {
         lb_Account.setText(email);
         populateTable();
     }
+    
+    public TicketManagerJFrame(String email) {
+        this.email = email;
+        initComponents();
+        lb_Account.setText(email);
+        populateTable();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

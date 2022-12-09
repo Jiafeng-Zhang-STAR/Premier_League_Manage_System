@@ -41,6 +41,15 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
         getBalance();
         lb_Balance.setText(balance);
     }
+    
+     public BuyTicketJFrame(String email) {
+         this.email= email;
+        initComponents();
+        lb_Account.setText(email);
+        //更改Balace label
+        getBalance();
+        lb_Balance.setText(balance);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

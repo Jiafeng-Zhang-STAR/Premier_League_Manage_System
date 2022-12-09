@@ -4,7 +4,7 @@
  */
 package UserInterface.Club.ClubManagement.ClubManager;
 
-import UserInterface.SponsorCompany.Management.Manager.CheckSponsorJPanel;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

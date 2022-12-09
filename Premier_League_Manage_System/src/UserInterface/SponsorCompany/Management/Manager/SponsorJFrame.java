@@ -31,6 +31,11 @@ public class SponsorJFrame extends javax.swing.JFrame {
         initComponents();
         populateTable();
     }
+    public SponsorJFrame(String email) {
+        this.email = email;
+        initComponents();
+        populateTable();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

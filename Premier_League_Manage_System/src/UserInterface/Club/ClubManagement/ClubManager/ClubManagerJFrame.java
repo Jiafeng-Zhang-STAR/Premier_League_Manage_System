@@ -30,6 +30,13 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
         initComponents();
         populateTable();
     }
+    
+    public ClubManagerJFrame(String email,String club){
+        this.email =email;
+        this.club = club;
+        initComponents();
+        populateTable();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
