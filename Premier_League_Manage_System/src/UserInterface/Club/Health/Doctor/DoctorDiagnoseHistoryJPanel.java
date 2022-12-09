@@ -4,6 +4,21 @@
  */
 package UserInterface.Club.Health.Doctor;
 
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+
+
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+import java.sql.*;
+import java.util.ArrayList;
 /**
  *
  * @author Jiafeng
@@ -13,9 +28,11 @@ public class DoctorDiagnoseHistoryJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DoctorHistoryJPanel
      */
+    String path;
     public DoctorDiagnoseHistoryJPanel() {
         initComponents();
-    }
+        
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,15 +43,15 @@ public class DoctorDiagnoseHistoryJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setMaximumSize(new java.awt.Dimension(495, 600));
-        setMinimumSize(new java.awt.Dimension(295, 600));
-        setPreferredSize(new java.awt.Dimension(495, 600));
+        setMaximumSize(new java.awt.Dimension(595, 600));
+        setMinimumSize(new java.awt.Dimension(595, 600));
+        setPreferredSize(new java.awt.Dimension(595, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 495, Short.MAX_VALUE)
+            .addGap(0, 595, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -42,6 +59,7 @@ public class DoctorDiagnoseHistoryJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

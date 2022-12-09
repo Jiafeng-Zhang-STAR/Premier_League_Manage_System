@@ -331,6 +331,11 @@ public class DoctorJFrame extends javax.swing.JFrame {
         }
         dignoseRecordsButton.setBackground(new java.awt.Color(0, 0, 0));
         dignoseRecordsButton.setForeground(Color.white);
+        
+        DoctorDiagnoseHistoryJPanel  doctorDiagnoseHistoryJPanel  = new DoctorDiagnoseHistoryJPanel ();
+        jSplitPane1.setRightComponent(doctorDiagnoseHistoryJPanel);
+        
+        
     }//GEN-LAST:event_dignoseRecordsButtonActionPerformed
 
     private void faceToFaceDignoseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_faceToFaceDignoseButtonActionPerformed
