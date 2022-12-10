@@ -81,7 +81,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
         doctorJFrameButtonGroup = new javax.swing.ButtonGroup();
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        onlineDignoseButton = new javax.swing.JButton();
         loginOutButton = new javax.swing.JButton();
         swithchThemeButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -111,17 +110,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
         jPanel1.setMaximumSize(new java.awt.Dimension(100, 600));
         jPanel1.setMinimumSize(new java.awt.Dimension(100, 600));
         jPanel1.setPreferredSize(new java.awt.Dimension(100, 600));
-
-        onlineDignoseButton.setText("<html>&nbsp&#8202 Online<br/>Diagnose</html>");
-        doctorJFrameButtonGroup.add(onlineDignoseButton);
-        onlineDignoseButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        onlineDignoseButton.setMaximumSize(new java.awt.Dimension(90, 23));
-        onlineDignoseButton.setMinimumSize(new java.awt.Dimension(90, 23));
-        onlineDignoseButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                onlineDignoseButtonActionPerformed(evt);
-            }
-        });
 
         loginOutButton.setText("<html>Login Out</html>");
         doctorJFrameButtonGroup.add(loginOutButton);
@@ -228,7 +216,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(swithchThemeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(dignoseRecordsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(onlineDignoseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(faceToFaceDignoseButton, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
                     .addComponent(personProfileButton)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -262,9 +249,7 @@ public class DoctorJFrame extends javax.swing.JFrame {
                 .addComponent(positionMainLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(personProfileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(onlineDignoseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(102, 102, 102)
                 .addComponent(faceToFaceDignoseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dignoseRecordsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -425,22 +410,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
         loginOutButton.setForeground(Color.white);
     }//GEN-LAST:event_loginOutButtonActionPerformed
 
-    private void onlineDignoseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlineDignoseButtonActionPerformed
-        // TODO add your handling code here:
-        Enumeration<AbstractButton> button;
-        button=doctorJFrameButtonGroup.getElements();
-        AbstractButton buttonChoose; //buttonChoose = jButton1 is true
-        for(int i=0;i<doctorJFrameButtonGroup.getButtonCount();i++)
-        {
-            buttonChoose=button.nextElement();
-            buttonChoose.setBackground(new java.awt.Color(255, 255, 255));
-            buttonChoose.setForeground(Color.black);
-
-        }
-        onlineDignoseButton.setBackground(new java.awt.Color(0, 0, 0));
-        onlineDignoseButton.setForeground(Color.white);
-    }//GEN-LAST:event_onlineDignoseButtonActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -489,7 +458,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton loginOutButton;
     private javax.swing.JLabel nameMainLabel;
-    private javax.swing.JButton onlineDignoseButton;
     private javax.swing.JButton personProfileButton;
     private javax.swing.JLabel positionMainLabel;
     private javax.swing.JButton swithchThemeButton;

@@ -87,7 +87,6 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="swithchThemeButton" max="32767" attributes="0"/>
                           <Component id="dignoseRecordsButton" alignment="1" max="32767" attributes="0"/>
-                          <Component id="onlineDignoseButton" alignment="1" max="32767" attributes="0"/>
                           <Component id="faceToFaceDignoseButton" alignment="1" pref="90" max="32767" attributes="0"/>
                           <Component id="personProfileButton" alignment="1" max="32767" attributes="0"/>
                           <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
@@ -124,9 +123,7 @@
                       <Component id="positionMainLabel" min="-2" pref="16" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="personProfileButton" min="-2" pref="38" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="onlineDignoseButton" min="-2" pref="90" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
                       <Component id="faceToFaceDignoseButton" min="-2" pref="90" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="dignoseRecordsButton" min="-2" pref="90" max="-2" attributes="0"/>
@@ -138,26 +135,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="onlineDignoseButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;&amp;nbsp&amp;#8202 Online&lt;br/&gt;Diagnose&lt;/html&gt;"/>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="doctorJFrameButtonGroup"/>
-                </Property>
-                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Hand Cursor"/>
-                </Property>
-                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[90, 23]"/>
-                </Property>
-                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[90, 23]"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onlineDignoseButtonActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="loginOutButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Login Out&lt;/html&gt;"/>

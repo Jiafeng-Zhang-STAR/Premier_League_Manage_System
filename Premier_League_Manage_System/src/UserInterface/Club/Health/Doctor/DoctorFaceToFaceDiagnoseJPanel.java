@@ -162,7 +162,6 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         vitalSignHistoryMenuItem = new javax.swing.JMenuItem();
         symtomHistoryMenuItem = new javax.swing.JMenuItem();
         medicalPictureHistoryMenuItem = new javax.swing.JMenuItem();
-        prescriptionHistoryMenuItem = new javax.swing.JMenuItem();
         solutionHistoryMenuItem = new javax.swing.JMenuItem();
         diagnoseMenu = new javax.swing.JMenu();
         vitalSignsMenuItem = new javax.swing.JMenuItem();
@@ -170,10 +169,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         uploadPictureMenu = new javax.swing.JMenu();
         uploadPictureMenuItem = new javax.swing.JMenuItem();
         solutionMenu = new javax.swing.JMenu();
-        prescriptionMenuItem = new javax.swing.JMenuItem();
         solutionMenuItem = new javax.swing.JMenuItem();
-        previewPrintMenu = new javax.swing.JMenu();
-        previewPrintMenuItem = new javax.swing.JMenuItem();
         justSetColor = new javax.swing.ButtonGroup();
         faceToFaceMainjPanel = new javax.swing.JPanel();
         cards = new javax.swing.JPanel();
@@ -199,8 +195,6 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         medicalPictureHistoryCard5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        prescriptionHistoryCard6 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
         solutionHistoryCard7 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         vitalSignsCard8 = new javax.swing.JPanel();
@@ -248,12 +242,28 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         playerPictureFillNameLabel = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         playerPictureFillNumberLabel = new javax.swing.JLabel();
-        prescriptionCard11 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
         solutionCard12 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        previewPrintCard13 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        editSolutionFillButton = new javax.swing.JButton();
+        medicine1ComboBox = new javax.swing.JComboBox<>();
+        submitSolutionFillButton = new javax.swing.JButton();
+        medicine2ComboBox = new javax.swing.JComboBox<>();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        mainSymptom2FilljScrollPane1 = new javax.swing.JScrollPane();
+        additionalMedicinejTextPane = new javax.swing.JTextPane();
+        jLabel37 = new javax.swing.JLabel();
+        playerSymptomFillNameLabel1 = new javax.swing.JLabel();
+        saveSolutionFillButton = new javax.swing.JButton();
+        jLabel43 = new javax.swing.JLabel();
+        medicine3ComboBox = new javax.swing.JComboBox<>();
+        jLabel46 = new javax.swing.JLabel();
+        StatusComboBox = new javax.swing.JComboBox<>();
+        jLabel47 = new javax.swing.JLabel();
+        resultComboBox = new javax.swing.JComboBox<>();
+        jLabel38 = new javax.swing.JLabel();
+        mainSymptom2FilljScrollPane2 = new javax.swing.JScrollPane();
+        solutionjTextPane = new javax.swing.JTextPane();
 
         faceToFaceMenuBar.setMaximumSize(new java.awt.Dimension(700, 35));
         faceToFaceMenuBar.setMinimumSize(new java.awt.Dimension(700, 35));
@@ -315,14 +325,6 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         });
         playerInfoMenu.add(medicalPictureHistoryMenuItem);
 
-        prescriptionHistoryMenuItem.setText("Prescriptions History");
-        prescriptionHistoryMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                prescriptionHistoryMenuItemActionPerformed(evt);
-            }
-        });
-        playerInfoMenu.add(prescriptionHistoryMenuItem);
-
         solutionHistoryMenuItem.setText("Solutions History");
         solutionHistoryMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -382,14 +384,6 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         solutionMenu.setMinimumSize(new java.awt.Dimension(116, 35));
         solutionMenu.setPreferredSize(new java.awt.Dimension(116, 35));
 
-        prescriptionMenuItem.setText("Fill Prescription");
-        prescriptionMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                prescriptionMenuItemActionPerformed(evt);
-            }
-        });
-        solutionMenu.add(prescriptionMenuItem);
-
         solutionMenuItem.setText("Fill Solution");
         solutionMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -399,23 +393,6 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         solutionMenu.add(solutionMenuItem);
 
         faceToFaceMenuBar.add(solutionMenu);
-
-        previewPrintMenu.setText("Review Print");
-        previewPrintMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        previewPrintMenu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        previewPrintMenu.setMaximumSize(new java.awt.Dimension(116, 35));
-        previewPrintMenu.setMinimumSize(new java.awt.Dimension(116, 35));
-        previewPrintMenu.setPreferredSize(new java.awt.Dimension(116, 35));
-
-        previewPrintMenuItem.setText("Output Doc");
-        previewPrintMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                previewPrintMenuItemActionPerformed(evt);
-            }
-        });
-        previewPrintMenu.add(previewPrintMenuItem);
-
-        faceToFaceMenuBar.add(previewPrintMenu);
 
         setBackground(new java.awt.Color(0, 139, 69));
         setMaximumSize(new java.awt.Dimension(700, 600));
@@ -686,31 +663,6 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         );
 
         cards.add(medicalPictureHistoryCard5, "card2");
-
-        prescriptionHistoryCard6.setBackground(new java.awt.Color(0, 139, 69));
-        prescriptionHistoryCard6.setMaximumSize(new java.awt.Dimension(700, 565));
-        prescriptionHistoryCard6.setMinimumSize(new java.awt.Dimension(700, 565));
-
-        jLabel6.setText("jLabel6");
-
-        javax.swing.GroupLayout prescriptionHistoryCard6Layout = new javax.swing.GroupLayout(prescriptionHistoryCard6);
-        prescriptionHistoryCard6.setLayout(prescriptionHistoryCard6Layout);
-        prescriptionHistoryCard6Layout.setHorizontalGroup(
-            prescriptionHistoryCard6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, prescriptionHistoryCard6Layout.createSequentialGroup()
-                .addContainerGap(456, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(206, 206, 206))
-        );
-        prescriptionHistoryCard6Layout.setVerticalGroup(
-            prescriptionHistoryCard6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(prescriptionHistoryCard6Layout.createSequentialGroup()
-                .addGap(176, 176, 176)
-                .addComponent(jLabel6)
-                .addContainerGap(373, Short.MAX_VALUE))
-        );
-
-        cards.add(prescriptionHistoryCard6, "card2");
 
         solutionHistoryCard7.setBackground(new java.awt.Color(0, 139, 69));
         solutionHistoryCard7.setMaximumSize(new java.awt.Dimension(700, 565));
@@ -1168,80 +1120,212 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 
         cards.add(uploadPictureCard10, "card2");
 
-        prescriptionCard11.setBackground(new java.awt.Color(0, 139, 69));
-        prescriptionCard11.setMaximumSize(new java.awt.Dimension(700, 565));
-        prescriptionCard11.setMinimumSize(new java.awt.Dimension(700, 565));
-
-        jLabel11.setText("jLabel11");
-
-        javax.swing.GroupLayout prescriptionCard11Layout = new javax.swing.GroupLayout(prescriptionCard11);
-        prescriptionCard11.setLayout(prescriptionCard11Layout);
-        prescriptionCard11Layout.setHorizontalGroup(
-            prescriptionCard11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, prescriptionCard11Layout.createSequentialGroup()
-                .addContainerGap(499, Short.MAX_VALUE)
-                .addComponent(jLabel11)
-                .addGap(156, 156, 156))
-        );
-        prescriptionCard11Layout.setVerticalGroup(
-            prescriptionCard11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(prescriptionCard11Layout.createSequentialGroup()
-                .addGap(173, 173, 173)
-                .addComponent(jLabel11)
-                .addContainerGap(376, Short.MAX_VALUE))
-        );
-
-        cards.add(prescriptionCard11, "card2");
-
         solutionCard12.setBackground(new java.awt.Color(0, 139, 69));
         solutionCard12.setMaximumSize(new java.awt.Dimension(700, 565));
         solutionCard12.setMinimumSize(new java.awt.Dimension(700, 565));
 
-        jLabel12.setText("jLabel12");
+        jLabel33.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel33.setText("Normal Medicine 1 :");
+
+        editSolutionFillButton.setText("Edit");
+        editSolutionFillButton.setMaximumSize(new java.awt.Dimension(80, 28));
+        editSolutionFillButton.setMinimumSize(new java.awt.Dimension(80, 28));
+        editSolutionFillButton.setPreferredSize(new java.awt.Dimension(80, 28));
+        editSolutionFillButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editSolutionFillButtonActionPerformed(evt);
+            }
+        });
+
+        medicine1ComboBox.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        medicine1ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Losartan", "Antibiotics", "Albuterol", "Antihistamines" }));
+        medicine1ComboBox.setSelectedIndex(-1);
+        medicine1ComboBox.setMaximumSize(new java.awt.Dimension(240, 30));
+        medicine1ComboBox.setMinimumSize(new java.awt.Dimension(240, 30));
+
+        submitSolutionFillButton.setText("Submit");
+        submitSolutionFillButton.setMaximumSize(new java.awt.Dimension(80, 28));
+        submitSolutionFillButton.setMinimumSize(new java.awt.Dimension(80, 28));
+        submitSolutionFillButton.setPreferredSize(new java.awt.Dimension(80, 28));
+        submitSolutionFillButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitSolutionFillButtonActionPerformed(evt);
+            }
+        });
+
+        medicine2ComboBox.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        medicine2ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gabapentin", "Omeprazole", "Atorvastatin" }));
+        medicine2ComboBox.setSelectedIndex(-1);
+        medicine2ComboBox.setMaximumSize(new java.awt.Dimension(240, 30));
+        medicine2ComboBox.setMinimumSize(new java.awt.Dimension(240, 30));
+
+        jLabel35.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel35.setText("Normal Medicine 2 :");
+
+        jLabel36.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel36.setText("Additional Medicine :");
+
+        mainSymptom2FilljScrollPane1.setViewportView(additionalMedicinejTextPane);
+
+        jLabel37.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel37.setText("Please fill in the prescription, solution , status and result of player :");
+
+        playerSymptomFillNameLabel1.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        playerSymptomFillNameLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        playerSymptomFillNameLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        playerSymptomFillNameLabel1.setMaximumSize(new java.awt.Dimension(181, 33));
+        playerSymptomFillNameLabel1.setMinimumSize(new java.awt.Dimension(181, 33));
+        playerSymptomFillNameLabel1.setPreferredSize(new java.awt.Dimension(181, 33));
+
+        saveSolutionFillButton.setText("Save");
+        saveSolutionFillButton.setMaximumSize(new java.awt.Dimension(80, 28));
+        saveSolutionFillButton.setMinimumSize(new java.awt.Dimension(80, 28));
+        saveSolutionFillButton.setPreferredSize(new java.awt.Dimension(80, 28));
+        saveSolutionFillButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveSolutionFillButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel43.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel43.setText("Normal Medicine 3 :");
+
+        medicine3ComboBox.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        medicine3ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Synthroid", "Crestor", "Ventolin", "Nexium", "Advair Diskus", "Lantus Solostar", "Vyvanse", "Lyrica", "Spiriva Handihaler", "Januvia" }));
+        medicine3ComboBox.setSelectedIndex(-1);
+        medicine3ComboBox.setMaximumSize(new java.awt.Dimension(240, 30));
+        medicine3ComboBox.setMinimumSize(new java.awt.Dimension(240, 30));
+
+        jLabel46.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel46.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel46.setText("Status :");
+
+        StatusComboBox.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        StatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Finish", "Cancel", "Waiting", "Agree", "Processing" }));
+        StatusComboBox.setSelectedIndex(-1);
+        StatusComboBox.setMaximumSize(new java.awt.Dimension(240, 30));
+        StatusComboBox.setMinimumSize(new java.awt.Dimension(240, 30));
+
+        jLabel47.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel47.setText("Result :");
+
+        resultComboBox.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        resultComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Resolve", "Need to review", "Transfer to hospital", "Stop play and rest" }));
+        resultComboBox.setSelectedIndex(-1);
+        resultComboBox.setMaximumSize(new java.awt.Dimension(240, 30));
+        resultComboBox.setMinimumSize(new java.awt.Dimension(240, 30));
+
+        jLabel38.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel38.setText("Additional Solution :");
+
+        mainSymptom2FilljScrollPane2.setViewportView(solutionjTextPane);
 
         javax.swing.GroupLayout solutionCard12Layout = new javax.swing.GroupLayout(solutionCard12);
         solutionCard12.setLayout(solutionCard12Layout);
         solutionCard12Layout.setHorizontalGroup(
             solutionCard12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(solutionCard12Layout.createSequentialGroup()
+                .addGroup(solutionCard12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, solutionCard12Layout.createSequentialGroup()
+                        .addGap(137, 137, 137)
+                        .addGroup(solutionCard12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(solutionCard12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(solutionCard12Layout.createSequentialGroup()
+                                    .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(medicine2ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(solutionCard12Layout.createSequentialGroup()
+                                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(medicine1ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(solutionCard12Layout.createSequentialGroup()
+                                    .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(medicine3ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(solutionCard12Layout.createSequentialGroup()
+                                .addComponent(saveSolutionFillButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(25, 25, 25)
+                                .addComponent(editSolutionFillButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21)
+                                .addComponent(submitSolutionFillButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(solutionCard12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(solutionCard12Layout.createSequentialGroup()
+                                    .addGroup(solutionCard12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(solutionCard12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(StatusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(resultComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(solutionCard12Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(solutionCard12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(mainSymptom2FilljScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(mainSymptom2FilljScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(155, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, solutionCard12Layout.createSequentialGroup()
-                .addContainerGap(499, Short.MAX_VALUE)
-                .addComponent(jLabel12)
-                .addGap(156, 156, 156))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(solutionCard12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, solutionCard12Layout.createSequentialGroup()
+                        .addComponent(playerSymptomFillNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(258, 258, 258))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, solutionCard12Layout.createSequentialGroup()
+                        .addComponent(jLabel37)
+                        .addGap(41, 41, 41))))
         );
         solutionCard12Layout.setVerticalGroup(
             solutionCard12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(solutionCard12Layout.createSequentialGroup()
-                .addGap(231, 231, 231)
-                .addComponent(jLabel12)
-                .addContainerGap(318, Short.MAX_VALUE))
+                .addGap(45, 45, 45)
+                .addComponent(jLabel37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(playerSymptomFillNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(solutionCard12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(medicine1ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(solutionCard12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(medicine2ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(solutionCard12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(medicine3ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(mainSymptom2FilljScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(mainSymptom2FilljScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addGroup(solutionCard12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(StatusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(solutionCard12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(resultComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(solutionCard12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(saveSolutionFillButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editSolutionFillButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(submitSolutionFillButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        cards.add(solutionCard12, "card2");
-
-        previewPrintCard13.setBackground(new java.awt.Color(0, 139, 69));
-        previewPrintCard13.setMaximumSize(new java.awt.Dimension(700, 565));
-        previewPrintCard13.setMinimumSize(new java.awt.Dimension(700, 565));
-
-        jLabel13.setText("jLabel13");
-
-        javax.swing.GroupLayout previewPrintCard13Layout = new javax.swing.GroupLayout(previewPrintCard13);
-        previewPrintCard13.setLayout(previewPrintCard13Layout);
-        previewPrintCard13Layout.setHorizontalGroup(
-            previewPrintCard13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, previewPrintCard13Layout.createSequentialGroup()
-                .addContainerGap(440, Short.MAX_VALUE)
-                .addComponent(jLabel13)
-                .addGap(215, 215, 215))
-        );
-        previewPrintCard13Layout.setVerticalGroup(
-            previewPrintCard13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(previewPrintCard13Layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(jLabel13)
-                .addContainerGap(419, Short.MAX_VALUE))
-        );
-
-        cards.add(previewPrintCard13, "card2");
+        cards.add(solutionCard12, "card12");
 
         javax.swing.GroupLayout faceToFaceMainjPanelLayout = new javax.swing.GroupLayout(faceToFaceMainjPanel);
         faceToFaceMainjPanel.setLayout(faceToFaceMainjPanelLayout);
@@ -1321,14 +1405,6 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         cards.revalidate();
     }//GEN-LAST:event_medicalPictureHistoryMenuItemActionPerformed
 
-    private void prescriptionHistoryMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prescriptionHistoryMenuItemActionPerformed
-        // TODO add your handling code here:
-        cards.removeAll();
-        cards.add(prescriptionHistoryCard6);
-        cards.repaint();
-        cards.revalidate();
-    }//GEN-LAST:event_prescriptionHistoryMenuItemActionPerformed
-
     private void solutionHistoryMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solutionHistoryMenuItemActionPerformed
         // TODO add your handling code here:
         cards.removeAll();
@@ -1398,14 +1474,6 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_uploadPictureMenuItemActionPerformed
 
-    private void prescriptionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prescriptionMenuItemActionPerformed
-        // TODO add your handling code here:
-        cards.removeAll();
-        cards.add(prescriptionCard11);
-        cards.repaint();
-        cards.revalidate();
-    }//GEN-LAST:event_prescriptionMenuItemActionPerformed
-
     private void solutionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solutionMenuItemActionPerformed
         // TODO add your handling code here:
         cards.removeAll();
@@ -1413,14 +1481,6 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         cards.repaint();
         cards.revalidate();
     }//GEN-LAST:event_solutionMenuItemActionPerformed
-
-    private void previewPrintMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previewPrintMenuItemActionPerformed
-        // TODO add your handling code here:
-        cards.removeAll();
-        cards.add(previewPrintCard13);
-        cards.repaint();
-        cards.revalidate();
-    }//GEN-LAST:event_previewPrintMenuItemActionPerformed
 
     private void freshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_freshButtonActionPerformed
         // TODO add your handling code here:
@@ -1882,6 +1942,18 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_chooseAPictureButtonActionPerformed
 
+    private void editSolutionFillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSolutionFillButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editSolutionFillButtonActionPerformed
+
+    private void submitSolutionFillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitSolutionFillButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_submitSolutionFillButtonActionPerformed
+
+    private void saveSolutionFillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveSolutionFillButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveSolutionFillButtonActionPerformed
+
 
     public static void setJPanelMenuBar(JPanel parent, JPanel child, JMenuBar menuBar) {
         parent.removeAll();
@@ -2005,6 +2077,8 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> StatusComboBox;
+    private javax.swing.JTextPane additionalMedicinejTextPane;
     private javax.swing.JTable appointmentHistoryTable;
     private javax.swing.JTextField appointmentIDjTextField;
     private javax.swing.JMenu appointmentMenu;
@@ -2025,6 +2099,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
     private javax.swing.JMenu diagnoseMenu;
     private javax.swing.JComboBox<String> diseaseTypejComboBox;
     private javax.swing.JButton editSelectedAppointmentButton;
+    private javax.swing.JButton editSolutionFillButton;
     private javax.swing.JButton editSymptomFillButton;
     private javax.swing.JButton editVitalSignsFillButton;
     private javax.swing.JPanel faceToFaceMainjPanel;
@@ -2032,9 +2107,6 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
     private javax.swing.JButton freshButton;
     private javax.swing.JTextField heightFillVitalSignsTextField;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -2055,33 +2127,41 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.ButtonGroup justSetColor;
     private javax.swing.JScrollPane mainSymptom1FilljScrollPane;
     private javax.swing.JTextPane mainSymptom1FilljTextPane;
     private javax.swing.JScrollPane mainSymptom2FilljScrollPane;
+    private javax.swing.JScrollPane mainSymptom2FilljScrollPane1;
+    private javax.swing.JScrollPane mainSymptom2FilljScrollPane2;
     private javax.swing.JTextPane mainSymptom2FilljTextPane;
     private javax.swing.JPanel medicalPictureHistoryCard5;
     private javax.swing.JMenuItem medicalPictureHistoryMenuItem;
+    private javax.swing.JComboBox<String> medicine1ComboBox;
+    private javax.swing.JComboBox<String> medicine2ComboBox;
+    private javax.swing.JComboBox<String> medicine3ComboBox;
     private javax.swing.JTextField oxygenSaturationFillVitalSignsTextField;
     private javax.swing.JMenu playerInfoMenu;
     private javax.swing.JLabel playerPictureFillNameLabel;
     private javax.swing.JLabel playerPictureFillNumberLabel;
     private javax.swing.JLabel playerSymptomFillNameLabel;
+    private javax.swing.JLabel playerSymptomFillNameLabel1;
     private javax.swing.JLabel playerVitalsignsFillNameLabel;
     private javax.swing.JTextField plusRateInFillVitalSignsTextField;
-    private javax.swing.JPanel prescriptionCard11;
-    private javax.swing.JPanel prescriptionHistoryCard6;
-    private javax.swing.JMenuItem prescriptionHistoryMenuItem;
-    private javax.swing.JMenuItem prescriptionMenuItem;
-    private javax.swing.JPanel previewPrintCard13;
-    private javax.swing.JMenu previewPrintMenu;
-    private javax.swing.JMenuItem previewPrintMenuItem;
     private javax.swing.JButton reselectPictureButton;
+    private javax.swing.JComboBox<String> resultComboBox;
+    private javax.swing.JButton saveSolutionFillButton;
     private javax.swing.JButton saveSymptomFillButton;
     private javax.swing.JButton saveVitalSignsFillButton;
     private javax.swing.JButton selectAppointmentButton;
@@ -2090,6 +2170,8 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
     private javax.swing.JMenuItem solutionHistoryMenuItem;
     private javax.swing.JMenu solutionMenu;
     private javax.swing.JMenuItem solutionMenuItem;
+    private javax.swing.JTextPane solutionjTextPane;
+    private javax.swing.JButton submitSolutionFillButton;
     private javax.swing.JButton submitSymptomFillButton;
     private javax.swing.JButton submitThisPictureButton;
     private javax.swing.JButton submitVitalSignsFillButton;
