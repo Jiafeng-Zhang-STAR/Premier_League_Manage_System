@@ -235,11 +235,6 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
         
         } catch (ClassNotFoundException | SQLException e) {
         }
-        
-        
-        
-        
-        
     }//GEN-LAST:event_btnPayActionPerformed
 
     private void btnRefundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefundActionPerformed
@@ -295,7 +290,8 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
         
         /*2.页面返回balance*/
         lb_Balance.setText(String.valueOf(balanceInt+price));
-        
+        balanceInt = balanceInt + price;
+        balance = String.valueOf(balanceInt);
         /*3.退款成功后改状态到cancel */
         try {
             /* create jdbc connection */
