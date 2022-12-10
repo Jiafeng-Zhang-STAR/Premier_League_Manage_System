@@ -254,6 +254,8 @@ public class AccountantJFrame extends javax.swing.JFrame {
         }
         viewSalaryStatisticsButton.setBackground(new java.awt.Color(0, 0, 0));
         viewSalaryStatisticsButton.setForeground(Color.white);
+        AccountantSallaryStatisticJPanel accountantSallaryStatisticJPanel = new AccountantSallaryStatisticJPanel(this.accountant);
+        jSplitPane1.setRightComponent(accountantSallaryStatisticJPanel);     
 
         
     }//GEN-LAST:event_viewSalaryStatisticsButtonActionPerformed

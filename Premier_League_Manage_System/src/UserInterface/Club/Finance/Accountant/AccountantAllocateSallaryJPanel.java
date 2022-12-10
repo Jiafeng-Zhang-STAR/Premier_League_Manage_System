@@ -48,23 +48,23 @@ public class AccountantAllocateSallaryJPanel extends javax.swing.JPanel {
      * Creates new form DoctorHistoryJPanel
      */
     Accountant accountant;
-    ArrayList<Match> MatchCataFirstHalf;
-    ArrayList<Match> MatchCataSecondHalf;
+//    ArrayList<Match> MatchCataFirstHalf;
+//    ArrayList<Match> MatchCataSecondHalf;
 //    int appointmentHistoryID;
 //    String appointmentHistoryPlayerUserName;
 //    String appointmentHistoryPlayerName;
     
     
-    public static final String Referee1 = "James";
-    public static final String Referee2 = "Robert";
-    public static final String Referee3 = "John";
-    public static final String Referee4 = "Michael";
-    public static final String Referee5 = "David";
-    public static final String Referee6 = "William";
-    public static final String Referee7 = "Richard";
-    public static final String Referee8 = "Joseph";
-    public static final String Referee9 = "Thomas";
-    public static final String Referee10 = "Charles";
+//    public static final String Referee1 = "James";
+//    public static final String Referee2 = "Robert";
+//    public static final String Referee3 = "John";
+//    public static final String Referee4 = "Michael";
+//    public static final String Referee5 = "David";
+//    public static final String Referee6 = "William";
+//    public static final String Referee7 = "Richard";
+//    public static final String Referee8 = "Joseph";
+//    public static final String Referee9 = "Thomas";
+//    public static final String Referee10 = "Charles";
     
    
     public AccountantAllocateSallaryJPanel(Accountant accountantTemp) {
