@@ -60,14 +60,11 @@ public class ManagerJFrame extends javax.swing.JFrame {
         scheduleMatchButton = new javax.swing.JButton();
         loginOutButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        personProfileButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         userNameMainLabel = new javax.swing.JLabel();
         nameMainLabel = new javax.swing.JLabel();
         viewPlayerStatisticsButton = new javax.swing.JButton();
         viewClubStatisticsButton = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        positionMainLabel = new javax.swing.JLabel();
         userNameMainLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         backgroundPictureLabel = new javax.swing.JLabel();
@@ -115,15 +112,6 @@ public class ManagerJFrame extends javax.swing.JFrame {
         jLabel1.setText("UserName:");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        personProfileButton.setText("<html>Person<br/>Profile</html>");
-        managerJFrameButtonGroup.add(personProfileButton);
-        personProfileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        personProfileButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                personProfileButtonActionPerformed(evt);
-            }
-        });
-
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -165,18 +153,6 @@ public class ManagerJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Position:");
-        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        positionMainLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        positionMainLabel.setForeground(new java.awt.Color(255, 255, 255));
-        positionMainLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        positionMainLabel.setText("------------------");
-        positionMainLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
         userNameMainLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         userNameMainLabel1.setForeground(new java.awt.Color(255, 255, 255));
         userNameMainLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -193,13 +169,10 @@ public class ManagerJFrame extends javax.swing.JFrame {
                     .addComponent(viewClubStatisticsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(scheduleMatchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(viewPlayerStatisticsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(personProfileButton)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(userNameMainLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(nameMainLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(positionMainLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(loginOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(userNameMainLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -217,13 +190,7 @@ public class ManagerJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nameMainLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(positionMainLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(personProfileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(95, 95, 95)
                 .addComponent(scheduleMatchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(viewPlayerStatisticsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -243,9 +210,6 @@ public class ManagerJFrame extends javax.swing.JFrame {
 
         backgroundPictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TheSystem/Common/SelfDesignIcon/700_600_selfDesigned_Manager.png"))); // NOI18N
         backgroundPictureLabel.setAlignmentY(0.0F);
-        backgroundPictureLabel.setMaximumSize(new java.awt.Dimension(700, 600));
-        backgroundPictureLabel.setMinimumSize(new java.awt.Dimension(700, 600));
-        backgroundPictureLabel.setPreferredSize(new java.awt.Dimension(700, 600));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -325,23 +289,6 @@ public class ManagerJFrame extends javax.swing.JFrame {
         jSplitPane1.setRightComponent(managerPlayerStatisticJPanel); 
     }//GEN-LAST:event_viewPlayerStatisticsButtonActionPerformed
 
-    private void personProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personProfileButtonActionPerformed
-        // TODO add your handling code here:
-        Enumeration<AbstractButton> button;
-        button=managerJFrameButtonGroup.getElements();
-        AbstractButton buttonChoose; //buttonChoose = jButton1 is true
-        for(int i=0;i<managerJFrameButtonGroup.getButtonCount();i++)
-        {
-            buttonChoose=button.nextElement();
-            buttonChoose.setBackground(new java.awt.Color(255, 255, 255));
-            buttonChoose.setForeground(Color.black);
-
-        }
-        personProfileButton.setBackground(new java.awt.Color(0, 0, 0));
-        personProfileButton.setForeground(Color.white);
-
-    }//GEN-LAST:event_personProfileButtonActionPerformed
-
     private void loginOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginOutButtonActionPerformed
         // TODO add your handling code here:
         Enumeration<AbstractButton> button;
@@ -417,15 +364,12 @@ public class ManagerJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel backgroundPictureLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton loginOutButton;
     private javax.swing.ButtonGroup managerJFrameButtonGroup;
     private javax.swing.JLabel nameMainLabel;
-    private javax.swing.JButton personProfileButton;
-    private javax.swing.JLabel positionMainLabel;
     private javax.swing.JButton scheduleMatchButton;
     private javax.swing.JLabel userNameMainLabel;
     private javax.swing.JLabel userNameMainLabel1;

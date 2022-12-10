@@ -188,15 +188,29 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         basicInfoCard2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        patientAgeLabel = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        patientGenderLabel = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        patientZipLabel = new javax.swing.JLabel();
+        patientGNationLabel = new javax.swing.JLabel();
+        patientAddressLabel = new javax.swing.JLabel();
+        patientNameLabel = new javax.swing.JLabel();
         vitalSignHistoryCard3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        vitalSignsTable = new javax.swing.JTable();
         symptomHistoryCard4 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
         medicalPictureHistoryCard5 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
         solutionHistoryCard7 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
         vitalSignsCard8 = new javax.swing.JPanel();
         bodyTemperatureFillVitalSignsTextField = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
@@ -568,23 +582,122 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         basicInfoCard2.setMaximumSize(new java.awt.Dimension(700, 565));
         basicInfoCard2.setMinimumSize(new java.awt.Dimension(700, 565));
 
-        jLabel2.setText("jLabel2");
+        jLabel25.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("Patient Basic Information");
+
+        patientAgeLabel.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        patientAgeLabel.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel44.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel44.setText("gender :");
+
+        jLabel45.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel45.setText("Name :");
+
+        patientGenderLabel.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        patientGenderLabel.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel48.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel48.setText("age :");
+
+        jLabel49.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel49.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel49.setText("nation :");
+
+        jLabel50.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel50.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel50.setText("address :");
+
+        jLabel51.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel51.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel51.setText("zip :");
+
+        patientZipLabel.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        patientZipLabel.setForeground(new java.awt.Color(255, 255, 255));
+
+        patientGNationLabel.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        patientGNationLabel.setForeground(new java.awt.Color(255, 255, 255));
+
+        patientAddressLabel.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        patientAddressLabel.setForeground(new java.awt.Color(255, 255, 255));
+
+        patientNameLabel.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        patientNameLabel.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout basicInfoCard2Layout = new javax.swing.GroupLayout(basicInfoCard2);
         basicInfoCard2.setLayout(basicInfoCard2Layout);
         basicInfoCard2Layout.setHorizontalGroup(
             basicInfoCard2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, basicInfoCard2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(123, 123, 123))
+            .addGroup(basicInfoCard2Layout.createSequentialGroup()
+                .addGroup(basicInfoCard2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(basicInfoCard2Layout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addGroup(basicInfoCard2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(basicInfoCard2Layout.createSequentialGroup()
+                                .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(patientNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(basicInfoCard2Layout.createSequentialGroup()
+                                .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(patientAgeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(basicInfoCard2Layout.createSequentialGroup()
+                                .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(patientGNationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(basicInfoCard2Layout.createSequentialGroup()
+                                .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(patientAddressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(basicInfoCard2Layout.createSequentialGroup()
+                                .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(patientZipLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(basicInfoCard2Layout.createSequentialGroup()
+                                .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(patientGenderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(basicInfoCard2Layout.createSequentialGroup()
+                        .addGap(208, 208, 208)
+                        .addComponent(jLabel25)))
+                .addContainerGap(208, Short.MAX_VALUE))
         );
         basicInfoCard2Layout.setVerticalGroup(
             basicInfoCard2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(basicInfoCard2Layout.createSequentialGroup()
-                .addGap(215, 215, 215)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(45, 45, 45)
+                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64)
+                .addGroup(basicInfoCard2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(patientNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(basicInfoCard2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(patientGenderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(basicInfoCard2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(patientAgeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(basicInfoCard2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(patientGNationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(basicInfoCard2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(basicInfoCard2Layout.createSequentialGroup()
+                        .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(basicInfoCard2Layout.createSequentialGroup()
+                        .addComponent(patientAddressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(patientZipLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
 
         cards.add(basicInfoCard2, "card2");
@@ -593,23 +706,53 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         vitalSignHistoryCard3.setMaximumSize(new java.awt.Dimension(700, 565));
         vitalSignHistoryCard3.setMinimumSize(new java.awt.Dimension(700, 565));
 
-        jLabel3.setText("jLabel3");
+        jLabel34.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel34.setText("vital signs");
+
+        vitalSignsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "date", "temperature", "pluse rate", "breath", "blood pressure", "oxygen saturation", "height", "weight"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(vitalSignsTable);
 
         javax.swing.GroupLayout vitalSignHistoryCard3Layout = new javax.swing.GroupLayout(vitalSignHistoryCard3);
         vitalSignHistoryCard3.setLayout(vitalSignHistoryCard3Layout);
         vitalSignHistoryCard3Layout.setHorizontalGroup(
             vitalSignHistoryCard3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(vitalSignHistoryCard3Layout.createSequentialGroup()
-                .addGap(171, 171, 171)
-                .addComponent(jLabel3)
-                .addContainerGap(491, Short.MAX_VALUE))
+                .addGroup(vitalSignHistoryCard3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(vitalSignHistoryCard3Layout.createSequentialGroup()
+                        .addGap(291, 291, 291)
+                        .addComponent(jLabel34))
+                    .addGroup(vitalSignHistoryCard3Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         vitalSignHistoryCard3Layout.setVerticalGroup(
             vitalSignHistoryCard3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(vitalSignHistoryCard3Layout.createSequentialGroup()
-                .addGap(175, 175, 175)
-                .addComponent(jLabel3)
-                .addContainerGap(374, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         cards.add(vitalSignHistoryCard3, "card2");
@@ -618,23 +761,25 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         symptomHistoryCard4.setMaximumSize(new java.awt.Dimension(700, 565));
         symptomHistoryCard4.setMinimumSize(new java.awt.Dimension(700, 565));
 
-        jLabel4.setText("jLabel4");
+        jLabel39.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel39.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel39.setText("Please fill in the vital signs of player :");
 
         javax.swing.GroupLayout symptomHistoryCard4Layout = new javax.swing.GroupLayout(symptomHistoryCard4);
         symptomHistoryCard4.setLayout(symptomHistoryCard4Layout);
         symptomHistoryCard4Layout.setHorizontalGroup(
             symptomHistoryCard4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(symptomHistoryCard4Layout.createSequentialGroup()
-                .addGap(200, 200, 200)
-                .addComponent(jLabel4)
-                .addContainerGap(462, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, symptomHistoryCard4Layout.createSequentialGroup()
+                .addContainerGap(182, Short.MAX_VALUE)
+                .addComponent(jLabel39)
+                .addGap(167, 167, 167))
         );
         symptomHistoryCard4Layout.setVerticalGroup(
             symptomHistoryCard4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(symptomHistoryCard4Layout.createSequentialGroup()
-                .addGap(189, 189, 189)
-                .addComponent(jLabel4)
-                .addContainerGap(360, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(497, Short.MAX_VALUE))
         );
 
         cards.add(symptomHistoryCard4, "card2");
@@ -643,23 +788,25 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         medicalPictureHistoryCard5.setMaximumSize(new java.awt.Dimension(700, 565));
         medicalPictureHistoryCard5.setMinimumSize(new java.awt.Dimension(700, 565));
 
-        jLabel5.setText("jLabel5");
+        jLabel40.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel40.setText("Please fill in the vital signs of player :");
 
         javax.swing.GroupLayout medicalPictureHistoryCard5Layout = new javax.swing.GroupLayout(medicalPictureHistoryCard5);
         medicalPictureHistoryCard5.setLayout(medicalPictureHistoryCard5Layout);
         medicalPictureHistoryCard5Layout.setHorizontalGroup(
             medicalPictureHistoryCard5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(medicalPictureHistoryCard5Layout.createSequentialGroup()
-                .addGap(172, 172, 172)
-                .addComponent(jLabel5)
-                .addContainerGap(490, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, medicalPictureHistoryCard5Layout.createSequentialGroup()
+                .addContainerGap(182, Short.MAX_VALUE)
+                .addComponent(jLabel40)
+                .addGap(167, 167, 167))
         );
         medicalPictureHistoryCard5Layout.setVerticalGroup(
             medicalPictureHistoryCard5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(medicalPictureHistoryCard5Layout.createSequentialGroup()
-                .addGap(242, 242, 242)
-                .addComponent(jLabel5)
-                .addContainerGap(307, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(497, Short.MAX_VALUE))
         );
 
         cards.add(medicalPictureHistoryCard5, "card2");
@@ -668,23 +815,25 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         solutionHistoryCard7.setMaximumSize(new java.awt.Dimension(700, 565));
         solutionHistoryCard7.setMinimumSize(new java.awt.Dimension(700, 565));
 
-        jLabel7.setText("jLabel7");
+        jLabel41.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel41.setText("Please fill in the vital signs of player :");
 
         javax.swing.GroupLayout solutionHistoryCard7Layout = new javax.swing.GroupLayout(solutionHistoryCard7);
         solutionHistoryCard7.setLayout(solutionHistoryCard7Layout);
         solutionHistoryCard7Layout.setHorizontalGroup(
             solutionHistoryCard7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(solutionHistoryCard7Layout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(jLabel7)
-                .addContainerGap(472, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, solutionHistoryCard7Layout.createSequentialGroup()
+                .addContainerGap(182, Short.MAX_VALUE)
+                .addComponent(jLabel41)
+                .addGap(167, 167, 167))
         );
         solutionHistoryCard7Layout.setVerticalGroup(
             solutionHistoryCard7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(solutionHistoryCard7Layout.createSequentialGroup()
-                .addGap(154, 154, 154)
-                .addComponent(jLabel7)
-                .addContainerGap(395, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(497, Short.MAX_VALUE))
         );
 
         cards.add(solutionHistoryCard7, "card2");
@@ -1385,6 +1534,39 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         cards.add(basicInfoCard2);
         cards.repaint();
         cards.revalidate();
+                
+       try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://localhost:3306/premierleague";
+            String username = "root";
+            String password = "abcd1234!";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement statement = connection.createStatement();
+            
+            String sql = "SELECT * FROM system_user_info WHERE "+
+                         "username=\'"+this.appointmentHistoryPlayerUserName+"\'";
+            ResultSet resultSet = statement.executeQuery(sql);
+            
+            while(resultSet.next()){
+                
+                
+                patientNameLabel.setText(resultSet.getString("name"));
+                patientGenderLabel.setText(resultSet.getString("gender"));
+                patientAgeLabel.setText(resultSet.getString("age"));
+                patientGNationLabel.setText(resultSet.getString("nation"));
+                patientAddressLabel.setText(resultSet.getString("address"));
+                patientZipLabel.setText(resultSet.getString("zip"));
+                
+          }
+            resultSet.close();
+            statement.close();
+            connection.close();
+        }
+        catch(ClassNotFoundException | SQLException e)
+        {
+            e.printStackTrace();
+        } 
+                
     }//GEN-LAST:event_basicInfoMenuItemActionPerformed
 
     private void vitalSignHistoryMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vitalSignHistoryMenuItemActionPerformed
@@ -1393,6 +1575,46 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         cards.add(vitalSignHistoryCard3);
         cards.repaint();
         cards.revalidate();
+        
+        DefaultTableModel model = (DefaultTableModel) vitalSignsTable.getModel();
+        model.setRowCount(0);
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://localhost:3306/premierleague";
+            String username = "root";
+            String password = "abcd1234!";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement statement = connection.createStatement();
+            
+            String sql = "SELECT * FROM club_diagnose_appointment WHERE "+
+                         "player_id=\'"+appointmentHistoryPlayerUserName+"\'";
+            ResultSet resultSet = statement.executeQuery(sql);
+            
+            while(resultSet.next()){
+                
+                Object[] row = new Object[8];
+                
+                row[0] = resultSet.getObject("date");
+                
+                row[1] = resultSet.getObject("body_temperature");
+
+                row[2] = resultSet.getObject("pluse_rate");
+               
+                row[3] = resultSet.getObject("breathing_rate");
+                row[4] = resultSet.getObject("blood_pressure");
+                row[5] = resultSet.getObject("oxygen_saturation");
+                row[6] = resultSet.getObject("height");
+                row[7] = resultSet.getObject("weight");
+                model.addRow(row);
+          }
+            resultSet.close();
+            statement.close();
+            connection.close();
+        }
+        catch(ClassNotFoundException | SQLException e)
+        {
+            e.printStackTrace();
+        } 
     }//GEN-LAST:event_vitalSignHistoryMenuItemActionPerformed
 
     private void symtomHistoryMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_symtomHistoryMenuItemActionPerformed
@@ -2230,32 +2452,39 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.ButtonGroup justSetColor;
     private javax.swing.JScrollPane mainSymptom1FilljScrollPane;
     private javax.swing.JTextPane mainSymptom1FilljTextPane;
@@ -2269,6 +2498,12 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> medicine2ComboBox;
     private javax.swing.JComboBox<String> medicine3ComboBox;
     private javax.swing.JTextField oxygenSaturationFillVitalSignsTextField;
+    private javax.swing.JLabel patientAddressLabel;
+    private javax.swing.JLabel patientAgeLabel;
+    private javax.swing.JLabel patientGNationLabel;
+    private javax.swing.JLabel patientGenderLabel;
+    private javax.swing.JLabel patientNameLabel;
+    private javax.swing.JLabel patientZipLabel;
     private javax.swing.JMenu playerInfoMenu;
     private javax.swing.JLabel playerPictureFillNameLabel;
     private javax.swing.JLabel playerPictureFillNumberLabel;
@@ -2304,6 +2539,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
     private javax.swing.JMenuItem vitalSignHistoryMenuItem;
     private javax.swing.JPanel vitalSignsCard8;
     private javax.swing.JMenuItem vitalSignsMenuItem;
+    private javax.swing.JTable vitalSignsTable;
     private javax.swing.JTextField weightFillVitalSignsTextField;
     // End of variables declaration//GEN-END:variables
 }

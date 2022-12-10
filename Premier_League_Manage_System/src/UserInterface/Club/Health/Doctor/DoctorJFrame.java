@@ -82,16 +82,11 @@ public class DoctorJFrame extends javax.swing.JFrame {
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         loginOutButton = new javax.swing.JButton();
-        swithchThemeButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        personProfileButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         userNameMainLabel = new javax.swing.JLabel();
         nameMainLabel = new javax.swing.JLabel();
         faceToFaceDignoseButton = new javax.swing.JButton();
-        dignoseRecordsButton = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        positionMainLabel = new javax.swing.JLabel();
         userNameMainLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         backgroundPictureLabel = new javax.swing.JLabel();
@@ -122,31 +117,11 @@ public class DoctorJFrame extends javax.swing.JFrame {
             }
         });
 
-        swithchThemeButton.setText("<html>Switch<br/>Theme</html>");
-        doctorJFrameButtonGroup.add(swithchThemeButton);
-        swithchThemeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        swithchThemeButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        swithchThemeButton.setPreferredSize(null);
-        swithchThemeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                swithchThemeButtonActionPerformed(evt);
-            }
-        });
-
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("UserName:");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        personProfileButton.setText("<html>Person<br/>Profile</html>");
-        doctorJFrameButtonGroup.add(personProfileButton);
-        personProfileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        personProfileButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                personProfileButtonActionPerformed(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -177,30 +152,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
             }
         });
 
-        dignoseRecordsButton.setText("<html>Diagnose<br/>&#8202 Records</html>");
-        dignoseRecordsButton.setActionCommand("<html>Diagnose<br/> Records</html>");
-        doctorJFrameButtonGroup.add(dignoseRecordsButton);
-        dignoseRecordsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        dignoseRecordsButton.setMaximumSize(new java.awt.Dimension(90, 23));
-        dignoseRecordsButton.setMinimumSize(new java.awt.Dimension(90, 23));
-        dignoseRecordsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dignoseRecordsButtonActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Position:");
-        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        positionMainLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        positionMainLabel.setForeground(new java.awt.Color(255, 255, 255));
-        positionMainLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        positionMainLabel.setText("------------------");
-        positionMainLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
         userNameMainLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         userNameMainLabel1.setForeground(new java.awt.Color(255, 255, 255));
         userNameMainLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -214,16 +165,11 @@ public class DoctorJFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(swithchThemeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(dignoseRecordsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(faceToFaceDignoseButton, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                    .addComponent(personProfileButton)
+                    .addComponent(faceToFaceDignoseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(userNameMainLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(userNameMainLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                     .addComponent(nameMainLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(positionMainLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(loginOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(userNameMainLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -231,9 +177,7 @@ public class DoctorJFrame extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(swithchThemeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
+                .addGap(60, 60, 60)
                 .addComponent(jLabel1)
                 .addGap(5, 5, 5)
                 .addComponent(userNameMainLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -243,17 +187,9 @@ public class DoctorJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nameMainLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(positionMainLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(personProfileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(102, 102, 102)
-                .addComponent(faceToFaceDignoseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dignoseRecordsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(135, 135, 135)
+                .addComponent(faceToFaceDignoseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85)
                 .addComponent(loginOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -302,27 +238,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void dignoseRecordsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dignoseRecordsButtonActionPerformed
-        // TODO add your handling code here:
-        Enumeration<AbstractButton> button;
-        button=doctorJFrameButtonGroup.getElements();
-        AbstractButton buttonChoose; //buttonChoose = jButton1 is true
-        for(int i=0;i<doctorJFrameButtonGroup.getButtonCount();i++)
-        {
-            buttonChoose=button.nextElement();
-            buttonChoose.setBackground(new java.awt.Color(255, 255, 255));
-            buttonChoose.setForeground(Color.black);
-
-        }
-        dignoseRecordsButton.setBackground(new java.awt.Color(0, 0, 0));
-        dignoseRecordsButton.setForeground(Color.white);
-        
-        DoctorDiagnoseHistoryJPanel  doctorDiagnoseHistoryJPanel  = new DoctorDiagnoseHistoryJPanel ();
-        jSplitPane1.setRightComponent(doctorDiagnoseHistoryJPanel);
-        
-        
-    }//GEN-LAST:event_dignoseRecordsButtonActionPerformed
-
     private void faceToFaceDignoseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_faceToFaceDignoseButtonActionPerformed
         // TODO add your handling code here:
         Enumeration<AbstractButton> button;
@@ -350,49 +265,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
         DoctorFaceToFaceDiagnoseJPanel doctorFaceToFaceDiagnoseJPanel = new DoctorFaceToFaceDiagnoseJPanel(doctor);
         jSplitPane1.setRightComponent(doctorFaceToFaceDiagnoseJPanel);
     }//GEN-LAST:event_faceToFaceDignoseButtonActionPerformed
-
-    private void personProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personProfileButtonActionPerformed
-        // TODO add your handling code here:
-        Enumeration<AbstractButton> button;
-        button=doctorJFrameButtonGroup.getElements();
-        AbstractButton buttonChoose; //buttonChoose = jButton1 is true
-        for(int i=0;i<doctorJFrameButtonGroup.getButtonCount();i++)
-        {
-            buttonChoose=button.nextElement();
-            buttonChoose.setBackground(new java.awt.Color(255, 255, 255));
-            buttonChoose.setForeground(Color.black);
-
-        }
-        personProfileButton.setBackground(new java.awt.Color(0, 0, 0));
-        personProfileButton.setForeground(Color.white);
-
-    }//GEN-LAST:event_personProfileButtonActionPerformed
-
-    private void swithchThemeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_swithchThemeButtonActionPerformed
-        // TODO add your handling code here:
-        Enumeration<AbstractButton> button;
-        button=doctorJFrameButtonGroup.getElements();
-        AbstractButton buttonChoose; //buttonChoose = jButton1 is true
-        for(int i=0;i<doctorJFrameButtonGroup.getButtonCount();i++)
-        {
-            buttonChoose=button.nextElement();
-            //            buttonChoose.setFocusPainted(false);
-            //            buttonChoose.setMargin(new java.awt.Insets(0, 0, 0, 0));
-            //            buttonChoose.setContentAreaFilled(false);
-            //            buttonChoose.setBorderPainted(false);
-            //            buttonChoose.setOpaque(true);
-            buttonChoose.setBackground(new java.awt.Color(255, 255, 255));
-            buttonChoose.setForeground(Color.black);
-
-        }
-        //        swithchThemeButton.setFocusPainted(true);
-        //        swithchThemeButton.setMargin(new java.awt.Insets(1, 1, 1, 1));
-        //        swithchThemeButton.setContentAreaFilled(true);
-        //        swithchThemeButton.setBorderPainted(true);
-        //        swithchThemeButton.setOpaque(true);
-        swithchThemeButton.setBackground(new java.awt.Color(0, 0, 0));
-        swithchThemeButton.setForeground(Color.white);
-    }//GEN-LAST:event_swithchThemeButtonActionPerformed
 
     private void loginOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginOutButtonActionPerformed
         // TODO add your handling code here:
@@ -447,20 +319,15 @@ public class DoctorJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backgroundPictureLabel;
-    private javax.swing.JButton dignoseRecordsButton;
     private javax.swing.ButtonGroup doctorJFrameButtonGroup;
     private javax.swing.JButton faceToFaceDignoseButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton loginOutButton;
     private javax.swing.JLabel nameMainLabel;
-    private javax.swing.JButton personProfileButton;
-    private javax.swing.JLabel positionMainLabel;
-    private javax.swing.JButton swithchThemeButton;
     private javax.swing.JLabel userNameMainLabel;
     private javax.swing.JLabel userNameMainLabel1;
     // End of variables declaration//GEN-END:variables
