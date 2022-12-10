@@ -693,6 +693,12 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         vitalSignsCard8.setMaximumSize(new java.awt.Dimension(700, 565));
         vitalSignsCard8.setMinimumSize(new java.awt.Dimension(700, 565));
 
+        bodyTemperatureFillVitalSignsTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bodyTemperatureFillVitalSignsTextFieldActionPerformed(evt);
+            }
+        });
+
         jLabel17.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Body Temperature :");
@@ -885,7 +891,6 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 
         diseaseTypejComboBox.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         diseaseTypejComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sports Injuries", "Mental diseases", "Infectious diseases", "Deficiency diseases", "Hereditary diseases" }));
-        diseaseTypejComboBox.setSelectedIndex(-1);
         diseaseTypejComboBox.setMaximumSize(new java.awt.Dimension(240, 30));
         diseaseTypejComboBox.setMinimumSize(new java.awt.Dimension(240, 30));
         diseaseTypejComboBox.addItemListener(new java.awt.event.ItemListener() {
@@ -895,8 +900,14 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         });
 
         detailDiseasejComboBox.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        detailDiseasejComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select Disease Type First" }));
         detailDiseasejComboBox.setMaximumSize(new java.awt.Dimension(240, 30));
         detailDiseasejComboBox.setMinimumSize(new java.awt.Dimension(240, 30));
+        detailDiseasejComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                detailDiseasejComboBoxActionPerformed(evt);
+            }
+        });
 
         jLabel28.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
@@ -1140,7 +1151,6 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 
         medicine1ComboBox.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         medicine1ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Losartan", "Antibiotics", "Albuterol", "Antihistamines" }));
-        medicine1ComboBox.setSelectedIndex(-1);
         medicine1ComboBox.setMaximumSize(new java.awt.Dimension(240, 30));
         medicine1ComboBox.setMinimumSize(new java.awt.Dimension(240, 30));
 
@@ -1156,7 +1166,6 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 
         medicine2ComboBox.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         medicine2ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gabapentin", "Omeprazole", "Atorvastatin" }));
-        medicine2ComboBox.setSelectedIndex(-1);
         medicine2ComboBox.setMaximumSize(new java.awt.Dimension(240, 30));
         medicine2ComboBox.setMinimumSize(new java.awt.Dimension(240, 30));
 
@@ -1197,7 +1206,6 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 
         medicine3ComboBox.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         medicine3ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Synthroid", "Crestor", "Ventolin", "Nexium", "Advair Diskus", "Lantus Solostar", "Vyvanse", "Lyrica", "Spiriva Handihaler", "Januvia" }));
-        medicine3ComboBox.setSelectedIndex(-1);
         medicine3ComboBox.setMaximumSize(new java.awt.Dimension(240, 30));
         medicine3ComboBox.setMinimumSize(new java.awt.Dimension(240, 30));
 
@@ -1207,7 +1215,6 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 
         StatusComboBox.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         StatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Finish", "Cancel", "Waiting", "Agree", "Processing" }));
-        StatusComboBox.setSelectedIndex(-1);
         StatusComboBox.setMaximumSize(new java.awt.Dimension(240, 30));
         StatusComboBox.setMinimumSize(new java.awt.Dimension(240, 30));
 
@@ -1217,7 +1224,6 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 
         resultComboBox.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         resultComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Resolve", "Need to review", "Transfer to hospital", "Stop play and rest" }));
-        resultComboBox.setSelectedIndex(-1);
         resultComboBox.setMaximumSize(new java.awt.Dimension(240, 30));
         resultComboBox.setMinimumSize(new java.awt.Dimension(240, 30));
 
@@ -1944,15 +1950,126 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 
     private void editSolutionFillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSolutionFillButtonActionPerformed
         // TODO add your handling code here:
+ 
+        medicine1ComboBox.setEnabled(true);
+        medicine2ComboBox.setEnabled(true);
+        medicine3ComboBox.setEnabled(true);
+        additionalMedicinejTextPane.setEnabled(true);
+        solutionjTextPane.setEnabled(true);
+        StatusComboBox.setEnabled(true);
+        resultComboBox.setEnabled(true);
+        
+        saveSolutionFillButton.setEnabled(true);
+        editSolutionFillButton.setEnabled(false);
+        submitSolutionFillButton.setEnabled(false);
     }//GEN-LAST:event_editSolutionFillButtonActionPerformed
 
     private void submitSolutionFillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitSolutionFillButtonActionPerformed
         // TODO add your handling code here:
+            
+          if(this.appointmentHistoryID != 0){
+            medicine1ComboBox.setEnabled(true);
+            medicine2ComboBox.setEnabled(true);
+            medicine3ComboBox.setEnabled(true);
+            additionalMedicinejTextPane.setEnabled(true);
+            solutionjTextPane.setEnabled(true);
+            StatusComboBox.setEnabled(true);
+            resultComboBox.setEnabled(true);
+            
+            saveSolutionFillButton.setEnabled(true);
+            editSolutionFillButton.setEnabled(false);
+            submitSolutionFillButton.setEnabled(false);
+
+            
+            String medicine1ComboBoxTemp = medicine1ComboBox.getSelectedItem().toString();
+            String medicine2ComboBoxTemp = medicine2ComboBox.getSelectedItem().toString();
+            String medicine3ComboBoxTemp = medicine3ComboBox.getSelectedItem().toString();
+            
+            
+            String additionalMedicinejTextPaneTemp = additionalMedicinejTextPane.getText();
+            String solutionjTextPaneTemp = solutionjTextPane.getText();
+            
+            String StatusComboBoxTemp = StatusComboBox.getSelectedItem().toString();
+            String resultComboBoxTemp = resultComboBox.getSelectedItem().toString();
+            
+            
+            medicine1ComboBox.setSelectedIndex(-1);
+            medicine2ComboBox.setSelectedIndex(-1);
+            medicine3ComboBox.setSelectedIndex(-1);
+           
+            additionalMedicinejTextPane.setText("");
+            solutionjTextPane.setText("");
+            
+            StatusComboBox.setSelectedIndex(-1);
+            resultComboBox.setSelectedIndex(-1);
+
+            try{
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                String url = "jdbc:mysql://localhost:3306/premierleague";
+                String username = "root";
+                String password = "abcd1234!";
+                Connection connection = DriverManager.getConnection(url, username, password);
+                Statement statement = connection.createStatement();
+           
+                String sql = "UPDATE club_diagnose_appointment SET "+
+                             "medicine1=\'"+medicine1ComboBoxTemp+"\', "+
+                             "medicine2=\'"+medicine2ComboBoxTemp+"\', "+
+                             "medicine3=\'"+medicine3ComboBoxTemp+"\', "+
+                             "additionalMedicine=\'"+additionalMedicinejTextPaneTemp+"\', "+
+                             "solution=\'"+solutionjTextPaneTemp+"\', "+
+                             "status=\'"+StatusComboBoxTemp+"\', "+
+                             "result=\'"+resultComboBoxTemp+"\' "+
+                             "WHERE id =\'" + this.appointmentHistoryID + "\'";
+                statement.executeUpdate(sql);
+                statement.close();
+                connection.close();
+            }
+            catch(ClassNotFoundException | SQLException e)
+            {
+                e.printStackTrace();
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(submitVitalSignsFillButton, "Please select an appointment first!");
+            medicine1ComboBox.setEnabled(true);
+            medicine2ComboBox.setEnabled(true);
+            medicine3ComboBox.setEnabled(true);
+            additionalMedicinejTextPane.setEnabled(true);
+            solutionjTextPane.setEnabled(true);
+            StatusComboBox.setEnabled(true);
+            resultComboBox.setEnabled(true);
+            
+            saveSolutionFillButton.setEnabled(true);
+            editSolutionFillButton.setEnabled(false);
+            submitSolutionFillButton.setEnabled(false);
+        }
+        
     }//GEN-LAST:event_submitSolutionFillButtonActionPerformed
 
     private void saveSolutionFillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveSolutionFillButtonActionPerformed
         // TODO add your handling code here:
+        
+        medicine1ComboBox.setEnabled(false);
+        medicine2ComboBox.setEnabled(false);
+        medicine3ComboBox.setEnabled(false);
+        additionalMedicinejTextPane.setEnabled(false);
+        solutionjTextPane.setEnabled(false);
+        StatusComboBox.setEnabled(false);
+        resultComboBox.setEnabled(false);
+        
+        saveSolutionFillButton.setEnabled(false);
+        editSolutionFillButton.setEnabled(true);
+        submitSolutionFillButton.setEnabled(true); 
+         
     }//GEN-LAST:event_saveSolutionFillButtonActionPerformed
+
+    private void bodyTemperatureFillVitalSignsTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodyTemperatureFillVitalSignsTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bodyTemperatureFillVitalSignsTextFieldActionPerformed
+
+    private void detailDiseasejComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailDiseasejComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_detailDiseasejComboBoxActionPerformed
 
 
     public static void setJPanelMenuBar(JPanel parent, JPanel child, JMenuBar menuBar) {
