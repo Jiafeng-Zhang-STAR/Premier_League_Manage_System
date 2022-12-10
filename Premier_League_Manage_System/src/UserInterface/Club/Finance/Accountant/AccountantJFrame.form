@@ -85,9 +85,9 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="viewTeamStatisticsButton" alignment="1" max="32767" attributes="0"/>
-                          <Component id="scheduleMatchButton" alignment="1" max="32767" attributes="0"/>
-                          <Component id="viewPlayerStatisticsButton" alignment="1" max="32767" attributes="0"/>
+                          <Component id="viewCostStatisticsButton" alignment="1" max="32767" attributes="0"/>
+                          <Component id="allocateSalaryButton" alignment="1" max="32767" attributes="0"/>
+                          <Component id="allocateOtherCostButton" alignment="1" max="32767" attributes="0"/>
                           <Component id="personProfileButton" alignment="1" max="32767" attributes="0"/>
                           <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
                           <Component id="jLabel2" alignment="1" max="32767" attributes="0"/>
@@ -122,11 +122,11 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="personProfileButton" min="-2" pref="38" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="scheduleMatchButton" min="-2" pref="90" max="-2" attributes="0"/>
+                      <Component id="allocateSalaryButton" min="-2" pref="90" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="viewPlayerStatisticsButton" min="-2" pref="90" max="-2" attributes="0"/>
+                      <Component id="allocateOtherCostButton" min="-2" pref="90" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="viewTeamStatisticsButton" min="-2" pref="90" max="-2" attributes="0"/>
+                      <Component id="viewCostStatisticsButton" min="-2" pref="90" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="loginOutButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -135,7 +135,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="scheduleMatchButton">
+            <Component class="javax.swing.JButton" name="allocateSalaryButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Allocate&lt;br/&gt;&amp;#8202 Salary&lt;/html&gt;"/>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
@@ -152,7 +152,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="scheduleMatchButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="allocateSalaryButtonActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="loginOutButton">
@@ -241,7 +241,7 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="viewPlayerStatisticsButton">
+            <Component class="javax.swing.JButton" name="allocateOtherCostButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&amp;#8202&amp;#8202 Allocate&lt;br/&gt;Other Cost&lt;/html&gt;"/>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
@@ -258,10 +258,10 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewPlayerStatisticsButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="allocateOtherCostButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="viewTeamStatisticsButton">
+            <Component class="javax.swing.JButton" name="viewCostStatisticsButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;View Cost&lt;br/&gt;&amp;#8202 statistics&lt;/html&gt;"/>
                 <Property name="actionCommand" type="java.lang.String" value="&lt;html&gt;Diagnose&lt;br/&gt; Records&lt;/html&gt;"/>
@@ -279,7 +279,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewTeamStatisticsButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewCostStatisticsButtonActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
@@ -367,7 +367,7 @@
             <Component class="javax.swing.JLabel" name="backgroundPictureLabel">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/TheSystem/Common/SelfDesignIcon/700_600_selfDesigned_Manager.png"/>
+                  <Image iconType="3" name="/TheSystem/Common/SelfDesignIcon/700_600_selfDesigned_ClubAccountant .png"/>
                 </Property>
                 <Property name="alignmentY" type="float" value="0.0"/>
               </Properties>

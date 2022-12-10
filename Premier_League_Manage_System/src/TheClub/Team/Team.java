@@ -17,23 +17,26 @@ import TheClub.Health.Doctor.Doctor;
  * @author Jiafeng
  */
 public class Team {
-    Doctor doctor;
+//    Doctor doctor;
     PlayerCatalog playerCatalog;
     DoctorCatalog doctorCatalog;
+    AccountantCatalog accountantCatalog;
     
     public Team(Person personTemp) {
         this.doctorCatalog = new DoctorCatalog(this,personTemp);
 //        this.doctor =new Doctor(this,personTemp.getClub());
         this.playerCatalog=new PlayerCatalog(this,personTemp);
+        
+        this.accountantCatalog = new AccountantCatalog(this,personTemp);
     }
 
-    public Doctor getDoctor() {
-        return doctor;
-    }
-
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
+//    public Doctor getDoctor() {
+//        return doctor;
+//    }
+//
+//    public void setDoctor(Doctor doctor) {
+//        this.doctor = doctor;
+//    }
 
     public PlayerCatalog getPlayerCatalog() {
         return playerCatalog;
@@ -50,6 +53,16 @@ public class Team {
     public void setDoctorCatalog(DoctorCatalog doctorCatalog) {
         this.doctorCatalog = doctorCatalog;
     }
+
+    public AccountantCatalog getAccountantCatalog() {
+        return accountantCatalog;
+    }
+
+    public void setAccountantCatalog(AccountantCatalog accountantCatalog) {
+        this.accountantCatalog = accountantCatalog;
+    }
+
+    
     
     
 

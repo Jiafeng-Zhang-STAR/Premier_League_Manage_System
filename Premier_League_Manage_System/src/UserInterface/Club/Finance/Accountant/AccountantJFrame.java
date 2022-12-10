@@ -5,10 +5,11 @@
 package UserInterface.Club.Finance.Accountant;
 
 //import UserInterface.Club.Finance.Accountant.*;
-import UserInterface.League.Match.Manager.*;
-import UserInterface.Club.Health.Doctor.*;
+//import UserInterface.League.Match.Manager.*;
+//import UserInterface.Club.Health.Doctor.*;
+import TheClub.Finance.Accountant.Accountant;
 import TheSystem.Common.Person.Person;
-import TheClub.Health.Doctor.Doctor;
+//import TheClub.Health.Doctor.Doctor;
 import TheClub.Team.Team;
 //import java.awt.Graphics;
 import java.awt.Color;
@@ -27,11 +28,21 @@ public class AccountantJFrame extends javax.swing.JFrame {
     /**
      * Creates new form AccountantJFrame
      */
-    Person Manager;
+    Accountant accountant;
     
     public AccountantJFrame(Person personTemp) {
         initComponents();
-        this.Manager = personTemp; 
+        Team team = new Team(personTemp); //初始化Team对象 里面含有全部的医生 Initialize the Team object containing all the Doctors
+        
+        int length = team.getDoctorCatalog().getDoctorCata().size();//计算catalog中有多少个医生 Calculate how many Doctors are in the catalog
+        for(int i =0; i<length ; i++){
+            Accountant accountantTemp = team.getAccountantCatalog().getAccountantCata().get(i);
+            if(accountantTemp.getUsername().equals(personTemp.getUsername())){
+                this.accountant=accountantTemp; 
+                //找到在catalog中被初始化的那个accountant 和自己用户名一致的，将其对象指针传递过来
+                //Find the accountant that was initialized in catalog that matches your username and pass it the object pointer
+            }
+        }
 
         Enumeration<AbstractButton> button;
         button=managerJFrameButtonGroup.getElements();
@@ -58,15 +69,15 @@ public class AccountantJFrame extends javax.swing.JFrame {
         managerJFrameButtonGroup = new javax.swing.ButtonGroup();
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        scheduleMatchButton = new javax.swing.JButton();
+        allocateSalaryButton = new javax.swing.JButton();
         loginOutButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         personProfileButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         userNameMainLabel = new javax.swing.JLabel();
         nameMainLabel = new javax.swing.JLabel();
-        viewPlayerStatisticsButton = new javax.swing.JButton();
-        viewTeamStatisticsButton = new javax.swing.JButton();
+        allocateOtherCostButton = new javax.swing.JButton();
+        viewCostStatisticsButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         positionMainLabel = new javax.swing.JLabel();
         userNameMainLabel1 = new javax.swing.JLabel();
@@ -88,14 +99,14 @@ public class AccountantJFrame extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(100, 600));
         jPanel1.setPreferredSize(new java.awt.Dimension(100, 600));
 
-        scheduleMatchButton.setText("<html>Allocate<br/>&#8202 Salary</html>");
-        managerJFrameButtonGroup.add(scheduleMatchButton);
-        scheduleMatchButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        scheduleMatchButton.setMaximumSize(new java.awt.Dimension(90, 23));
-        scheduleMatchButton.setMinimumSize(new java.awt.Dimension(90, 23));
-        scheduleMatchButton.addActionListener(new java.awt.event.ActionListener() {
+        allocateSalaryButton.setText("<html>Allocate<br/>&#8202 Salary</html>");
+        managerJFrameButtonGroup.add(allocateSalaryButton);
+        allocateSalaryButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        allocateSalaryButton.setMaximumSize(new java.awt.Dimension(90, 23));
+        allocateSalaryButton.setMinimumSize(new java.awt.Dimension(90, 23));
+        allocateSalaryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                scheduleMatchButtonActionPerformed(evt);
+                allocateSalaryButtonActionPerformed(evt);
             }
         });
 
@@ -143,26 +154,26 @@ public class AccountantJFrame extends javax.swing.JFrame {
         nameMainLabel.setText("------------------");
         nameMainLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        viewPlayerStatisticsButton.setText("<html>&#8202&#8202 Allocate<br/>Other Cost</html>");
-        managerJFrameButtonGroup.add(viewPlayerStatisticsButton);
-        viewPlayerStatisticsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        viewPlayerStatisticsButton.setMaximumSize(new java.awt.Dimension(90, 23));
-        viewPlayerStatisticsButton.setMinimumSize(new java.awt.Dimension(90, 23));
-        viewPlayerStatisticsButton.addActionListener(new java.awt.event.ActionListener() {
+        allocateOtherCostButton.setText("<html>&#8202&#8202 Allocate<br/>Other Cost</html>");
+        managerJFrameButtonGroup.add(allocateOtherCostButton);
+        allocateOtherCostButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        allocateOtherCostButton.setMaximumSize(new java.awt.Dimension(90, 23));
+        allocateOtherCostButton.setMinimumSize(new java.awt.Dimension(90, 23));
+        allocateOtherCostButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewPlayerStatisticsButtonActionPerformed(evt);
+                allocateOtherCostButtonActionPerformed(evt);
             }
         });
 
-        viewTeamStatisticsButton.setText("<html>View Cost<br/>&#8202 statistics</html>");
-        viewTeamStatisticsButton.setActionCommand("<html>Diagnose<br/> Records</html>");
-        managerJFrameButtonGroup.add(viewTeamStatisticsButton);
-        viewTeamStatisticsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        viewTeamStatisticsButton.setMaximumSize(new java.awt.Dimension(90, 23));
-        viewTeamStatisticsButton.setMinimumSize(new java.awt.Dimension(90, 23));
-        viewTeamStatisticsButton.addActionListener(new java.awt.event.ActionListener() {
+        viewCostStatisticsButton.setText("<html>View Cost<br/>&#8202 statistics</html>");
+        viewCostStatisticsButton.setActionCommand("<html>Diagnose<br/> Records</html>");
+        managerJFrameButtonGroup.add(viewCostStatisticsButton);
+        viewCostStatisticsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        viewCostStatisticsButton.setMaximumSize(new java.awt.Dimension(90, 23));
+        viewCostStatisticsButton.setMinimumSize(new java.awt.Dimension(90, 23));
+        viewCostStatisticsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewTeamStatisticsButtonActionPerformed(evt);
+                viewCostStatisticsButtonActionPerformed(evt);
             }
         });
 
@@ -191,9 +202,9 @@ public class AccountantJFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(viewTeamStatisticsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(scheduleMatchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(viewPlayerStatisticsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(viewCostStatisticsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(allocateSalaryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(allocateOtherCostButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(personProfileButton)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -225,11 +236,11 @@ public class AccountantJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(personProfileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scheduleMatchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(allocateSalaryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(viewPlayerStatisticsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(allocateOtherCostButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(viewTeamStatisticsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(viewCostStatisticsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(loginOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
@@ -242,7 +253,7 @@ public class AccountantJFrame extends javax.swing.JFrame {
         jPanel2.setMinimumSize(new java.awt.Dimension(700, 600));
         jPanel2.setPreferredSize(new java.awt.Dimension(700, 600));
 
-        backgroundPictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TheSystem/Common/SelfDesignIcon/700_600_selfDesigned_Manager.png"))); // NOI18N
+        backgroundPictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TheSystem/Common/SelfDesignIcon/700_600_selfDesigned_ClubAccountant .png"))); // NOI18N
         backgroundPictureLabel.setAlignmentY(0.0F);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -277,7 +288,7 @@ public class AccountantJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void viewTeamStatisticsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewTeamStatisticsButtonActionPerformed
+    private void viewCostStatisticsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewCostStatisticsButtonActionPerformed
         // TODO add your handling code here:
         Enumeration<AbstractButton> button;
         button=managerJFrameButtonGroup.getElements();
@@ -289,13 +300,13 @@ public class AccountantJFrame extends javax.swing.JFrame {
             buttonChoose.setForeground(Color.black);
 
         }
-        viewTeamStatisticsButton.setBackground(new java.awt.Color(0, 0, 0));
-        viewTeamStatisticsButton.setForeground(Color.white);
+        viewCostStatisticsButton.setBackground(new java.awt.Color(0, 0, 0));
+        viewCostStatisticsButton.setForeground(Color.white);
 
         
-    }//GEN-LAST:event_viewTeamStatisticsButtonActionPerformed
+    }//GEN-LAST:event_viewCostStatisticsButtonActionPerformed
 
-    private void viewPlayerStatisticsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPlayerStatisticsButtonActionPerformed
+    private void allocateOtherCostButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allocateOtherCostButtonActionPerformed
         // TODO add your handling code here:
         Enumeration<AbstractButton> button;
         button=managerJFrameButtonGroup.getElements();
@@ -317,9 +328,9 @@ public class AccountantJFrame extends javax.swing.JFrame {
         //        faceToFaceDignoseButton.setContentAreaFilled(true);
         //        faceToFaceDignoseButton.setBorderPainted(true);
         //        faceToFaceDignoseButton.setOpaque(true);
-        viewPlayerStatisticsButton.setBackground(new java.awt.Color(0, 0, 0));
-        viewPlayerStatisticsButton.setForeground(Color.white);
-    }//GEN-LAST:event_viewPlayerStatisticsButtonActionPerformed
+        allocateOtherCostButton.setBackground(new java.awt.Color(0, 0, 0));
+        allocateOtherCostButton.setForeground(Color.white);
+    }//GEN-LAST:event_allocateOtherCostButtonActionPerformed
 
     private void personProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personProfileButtonActionPerformed
         // TODO add your handling code here:
@@ -354,7 +365,7 @@ public class AccountantJFrame extends javax.swing.JFrame {
         loginOutButton.setForeground(Color.white);
     }//GEN-LAST:event_loginOutButtonActionPerformed
 
-    private void scheduleMatchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scheduleMatchButtonActionPerformed
+    private void allocateSalaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allocateSalaryButtonActionPerformed
         // TODO add your handling code here:
         Enumeration<AbstractButton> button;
         button=managerJFrameButtonGroup.getElements();
@@ -366,13 +377,13 @@ public class AccountantJFrame extends javax.swing.JFrame {
             buttonChoose.setForeground(Color.black);
 
         }
-        scheduleMatchButton.setBackground(new java.awt.Color(0, 0, 0));
-        scheduleMatchButton.setForeground(Color.white);
+        allocateSalaryButton.setBackground(new java.awt.Color(0, 0, 0));
+        allocateSalaryButton.setForeground(Color.white);
         
-        ManagerScheduleMatchJPanel managerScheduleMatchJPanel = new ManagerScheduleMatchJPanel(this.Manager);
-        jSplitPane1.setRightComponent(managerScheduleMatchJPanel);     
+        AccountantAllocateSallaryJPanel accountantAllocateSallaryJPanel = new AccountantAllocateSallaryJPanel(this.accountant);
+        jSplitPane1.setRightComponent(accountantAllocateSallaryJPanel);     
         
-    }//GEN-LAST:event_scheduleMatchButtonActionPerformed
+    }//GEN-LAST:event_allocateSalaryButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -410,6 +421,8 @@ public class AccountantJFrame extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton allocateOtherCostButton;
+    private javax.swing.JButton allocateSalaryButton;
     private javax.swing.JLabel backgroundPictureLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -422,10 +435,8 @@ public class AccountantJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel nameMainLabel;
     private javax.swing.JButton personProfileButton;
     private javax.swing.JLabel positionMainLabel;
-    private javax.swing.JButton scheduleMatchButton;
     private javax.swing.JLabel userNameMainLabel;
     private javax.swing.JLabel userNameMainLabel1;
-    private javax.swing.JButton viewPlayerStatisticsButton;
-    private javax.swing.JButton viewTeamStatisticsButton;
+    private javax.swing.JButton viewCostStatisticsButton;
     // End of variables declaration//GEN-END:variables
 }

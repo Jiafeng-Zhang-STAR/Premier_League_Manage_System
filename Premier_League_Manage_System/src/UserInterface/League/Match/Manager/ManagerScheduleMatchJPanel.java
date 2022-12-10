@@ -608,7 +608,31 @@ DefaultTableModel model1 = (DefaultTableModel) matchFirstTable.getModel();
                 e.printStackTrace();
             }
         }
+         automaticMatchGenerationButton.setEnabled(false);
+        beginYearjTextField.setEnabled(false);
+        beginMonthjTextField.setEnabled(false);
+        beginDayjTextField.setEnabled(false);
         
+        selectMatchButton.setEnabled(false);
+        
+        
+        RefereeComboBox.setEnabled(false);
+        
+        saveMatchButton.setEnabled(false);
+        editSelectedMatchButton.setEnabled(false);
+        freshMatchButton.setEnabled(false);
+        submitMatchButton.setEnabled(false);
+        
+        
+        homejTextField.setEnabled(false);
+        awayjTextField.setEnabled(false);
+        datejTextField.setEnabled(false);
+        refereejTextField.setEnabled(false);
+        
+        matchFirstTable.setEnabled(false);
+        matchSecondTable.setEnabled(false);
+        
+        RefereeComboBox.setSelectedIndex(-1);
 
     }//GEN-LAST:event_submitMatchButtonActionPerformed
 
