@@ -41,6 +41,11 @@ public class Person {
         this.zip = zip;
     }
 
+    public Person() {
+    }
+    
+    
+
     
     public String getAddress() {
         return address;
@@ -122,13 +127,6 @@ public class Person {
         this.nation = nation;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
     public String getZip() {
         return zip;
     }
@@ -144,5 +142,5 @@ public class Person {
 }
 
  
-}
+
 
