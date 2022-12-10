@@ -6,25 +6,33 @@ package TheSystem.Common.Person;
 
 /**
  *
+
  * @author Andrew Chou
+
+ * @author Jiafeng
+
  */
 public class Person {
     private String username;
     private String password;
-    private int enterprise_type;
-    private int role_type;
+
+    private int enterpriseType;
+    private int roleType;
     private String club;
+    private String name;
+
     private int gender;
     private int age;
     private String nation;
     private String address;
     private String zip;
 
+
     public Person(String username, String password, int enterprise_type, int role_type, String club, int gender, int age, String nation, String address, String zip) {
         this.username = username;
         this.password = password;
-        this.enterprise_type = enterprise_type;
-        this.role_type = role_type;
+        this.enterpriseType = enterprise_type;
+        this.roleType = role_type;
         this.club = club;
         this.gender = gender;
         this.age = age;
@@ -58,20 +66,21 @@ public class Person {
         this.password = password;
     }
 
-    public int getEnterprise_type() {
-        return enterprise_type;
+
+    public int getEnterpriseType() {
+        return enterpriseType;
     }
 
-    public void setEnterprise_type(int enterprise_type) {
-        this.enterprise_type = enterprise_type;
+    public void setEnterpriseType(int enterpriseType) {
+        this.enterpriseType = enterpriseType;
     }
 
-    public int getRole_type() {
-        return role_type;
+    public int getRoleType() {
+        return roleType;
     }
 
-    public void setRole_type(int role_type) {
-        this.role_type = role_type;
+    public void setRoleType(int roleType) {
+        this.roleType = roleType;
     }
 
     public String getClub() {
@@ -82,6 +91,13 @@ public class Person {
         this.club = club;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     public int getGender() {
         return gender;
     }
@@ -106,6 +122,13 @@ public class Person {
         this.nation = nation;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
     public String getZip() {
         return zip;
     }
@@ -113,8 +136,13 @@ public class Person {
     public void setZip(String zip) {
         this.zip = zip;
     }
+
     
     
     
     
 }
+
+ 
+}
+
