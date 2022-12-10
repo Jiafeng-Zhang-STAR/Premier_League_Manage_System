@@ -59,14 +59,13 @@ public class ManagerJFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         scheduleMatchButton = new javax.swing.JButton();
         loginOutButton = new javax.swing.JButton();
-        swithchThemeButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         personProfileButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         userNameMainLabel = new javax.swing.JLabel();
         nameMainLabel = new javax.swing.JLabel();
         viewPlayerStatisticsButton = new javax.swing.JButton();
-        viewTeamStatisticsButton = new javax.swing.JButton();
+        viewClubStatisticsButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         positionMainLabel = new javax.swing.JLabel();
         userNameMainLabel1 = new javax.swing.JLabel();
@@ -107,17 +106,6 @@ public class ManagerJFrame extends javax.swing.JFrame {
         loginOutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginOutButtonActionPerformed(evt);
-            }
-        });
-
-        swithchThemeButton.setText("<html>Switch<br/>Theme</html>");
-        managerJFrameButtonGroup.add(swithchThemeButton);
-        swithchThemeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        swithchThemeButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        swithchThemeButton.setPreferredSize(null);
-        swithchThemeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                swithchThemeButtonActionPerformed(evt);
             }
         });
 
@@ -165,15 +153,15 @@ public class ManagerJFrame extends javax.swing.JFrame {
             }
         });
 
-        viewTeamStatisticsButton.setText("<html>view team<br/>&#8202 statistics</html>");
-        viewTeamStatisticsButton.setActionCommand("<html>Diagnose<br/> Records</html>");
-        managerJFrameButtonGroup.add(viewTeamStatisticsButton);
-        viewTeamStatisticsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        viewTeamStatisticsButton.setMaximumSize(new java.awt.Dimension(90, 23));
-        viewTeamStatisticsButton.setMinimumSize(new java.awt.Dimension(90, 23));
-        viewTeamStatisticsButton.addActionListener(new java.awt.event.ActionListener() {
+        viewClubStatisticsButton.setText("<html>view club<br/>&#8202 statistics</html>");
+        viewClubStatisticsButton.setActionCommand("<html>Diagnose<br/> Records</html>");
+        managerJFrameButtonGroup.add(viewClubStatisticsButton);
+        viewClubStatisticsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        viewClubStatisticsButton.setMaximumSize(new java.awt.Dimension(90, 23));
+        viewClubStatisticsButton.setMinimumSize(new java.awt.Dimension(90, 23));
+        viewClubStatisticsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewTeamStatisticsButtonActionPerformed(evt);
+                viewClubStatisticsButtonActionPerformed(evt);
             }
         });
 
@@ -202,8 +190,7 @@ public class ManagerJFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(swithchThemeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(viewTeamStatisticsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(viewClubStatisticsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(scheduleMatchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(viewPlayerStatisticsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(personProfileButton)
@@ -220,9 +207,7 @@ public class ManagerJFrame extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(swithchThemeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
+                .addGap(60, 60, 60)
                 .addComponent(jLabel1)
                 .addGap(5, 5, 5)
                 .addComponent(userNameMainLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -243,7 +228,7 @@ public class ManagerJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(viewPlayerStatisticsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(viewTeamStatisticsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(viewClubStatisticsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(loginOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
@@ -294,7 +279,7 @@ public class ManagerJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void viewTeamStatisticsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewTeamStatisticsButtonActionPerformed
+    private void viewClubStatisticsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewClubStatisticsButtonActionPerformed
         // TODO add your handling code here:
         Enumeration<AbstractButton> button;
         button=managerJFrameButtonGroup.getElements();
@@ -306,11 +291,11 @@ public class ManagerJFrame extends javax.swing.JFrame {
             buttonChoose.setForeground(Color.black);
 
         }
-        viewTeamStatisticsButton.setBackground(new java.awt.Color(0, 0, 0));
-        viewTeamStatisticsButton.setForeground(Color.white);
-
-        
-    }//GEN-LAST:event_viewTeamStatisticsButtonActionPerformed
+        viewClubStatisticsButton.setBackground(new java.awt.Color(0, 0, 0));
+        viewClubStatisticsButton.setForeground(Color.white);
+        ManagerClubStatisticJPanel managerClubStatisticJPanel = new ManagerClubStatisticJPanel(this.Manager);
+        jSplitPane1.setRightComponent(managerClubStatisticJPanel); 
+    }//GEN-LAST:event_viewClubStatisticsButtonActionPerformed
 
     private void viewPlayerStatisticsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPlayerStatisticsButtonActionPerformed
         // TODO add your handling code here:
@@ -336,6 +321,8 @@ public class ManagerJFrame extends javax.swing.JFrame {
         //        faceToFaceDignoseButton.setOpaque(true);
         viewPlayerStatisticsButton.setBackground(new java.awt.Color(0, 0, 0));
         viewPlayerStatisticsButton.setForeground(Color.white);
+        ManagerPlayerStatisticJPanel managerPlayerStatisticJPanel = new ManagerPlayerStatisticJPanel(this.Manager);
+        jSplitPane1.setRightComponent(managerPlayerStatisticJPanel); 
     }//GEN-LAST:event_viewPlayerStatisticsButtonActionPerformed
 
     private void personProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personProfileButtonActionPerformed
@@ -354,32 +341,6 @@ public class ManagerJFrame extends javax.swing.JFrame {
         personProfileButton.setForeground(Color.white);
 
     }//GEN-LAST:event_personProfileButtonActionPerformed
-
-    private void swithchThemeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_swithchThemeButtonActionPerformed
-        // TODO add your handling code here:
-        Enumeration<AbstractButton> button;
-        button=managerJFrameButtonGroup.getElements();
-        AbstractButton buttonChoose; //buttonChoose = jButton1 is true
-        for(int i=0;i<managerJFrameButtonGroup.getButtonCount();i++)
-        {
-            buttonChoose=button.nextElement();
-            //            buttonChoose.setFocusPainted(false);
-            //            buttonChoose.setMargin(new java.awt.Insets(0, 0, 0, 0));
-            //            buttonChoose.setContentAreaFilled(false);
-            //            buttonChoose.setBorderPainted(false);
-            //            buttonChoose.setOpaque(true);
-            buttonChoose.setBackground(new java.awt.Color(255, 255, 255));
-            buttonChoose.setForeground(Color.black);
-
-        }
-        //        swithchThemeButton.setFocusPainted(true);
-        //        swithchThemeButton.setMargin(new java.awt.Insets(1, 1, 1, 1));
-        //        swithchThemeButton.setContentAreaFilled(true);
-        //        swithchThemeButton.setBorderPainted(true);
-        //        swithchThemeButton.setOpaque(true);
-        swithchThemeButton.setBackground(new java.awt.Color(0, 0, 0));
-        swithchThemeButton.setForeground(Color.white);
-    }//GEN-LAST:event_swithchThemeButtonActionPerformed
 
     private void loginOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginOutButtonActionPerformed
         // TODO add your handling code here:
@@ -466,10 +427,9 @@ public class ManagerJFrame extends javax.swing.JFrame {
     private javax.swing.JButton personProfileButton;
     private javax.swing.JLabel positionMainLabel;
     private javax.swing.JButton scheduleMatchButton;
-    private javax.swing.JButton swithchThemeButton;
     private javax.swing.JLabel userNameMainLabel;
     private javax.swing.JLabel userNameMainLabel1;
+    private javax.swing.JButton viewClubStatisticsButton;
     private javax.swing.JButton viewPlayerStatisticsButton;
-    private javax.swing.JButton viewTeamStatisticsButton;
     // End of variables declaration//GEN-END:variables
 }

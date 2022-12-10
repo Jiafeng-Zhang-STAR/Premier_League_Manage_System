@@ -83,7 +83,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         onlineDignoseButton = new javax.swing.JButton();
         loginOutButton = new javax.swing.JButton();
-        swithchThemeButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         personProfileButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -131,17 +130,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
         loginOutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginOutButtonActionPerformed(evt);
-            }
-        });
-
-        swithchThemeButton.setText("<html>Switch<br/>Theme</html>");
-        doctorJFrameButtonGroup.add(swithchThemeButton);
-        swithchThemeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        swithchThemeButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        swithchThemeButton.setPreferredSize(null);
-        swithchThemeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                swithchThemeButtonActionPerformed(evt);
             }
         });
 
@@ -226,7 +214,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(swithchThemeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(dignoseRecordsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(onlineDignoseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(faceToFaceDignoseButton, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
@@ -244,9 +231,7 @@ public class DoctorJFrame extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(swithchThemeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
+                .addGap(60, 60, 60)
                 .addComponent(jLabel1)
                 .addGap(5, 5, 5)
                 .addComponent(userNameMainLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -383,32 +368,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_personProfileButtonActionPerformed
 
-    private void swithchThemeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_swithchThemeButtonActionPerformed
-        // TODO add your handling code here:
-        Enumeration<AbstractButton> button;
-        button=doctorJFrameButtonGroup.getElements();
-        AbstractButton buttonChoose; //buttonChoose = jButton1 is true
-        for(int i=0;i<doctorJFrameButtonGroup.getButtonCount();i++)
-        {
-            buttonChoose=button.nextElement();
-            //            buttonChoose.setFocusPainted(false);
-            //            buttonChoose.setMargin(new java.awt.Insets(0, 0, 0, 0));
-            //            buttonChoose.setContentAreaFilled(false);
-            //            buttonChoose.setBorderPainted(false);
-            //            buttonChoose.setOpaque(true);
-            buttonChoose.setBackground(new java.awt.Color(255, 255, 255));
-            buttonChoose.setForeground(Color.black);
-
-        }
-        //        swithchThemeButton.setFocusPainted(true);
-        //        swithchThemeButton.setMargin(new java.awt.Insets(1, 1, 1, 1));
-        //        swithchThemeButton.setContentAreaFilled(true);
-        //        swithchThemeButton.setBorderPainted(true);
-        //        swithchThemeButton.setOpaque(true);
-        swithchThemeButton.setBackground(new java.awt.Color(0, 0, 0));
-        swithchThemeButton.setForeground(Color.white);
-    }//GEN-LAST:event_swithchThemeButtonActionPerformed
-
     private void loginOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginOutButtonActionPerformed
         // TODO add your handling code here:
         Enumeration<AbstractButton> button;
@@ -492,7 +451,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
     private javax.swing.JButton onlineDignoseButton;
     private javax.swing.JButton personProfileButton;
     private javax.swing.JLabel positionMainLabel;
-    private javax.swing.JButton swithchThemeButton;
     private javax.swing.JLabel userNameMainLabel;
     private javax.swing.JLabel userNameMainLabel1;
     // End of variables declaration//GEN-END:variables

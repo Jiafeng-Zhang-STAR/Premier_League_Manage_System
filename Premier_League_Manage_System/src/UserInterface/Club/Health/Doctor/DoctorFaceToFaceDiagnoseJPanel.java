@@ -462,7 +462,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
             }
         });
 
-        backgroundPictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TheSystem/Common/SelfDesignIcon/700_565_selfDesigned_SoccerField_Card.png"))); // NOI18N
+        backgroundPictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TheSystem/Common/SelfDesignIcon/700_565_selfDesigned_SoccerField_NoStrips_Card.png"))); // NOI18N
         backgroundPictureLabel.setAlignmentY(0.0F);
         backgroundPictureLabel.setMaximumSize(new java.awt.Dimension(700, 565));
         backgroundPictureLabel.setMinimumSize(new java.awt.Dimension(700, 565));

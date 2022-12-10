@@ -4,7 +4,19 @@
  */
 package UserInterface.Club.Finance.Accountant;
 
+//import UserInterface.Club.Finance.Accountant.*;
+import UserInterface.League.Match.Manager.*;
+import UserInterface.Club.Health.Doctor.*;
 import TheSystem.Common.Person.Person;
+import TheClub.Health.Doctor.Doctor;
+import TheClub.Team.Team;
+//import java.awt.Graphics;
+import java.awt.Color;
+import java.awt.Image;
+import java.util.Enumeration;
+import javax.swing.AbstractButton;
+import javax.swing.ImageIcon;
+
 
 /**
  *
@@ -15,10 +27,24 @@ public class AccountantJFrame extends javax.swing.JFrame {
     /**
      * Creates new form AccountantJFrame
      */
+    Person Manager;
     
     public AccountantJFrame(Person personTemp) {
         initComponents();
+        this.Manager = personTemp; 
+
+        Enumeration<AbstractButton> button;
+        button=managerJFrameButtonGroup.getElements();
+        AbstractButton buttonChoose; //buttonChoose = jButton1 is true
+        for(int i=0;i<managerJFrameButtonGroup.getButtonCount();i++)
+        {
+              buttonChoose=button.nextElement();
+              buttonChoose.setBackground(new java.awt.Color(255, 255, 255));
+              buttonChoose.setForeground(Color.black);
+            
+        }   
     }
+    
     //构造器 用于初始化 Constructor Used to initialize
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,48 +55,210 @@ public class AccountantJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        managerJFrameButtonGroup = new javax.swing.ButtonGroup();
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
+        scheduleMatchButton = new javax.swing.JButton();
+        loginOutButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        personProfileButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        userNameMainLabel = new javax.swing.JLabel();
+        nameMainLabel = new javax.swing.JLabel();
+        viewPlayerStatisticsButton = new javax.swing.JButton();
+        viewTeamStatisticsButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        positionMainLabel = new javax.swing.JLabel();
+        userNameMainLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        backgroundPictureLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(600, 600));
-        setMinimumSize(new java.awt.Dimension(600, 600));
+        setMinimumSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
         jSplitPane1.setDividerLocation(100);
-        jSplitPane1.setMaximumSize(new java.awt.Dimension(600, 600));
-        jSplitPane1.setMinimumSize(new java.awt.Dimension(600, 600));
-        jSplitPane1.setPreferredSize(new java.awt.Dimension(600, 600));
+        jSplitPane1.setDividerSize(0);
+        jSplitPane1.setMaximumSize(new java.awt.Dimension(800, 600));
+        jSplitPane1.setMinimumSize(new java.awt.Dimension(800, 600));
+        jSplitPane1.setPreferredSize(new java.awt.Dimension(800, 600));
 
-        jPanel1.setMaximumSize(new java.awt.Dimension(500, 600));
+        jPanel1.setBackground(new java.awt.Color(61, 174, 72));
+        jPanel1.setMaximumSize(new java.awt.Dimension(100, 600));
         jPanel1.setMinimumSize(new java.awt.Dimension(100, 600));
+        jPanel1.setPreferredSize(new java.awt.Dimension(100, 600));
+
+        scheduleMatchButton.setText("<html>Allocate<br/>&#8202 Salary</html>");
+        managerJFrameButtonGroup.add(scheduleMatchButton);
+        scheduleMatchButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        scheduleMatchButton.setMaximumSize(new java.awt.Dimension(90, 23));
+        scheduleMatchButton.setMinimumSize(new java.awt.Dimension(90, 23));
+        scheduleMatchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                scheduleMatchButtonActionPerformed(evt);
+            }
+        });
+
+        loginOutButton.setText("<html>Login Out</html>");
+        managerJFrameButtonGroup.add(loginOutButton);
+        loginOutButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        loginOutButton.setMaximumSize(new java.awt.Dimension(100, 23));
+        loginOutButton.setMinimumSize(new java.awt.Dimension(72, 23));
+        loginOutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginOutButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("UserName:");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        personProfileButton.setText("<html>Person<br/>Profile</html>");
+        managerJFrameButtonGroup.add(personProfileButton);
+        personProfileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        personProfileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                personProfileButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Name:");
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        userNameMainLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        userNameMainLabel.setForeground(new java.awt.Color(255, 255, 255));
+        userNameMainLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        userNameMainLabel.setText("------------------");
+        userNameMainLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        nameMainLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        nameMainLabel.setForeground(new java.awt.Color(255, 255, 255));
+        nameMainLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameMainLabel.setText("------------------");
+        nameMainLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        viewPlayerStatisticsButton.setText("<html>&#8202&#8202 Allocate<br/>Other Cost</html>");
+        managerJFrameButtonGroup.add(viewPlayerStatisticsButton);
+        viewPlayerStatisticsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        viewPlayerStatisticsButton.setMaximumSize(new java.awt.Dimension(90, 23));
+        viewPlayerStatisticsButton.setMinimumSize(new java.awt.Dimension(90, 23));
+        viewPlayerStatisticsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewPlayerStatisticsButtonActionPerformed(evt);
+            }
+        });
+
+        viewTeamStatisticsButton.setText("<html>View Cost<br/>&#8202 statistics</html>");
+        viewTeamStatisticsButton.setActionCommand("<html>Diagnose<br/> Records</html>");
+        managerJFrameButtonGroup.add(viewTeamStatisticsButton);
+        viewTeamStatisticsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        viewTeamStatisticsButton.setMaximumSize(new java.awt.Dimension(90, 23));
+        viewTeamStatisticsButton.setMinimumSize(new java.awt.Dimension(90, 23));
+        viewTeamStatisticsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewTeamStatisticsButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Position:");
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        positionMainLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        positionMainLabel.setForeground(new java.awt.Color(255, 255, 255));
+        positionMainLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        positionMainLabel.setText("------------------");
+        positionMainLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        userNameMainLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        userNameMainLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        userNameMainLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        userNameMainLabel1.setText("------------------");
+        userNameMainLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(viewTeamStatisticsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(scheduleMatchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(viewPlayerStatisticsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(personProfileButton)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(userNameMainLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nameMainLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(positionMainLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(loginOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(userNameMainLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jLabel1)
+                .addGap(5, 5, 5)
+                .addComponent(userNameMainLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(userNameMainLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nameMainLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(positionMainLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(personProfileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scheduleMatchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(viewPlayerStatisticsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(viewTeamStatisticsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(loginOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
 
-        jPanel2.setMaximumSize(new java.awt.Dimension(495, 600));
-        jPanel2.setMinimumSize(new java.awt.Dimension(295, 600));
+        jPanel2.setBackground(new java.awt.Color(0, 139, 69));
+        jPanel2.setMaximumSize(new java.awt.Dimension(700, 600));
+        jPanel2.setMinimumSize(new java.awt.Dimension(700, 600));
+        jPanel2.setPreferredSize(new java.awt.Dimension(700, 600));
+
+        backgroundPictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TheSystem/Common/SelfDesignIcon/700_600_selfDesigned_Manager.png"))); // NOI18N
+        backgroundPictureLabel.setAlignmentY(0.0F);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 495, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(backgroundPictureLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addComponent(backgroundPictureLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -79,7 +267,7 @@ public class AccountantJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,6 +276,103 @@ public class AccountantJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void viewTeamStatisticsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewTeamStatisticsButtonActionPerformed
+        // TODO add your handling code here:
+        Enumeration<AbstractButton> button;
+        button=managerJFrameButtonGroup.getElements();
+        AbstractButton buttonChoose; //buttonChoose = jButton1 is true
+        for(int i=0;i<managerJFrameButtonGroup.getButtonCount();i++)
+        {
+            buttonChoose=button.nextElement();
+            buttonChoose.setBackground(new java.awt.Color(255, 255, 255));
+            buttonChoose.setForeground(Color.black);
+
+        }
+        viewTeamStatisticsButton.setBackground(new java.awt.Color(0, 0, 0));
+        viewTeamStatisticsButton.setForeground(Color.white);
+
+        
+    }//GEN-LAST:event_viewTeamStatisticsButtonActionPerformed
+
+    private void viewPlayerStatisticsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPlayerStatisticsButtonActionPerformed
+        // TODO add your handling code here:
+        Enumeration<AbstractButton> button;
+        button=managerJFrameButtonGroup.getElements();
+        AbstractButton buttonChoose; //buttonChoose = jButton1 is true
+        for(int i=0;i<managerJFrameButtonGroup.getButtonCount();i++)
+        {
+            buttonChoose=button.nextElement();
+            //            buttonChoose.setFocusPainted(false);
+            //            buttonChoose.setMargin(new java.awt.Insets(0, 0, 0, 0));
+            //            buttonChoose.setContentAreaFilled(false);
+            //            buttonChoose.setBorderPainted(false);
+            //            buttonChoose.setOpaque(true);
+            buttonChoose.setBackground(new java.awt.Color(255, 255, 255));
+            buttonChoose.setForeground(Color.black);
+
+        }
+        //        faceToFaceDignoseButton.setFocusPainted(true);
+        //        faceToFaceDignoseButton.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        //        faceToFaceDignoseButton.setContentAreaFilled(true);
+        //        faceToFaceDignoseButton.setBorderPainted(true);
+        //        faceToFaceDignoseButton.setOpaque(true);
+        viewPlayerStatisticsButton.setBackground(new java.awt.Color(0, 0, 0));
+        viewPlayerStatisticsButton.setForeground(Color.white);
+    }//GEN-LAST:event_viewPlayerStatisticsButtonActionPerformed
+
+    private void personProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personProfileButtonActionPerformed
+        // TODO add your handling code here:
+        Enumeration<AbstractButton> button;
+        button=managerJFrameButtonGroup.getElements();
+        AbstractButton buttonChoose; //buttonChoose = jButton1 is true
+        for(int i=0;i<managerJFrameButtonGroup.getButtonCount();i++)
+        {
+            buttonChoose=button.nextElement();
+            buttonChoose.setBackground(new java.awt.Color(255, 255, 255));
+            buttonChoose.setForeground(Color.black);
+
+        }
+        personProfileButton.setBackground(new java.awt.Color(0, 0, 0));
+        personProfileButton.setForeground(Color.white);
+
+    }//GEN-LAST:event_personProfileButtonActionPerformed
+
+    private void loginOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginOutButtonActionPerformed
+        // TODO add your handling code here:
+        Enumeration<AbstractButton> button;
+        button=managerJFrameButtonGroup.getElements();
+        AbstractButton buttonChoose; //buttonChoose = jButton1 is true
+        for(int i=0;i<managerJFrameButtonGroup.getButtonCount();i++)
+        {
+            buttonChoose=button.nextElement();
+            buttonChoose.setBackground(new java.awt.Color(255, 255, 255));
+            buttonChoose.setForeground(Color.black);
+
+        }
+        loginOutButton.setBackground(new java.awt.Color(0, 0, 0));
+        loginOutButton.setForeground(Color.white);
+    }//GEN-LAST:event_loginOutButtonActionPerformed
+
+    private void scheduleMatchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scheduleMatchButtonActionPerformed
+        // TODO add your handling code here:
+        Enumeration<AbstractButton> button;
+        button=managerJFrameButtonGroup.getElements();
+        AbstractButton buttonChoose; //buttonChoose = jButton1 is true
+        for(int i=0;i<managerJFrameButtonGroup.getButtonCount();i++)
+        {
+            buttonChoose=button.nextElement();
+            buttonChoose.setBackground(new java.awt.Color(255, 255, 255));
+            buttonChoose.setForeground(Color.black);
+
+        }
+        scheduleMatchButton.setBackground(new java.awt.Color(0, 0, 0));
+        scheduleMatchButton.setForeground(Color.white);
+        
+        ManagerScheduleMatchJPanel managerScheduleMatchJPanel = new ManagerScheduleMatchJPanel(this.Manager);
+        jSplitPane1.setRightComponent(managerScheduleMatchJPanel);     
+        
+    }//GEN-LAST:event_scheduleMatchButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -125,8 +410,22 @@ public class AccountantJFrame extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel backgroundPictureLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JButton loginOutButton;
+    private javax.swing.ButtonGroup managerJFrameButtonGroup;
+    private javax.swing.JLabel nameMainLabel;
+    private javax.swing.JButton personProfileButton;
+    private javax.swing.JLabel positionMainLabel;
+    private javax.swing.JButton scheduleMatchButton;
+    private javax.swing.JLabel userNameMainLabel;
+    private javax.swing.JLabel userNameMainLabel1;
+    private javax.swing.JButton viewPlayerStatisticsButton;
+    private javax.swing.JButton viewTeamStatisticsButton;
     // End of variables declaration//GEN-END:variables
 }
