@@ -179,12 +179,12 @@ public class RatePlayerJPanel extends javax.swing.JPanel {
 
     private void btnRatehomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRatehomeActionPerformed
         // TODO add your handling code here:
-        populateTable("home_lineup");
+        populateTable("concat(concat(home_lineup,','),home_alternate)");
     }//GEN-LAST:event_btnRatehomeActionPerformed
 
     private void btnRateAwayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRateAwayActionPerformed
         // TODO add your handling code here:
-        populateTable("away_lineup");
+        populateTable("concat(concat(away_lineup,','),away_alternate)");
     }//GEN-LAST:event_btnRateAwayActionPerformed
 
     private void cbbPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbPassActionPerformed

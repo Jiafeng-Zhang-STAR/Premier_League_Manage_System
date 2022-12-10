@@ -170,6 +170,12 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
         homeTeam = model.getValueAt(selectedRowIndex , 1).toString();//获得选中的行的第2列的内容
         awayTeam = model.getValueAt(selectedRowIndex , 2).toString();//获得选中的行的第2列的内容
         int price = Integer.parseInt(model.getValueAt(selectedRowIndex , 3).toString());//获得选中的行的第2列的内容
+        String status = model.getValueAt(selectedRowIndex , 4).toString();//获得选中的行的第2列的内容
+        if(!"Ordered".equals(status)){
+            JOptionPane.showMessageDialog(this, "You can't pay when the status is not Ordered.");
+            return;
+        }   
+        
         balanceInt =Integer.parseInt(balance);
         if(balanceInt-price<0){
             JOptionPane.showMessageDialog(this, "Balance is not enough.");
@@ -184,7 +190,7 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
         /*2.页面改balance*/
         lb_Balance.setText(String.valueOf(balanceInt-price));
         balanceInt = balanceInt -price;
-        
+        balance = String.valueOf(balanceInt);
         try {
             /* create jdbc connection */
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -196,7 +202,7 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
             /*3.扣款成功后改状态到complete */
-            String sql = "UPDATE fan_match SET status = \'Complete\' WHERE email =\'"+email +"\'and hometeam =\'"+homeTeam +"\'and awayteam =\'"+awayTeam +"\'and date =\'"+date +"\'and price ="+price;
+            String sql = "UPDATE fan_match SET status = \'Complete\' WHERE status = \'Ordered\' and email =\'"+email +"\'and hometeam =\'"+homeTeam +"\'and awayteam =\'"+awayTeam +"\'and date =\'"+date +"\'and price ="+price;
             
             int isBooked = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
             if (isBooked ==1){
@@ -250,12 +256,42 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
         homeTeam = model.getValueAt(selectedRowIndex , 1).toString();//获得选中的行的第2列的内容
         awayTeam = model.getValueAt(selectedRowIndex , 2).toString();//获得选中的行的第2列的内容
         int price = Integer.parseInt(model.getValueAt(selectedRowIndex , 3).toString());//获得选中的行的第2列的内容
-        balanceInt =Integer.parseInt(balance);
-        /*1.数据库返回balance*/
-        boolean refundSuccess = refundToDatabaseBalance(price);
-        if(refundSuccess == false){
+        String status = model.getValueAt(selectedRowIndex , 4).toString();//获得选中的行的第2列的内容
+        if(!"Complete".equals(status)){
+            JOptionPane.showMessageDialog(this, "You can't refund when the status is not Complete.");
             return;
-            }  
+        }   
+        
+        
+        
+        //balanceInt =Integer.parseInt(balance);
+        
+        balanceInt =Integer.valueOf(balance);
+        
+        /*1.数据库返回balance*/
+        try {
+                /* create jdbc connection */
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                
+                String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
+                String username = "root";
+
+                String password = "abcd1234!";
+                Connection connection = DriverManager.getConnection(url, username, password);
+                Statement statement = connection.createStatement();
+                
+                /* get matchliset in these dates */
+                String sql = "UPDATE fan_balance SET balance ="+ (balanceInt+price)+" WHERE email =\'"+email+"\'";  
+                
+                int isBooked = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
+
+
+                statement.close();
+                connection.close();
+            } catch (ClassNotFoundException | SQLException e) {
+                JOptionPane.showMessageDialog(this, "Fail to refund(update the balance in database_");
+                return;
+            }
         
         /*2.页面返回balance*/
         lb_Balance.setText(String.valueOf(balanceInt+price));
@@ -272,7 +308,7 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
 
-            String sql = "UPDATE fan_match SET status = \'Refund\' WHERE email =\'"+email +"\'and hometeam =\'"+homeTeam +"\'and awayteam =\'"+awayTeam +"\'and date =\'"+date +"\'and price ="+price;
+            String sql = "UPDATE fan_match SET status = \'Refund\' WHERE status = \'Complete\' and email =\'"+email +"\'and hometeam =\'"+homeTeam +"\'and awayteam =\'"+awayTeam +"\'and date =\'"+date +"\'and price ="+price;
             
             int isBooked = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
 
@@ -319,14 +355,18 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
         homeTeam = model.getValueAt(selectedRowIndex , 1).toString();//获得选中的行的第2列的内容
         awayTeam = model.getValueAt(selectedRowIndex , 2).toString();//获得选中的行的第2列的内容
         int price = Integer.parseInt(model.getValueAt(selectedRowIndex , 3).toString());//获得选中的行的第2列的内容
-        
+        String status = model.getValueAt(selectedRowIndex , 4).toString();//获得选中的行的第2列的内容
+        if(!"Ordered".equals(status)){
+            JOptionPane.showMessageDialog(this, "You can't cancel when the status is not Ordered.");
+            return;
+        }   
         
         
         /*改状态到cancel */
         try {
             /* create jdbc connection */
             Class.forName("com.mysql.cj.jdbc.Driver");
-
+            
             String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
             String username = "root";
 
@@ -334,7 +374,7 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
 
-            String sql = "DELETE from fan_match WHERE email =\'"+email +"\'and hometeam =\'"+homeTeam +"\'and awayteam =\'"+awayTeam +"\'and date =\'"+date +"\'and price ="+price;
+            String sql = "DELETE from fan_match WHERE status = \'Ordered\' and email =\'"+email +"\'and hometeam =\'"+homeTeam +"\'and awayteam =\'"+awayTeam +"\'and date =\'"+date +"\'and price ="+price;
             
             int isBooked = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
 
@@ -380,11 +420,18 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
         date = model.getValueAt(selectedRowIndex , 0).toString();//获得选中的行的第2列的内容
         homeTeam = model.getValueAt(selectedRowIndex , 1).toString();//获得选中的行的第2列的内容
         awayTeam = model.getValueAt(selectedRowIndex , 2).toString();//获得选中的行的第2列的内容
+        String status = model.getValueAt(selectedRowIndex , 4).toString();//获得选中的行的第2列的内容
+        if(!"Complete".equals(status)){
+            JOptionPane.showMessageDialog(this, "You can't rate when the status is not Complete.");
+            return;
+        }   
+        
+        
         RatePlayerJPanel rateplayerjpanel = new RatePlayerJPanel(email,SplitPane,date,homeTeam,awayTeam);///跳转页面
         SplitPane.setRightComponent(rateplayerjpanel);
     }//GEN-LAST:event_btnRatePlayerActionPerformed
 
-private void populateTable() {
+    private void populateTable() {
                // TODO add your handling code here:
                                                   
         // TODO add your handling code here:
@@ -462,37 +509,10 @@ private void populateTable() {
             }
     }
     
-    private boolean refundToDatabaseBalance(int price) {
+    private void refundToDatabaseBalance(int price) {
                // TODO add your handling code here:
     
-        try {
-                /* create jdbc connection */
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                
-                String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
-                String username = "root";
-                balanceInt =Integer.parseInt(balance);
-                String password = "abcd1234!";
-                Connection connection = DriverManager.getConnection(url, username, password);
-                Statement statement = connection.createStatement();
-                
-                /* get matchliset in these dates */
-                String sql = "UPDATE fan_balance SET balance ="+ (balanceInt+price)+" WHERE email =\'"+email+"\'";  
-                
-                int isBooked = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
-
-                if (isBooked ==1){
-                    //populateTable(); //Refresh table
-                    //JOptionPane.showMessageDialog(this, "Update Balance in database successfully.");
-                   
-                }
-                statement.close();
-                connection.close();
-                return true;
-            } catch (ClassNotFoundException | SQLException e) {
-                JOptionPane.showMessageDialog(this, "Fail to refund(update the balance in database_");
-                return false;
-            }
+        
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelBook;

@@ -111,9 +111,12 @@ public class CheckTransferJPanel extends javax.swing.JPanel {
 
         email = model.getValueAt(selectedRowIndex , 4).toString();//获得选中的行的第2列的内容
         String date = model.getValueAt(selectedRowIndex , 0).toString();//获得选中的行的第2列的内容
-
+        String selectedClub = model.getValueAt(selectedRowIndex , 2).toString();//获得选中的行的第2列的内容
         String status = model.getValueAt(selectedRowIndex , 3).toString();//获得选中的行的第2列的内容
-        
+        if(selectedClub.equals(club)){
+            JOptionPane.showMessageDialog(this, "You can't sign the player in your team.");
+            return;
+        }  
         if("Complete".equals(status)){
             JOptionPane.showMessageDialog(this, "the person is not available.");
             return;

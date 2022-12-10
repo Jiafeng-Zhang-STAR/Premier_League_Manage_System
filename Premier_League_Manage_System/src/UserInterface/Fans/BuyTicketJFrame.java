@@ -388,9 +388,14 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
                 String password = "abcd1234!";
                 Connection connection = DriverManager.getConnection(url, username, password);
                 Statement statement = connection.createStatement();
-
-                /* 在fan_match中增加book记录 */
-                String sql = "INSERT INTO fan_match (email, hometeam, awayteam, date, price,status) VALUES (\'" + email +"\',\'" + homeTeam +"\',\'" +awayTeam+"\',\'"+ date +"\',\'"+ price +"\','Ordered')"; 
+                SimpleDateFormat sdf = new SimpleDateFormat();// 格式化时间 
+                sdf.applyPattern("yyyy-MM-dd HH:mm:ss");// 
+                Date currentDate = new Date();// 获取当前时间 
+                String cuDate = sdf.format(currentDate);
+            
+                 /* 在fan_match中增加book记录 */
+                String sql = "INSERT INTO fan_match (email, hometeam, awayteam, date, price,status, order_time) VALUES (\'" + email +"\',\'" + homeTeam +"\',\'" +awayTeam+"\',\'"+ date +"\',\'"+ price +"\','Ordered',\'"+cuDate+"\')"; 
+                
                 int isBooked = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
                
                 
@@ -472,7 +477,7 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
                 String cuDate = sdf.format(currentDate);
             
                 /* Insert */
-                String sql = "INSERT INTO fan_match (email, hometeam, awayteam, date, price,status, waitfrom) VALUES (\'" + email +"\',\'" + homeTeam +"\',\'" +awayTeam+"\',\'"+ date +"\',\'"+ price +"\','Waiting',\'"+cuDate+"\')"; 
+                String sql = "INSERT INTO fan_match (email, hometeam, awayteam, date, price,status, order_time) VALUES (\'" + email +"\',\'" + homeTeam +"\',\'" +awayTeam+"\',\'"+ date +"\',\'"+ price +"\','Waiting',\'"+cuDate+"\')"; 
                 int isBooked = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
                
                 if (isBooked ==1){

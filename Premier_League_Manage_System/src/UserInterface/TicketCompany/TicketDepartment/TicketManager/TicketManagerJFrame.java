@@ -224,11 +224,17 @@ public class TicketManagerJFrame extends javax.swing.JFrame {
                 /*把priceupdate到数据库*/
                 String sql = "UPDATE match_info SET price = " +txtPrice.getText() + " WHERE home =\'"+homeTeam +"\'and away =\'"+awayTeam +"\'and date =\'"+date +"\'";
                 int isBooked = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
-               
+                
+                /*2.把表`fan_match`中waiting的状态改为ordered*/
+                String sqlWaitlist = "UPDATE fan_match SET price = " +txtPrice.getText() + " WHERE hometeam =\'"+homeTeam +"\' and awayteam =\'"+awayTeam +"\' and date =\'"+date +"\' and status = \'Waiting\'";
+                int isBookedWaitlist  = statement.executeUpdate(sqlWaitlist);//executeQuery(sql)是查询  executeUpdate是删改
+                
                 if (isBooked ==1){
                     populateTable(); //Refresh table
                     JOptionPane.showMessageDialog(this, "Set price successfully.");
                 }
+                
+                
                 
                 statement.close();
                 connection.close();
@@ -281,7 +287,7 @@ public class TicketManagerJFrame extends javax.swing.JFrame {
                 int isBookedWaitlist =1;
                 if (leftAmount==0 && (newAmount- oldAmount)>0){
                     /*1.获取表`fan_match`中waiting邮箱名单,存入ArrayList，为第3步做准备*/
-                    String sqlWaitFans = "SELECT email from fan_match WHERE hometeam =\'"+homeTeam +"\' and awayteam =\'"+awayTeam +"\' and date =\'"+date +"\' and status = \'Waiting\' ORDER BY waitfrom LIMIT " + (newAmount- oldAmount);
+                    String sqlWaitFans = "SELECT email from fan_match WHERE hometeam =\'"+homeTeam +"\' and awayteam =\'"+awayTeam +"\' and date =\'"+date +"\' and status = \'Waiting\' ORDER BY order_time LIMIT " + (newAmount- oldAmount);
                     ResultSet resultSet = statement.executeQuery(sqlWaitFans);   //搭配select使用，其他update什么的都不用
                     ArrayList<String> listWaitFans = new ArrayList<>();
                     while(resultSet.next()){
@@ -290,7 +296,7 @@ public class TicketManagerJFrame extends javax.swing.JFrame {
                     resultSet.close();//close  搭配select使用，其他update什么的都不用
                 
                     /*2.把表`fan_match`中waiting的状态改为ordered*/
-                    String sqlWaitlist = "UPDATE fan_match SET status = \'Ordered\' WHERE hometeam =\'"+homeTeam +"\' and awayteam =\'"+awayTeam +"\' and date =\'"+date +"\' and status = \'Waiting\' ORDER BY waitfrom LIMIT " + (newAmount- oldAmount);
+                    String sqlWaitlist = "UPDATE fan_match SET status = \'Ordered\' WHERE hometeam =\'"+homeTeam +"\' and awayteam =\'"+awayTeam +"\' and date =\'"+date +"\' and status = \'Waiting\' ORDER BY order_time LIMIT " + (newAmount- oldAmount);
                     isBookedWaitlist  = statement.executeUpdate(sqlWaitlist);//executeQuery(sql)是查询  executeUpdate是删改
                     /*3.给表`fan_match`中waiting的邮箱发邮件通知有票了*/
                     /*先试试打印*/

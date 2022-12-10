@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 public class ClubManagerJFrame extends javax.swing.JFrame {
      /*Lu email和club在登录后打开这个界面时传入*/
     String email = "yidianhaoranlv07@outlook.com"; 
-    String club = "RMA";
+    String club = "Bacelona";//RMA
     int salesPrice;
     /**
      * Creates new form ClubManager
@@ -453,7 +453,7 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
                 Statement statement = connection.createStatement();
                 
                 /* write sql */
-                String sql = "SELECT * FROM system_user_info WHERE club =\'" + club +"\'"; 
+                String sql = "SELECT * FROM system_user_info WHERE club =\'" + club +"\' and (role_type = 'coach' or role_type = 'player')"; 
                 ResultSet resultSet = statement.executeQuery(sql);   //搭配select使用，其他update什么的都不用
                
                 while(resultSet.next()){

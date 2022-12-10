@@ -131,6 +131,11 @@ public class CheckClubSponsorJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tbMySponser.getModel();
         date = model.getValueAt(selectedRowIndex , 0).toString();//获得选中的行的第2列的内容
         sponsorEmail = model.getValueAt(selectedRowIndex , 1).toString();//获得选中的行的第2列的内容
+        String status = model.getValueAt(selectedRowIndex , 3).toString();//获得选中的行的第2列的内容 Ordered
+        if(!"Ordered".equals(status)){
+            JOptionPane.showMessageDialog(this, "You can't accept when the status is not Ordered.");
+            return;
+        }   
         try {
             /* create jdbc connection */
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -169,6 +174,11 @@ public class CheckClubSponsorJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tbMySponser.getModel();
         date = model.getValueAt(selectedRowIndex , 0).toString();//获得选中的行的第2列的内容
         sponsorEmail = model.getValueAt(selectedRowIndex , 1).toString();//获得选中的行的第2列的内容
+        String status = model.getValueAt(selectedRowIndex , 3).toString();//获得选中的行的第2列的内容 Ordered
+        if(!"Ordered".equals(status)){
+            JOptionPane.showMessageDialog(this, "You can't reject when the status is not Ordered.");
+            return;
+        }   
         try {
             /* create jdbc connection */
             Class.forName("com.mysql.cj.jdbc.Driver");
