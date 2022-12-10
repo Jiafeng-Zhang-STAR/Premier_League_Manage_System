@@ -1154,7 +1154,7 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
 
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
         // TODO add your handling code here:
-        if(((String)this.NamelistComboBox.getSelectedItem()).length()==0){
+        if(this.NamelistComboBox.getSelectedIndex()==-1){
             JOptionPane.showMessageDialog(ARBComboBox, "Please select a Player first!", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
             int n = JOptionPane.showConfirmDialog(ARBComboBox, "Are you sure want to add this player to the substitution?", "Confirmation", JOptionPane.YES_NO_OPTION);
@@ -1230,7 +1230,7 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
         if (this.SubstitutionComboBox.getItemCount() == 0) {
             JOptionPane.showMessageDialog(ARBComboBox, "There's no one in the substitution list!", "Warning", JOptionPane.ERROR_MESSAGE);
         } else {
-            if (((String) this.SubstitutionComboBox.getSelectedItem()).length() == 0) {
+            if (this.SubstitutionComboBox.getSelectedIndex()==-1) {
                 JOptionPane.showMessageDialog(ARBComboBox, "Please select a Player first!", "Warning", JOptionPane.WARNING_MESSAGE);
             } else {
                 int n = JOptionPane.showConfirmDialog(ARBComboBox, "Are you sure want to delete this player from the substitution?", "Confirmation", JOptionPane.YES_NO_OPTION);
