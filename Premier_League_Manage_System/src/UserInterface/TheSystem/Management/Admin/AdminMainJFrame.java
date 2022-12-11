@@ -5,6 +5,7 @@
 package UserInterface.TheSystem.Management.Admin;
 
 import Test.Feng.TestMainJFrame;
+import TheSystem.Common.Person.Person;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,7 +13,7 @@ import javax.swing.JOptionPane;
  * @author Andrew Chou
  */
 public class AdminMainJFrame extends javax.swing.JFrame {
-
+    Person person;
     /**
      * Creates new form AdminMainJFrame
      */
@@ -127,6 +128,8 @@ public class AdminMainJFrame extends javax.swing.JFrame {
 
     private void CreateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateButtonActionPerformed
         // TODO add your handling code here:
+        AdminCreateJPanel ACJP = new AdminCreateJPanel(this.person);
+        this.jSplitPane1.setRightComponent(ACJP);
     }//GEN-LAST:event_CreateButtonActionPerformed
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
