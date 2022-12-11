@@ -267,8 +267,10 @@ public class RatePlayerJPanel extends javax.swing.JPanel {
                     String[] names = playerList.split(",");
                     
                     for (int i = 0; i < names.length; i++) {
+                        if(names[i].length()!=0){
+                            cbbPlayer.addItem(names[i]);
+                        }
                         
-                        cbbPlayer.addItem(names[i]);
 
                     }
 

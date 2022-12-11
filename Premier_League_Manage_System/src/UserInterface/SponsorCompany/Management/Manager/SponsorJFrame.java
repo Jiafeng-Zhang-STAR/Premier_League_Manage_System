@@ -32,11 +32,13 @@ public class SponsorJFrame extends javax.swing.JFrame {
      */
     public SponsorJFrame() {
         initComponents();
+        lb_Account.setText(email);
         populateTable();
     }
     public SponsorJFrame(String email) {
         this.email = email;
         initComponents();
+        lb_Account.setText(email);
         populateTable();
     }
     public SponsorJFrame(Person person_Pass) {
@@ -59,8 +61,8 @@ public class SponsorJFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         lb_Account = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        bntTeamkist = new javax.swing.JButton();
+        btnMyquote = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
         GivequoteJPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -77,12 +79,17 @@ public class SponsorJFrame extends javax.swing.JFrame {
 
         lb_Account.setText(" ");
 
-        jButton1.setText("TeamList");
-
-        jButton2.setText("MySponse");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        bntTeamkist.setText("TeamList");
+        bntTeamkist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                bntTeamkistActionPerformed(evt);
+            }
+        });
+
+        btnMyquote.setText("Myquote");
+        btnMyquote.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMyquoteActionPerformed(evt);
             }
         });
 
@@ -106,8 +113,8 @@ public class SponsorJFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
+                    .addComponent(bntTeamkist)
+                    .addComponent(btnMyquote)
                     .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -119,9 +126,9 @@ public class SponsorJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lb_Account)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(bntTeamkist)
                 .addGap(26, 26, 26)
-                .addComponent(jButton2)
+                .addComponent(btnMyquote)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 423, Short.MAX_VALUE)
                 .addComponent(logoutButton)
                 .addContainerGap())
@@ -274,11 +281,11 @@ public class SponsorJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtQuoteAmountActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnMyquoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMyquoteActionPerformed
         // TODO add your handling code here:
         CheckSponsorJPanel checksponsorjpanel = new CheckSponsorJPanel(email);///跳转页面
         SponsorSplitPaneSplitPane.setRightComponent(checksponsorjpanel);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnMyquoteActionPerformed
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         // TODO add your handling code here:
@@ -288,6 +295,11 @@ public class SponsorJFrame extends javax.swing.JFrame {
             new TestMainJFrame().setVisible(true);
         }
     }//GEN-LAST:event_logoutButtonActionPerformed
+
+    private void bntTeamkistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntTeamkistActionPerformed
+        // TODO add your handling code here:
+         SponsorSplitPaneSplitPane.setRightComponent(GivequoteJPanel);
+    }//GEN-LAST:event_bntTeamkistActionPerformed
 
     /**
      * @param args the command line arguments
@@ -365,9 +377,9 @@ public class SponsorJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel GivequoteJPanel;
     private javax.swing.JSplitPane SponsorSplitPaneSplitPane;
+    private javax.swing.JButton bntTeamkist;
     private javax.swing.JButton btnGiveQuote;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnMyquote;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;

@@ -449,7 +449,7 @@ public class TicketManagerJFrame extends javax.swing.JFrame {
         // 1. 创建参数配置, 用于连接邮件服务器的参数配置
         Properties props = new Properties();                    // 参数配置
         props.setProperty("mail.transport.protocol", "smtp");   // 使用的协议（JavaMail规范要求）
-        props.setProperty("mail.smtp.host", "smtp.126.com");   // 发件人的邮箱的 SMTP 服务器地址
+        props.setProperty("mail.smtp.host", "smtp.163.com");   // 发件人的邮箱的 SMTP 服务器地址
         props.setProperty("mail.smtp.auth", "true");            // 需要请求认证
         Random random = new Random();
         String strVerificationCode = "";
@@ -475,7 +475,7 @@ public class TicketManagerJFrame extends javax.swing.JFrame {
         session.setDebug(true);                                 // 设置为debug模式, 可以查看详细的发送 log
 
         // 3. 创建一封邮件
-        MimeMessage message = createMimeMessage(session, "yidianhaoranlv@126.com", receiveMailAccount);
+        MimeMessage message = createMimeMessage(session, "13322468203@163.com", receiveMailAccount);
 
         // 4. 根据 Session 获取邮件传输对象
         Transport transport = session.getTransport();
@@ -494,7 +494,7 @@ public class TicketManagerJFrame extends javax.swing.JFrame {
         //           (5) 如果以上几点都确定无误, 到邮件服务器网站查找帮助。
         //
         //    PS_03: 仔细看log, 认真看log, 看懂log, 错误原因都在log已说明。
-        transport.connect("yidianhaoranlv@126.com", "VTBKCYNTNIIYHNVU");
+        transport.connect("13322468203@163.com", "zhouxin19991010");
 
         // 6. 发送邮件, 发到所有的收件地址, message.getAllRecipients() 获取到的是在创建邮件对象时添加的所有收件人, 抄送人, 密送人
         transport.sendMessage(message, message.getAllRecipients());

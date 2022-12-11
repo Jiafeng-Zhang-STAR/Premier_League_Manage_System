@@ -340,67 +340,68 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
     private void btnCancelBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelBookActionPerformed
         // TODO add your handling code here:
         int selectedRowIndex = tbMySession.getSelectedRow();
-        if(selectedRowIndex<0){
+        if (selectedRowIndex < 0) {
             JOptionPane.showMessageDialog(this, "Please select a row.");
             return;
         }
 
         DefaultTableModel model = (DefaultTableModel) tbMySession.getModel();
 
-        date = model.getValueAt(selectedRowIndex , 0).toString();//获得选中的行的第2列的内容
-        homeTeam = model.getValueAt(selectedRowIndex , 1).toString();//获得选中的行的第2列的内容
-        awayTeam = model.getValueAt(selectedRowIndex , 2).toString();//获得选中的行的第2列的内容
-        int price = Integer.parseInt(model.getValueAt(selectedRowIndex , 3).toString());//获得选中的行的第2列的内容
-        String status = model.getValueAt(selectedRowIndex , 4).toString();//获得选中的行的第2列的内容
-        if(!"Ordered".equals(status)){
-            JOptionPane.showMessageDialog(this, "You can't cancel when the status is not Ordered.");
+        date = model.getValueAt(selectedRowIndex, 0).toString();//获得选中的行的第2列的内容
+        homeTeam = model.getValueAt(selectedRowIndex, 1).toString();//获得选中的行的第2列的内容
+        awayTeam = model.getValueAt(selectedRowIndex, 2).toString();//获得选中的行的第2列的内容
+        int price = Integer.parseInt(model.getValueAt(selectedRowIndex, 3).toString());//获得选中的行的第2列的内容
+        String status = model.getValueAt(selectedRowIndex, 4).toString();//获得选中的行的第2列的内容
+        if ("Ordered".equals(status) || "Waiting".equals(status)) {
+            try {
+                /* create jdbc connection */
+                Class.forName("com.mysql.cj.jdbc.Driver");
+
+                String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
+                String username = "root";
+
+                String password = "abcd1234!";
+                Connection connection = DriverManager.getConnection(url, username, password);
+                Statement statement = connection.createStatement();
+
+                String sql = "DELETE from fan_match WHERE (status = \'Ordered\'or status = \'Waiting\' )and email =\'" + email + "\'and hometeam =\'" + homeTeam + "\'and awayteam =\'" + awayTeam + "\'and date =\'" + date + "\'and price =" + price;
+
+                int isBooked = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
+
+                /*4.`match_info`中left_amount会+1 */
+ /*4.1 找出之前剩余票数 */
+                String sqlLeftAmount = "SELECT left_amount FROM match_info WHERE date = \'" + date + "\' and home =\'" + homeTeam + "\'and away =\'" + awayTeam + "\'";
+
+                ResultSet resultSet = statement.executeQuery(sqlLeftAmount);   //搭配select使用，其他update什么的都不用
+                int leftAmount = 0;
+                while (resultSet.next()) {
+                    leftAmount = Integer.parseInt(String.valueOf(resultSet.getObject("left_amount")));
+                }
+                /*4.2 left_amount会+1 再插进去*/
+                String sqlInsertLeftAmount = "UPDATE match_info SET left_amount = " + (leftAmount + 1) + " WHERE home =\'" + homeTeam + "\'and away =\'" + awayTeam + "\'and date =\'" + date + "\'and price =" + price;
+
+                int isInsertLeftAmount = statement.executeUpdate(sqlInsertLeftAmount);//executeQuery(sql)是查询  executeUpdate是删改
+                if (isBooked == 1 && isInsertLeftAmount == 1) {
+                    //populateTable(); //Refresh table
+                    JOptionPane.showMessageDialog(this, "Cancel successfully.");
+                }
+
+                resultSet.close();//close  搭配select使用，其他update什么的都不用
+
+                statement.close();
+                connection.close();
+            } catch (ClassNotFoundException | SQLException e) {
+            }
+
+            /*4.刷新表格 */
+            populateTable();
+        } else {
+            JOptionPane.showMessageDialog(this, "You can't cancel when the status is nether Ordered nor Waiting.");
             return;
-        }   
-        
-        
-        /*改状态到cancel */
-        try {
-            /* create jdbc connection */
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            
-            String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
-            String username = "root";
-
-            String password = "abcd1234!";
-            Connection connection = DriverManager.getConnection(url, username, password);
-            Statement statement = connection.createStatement();
-
-            String sql = "DELETE from fan_match WHERE status = \'Ordered\' and email =\'"+email +"\'and hometeam =\'"+homeTeam +"\'and awayteam =\'"+awayTeam +"\'and date =\'"+date +"\'and price ="+price;
-            
-            int isBooked = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
-
-            /*4.`match_info`中left_amount会+1 */
-            /*4.1 找出之前剩余票数 */
-            String sqlLeftAmount = "SELECT left_amount FROM match_info WHERE date = \'"+ date +"\' and home =\'"+homeTeam +"\'and away =\'"+awayTeam +"\'"; 
-                
-            ResultSet resultSet = statement.executeQuery(sqlLeftAmount);   //搭配select使用，其他update什么的都不用
-            int leftAmount = 0;
-            while(resultSet.next()){
-            leftAmount = Integer.parseInt(String.valueOf(resultSet.getObject("left_amount")));
-            }
-            /*4.2 left_amount会+1 再插进去*/
-            String sqlInsertLeftAmount = "UPDATE match_info SET left_amount = "+ (leftAmount+1) +" WHERE home =\'"+homeTeam +"\'and away =\'"+awayTeam +"\'and date =\'"+date +"\'and price ="+price;
-            
-            int isInsertLeftAmount = statement.executeUpdate(sqlInsertLeftAmount);//executeQuery(sql)是查询  executeUpdate是删改
-            if (isBooked ==1&&isInsertLeftAmount==1){
-                //populateTable(); //Refresh table
-                JOptionPane.showMessageDialog(this, "Cancel successfully.");
-            }
-            
-            resultSet.close();//close  搭配select使用，其他update什么的都不用
-           
-            statement.close();
-            connection.close();
-        } catch (ClassNotFoundException | SQLException e) {
         }
-        
-        /*4.刷新表格 */
-        populateTable();
+
+        /*改状态到cancel */
+
     }//GEN-LAST:event_btnCancelBookActionPerformed
 
     private void btnRatePlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRatePlayerActionPerformed

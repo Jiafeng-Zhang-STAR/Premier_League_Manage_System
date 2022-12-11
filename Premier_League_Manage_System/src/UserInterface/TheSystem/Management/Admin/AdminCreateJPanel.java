@@ -23,11 +23,34 @@ public class AdminCreateJPanel extends javax.swing.JPanel {
      */
     public AdminCreateJPanel() {
         initComponents();
+        this.clubComboBox.setEnabled(false);
     }
     
     public AdminCreateJPanel(Person person) {
         this.person = person;
         initComponents();
+        this.clubComboBox.setEnabled(false);
+        initClub();
+    }
+    
+    public void initClub() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
+            String username = "root";
+            String password = "abcd1234!";
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement statement = connection.createStatement();
+            String sql = "SELECT DISTINCT club FROM system_user_info";
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                this.clubComboBox.addItem((String) resultSet.getObject("club"));
+            }
+            resultSet.close();
+            statement.close();
+            connection.close();
+        } catch (ClassNotFoundException | SQLException e) {
+        }
     }
 
     /**
@@ -48,6 +71,21 @@ public class AdminCreateJPanel extends javax.swing.JPanel {
         nameTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         enterpriseComboBox = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        roleComboBox = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        clubComboBox = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        genderComboBox = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        ageTextField = new javax.swing.JTextField();
+        addressTextField = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        NationTextField = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        zipTextField = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        SubmitButton = new javax.swing.JButton();
 
         jLabel1.setText("Username:");
 
@@ -68,7 +106,50 @@ public class AdminCreateJPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Real Name:");
 
+        nameTextField.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                nameTextFieldInputMethodTextChanged(evt);
+            }
+        });
+        nameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameTextFieldActionPerformed(evt);
+            }
+        });
+
         jLabel4.setText("Enterprise Type:");
+
+        enterpriseComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "club", "league", "sponsor company", "ticket company", "System Common" }));
+        enterpriseComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterpriseComboBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Role Type:");
+
+        jLabel6.setText("Club:");
+
+        jLabel7.setText("Gender");
+
+        genderComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female" }));
+
+        jLabel8.setText("Age:");
+
+        jLabel9.setText("Nation:");
+
+        jLabel10.setText("Address:");
+
+        jLabel11.setText("Zip Code:");
+
+        SubmitButton.setText("Submit");
+        SubmitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubmitButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -76,20 +157,38 @@ public class AdminCreateJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(zipTextField)
+                    .addComponent(NationTextField)
+                    .addComponent(addressTextField)
+                    .addComponent(ageTextField)
                     .addComponent(usernameTextField)
                     .addComponent(PasswordField)
                     .addComponent(nameTextField)
-                    .addComponent(enterpriseComboBox, 0, 160, Short.MAX_VALUE))
+                    .addComponent(enterpriseComboBox, 0, 160, Short.MAX_VALUE)
+                    .addComponent(roleComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(clubComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(genderComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(checkButton)
                 .addContainerGap(313, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(SubmitButton)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,9 +199,9 @@ public class AdminCreateJPanel extends javax.swing.JPanel {
                     .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(checkButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -111,7 +210,37 @@ public class AdminCreateJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(enterpriseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(466, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(roleComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(clubComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(genderComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(zipTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addGap(37, 37, 37)
+                .addComponent(SubmitButton)
+                .addContainerGap(161, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -152,6 +281,151 @@ public class AdminCreateJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_checkButtonActionPerformed
 
+    private void enterpriseComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseComboBoxActionPerformed
+        // TODO add your handling code here:
+        if(this.enterpriseComboBox.getSelectedItem().equals("club")){
+            this.roleComboBox.removeAllItems();
+            this.roleComboBox.addItem("account");
+            this.roleComboBox.addItem("doctor");
+            this.roleComboBox.addItem("coach");
+            this.roleComboBox.addItem("player");
+            this.roleComboBox.addItem("club manager");
+            this.clubComboBox.setEnabled(true);
+        }else if(this.enterpriseComboBox.getSelectedItem().equals("league")){
+            this.roleComboBox.removeAllItems();
+            this.roleComboBox.addItem("league manager");
+            this.clubComboBox.setEnabled(false);
+        }else if(this.enterpriseComboBox.getSelectedItem().equals("sponsor company")){
+            this.roleComboBox.removeAllItems();
+            this.roleComboBox.addItem("sponsor");
+            this.clubComboBox.setEnabled(false);
+        }else if(this.enterpriseComboBox.getSelectedItem().equals("ticket company")){
+            this.roleComboBox.removeAllItems();
+            this.roleComboBox.addItem("ticket manager");
+            this.clubComboBox.setEnabled(false);
+        }else if(this.enterpriseComboBox.getSelectedItem().equals("System Common")){
+            this.roleComboBox.removeAllItems();
+            this.roleComboBox.addItem("fan");
+            this.roleComboBox.addItem("admin");
+            this.clubComboBox.setEnabled(false);
+        } 
+    }//GEN-LAST:event_enterpriseComboBoxActionPerformed
+
+    private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextFieldActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_nameTextFieldActionPerformed
+
+    private void nameTextFieldInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_nameTextFieldInputMethodTextChanged
+        // TODO add your handling code here:
+//        if(this.containNumber(this.nameTextField.getText())){
+//            this.nameTextField.setText("");
+//            JOptionPane.showMessageDialog(roleComboBox, "Name can't contain number", "Warning", JOptionPane.WARNING_MESSAGE);
+//        }
+    }//GEN-LAST:event_nameTextFieldInputMethodTextChanged
+
+    private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
+        // TODO add your handling code here:
+        if(this.usernameTextField.getText().length()==0 ||
+                this.PasswordField.getText().length()==0 ||
+                this.nameTextField.getText().length()==0 ||
+                this.roleComboBox.getSelectedIndex()==-1 ||
+                this.ageTextField.getText().length()==0 ||
+                this.NationTextField.getText().length()==0 ||
+                this.addressTextField.getText().length()==0 ||
+                this.zipTextField.getText().length()==0){
+            JOptionPane.showMessageDialog(roleComboBox, "Some fields are empty!", "Warning", JOptionPane.ERROR_MESSAGE);
+        }else if(this.containNumber(this.nameTextField.getText())){
+            JOptionPane.showMessageDialog(roleComboBox, "Name can't contain number", "Warning", JOptionPane.WARNING_MESSAGE);
+        }else if(this.containLetter(this.ageTextField.getText())){
+            JOptionPane.showMessageDialog(roleComboBox, "Age can't contain letter", "Warning", JOptionPane.WARNING_MESSAGE);
+        }else if(Integer.parseInt(this.ageTextField.getText())<18 || Integer.parseInt(this.ageTextField.getText())>120) {
+            JOptionPane.showMessageDialog(roleComboBox, "Age invalid", "Warning", JOptionPane.WARNING_MESSAGE);
+        }else if(this.containNumber(this.NationTextField.getText())){
+            JOptionPane.showMessageDialog(roleComboBox, "Nation can't contain number", "Warning", JOptionPane.WARNING_MESSAGE);
+        }else if(this.containLetter(this.zipTextField.getText())){
+            JOptionPane.showMessageDialog(roleComboBox, "Zip code can't contain letter", "Warning", JOptionPane.WARNING_MESSAGE);
+        }else{
+            String userName = this.usernameTextField.getText();
+            String passWord = this.PasswordField.getText();
+            String name = this.nameTextField.getText();
+            String club = (String) this.clubComboBox.getSelectedItem();
+            String nation = this.NationTextField.getText();
+            String address = this.addressTextField.getText();
+            String zipcode = this.zipTextField.getText();
+            int gender = 0;
+            int age = Integer.parseInt(this.ageTextField.getText());
+            if(this.genderComboBox.getSelectedItem().equals("male")){
+                gender = 1;
+            }else{
+                gender  =2;
+            }
+            int enterprise_type = 0;
+            int role_type = 0;
+            if(this.enterpriseComboBox.getSelectedItem().equals("club")){
+                enterprise_type = 1;
+                if(this.roleComboBox.getSelectedItem().equals("account")){
+                    role_type = 1;
+                }else if(this.roleComboBox.getSelectedItem().equals("doctor")){
+                    role_type = 2;
+                }else if(this.roleComboBox.getSelectedItem().equals("coach")){
+                    role_type = 3;
+                }else if(this.roleComboBox.getSelectedItem().equals("player")){
+                    role_type = 4;
+                }else if(this.roleComboBox.getSelectedItem().equals("club manager")){
+                    role_type = 5;
+                }
+            }else if(this.enterpriseComboBox.getSelectedItem().equals("league")){
+                enterprise_type = 2;
+                role_type = 1;
+            }else if(this.enterpriseComboBox.getSelectedItem().equals("sponsor company")){
+                enterprise_type = 3;
+                role_type = 1;
+            }else if(this.enterpriseComboBox.getSelectedItem().equals("ticket company")){
+                enterprise_type = 4;
+                role_type = 1;
+            }else if(this.enterpriseComboBox.getSelectedItem().equals("System Common")){
+                enterprise_type = 5;
+                if(this.roleComboBox.getSelectedItem().equals("fan")){
+                    role_type = 1;
+                }else{
+                    role_type  =2;
+                }
+            }
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
+                String username = "root";
+                String password = "abcd1234!";
+                Connection connection = DriverManager.getConnection(url, username, password);
+                Statement statement = connection.createStatement();
+                String sql = "INSERT INTO system_user_info VALUES(\'"+userName+"\',\'"+passWord+"\',\'"+name+"\',\'"+enterprise_type+"\',\'"+role_type+"\',\'"+club+"\',\'"+gender+"\',\'"+age+"\',\'"+nation+"\',\'"+address+"\',\'"+zipcode+"\',null)";
+                String nonfansql = "INSERT INTO system_user_info VALUES(\'"+userName+"\',\'"+passWord+"\',\'"+name+"\',\'"+enterprise_type+"\',\'"+role_type+"\',null,\'"+gender+"\',\'"+age+"\',\'"+nation+"\',\'"+address+"\',\'"+zipcode+"\',null)";
+                int result;
+                if(enterprise_type==1){
+                    result = statement.executeUpdate(sql);
+                }else{
+                    result = statement.executeUpdate(nonfansql);
+                }
+                if(result==1){
+                    JOptionPane.showConfirmDialog(roleComboBox, "Add Successful!", "Warning", JOptionPane.PLAIN_MESSAGE);
+                }
+                statement.close();
+                connection.close();
+            } catch (ClassNotFoundException | SQLException e) {
+            }
+            this.usernameTextField.setText("");
+            this.PasswordField.setText("");
+            this.NationTextField.setText("");
+            this.roleComboBox.removeAllItems();
+            this.clubComboBox.setEnabled(false);
+            this.ageTextField.setText("");
+            this.NationTextField.setText("");
+            this.addressTextField.setText("");
+            this.zipTextField.setText("");
+        }
+    }//GEN-LAST:event_SubmitButtonActionPerformed
+
     private boolean containNumber(String a) {
         boolean flag = false;
         for (int i = 0; i < a.length(); i++) {
@@ -175,14 +449,29 @@ public class AdminCreateJPanel extends javax.swing.JPanel {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField NationTextField;
     private javax.swing.JPasswordField PasswordField;
+    private javax.swing.JButton SubmitButton;
+    private javax.swing.JTextField addressTextField;
+    private javax.swing.JTextField ageTextField;
     private javax.swing.JButton checkButton;
+    private javax.swing.JComboBox<String> clubComboBox;
     private javax.swing.JComboBox<String> enterpriseComboBox;
+    private javax.swing.JComboBox<String> genderComboBox;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField nameTextField;
+    private javax.swing.JComboBox<String> roleComboBox;
     private javax.swing.JTextField usernameTextField;
+    private javax.swing.JTextField zipTextField;
     // End of variables declaration//GEN-END:variables
 }

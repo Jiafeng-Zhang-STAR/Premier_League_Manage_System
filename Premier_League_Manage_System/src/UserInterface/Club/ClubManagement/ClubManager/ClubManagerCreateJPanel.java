@@ -66,7 +66,6 @@ public class ClubManagerCreateJPanel extends javax.swing.JPanel {
         ccbGender = new javax.swing.JComboBox<>();
         txtPassword = new javax.swing.JTextField();
         btnCreateSystemAdminCreatP = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -118,13 +117,6 @@ public class ClubManagerCreateJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnBack.setText("Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -134,7 +126,7 @@ public class ClubManagerCreateJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
                             .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -160,8 +152,7 @@ public class ClubManagerCreateJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnCreateSystemAdminCreatP)
-                        .addGap(62, 62, 62)
-                        .addComponent(btnBack)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(243, 243, 243))
         );
 
@@ -207,68 +198,81 @@ public class ClubManagerCreateJPanel extends javax.swing.JPanel {
                     .addComponent(txtZip, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel14))
                 .addGap(60, 60, 60)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCreateSystemAdminCreatP)
-                    .addComponent(btnBack))
+                .addComponent(btnCreateSystemAdminCreatP)
                 .addGap(159, 159, 159))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateSystemAdminCreatPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateSystemAdminCreatPActionPerformed
         // TODO add your handling code here:
-        if(txtUsername.getText().length()==0){
+        if (txtUsername.getText().length() == 0) {
             JOptionPane.showMessageDialog(this, "Username is null");
             return;
-            }
-        
-        if(isEmail(txtUsername.getText())==false){
+        }
+
+        if (isEmail(txtUsername.getText()) == false) {
             JOptionPane.showMessageDialog(this, "Please input the email with correct format");
             return;
         }
-        if(txtPassword.getText().length()==0){
+        if (txtPassword.getText().length() == 0) {
             JOptionPane.showMessageDialog(this, "Password is null");
             return;
         }
-        if(txtRealname.getText().length()==0){
+        if (txtRealname.getText().length() == 0) {
             JOptionPane.showMessageDialog(this, "Realname is null");
             return;
         }
-        if(txtAge.getText().length()==0){
+        if (txtAge.getText().length() == 0) {
             JOptionPane.showMessageDialog(this, "Age is null");
             return;
         }
-            
+
         try {
-             int i = Integer.parseInt(txtAge.getText());
-            }catch(NumberFormatException t){
-                JOptionPane.showMessageDialog(this,"Please input an Integer");
-                return;
-            }
-        
-        if(txtNation.getText().length()==0){
+            int i = Integer.parseInt(txtAge.getText());
+        } catch (NumberFormatException t) {
+            JOptionPane.showMessageDialog(this, "Please input an Integer");
+            return;
+        }
+
+        if (txtNation.getText().length() == 0) {
             JOptionPane.showMessageDialog(this, "City is null");
             return;
         }
-        if(txtAddress.getText().length()==0){
+        if (txtAddress.getText().length() == 0) {
             JOptionPane.showMessageDialog(this, "Community is null");
             return;
         }
-        if(txtZip.getText().length()==0){
+        if (txtZip.getText().length() == 0) {
             JOptionPane.showMessageDialog(this, "Zip is null");
             return;
         }
 
-        if(String.valueOf(cbbRole.getSelectedItem())=="Select the role"){
+        if (String.valueOf(cbbRole.getSelectedItem()) == "Select the role") {
             JOptionPane.showMessageDialog(this, "Please select the role");
             return;
         }
-        if(String.valueOf(ccbGender.getSelectedItem())=="Select the gender"){
+
+        /*20221211 Lu*/
+        int cbbRoleValue = 0;
+        if (String.valueOf(cbbRole.getSelectedItem()) == "coach") {
+            cbbRoleValue = 3;
+        } else if (String.valueOf(cbbRole.getSelectedItem()) == "player") {
+            cbbRoleValue = 4;
+        }
+        if (String.valueOf(ccbGender.getSelectedItem()) == "Select the gender") {
             JOptionPane.showMessageDialog(this, "Please select the gender");
             return;
         }
-        
+
+        int ccbGenderValue = 0;
+        if (String.valueOf(ccbGender.getSelectedItem()) == "Male") {
+            ccbGenderValue = 1;
+        } else if (String.valueOf(ccbGender.getSelectedItem()) == "Female") {
+            ccbGenderValue = 2;
+        }
+
         try {
-            
+
             /* create jdbc connection */
             Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -280,42 +284,42 @@ public class ClubManagerCreateJPanel extends javax.swing.JPanel {
             Statement statement = connection.createStatement();
 
             /* write sql */
-            /* 确认Username可用 */
-            String sqlUsername = "SELECT * FROM system_user_info WHERE username=\'"+txtUsername.getText()+"\'"; 
+ /* 确认Username可用 */
+            String sqlUsername = "SELECT * FROM system_user_info WHERE username=\'" + txtUsername.getText() + "\'";
             ResultSet usernameSet = statement.executeQuery(sqlUsername);   //搭配select使用，其他update什么的都不用
-
 
             if (usernameSet.next() == true) {
                 JOptionPane.showMessageDialog(this, "Username is occipied, please use another one");
                 return;
             }
-            
-            
-            /* insert */    
-            String sql = "INSERT INTO system_user_info (username, password, enterprise_type, role_type, club, name, gender, age, nation, address, zip) VALUES (\'" 
-                    + txtUsername.getText() +"\', \'"+ txtPassword.getText() + "\',\'club\',\'"+ String.valueOf(cbbRole.getSelectedItem())+"\',\'"
-                    + club +"\',\'"+txtRealname.getText()+"\',\'"+String.valueOf(ccbGender.getSelectedItem())+"\',"+txtAge.getText()+",\'"+txtNation.getText()+"\',\'"+txtAddress.getText()+"\',\'"+txtZip.getText()+"\')"; 
-            
+
+            /* insert */
+            String sql = "INSERT INTO system_user_info (username, password, enterprise_type, role_type, club, name, gender, age, nation, address, zip) VALUES (\'"
+                    + txtUsername.getText() + "\', \'" + txtPassword.getText() + "\',1,\'" + cbbRoleValue + "\',\'"
+                    + club + "\',\'" + txtRealname.getText() + "\',\'" + ccbGenderValue + "\'," + txtAge.getText() + ",\'" + txtNation.getText() + "\',\'" + txtAddress.getText() + "\',\'" + txtZip.getText() + "\')";
+
             int isUpdated = statement.executeUpdate(sql);//executeQuery(sql)是查询  executeUpdate是删改
 
-            if (isUpdated ==1){
+            if (isUpdated == 1) {
 
                 JOptionPane.showMessageDialog(this, "Created.");
             }
-            
+
             statement.close();
             connection.close();
-            } catch (ClassNotFoundException | SQLException e) {
-            }
+        } catch (ClassNotFoundException | SQLException e) {
+        }
+        this.txtUsername.setText("");
+        this.txtPassword.setText("");
+        this.txtRealname.setText("");
+        this.txtAge.setText("");
+        this.txtNation.setText("");
+        this.txtAddress.setText("");
+        this.txtZip.setText("");
+        
 //        SystemAdminRViewJPanel systemadminrviewjpanel = new SystemAdminRViewJPanel(SplitPane);///跳转页面
 //        SplitPane.setRightComponent(systemadminrviewjpanel);
     }//GEN-LAST:event_btnCreateSystemAdminCreatPActionPerformed
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-//        SystemAdminRViewJPanel systemadminrviewjpanel = new SystemAdminRViewJPanel(SplitPane);///跳转页面
-//        SplitPane.setRightComponent(systemadminrviewjpanel);
-    }//GEN-LAST:event_btnBackActionPerformed
 
     public JComboBox<String> getCcbGender() {
         return ccbGender;
@@ -352,7 +356,6 @@ public class ClubManagerCreateJPanel extends javax.swing.JPanel {
         return flag;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreateSystemAdminCreatP;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;

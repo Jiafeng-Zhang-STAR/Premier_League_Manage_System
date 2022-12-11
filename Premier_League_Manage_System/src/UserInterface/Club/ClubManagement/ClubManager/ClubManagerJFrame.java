@@ -31,6 +31,7 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
      */
     public ClubManagerJFrame(){
         initComponents();
+        lb_Account.setText(email);
         populateTable();
     }
     
@@ -38,6 +39,7 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
         this.email =email;
         this.club = club;
         initComponents();
+        lb_Account.setText(email);
         populateTable();
     }
     
@@ -45,6 +47,7 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
         this.person = person_Pass;
         this.email = this.person.getUsername();
         this.club = this.person.getClub();
+        
         initComponents();
         populateTable();
     }
@@ -145,9 +148,9 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
                 .addComponent(btnCheckSponsor)
                 .addGap(29, 29, 29)
                 .addComponent(btnCheckTransfer)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 371, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 308, Short.MAX_VALUE)
                 .addComponent(logoutButton)
-                .addContainerGap())
+                .addGap(69, 69, 69))
         );
 
         ClubManagerSplitPane.setLeftComponent(jPanel1);
@@ -484,7 +487,8 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
                 Statement statement = connection.createStatement();
                 
                 /* write sql */
-                String sql = "SELECT * FROM system_user_info WHERE club =\'" + club +"\' and (role_type = 'coach' or role_type = 'player')"; 
+                String sql = "SELECT * FROM system_user_info WHERE club =\'" + club +"\' and (role_type = 3 or role_type = 4)"; 
+                System.out.println(sql);
                 ResultSet resultSet = statement.executeQuery(sql);   //搭配select使用，其他update什么的都不用
                
                 while(resultSet.next()){
