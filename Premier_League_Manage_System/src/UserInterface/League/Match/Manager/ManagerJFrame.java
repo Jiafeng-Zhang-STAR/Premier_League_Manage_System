@@ -5,6 +5,7 @@
 package UserInterface.League.Match.Manager;
 
 //import UserInterface.Club.Finance.Accountant.*;
+import Test.Feng.TestMainJFrame;
 import UserInterface.Club.Health.Doctor.*;
 import TheSystem.Common.Person.Person;
 import TheClub.Health.Doctor.Doctor;
@@ -15,6 +16,7 @@ import java.awt.Image;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -41,7 +43,8 @@ public class ManagerJFrame extends javax.swing.JFrame {
               buttonChoose.setBackground(new java.awt.Color(255, 255, 255));
               buttonChoose.setForeground(Color.black);
             
-        }   
+        }  
+        nameMainLabel.setText(personTemp.getName());
     }
     
     //构造器 用于初始化 Constructor Used to initialize
@@ -59,13 +62,10 @@ public class ManagerJFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         scheduleMatchButton = new javax.swing.JButton();
         loginOutButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        userNameMainLabel = new javax.swing.JLabel();
         nameMainLabel = new javax.swing.JLabel();
         viewPlayerStatisticsButton = new javax.swing.JButton();
         viewClubStatisticsButton = new javax.swing.JButton();
-        userNameMainLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         backgroundPictureLabel = new javax.swing.JLabel();
 
@@ -106,23 +106,11 @@ public class ManagerJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("UserName:");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Name:");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        userNameMainLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        userNameMainLabel.setForeground(new java.awt.Color(255, 255, 255));
-        userNameMainLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        userNameMainLabel.setText("------------------");
-        userNameMainLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         nameMainLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         nameMainLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -153,12 +141,6 @@ public class ManagerJFrame extends javax.swing.JFrame {
             }
         });
 
-        userNameMainLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        userNameMainLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        userNameMainLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        userNameMainLabel1.setText("------------------");
-        userNameMainLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -169,24 +151,15 @@ public class ManagerJFrame extends javax.swing.JFrame {
                     .addComponent(viewClubStatisticsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(scheduleMatchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(viewPlayerStatisticsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(userNameMainLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(nameMainLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(loginOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(userNameMainLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(loginOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jLabel1)
-                .addGap(5, 5, 5)
-                .addComponent(userNameMainLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(userNameMainLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(126, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nameMainLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -303,6 +276,11 @@ public class ManagerJFrame extends javax.swing.JFrame {
         }
         loginOutButton.setBackground(new java.awt.Color(0, 0, 0));
         loginOutButton.setForeground(Color.white);
+        int value = JOptionPane.showConfirmDialog(rootPane, "Are you want to log out?");
+        if (value == JOptionPane.YES_OPTION) {
+            dispose();
+            new TestMainJFrame().setVisible(true);
+        }
     }//GEN-LAST:event_loginOutButtonActionPerformed
 
     private void scheduleMatchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scheduleMatchButtonActionPerformed
@@ -362,7 +340,6 @@ public class ManagerJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backgroundPictureLabel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -371,8 +348,6 @@ public class ManagerJFrame extends javax.swing.JFrame {
     private javax.swing.ButtonGroup managerJFrameButtonGroup;
     private javax.swing.JLabel nameMainLabel;
     private javax.swing.JButton scheduleMatchButton;
-    private javax.swing.JLabel userNameMainLabel;
-    private javax.swing.JLabel userNameMainLabel1;
     private javax.swing.JButton viewClubStatisticsButton;
     private javax.swing.JButton viewPlayerStatisticsButton;
     // End of variables declaration//GEN-END:variables

@@ -467,12 +467,6 @@
                       <Image iconType="3" name="/TheSystem/Common/SelfDesignIcon/700_565_selfDesigned_SoccerField_NoStrips_Card.png"/>
                     </Property>
                     <Property name="alignmentY" type="float" value="0.0"/>
-                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[700, 565]"/>
-                    </Property>
-                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[700, 565]"/>
-                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="selectAppointmentButton">
@@ -1030,14 +1024,14 @@
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                  <Component id="viewPictureLabel" min="-2" pref="412" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jScrollPane5" pref="522" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                  <Component id="viewPictureLabel" min="-2" pref="413" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1058,8 +1052,8 @@
                               <Component id="jScrollPane5" min="-2" pref="122" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="viewPictureLabel" min="-2" pref="363" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="viewPictureLabel" min="-2" pref="353" max="-2" attributes="0"/>
+                          <EmptySpace pref="8" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1113,7 +1107,6 @@
                 <Component class="javax.swing.JButton" name="chooseToViewPicture">
                   <Properties>
                     <Property name="text" type="java.lang.String" value=" View Picture"/>
-                    <Property name="actionCommand" type="java.lang.String" value=" View Picture"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chooseToViewPictureActionPerformed"/>

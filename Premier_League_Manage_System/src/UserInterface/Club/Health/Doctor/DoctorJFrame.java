@@ -5,6 +5,7 @@
 package UserInterface.Club.Health.Doctor;
 
 //import UserInterface.Club.Finance.Accountant.*;
+import Test.Feng.TestMainJFrame;
 import TheSystem.Common.Person.Person;
 import TheClub.Health.Doctor.Doctor;
 import TheClub.Team.Team;
@@ -14,6 +15,7 @@ import java.awt.Image;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -44,10 +46,10 @@ public class DoctorJFrame extends javax.swing.JFrame {
         int length2 = this.doctor.getTeam().getPlayerCatalog().getPlayerCata().size(); 
         //医生对象中的Team对象，找到队员总数 
         //Find the total number of team members in the Team object of the Doctor object
-        for(int i=0;i<length2;i++){
-        System.out.println(this.doctor.getTeam().getPlayerCatalog().getPlayerCata().get(i).getUsername());  
-        }
-        
+//        for(int i=0;i<length2;i++){
+//        System.out.println(this.doctor.getTeam().getPlayerCatalog().getPlayerCata().get(i).getUsername());  
+//        }
+        nameMainLabel.setText(personTemp.getName());
         Enumeration<AbstractButton> button;
         button=doctorJFrameButtonGroup.getElements();
         AbstractButton buttonChoose; //buttonChoose = jButton1 is true
@@ -82,12 +84,9 @@ public class DoctorJFrame extends javax.swing.JFrame {
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         loginOutButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        userNameMainLabel = new javax.swing.JLabel();
         nameMainLabel = new javax.swing.JLabel();
         faceToFaceDignoseButton = new javax.swing.JButton();
-        userNameMainLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         backgroundPictureLabel = new javax.swing.JLabel();
 
@@ -117,23 +116,11 @@ public class DoctorJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("UserName:");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Name:");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        userNameMainLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        userNameMainLabel.setForeground(new java.awt.Color(255, 255, 255));
-        userNameMainLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        userNameMainLabel.setText("------------------");
-        userNameMainLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         nameMainLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         nameMainLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -152,12 +139,6 @@ public class DoctorJFrame extends javax.swing.JFrame {
             }
         });
 
-        userNameMainLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        userNameMainLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        userNameMainLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        userNameMainLabel1.setText("------------------");
-        userNameMainLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -166,30 +147,21 @@ public class DoctorJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(faceToFaceDignoseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(userNameMainLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
-                    .addComponent(nameMainLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(loginOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(userNameMainLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(nameMainLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                    .addComponent(loginOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jLabel1)
-                .addGap(5, 5, 5)
-                .addComponent(userNameMainLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(userNameMainLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(126, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nameMainLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(135, 135, 135)
-                .addComponent(faceToFaceDignoseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85)
+                .addGap(79, 79, 79)
+                .addComponent(faceToFaceDignoseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(loginOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -280,6 +252,11 @@ public class DoctorJFrame extends javax.swing.JFrame {
         }
         loginOutButton.setBackground(new java.awt.Color(0, 0, 0));
         loginOutButton.setForeground(Color.white);
+        int value = JOptionPane.showConfirmDialog(rootPane, "Are you want to log out?");
+        if (value == JOptionPane.YES_OPTION) {
+            dispose();
+            new TestMainJFrame().setVisible(true);
+        }
     }//GEN-LAST:event_loginOutButtonActionPerformed
 
     /**
@@ -321,14 +298,11 @@ public class DoctorJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel backgroundPictureLabel;
     private javax.swing.ButtonGroup doctorJFrameButtonGroup;
     private javax.swing.JButton faceToFaceDignoseButton;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton loginOutButton;
     private javax.swing.JLabel nameMainLabel;
-    private javax.swing.JLabel userNameMainLabel;
-    private javax.swing.JLabel userNameMainLabel1;
     // End of variables declaration//GEN-END:variables
 }

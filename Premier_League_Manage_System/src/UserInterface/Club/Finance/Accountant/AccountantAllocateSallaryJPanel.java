@@ -303,10 +303,34 @@ public class AccountantAllocateSallaryJPanel extends javax.swing.JPanel {
         salaryTable.setEnabled(false);
          
     }//GEN-LAST:event_saveMatchButtonActionPerformed
+    private boolean containNumber(String a){
+            boolean flag = false;
 
+            for(int i = 0;i<a.length();i++){
+                char c = a.charAt(i);
+
+                if(c>48 & c<57){
+                    flag = true;
+
+                }
+            }
+            return flag;
+        }
+
+        private boolean containLetter(String a){
+            boolean flag = false;
+            for(int i = 0;i<a.length();i++){
+                char c = a.charAt(i);
+                if(!Character.isDigit(c)){
+                    flag = true;
+                }
+            }
+            return flag;
+        } 
     private void submitMatchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitMatchButtonActionPerformed
         // TODO add your handling code here:
         String TempSalary=enterjTextFieldSalary.getText();
+        if(this.containNumber(TempSalary)){
            if((!"".equals(TempSalary))&& (TempSalary!=null)&&(!" ".equals(TempSalary))){
             try{
                 Class.forName("com.mysql.cj.jdbc.Driver");
@@ -338,11 +362,11 @@ public class AccountantAllocateSallaryJPanel extends javax.swing.JPanel {
            else{
            JOptionPane.showMessageDialog(submitMatchButton, "Please enter the salary first!");
            }
+        }
+        else{
+            JOptionPane.showMessageDialog(submitMatchButton, "The salary must be a number");
+        }
         selectOnePeopleButton.setEnabled(true);
-        
-        
-        
-        
         saveMatchButton.setEnabled(false);
         editSelectedMatchButton.setEnabled(false);
         freshMatchButton.setEnabled(true);
@@ -353,6 +377,7 @@ public class AccountantAllocateSallaryJPanel extends javax.swing.JPanel {
         enterjTextFieldSalary.setEnabled(false);
         
         salaryTable.setEnabled(true);
+        
         
 
     }//GEN-LAST:event_submitMatchButtonActionPerformed

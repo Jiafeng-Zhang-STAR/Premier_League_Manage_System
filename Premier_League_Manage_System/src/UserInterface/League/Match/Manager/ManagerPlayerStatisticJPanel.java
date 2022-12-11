@@ -247,7 +247,13 @@ public class ManagerPlayerStatisticJPanel extends javax.swing.JPanel {
         ArrayList<String> OneTypeGrade;
         OneTypeGrade = new ArrayList<String>();
         
-        String playerNameTemp = PlayerNameStatisticComboBox.getSelectedItem().toString();
+      if(PlayerNameStatisticComboBox.getSelectedIndex()==-1){JOptionPane.showMessageDialog(submitToViewButton, "You should choose all items");}
+        else{
+            if(GradeStatisticComboBox.getSelectedIndex()==-1){JOptionPane.showMessageDialog(submitToViewButton, "You should choose all items");}
+            else{
+                if(ChartTypeStatisticComboBox.getSelectedIndex()==-1){JOptionPane.showMessageDialog(submitToViewButton, "You should choose all items");}
+                else{
+                    String playerNameTemp = PlayerNameStatisticComboBox.getSelectedItem().toString();
         
         String gradeTypeTemp = GradeStatisticComboBox.getSelectedItem().toString();
         
@@ -322,6 +328,10 @@ public class ManagerPlayerStatisticJPanel extends javax.swing.JPanel {
             ShowChartjPanel.add(ChartjPanel);
             ShowChartjPanel.updateUI();
         }
+                }
+            }
+      }
+        
     }//GEN-LAST:event_submitToViewButtonActionPerformed
 
     

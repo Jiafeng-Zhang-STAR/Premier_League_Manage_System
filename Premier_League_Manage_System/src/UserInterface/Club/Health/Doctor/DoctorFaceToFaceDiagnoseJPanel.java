@@ -11,6 +11,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import static java.lang.Float.parseFloat;
 //import java.awt.Image;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
@@ -470,8 +471,6 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 
         backgroundPictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TheSystem/Common/SelfDesignIcon/700_565_selfDesigned_SoccerField_NoStrips_Card.png"))); // NOI18N
         backgroundPictureLabel.setAlignmentY(0.0F);
-        backgroundPictureLabel.setMaximumSize(new java.awt.Dimension(700, 565));
-        backgroundPictureLabel.setMinimumSize(new java.awt.Dimension(700, 565));
 
         selectAppointmentButton.setText("<html>&nbsp Select One<br/>Appointment</html>");
         chooseAppointmentGroup.add(selectAppointmentButton);
@@ -864,7 +863,6 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         jLabel42.setText("Choose One Records :");
 
         chooseToViewPicture.setText(" View Picture");
-        chooseToViewPicture.setActionCommand(" View Picture");
         chooseToViewPicture.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chooseToViewPictureActionPerformed(evt);
@@ -886,13 +884,13 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
                     .addComponent(chooseToViewPicture, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(medicalPictureHistoryCard5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(medicalPictureHistoryCard5Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(viewPictureLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(medicalPictureHistoryCard5Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(medicalPictureHistoryCard5Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(viewPictureLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         medicalPictureHistoryCard5Layout.setVerticalGroup(
             medicalPictureHistoryCard5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -907,8 +905,8 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
                         .addComponent(chooseToViewPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(viewPictureLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(viewPictureLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         cards.add(medicalPictureHistoryCard5, "card2");
@@ -1845,10 +1843,6 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         cards.add(solutionHistoryCard7);
         cards.repaint();
         cards.revalidate();
-        cards.removeAll();
-        cards.add(vitalSignHistoryCard3);
-        cards.repaint();
-        cards.revalidate();
         
         DefaultTableModel model = (DefaultTableModel) solutionTable.getModel();
         model.setRowCount(0);
@@ -1958,6 +1952,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         cards.add(solutionCard12);
         cards.repaint();
         cards.revalidate();
+        
     }//GEN-LAST:event_solutionMenuItemActionPerformed
 
     private void freshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_freshButtonActionPerformed
@@ -2089,6 +2084,31 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_editVitalSignsFillButtonActionPerformed
 
+    private boolean containNumber(String a){
+        boolean flag = false;
+        
+        for(int i = 0;i<a.length();i++){
+            char c = a.charAt(i);
+            
+            if(c>48 & c<57){
+                flag = true;
+                
+            }
+        }
+        return flag;
+    }
+    
+    private boolean containLetter(String a){
+        boolean flag = false;
+        for(int i = 0;i<a.length();i++){
+            char c = a.charAt(i);
+            if(!Character.isDigit(c)){
+                flag = true;
+            }
+        }
+        return flag;
+    } 
+    
     private void submitVitalSignsFillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitVitalSignsFillButtonActionPerformed
         // TODO add your handling code here:
         if(this.appointmentHistoryID != 0){
@@ -2104,49 +2124,97 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
             editVitalSignsFillButton.setEnabled(false);
             saveVitalSignsFillButton.setEnabled(true);
 
+            if(bodyTemperatureFillVitalSignsTextField.getText().length()==0 ||
+               plusRateInFillVitalSignsTextField.getText().length()==0 ||
+               breathingRateFillVitalSignsTextField.getText().length()==0 ||
+                bloodPressureFillVitalSignsTextField.getText().length()==0 ||
+                oxygenSaturationFillVitalSignsTextField.getText().length()==0 ||
+                heightFillVitalSignsTextField.getText().length()==0 ||
+                weightFillVitalSignsTextField.getText().length()==0
+                ){JOptionPane.showMessageDialog(submitVitalSignsFillButton, "Please fill the empty field");}
+            else{
+            float bodyTemperatureFillVitalSignsTemp = parseFloat(bodyTemperatureFillVitalSignsTextField.getText());
+            float plusRateInFillVitalSignsTextFieldTemp = parseFloat(plusRateInFillVitalSignsTextField.getText());
+            float breathingRateFillVitalSignsTextFieldTemp = parseFloat(breathingRateFillVitalSignsTextField.getText());
+            float bloodPressureFillVitalSignsTextFieldTemp = parseFloat(bloodPressureFillVitalSignsTextField.getText());
+            float oxygenSaturationFillVitalSignsTextFieldTemp = parseFloat(oxygenSaturationFillVitalSignsTextField.getText());
+            float heightFillVitalSignsTextFieldTemp = parseFloat(heightFillVitalSignsTextField.getText());
+            float weightFillVitalSignsTextFieldTemp = parseFloat(weightFillVitalSignsTextField.getText());
 
-            String bodyTemperatureFillVitalSignsTemp = bodyTemperatureFillVitalSignsTextField.getText();
-            String plusRateInFillVitalSignsTextFieldTemp = plusRateInFillVitalSignsTextField.getText();
-            String breathingRateFillVitalSignsTextFieldTemp = breathingRateFillVitalSignsTextField.getText();
-            String bloodPressureFillVitalSignsTextFieldTemp = bloodPressureFillVitalSignsTextField.getText();
-            String oxygenSaturationFillVitalSignsTextFieldTemp = oxygenSaturationFillVitalSignsTextField.getText();
-            String heightFillVitalSignsTextFieldTemp = heightFillVitalSignsTextField.getText();
-            String weightFillVitalSignsTextFieldTemp = weightFillVitalSignsTextField.getText();
+            
+            if(this.containNumber(bodyTemperatureFillVitalSignsTextField.getText())){
+                if(this.containNumber(plusRateInFillVitalSignsTextField.getText())){
+                    if(this.containNumber(breathingRateFillVitalSignsTextField.getText())){
+                        if(this.containNumber(bloodPressureFillVitalSignsTextField.getText())){
+                            if(this.containNumber(oxygenSaturationFillVitalSignsTextField.getText())){
+                                 if(this.containNumber(heightFillVitalSignsTextField.getText())){
+                                     if(this.containNumber(weightFillVitalSignsTextField.getText())){
+ if(((bodyTemperatureFillVitalSignsTemp>-40)&&(bodyTemperatureFillVitalSignsTemp<60))&&((plusRateInFillVitalSignsTextFieldTemp>-1)&&(plusRateInFillVitalSignsTextFieldTemp<400))){
+     if(((breathingRateFillVitalSignsTextFieldTemp>-1)&&(breathingRateFillVitalSignsTextFieldTemp<190))&&((bloodPressureFillVitalSignsTextFieldTemp>-1)&&(bloodPressureFillVitalSignsTextFieldTemp<280))){
+         if(((oxygenSaturationFillVitalSignsTextFieldTemp>-1)&&(oxygenSaturationFillVitalSignsTextFieldTemp<110))&&((heightFillVitalSignsTextFieldTemp>20)&&(heightFillVitalSignsTextFieldTemp<300))){
+             if((weightFillVitalSignsTextFieldTemp>5)&&(weightFillVitalSignsTextFieldTemp<400)){
+                                                 bodyTemperatureFillVitalSignsTextField.setText("");
+                                plusRateInFillVitalSignsTextField.setText("");
+                                breathingRateFillVitalSignsTextField.setText("");
+                                bloodPressureFillVitalSignsTextField.setText("");
+                                oxygenSaturationFillVitalSignsTextField.setText("");
+                                heightFillVitalSignsTextField.setText("");
+                                weightFillVitalSignsTextField.setText("");
+                                try{
+                                    Class.forName("com.mysql.cj.jdbc.Driver");
+                                    String url = "jdbc:mysql://localhost:3306/premierleague";
+                                    String username = "root";
+                                    String password = "abcd1234!";
+                                    Connection connection = DriverManager.getConnection(url, username, password);
+                                    Statement statement = connection.createStatement();
 
-            bodyTemperatureFillVitalSignsTextField.setText("");
-            plusRateInFillVitalSignsTextField.setText("");
-            breathingRateFillVitalSignsTextField.setText("");
-            bloodPressureFillVitalSignsTextField.setText("");
-            oxygenSaturationFillVitalSignsTextField.setText("");
-            heightFillVitalSignsTextField.setText("");
-            weightFillVitalSignsTextField.setText("");
-          
-            try{
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                String url = "jdbc:mysql://localhost:3306/premierleague";
-                String username = "root";
-                String password = "abcd1234!";
-                Connection connection = DriverManager.getConnection(url, username, password);
-                Statement statement = connection.createStatement();
-           
-                String sql = "UPDATE club_diagnose_appointment SET "+
-                             "body_temperature=\'"+bodyTemperatureFillVitalSignsTemp+"\', "+
-                             "pluse_rate=\'"+plusRateInFillVitalSignsTextFieldTemp+"\', "+
-                             "breathing_rate=\'"+breathingRateFillVitalSignsTextFieldTemp+"\', "+
-                             "blood_pressure=\'"+bloodPressureFillVitalSignsTextFieldTemp+"\', "+
-                             "oxygen_saturation=\'"+oxygenSaturationFillVitalSignsTextFieldTemp+"\', "+
-                             "height=\'"+heightFillVitalSignsTextFieldTemp+"\', "+
-                             "weight=\'"+weightFillVitalSignsTextFieldTemp+"\' "+
-                             "WHERE id =\'" + this.appointmentHistoryID + "\'";
-                statement.executeUpdate(sql);
-                statement.close();
-                connection.close();
-            }
-            catch(ClassNotFoundException | SQLException e)
-            {
-                e.printStackTrace();
-            }
-        }
+                                    String sql = "UPDATE club_diagnose_appointment SET "+
+                                                 "body_temperature=\'"+bodyTemperatureFillVitalSignsTemp+"\', "+
+                                                 "pluse_rate=\'"+plusRateInFillVitalSignsTextFieldTemp+"\', "+
+                                                 "breathing_rate=\'"+breathingRateFillVitalSignsTextFieldTemp+"\', "+
+                                                 "blood_pressure=\'"+bloodPressureFillVitalSignsTextFieldTemp+"\', "+
+                                                 "oxygen_saturation=\'"+oxygenSaturationFillVitalSignsTextFieldTemp+"\', "+
+                                                 "height=\'"+heightFillVitalSignsTextFieldTemp+"\', "+
+                                                 "weight=\'"+weightFillVitalSignsTextFieldTemp+"\' "+
+                                                 "WHERE id =\'" + this.appointmentHistoryID + "\'";
+                                    statement.executeUpdate(sql);
+                                    statement.close();
+                                    connection.close();
+                                }
+                                catch(ClassNotFoundException | SQLException e)
+                                {
+                                    e.printStackTrace();
+                                }
+             }
+             else
+             {
+                 JOptionPane.showMessageDialog(submitVitalSignsFillButton, "c cm kg and so on, Please enter correct value area! Too big or too small(oxy genSaturation<110 Temperature<60)");
+             }
+         }
+         else{
+         JOptionPane.showMessageDialog(submitVitalSignsFillButton, "c cm kg and so on, Please enter correct value area! Too big or too small oxy genSaturation<110 Temperature<60");
+         }
+     }
+     else{
+         JOptionPane.showMessageDialog(submitVitalSignsFillButton, "c cm kg and so on, Please enter correct value area! Too big or too small oxy genSaturation<110 Temperature<60");
+     }
+ }
+ else
+ {
+ JOptionPane.showMessageDialog(submitVitalSignsFillButton, "c cm kg and so on, Please enter correct value area! Too big or too small oxy genSaturation<110 Temperature<60");
+ }
+
+                                    }
+                                     else{JOptionPane.showMessageDialog(submitVitalSignsFillButton, "These date must be numbers");}
+                                }else{JOptionPane.showMessageDialog(submitVitalSignsFillButton, "These date must be numbers");}
+                            }else{JOptionPane.showMessageDialog(submitVitalSignsFillButton, "These date must be numbers");}
+                        }else{JOptionPane.showMessageDialog(submitVitalSignsFillButton, "These date must be numbers");}
+                    }else{JOptionPane.showMessageDialog(submitVitalSignsFillButton, "These date must be numbers");}
+                }else{JOptionPane.showMessageDialog(submitVitalSignsFillButton, "These date must be numbers");}
+            }else{JOptionPane.showMessageDialog(submitVitalSignsFillButton, "These date must be numbers");}
+            
+            
+        }}
         else{
             JOptionPane.showMessageDialog(submitVitalSignsFillButton, "Please select an appointment first!");
             bodyTemperatureFillVitalSignsTextField.setEnabled(true);
@@ -2263,6 +2331,8 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
             String detailDiseaseFillSymptomTemp = detailDiseasejComboBox.getSelectedItem().toString();
             String mainSymptom1FillTemp = mainSymptom1FilljTextPane.getText();
             String mainSymptom2FillTemp = mainSymptom2FilljTextPane.getText();
+            
+            
             
             diseaseTypejComboBox.setSelectedIndex(-1);
             detailDiseasejComboBox.setSelectedIndex(-1);
@@ -2404,6 +2474,10 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
 
     private void reselectPictureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reselectPictureButtonActionPerformed
         // TODO add your handling code here:
+            chooseAPictureButton.setEnabled(true);
+            reselectPictureButton.setEnabled(false);
+            submitThisPictureButton.setEnabled(false);
+            resizeImageToBackground(null, uploadPictureLabel);
     }//GEN-LAST:event_reselectPictureButtonActionPerformed
 
     private void chooseAPictureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseAPictureButtonActionPerformed
@@ -2602,8 +2676,10 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
                 String playerUsername = resultSet.getObject("player_id").toString();        
                 int length1 = doctor.getTeam().getPlayerCatalog().getPlayerCata().size();
                 for(int i=0;i<length1;i++){
+                        
                         playerUsernameTemp=doctor.getTeam().getPlayerCatalog().getPlayerCata().get(i).getUsername();
                         playerNameTemp=doctor.getTeam().getPlayerCatalog().getPlayerCata().get(i).getName();
+                        
                     if(playerUsernameTemp.equals(playerUsername)){
                          break;
                      }
@@ -2640,19 +2716,19 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         try{
           file = new File(inputPathAndName);
           image = ImageIO.read(file);
-          System.out.println("Reading complete.");
+//          System.out.println("Reading complete.");
           }
         catch(IOException e){
-            System.out.println("Error: "+e);
+//            System.out.println("Error: "+e);
           }
         //write picture
         try{
             file = new File(outputPathAndName);
             ImageIO.write(image, fileFormatSuffix, file);
-            System.out.println("Writing complete.");
+//            System.out.println("Writing complete.");
         }
         catch(IOException e){
-            System.out.println("Error: "+e);
+//            System.out.println("Error: "+e);
         }
     }
         

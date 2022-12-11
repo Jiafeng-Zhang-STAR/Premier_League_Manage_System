@@ -392,62 +392,72 @@ public class ManagerClubStatisticJPanel extends javax.swing.JPanel {
         OneTypeGrade = new ArrayList<String>();
         
         int index = 0;
+        if(ClubNameStatisticComboBox.getSelectedIndex()==-1){JOptionPane.showMessageDialog(submitToViewButton, "You should choose all items");}
+        else{
+            if(ChartTypeStatisticComboBox.getSelectedIndex()==-1){JOptionPane.showMessageDialog(submitToViewButton, "You should choose all items");}
+            else{
+                 String clubNameTemp = ClubNameStatisticComboBox.getSelectedItem().toString();
         
-        String clubNameTemp = ClubNameStatisticComboBox.getSelectedItem().toString();
         
-        
-        String chartTypeTemp = ChartTypeStatisticComboBox.getSelectedItem().toString();
-        
-        
-        DefaultPieDataset pieDataChart = new DefaultPieDataset();
-        DefaultCategoryDataset barDataChart = new DefaultCategoryDataset();
+            String chartTypeTemp = ChartTypeStatisticComboBox.getSelectedItem().toString();
 
-        for(int i = 0; i <clubGradeSumCata.size();i++ ){
-            if(clubNameTemp==clubGradeSumCata.get(i).getClubTempFinal()){
-                index = i;
+
+            DefaultPieDataset pieDataChart = new DefaultPieDataset();
+            DefaultCategoryDataset barDataChart = new DefaultCategoryDataset();
+
+            for(int i = 0; i <clubGradeSumCata.size();i++ ){
+                if(clubNameTemp==clubGradeSumCata.get(i).getClubTempFinal()){
+                    index = i;
+                }
             }
-        }
-            barDataChart.setValue(clubGradeSumCata.get(index).getPassFinalSumTemp(),clubNameTemp+"Total Times","Club Pass Times");
-            barDataChart.setValue(clubGradeSumCata.get(index).getShotFinalSumTemp(),"Total Times","Club Shot Times");
-            barDataChart.setValue(clubGradeSumCata.get(index).getDefendFinalSumTemp(),"Total Times","Club Defend Times");
-            pieDataChart.setValue(clubNameTemp+" Club Pass Times", clubGradeSumCata.get(index).getPassFinalSumTemp());
-            pieDataChart.setValue(clubNameTemp+" Club Shot Times", clubGradeSumCata.get(index).getShotFinalSumTemp());
-            pieDataChart.setValue(clubNameTemp+" Club Defend Times", clubGradeSumCata.get(index).getDefendFinalSumTemp());
+                barDataChart.setValue(clubGradeSumCata.get(index).getPassFinalSumTemp(),clubNameTemp+"Total Times","Club Pass Times");
+                barDataChart.setValue(clubGradeSumCata.get(index).getShotFinalSumTemp(),"Total Times","Club Shot Times");
+                barDataChart.setValue(clubGradeSumCata.get(index).getDefendFinalSumTemp(),"Total Times","Club Defend Times");
+                pieDataChart.setValue(clubNameTemp+" Club Pass Times", clubGradeSumCata.get(index).getPassFinalSumTemp());
+                pieDataChart.setValue(clubNameTemp+" Club Shot Times", clubGradeSumCata.get(index).getShotFinalSumTemp());
+                pieDataChart.setValue(clubNameTemp+" Club Defend Times", clubGradeSumCata.get(index).getDefendFinalSumTemp());
 
-//       barDataChart.setValue(grade,playerNameTemp,Date);
-//       barDataChart.setValue(60.80,"Marks","B");
-//       barDataChart.setValue(10.80,"Marks","C");
-//       barDataChart.setValue(10.80,"Marks","D");
-//       
-       JFreeChart jchart1 = ChartFactory.createBarChart(clubNameTemp+ "Different Types Times", "Different Types", clubNameTemp+"Total Times", barDataChart, PlotOrientation.VERTICAL, true, true, false);
-       JFreeChart jchart2 = ChartFactory.createPieChart3D(clubNameTemp+ "Different Types Times", pieDataChart, true, true, false);
-       
-       PiePlot PieplotPie = (PiePlot)jchart2.getPlot();
-       CategoryPlot Plot =  jchart1.getCategoryPlot();
-       
-//       PieplotPie.setForegroundAlpha(TOP_ALIGNMENT);
-       PieplotPie.setBackgroundPaint(new Color(0,139,69));
-       PieplotPie.setSectionPaint(clubNameTemp+" Club Pass Times", new Color(155,32,123));
-//       Plot.setBackgroundPaint(Color.WHITE);
-       Plot.setBackgroundPaint(new Color(0,139,69));
-       
-//        ChartFrame PieChartjPanel = new ChartFrame(gradeTypeTemp,jchart2);
-        ChartPanel PieChartjPanel = new ChartPanel(jchart2);
-        ChartPanel ChartjPanel = new ChartPanel(jchart1);
+    //       barDataChart.setValue(grade,playerNameTemp,Date);
+    //       barDataChart.setValue(60.80,"Marks","B");
+    //       barDataChart.setValue(10.80,"Marks","C");
+    //       barDataChart.setValue(10.80,"Marks","D");
+    //       
+           JFreeChart jchart1 = ChartFactory.createBarChart(clubNameTemp+ "Different Types Times", "Different Types", clubNameTemp+"Total Times", barDataChart, PlotOrientation.VERTICAL, true, true, false);
+           JFreeChart jchart2 = ChartFactory.createPieChart3D(clubNameTemp+ "Different Types Times", pieDataChart, true, true, false);
 
-        if("Pie Chart".equals(chartTypeTemp)){
-            ShowChartjPanel.removeAll();
-            ShowChartjPanel.add(PieChartjPanel,BorderLayout.CENTER);
-            ShowChartjPanel.validate();
-//            ShowChartjPanel.updateUI();
-//PieChartjPanel.setVisible(true);
-//PieChartjPanel.setSize(450, 500);
-        }
-        if("Bar Chart".equals(chartTypeTemp)){
-            ShowChartjPanel.removeAll();
-            ShowChartjPanel.add(ChartjPanel);
-            ShowChartjPanel.updateUI();
-        }
+           PiePlot PieplotPie = (PiePlot)jchart2.getPlot();
+           CategoryPlot Plot =  jchart1.getCategoryPlot();
+
+    //       PieplotPie.setForegroundAlpha(TOP_ALIGNMENT);
+           PieplotPie.setBackgroundPaint(new Color(0,139,69));
+           PieplotPie.setSectionPaint(clubNameTemp+" Club Pass Times", new Color(155,32,123));
+    //       Plot.setBackgroundPaint(Color.WHITE);
+           Plot.setBackgroundPaint(new Color(0,139,69));
+
+    //        ChartFrame PieChartjPanel = new ChartFrame(gradeTypeTemp,jchart2);
+            ChartPanel PieChartjPanel = new ChartPanel(jchart2);
+            ChartPanel ChartjPanel = new ChartPanel(jchart1);
+
+            if("Pie Chart".equals(chartTypeTemp)){
+                ShowChartjPanel.removeAll();
+                ShowChartjPanel.add(PieChartjPanel,BorderLayout.CENTER);
+                ShowChartjPanel.validate();
+    //            ShowChartjPanel.updateUI();
+    //PieChartjPanel.setVisible(true);
+    //PieChartjPanel.setSize(450, 500);
+            }
+            if("Bar Chart".equals(chartTypeTemp)){
+                ShowChartjPanel.removeAll();
+                ShowChartjPanel.add(ChartjPanel);
+                ShowChartjPanel.updateUI();
+            }
+            }
+        }  
+          
+               
+
+        
+ 
     }//GEN-LAST:event_submitToViewButtonActionPerformed
 
     

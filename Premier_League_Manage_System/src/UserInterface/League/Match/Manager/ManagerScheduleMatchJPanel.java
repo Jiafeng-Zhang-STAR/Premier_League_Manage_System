@@ -762,6 +762,32 @@ DefaultTableModel model1 = (DefaultTableModel) matchFirstTable.getModel();
         }
         
     }
+    
+    private boolean containNumber(String a){
+        boolean flag = false;
+        
+        for(int i = 0;i<a.length();i++){
+            char c = a.charAt(i);
+            
+            if(c>48 & c<57){
+                flag = true;
+                
+            }
+        }
+        return flag;
+    }
+    
+    private boolean containLetter(String a){
+        boolean flag = false;
+        for(int i = 0;i<a.length();i++){
+            char c = a.charAt(i);
+            if(!Character.isDigit(c)){
+                flag = true;
+            }
+        }
+        return flag;
+    } 
+    
     private void automaticMatchGenerationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_automaticMatchGenerationButtonActionPerformed
         // TODO add your handling code here:
 //        this.PlayerCata = new ArrayList<Player>();
@@ -800,9 +826,19 @@ DefaultTableModel model1 = (DefaultTableModel) matchFirstTable.getModel();
         catch(NumberFormatException e){
 //             System.out.println("not a number"); 
         }
+       if(!this.containNumber(beginYearjTextField.getText())){
+           JOptionPane.showMessageDialog(automaticMatchGenerationButton, "Please enter correct STYLE!");
+       }else{
+           if(!this.containNumber(beginMonthjTextField.getText())){JOptionPane.showMessageDialog(automaticMatchGenerationButton, "Please enter correct STYLE!");}
+           else{
+               if(!this.containNumber(beginDayjTextField.getText())){JOptionPane.showMessageDialog(automaticMatchGenerationButton, "Please enter correct STYLE!");}
+               else{
+                   
+
         
-        if((yearBegin == 0)||(yearBegin == 0)||(yearBegin == 0)){
-            JOptionPane.showMessageDialog(automaticMatchGenerationButton, "Please enter Begin Date!");
+        
+        if(((yearBegin<2000)||(yearBegin>3000))||(((monthBeigin)>12)||((monthBeigin)<0))||(((dayBeigin)>30)||((dayBeigin)<0))){
+            JOptionPane.showMessageDialog(automaticMatchGenerationButton, "We just support 2000 to 3000 and not suppot day=31");
         }
         else{
 //            int yearBegin = Integer.parseInt(beginYearjTextField.getText());
@@ -853,7 +889,7 @@ DefaultTableModel model1 = (DefaultTableModel) matchFirstTable.getModel();
                 for(int j = i+1 ; j<(ClubCata.size());j++){
                      Match matchTemp = new Match(ClubCata.get(i),ClubCata.get(j));
                      this.MatchCataFirstHalf.add(matchTemp);
-                     System.out.println(matchTemp.getMatch_home()+" "+matchTemp.getMatch_away());
+//                     System.out.println(matchTemp.getMatch_home()+" "+matchTemp.getMatch_away());
                 }
             }
     //System.out.println(" ORIGIN 2   ");
@@ -862,7 +898,7 @@ DefaultTableModel model1 = (DefaultTableModel) matchFirstTable.getModel();
                 for(int j = i-1 ; j>-1;j--){
                      Match matchTemp = new Match(ClubCata.get(i),ClubCata.get(j));
                      this.MatchCataSecondHalf.add(matchTemp);
-                     System.out.println(matchTemp.getMatch_home()+" "+matchTemp.getMatch_away());
+//                     System.out.println(matchTemp.getMatch_home()+" "+matchTemp.getMatch_away());
                 }
             }
 
@@ -933,7 +969,7 @@ DefaultTableModel model1 = (DefaultTableModel) matchFirstTable.getModel();
 
                     matchFirstTable.setEnabled(true);
                     matchSecondTable.setEnabled(true);
-        }
+   }
         
         
         
@@ -975,7 +1011,9 @@ DefaultTableModel model1 = (DefaultTableModel) matchFirstTable.getModel();
             model2.addRow(row);
         }
 
-        
+                   }
+           }
+       }    
     }//GEN-LAST:event_automaticMatchGenerationButtonActionPerformed
 
     private void matchFirstTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_matchFirstTableMouseClicked

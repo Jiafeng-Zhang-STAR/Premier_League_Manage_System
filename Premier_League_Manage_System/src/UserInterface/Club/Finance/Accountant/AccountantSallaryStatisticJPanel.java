@@ -125,7 +125,6 @@ public class AccountantSallaryStatisticJPanel extends javax.swing.JPanel {
         jLabel9.setText("Chart Type:");
 
         ChartTypeStatisticComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pie Chart", "Bar Chart" }));
-        ChartTypeStatisticComboBox.setSelectedIndex(-1);
         ChartTypeStatisticComboBox.setMinimumSize(new java.awt.Dimension(76, 25));
         ChartTypeStatisticComboBox.setPreferredSize(new java.awt.Dimension(76, 25));
 

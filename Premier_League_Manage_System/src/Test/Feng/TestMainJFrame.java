@@ -172,7 +172,7 @@ public class TestMainJFrame extends javax.swing.JFrame {
                 addressTemp = resultSet.getString("address");
                 zipTemp = resultSet.getString("zip");
 
-                System.out.println(userNameTemp + " "+ addressTemp);//数据库测试点 核对数据正确与否 Database test points Verify data is correct or not
+//                System.out.println(userNameTemp + " "+ addressTemp);//数据库测试点 核对数据正确与否 Database test points Verify data is correct or not
                 notFound = false;
             }
             

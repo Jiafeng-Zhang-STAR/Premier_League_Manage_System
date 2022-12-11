@@ -114,7 +114,6 @@
             <StringItem index="1" value="Bar Chart"/>
           </StringArray>
         </Property>
-        <Property name="selectedIndex" type="int" value="-1"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[76, 25]"/>
         </Property>
