@@ -11,6 +11,12 @@ import UserInterface.League.Match.Manager.ManagerJFrame;
 //导入Manager的UI界面类 Import the Manager UI class
 
 import TheSystem.Common.Person.Person;
+import UserInterface.Club.ClubManagement.ClubManager.ClubManagerJFrame;
+import UserInterface.Club.Team.Coach.CoachMainJFrame;
+import UserInterface.Club.Team.Player.PlayerMainJFrame;
+import UserInterface.Fans.BuyTicketJFrame;
+import UserInterface.SponsorCompany.Management.Manager.SponsorJFrame;
+import UserInterface.TicketCompany.TicketDepartment.TicketManager.TicketManagerJFrame;
 //import UserInterface.Club.Team.Player.PlayerJFrame;
 ////导入Common的个人原始信息类 Import Common's personal original information class
 
@@ -42,74 +48,84 @@ public class TestMainJFrame extends javax.swing.JFrame {
         loginButton = new javax.swing.JButton();
         passwordTextField = new javax.swing.JTextField();
         usernameTextField = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(600, 600));
+        setMinimumSize(new java.awt.Dimension(300, 300));
         setResizable(false);
 
-        jPanel1.setMaximumSize(new java.awt.Dimension(600, 600));
-        jPanel1.setMinimumSize(new java.awt.Dimension(600, 600));
-        jPanel1.setPreferredSize(new java.awt.Dimension(600, 600));
+        jPanel1.setMaximumSize(new java.awt.Dimension(300, 300));
+        jPanel1.setMinimumSize(new java.awt.Dimension(300, 300));
+        jPanel1.setPreferredSize(new java.awt.Dimension(300, 300));
 
         loginButton.setText("Login");
-        loginButton.setPreferredSize(new java.awt.Dimension(72, 23));
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginButtonActionPerformed(evt);
             }
         });
 
-        passwordTextField.setText("123");
         passwordTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordTextFieldActionPerformed(evt);
             }
         });
 
-        usernameTextField.setText("email22");
+        jLabel1.setText("Username");
+
+        jLabel2.setText("PassWord");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(214, 214, 214)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(249, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(129, 129, 129))
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(loginButton)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 35, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(207, 207, 207)
-                .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(86, 86, 86)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(268, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(loginButton)
+                .addContainerGap(127, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -210,7 +226,7 @@ public class TestMainJFrame extends javax.swing.JFrame {
                     person.setZip(zipTemp);
                     dispose();
                     new DoctorJFrame(person).setVisible(true);
-                } else if (enterpriseTypeTemp == 1 && roleTypeTemp == 4) {
+                }else if (enterpriseTypeTemp == 1 && roleTypeTemp == 3) {
                     Person person = new Person();
                     person.setUsername(userNameTemp);
                     person.setPassword(passWordTemp);
@@ -224,8 +240,38 @@ public class TestMainJFrame extends javax.swing.JFrame {
                     person.setAddress(addressTemp);
                     person.setZip(zipTemp);
                     dispose();
-//                    new PlayerJFrame(person).setVisible(true);
-                } else if(enterpriseTypeTemp == 2 && roleTypeTemp == 3) {
+                    new CoachMainJFrame(person).setVisible(true);
+                }else if (enterpriseTypeTemp == 1 && roleTypeTemp == 4) {
+                    Person person = new Person();
+                    person.setUsername(userNameTemp);
+                    person.setPassword(passWordTemp);
+                    person.setEnterpriseType(enterpriseTypeTemp);
+                    person.setRoleType(roleTypeTemp);
+                    person.setClub(clubTemp);
+                    person.setName(nameTemp);
+                    person.setGender(genderTemp);
+                    person.setAge(ageTemp);
+                    person.setNation(nationTemp);
+                    person.setAddress(addressTemp);
+                    person.setZip(zipTemp);
+                    dispose();
+                    new PlayerMainJFrame(person).setVisible(true);
+                }else if (enterpriseTypeTemp == 1 && roleTypeTemp == 5) {
+                    Person person = new Person();
+                    person.setUsername(userNameTemp);
+                    person.setPassword(passWordTemp);
+                    person.setEnterpriseType(enterpriseTypeTemp);
+                    person.setRoleType(roleTypeTemp);
+                    person.setClub(clubTemp);
+                    person.setName(nameTemp);
+                    person.setGender(genderTemp);
+                    person.setAge(ageTemp);
+                    person.setNation(nationTemp);
+                    person.setAddress(addressTemp);
+                    person.setZip(zipTemp);
+                    dispose();
+                    new ClubManagerJFrame(person).setVisible(true);
+                } else if(enterpriseTypeTemp == 2 && roleTypeTemp == 1) {
                     Person person = new Person();
                     person.setUsername(userNameTemp);
                     person.setPassword(passWordTemp);
@@ -240,7 +286,52 @@ public class TestMainJFrame extends javax.swing.JFrame {
                     person.setZip(zipTemp);
                     dispose();
                     new ManagerJFrame(person).setVisible(true);
-                } else{
+                }else if(enterpriseTypeTemp == 3 && roleTypeTemp == 1) {
+                    Person person = new Person();
+                    person.setUsername(userNameTemp);
+                    person.setPassword(passWordTemp);
+                    person.setEnterpriseType(enterpriseTypeTemp);
+                    person.setRoleType(roleTypeTemp);
+                    person.setClub(clubTemp);
+                    person.setName(nameTemp);
+                    person.setGender(genderTemp);
+                    person.setAge(ageTemp);
+                    person.setNation(nationTemp);
+                    person.setAddress(addressTemp);
+                    person.setZip(zipTemp);
+                    dispose();
+                    new SponsorJFrame(person).setVisible(true);
+                }else if(enterpriseTypeTemp == 4 && roleTypeTemp == 1) {
+                    Person person = new Person();
+                    person.setUsername(userNameTemp);
+                    person.setPassword(passWordTemp);
+                    person.setEnterpriseType(enterpriseTypeTemp);
+                    person.setRoleType(roleTypeTemp);
+                    person.setClub(clubTemp);
+                    person.setName(nameTemp);
+                    person.setGender(genderTemp);
+                    person.setAge(ageTemp);
+                    person.setNation(nationTemp);
+                    person.setAddress(addressTemp);
+                    person.setZip(zipTemp);
+                    dispose();
+                    new TicketManagerJFrame(person).setVisible(true);
+                }else if(enterpriseTypeTemp == 5 && roleTypeTemp == 1) {
+                    Person person = new Person();
+                    person.setUsername(userNameTemp);
+                    person.setPassword(passWordTemp);
+                    person.setEnterpriseType(enterpriseTypeTemp);
+                    person.setRoleType(roleTypeTemp);
+                    person.setClub(clubTemp);
+                    person.setName(nameTemp);
+                    person.setGender(genderTemp);
+                    person.setAge(ageTemp);
+                    person.setNation(nationTemp);
+                    person.setAddress(addressTemp);
+                    person.setZip(zipTemp);
+                    dispose();
+                    new BuyTicketJFrame(person).setVisible(true);
+                }else{
                     JOptionPane.showMessageDialog(rootPane, "Invalid type");
                 }
             }
@@ -287,6 +378,8 @@ public class TestMainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginButton;
     private javax.swing.JTextField passwordTextField;

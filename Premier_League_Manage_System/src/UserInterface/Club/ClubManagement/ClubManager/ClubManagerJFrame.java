@@ -4,6 +4,8 @@
  */
 package UserInterface.Club.ClubManagement.ClubManager;
 
+import Test.Feng.TestMainJFrame;
+import TheSystem.Common.Person.Person;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -20,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ClubManagerJFrame extends javax.swing.JFrame {
      /*Lu email和club在登录后打开这个界面时传入*/
+    Person person;
     String email = "yidianhaoranlv07@outlook.com"; 
     String club = "Bacelona";//RMA
     int salesPrice;
@@ -34,6 +37,14 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
     public ClubManagerJFrame(String email,String club){
         this.email =email;
         this.club = club;
+        initComponents();
+        populateTable();
+    }
+    
+    public ClubManagerJFrame(Person person_Pass){
+        this.person = person_Pass;
+        this.email = this.person.getUsername();
+        this.club = this.person.getClub();
         initComponents();
         populateTable();
     }
@@ -54,6 +65,7 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
         btnCheckSponsor = new javax.swing.JButton();
         btnCheckTransfer = new javax.swing.JButton();
         btnTeamMember = new javax.swing.JButton();
+        logoutButton = new javax.swing.JButton();
         ClubManagerViewJPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbClubManagerOverview = new javax.swing.JTable();
@@ -94,6 +106,13 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
             }
         });
 
+        logoutButton.setText("Logout");
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -109,7 +128,8 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCheckSponsor)
                     .addComponent(btnCheckTransfer)
-                    .addComponent(btnTeamMember))
+                    .addComponent(btnTeamMember)
+                    .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -125,7 +145,9 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
                 .addComponent(btnCheckSponsor)
                 .addGap(29, 29, 29)
                 .addComponent(btnCheckTransfer)
-                .addContainerGap(400, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 371, Short.MAX_VALUE)
+                .addComponent(logoutButton)
+                .addContainerGap())
         );
 
         ClubManagerSplitPane.setLeftComponent(jPanel1);
@@ -399,41 +421,50 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
         populateTable();
     }//GEN-LAST:event_btnTeamMemberActionPerformed
 
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+        // TODO add your handling code here:
+        int value = JOptionPane.showConfirmDialog(rootPane, "Are you want to log out?");
+        if (value == JOptionPane.YES_OPTION) {
+            dispose();
+            new TestMainJFrame().setVisible(true);
+        }
+    }//GEN-LAST:event_logoutButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ClubManagerJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ClubManagerJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ClubManagerJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ClubManagerJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ClubManagerJFrame().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(ClubManagerJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(ClubManagerJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(ClubManagerJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(ClubManagerJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new ClubManagerJFrame().setVisible(true);
+//            }
+//        });
+//    }
     private void populateTable() {
        DefaultTableModel model = (DefaultTableModel) tbClubManagerOverview.getModel();//生成table
        model.setRowCount(0);
@@ -496,6 +527,7 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb_Account;
+    private javax.swing.JButton logoutButton;
     private javax.swing.JTable tbClubManagerOverview;
     private javax.swing.JTextField txtTransferPrice;
     // End of variables declaration//GEN-END:variables

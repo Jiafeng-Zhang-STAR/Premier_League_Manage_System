@@ -297,9 +297,9 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         appointmentMenu.setText("Appointment");
         appointmentMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         appointmentMenu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        appointmentMenu.setMaximumSize(new java.awt.Dimension(116, 35));
-        appointmentMenu.setMinimumSize(new java.awt.Dimension(116, 35));
-        appointmentMenu.setPreferredSize(new java.awt.Dimension(116, 35));
+        appointmentMenu.setMaximumSize(new java.awt.Dimension(140, 35));
+        appointmentMenu.setMinimumSize(new java.awt.Dimension(140, 35));
+        appointmentMenu.setPreferredSize(new java.awt.Dimension(140, 35));
 
         chooseAppointmentMenuItem.setText("Choose Appointment");
         chooseAppointmentMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -314,9 +314,9 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         playerInfoMenu.setText("Player Info");
         playerInfoMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         playerInfoMenu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        playerInfoMenu.setMaximumSize(new java.awt.Dimension(116, 35));
-        playerInfoMenu.setMinimumSize(new java.awt.Dimension(116, 35));
-        playerInfoMenu.setPreferredSize(new java.awt.Dimension(116, 35));
+        playerInfoMenu.setMaximumSize(new java.awt.Dimension(140, 35));
+        playerInfoMenu.setMinimumSize(new java.awt.Dimension(140, 35));
+        playerInfoMenu.setPreferredSize(new java.awt.Dimension(140, 35));
 
         basicInfoMenuItem.setText("Basic Information");
         basicInfoMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -363,9 +363,9 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         diagnoseMenu.setText("Diagnose");
         diagnoseMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         diagnoseMenu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        diagnoseMenu.setMaximumSize(new java.awt.Dimension(116, 35));
-        diagnoseMenu.setMinimumSize(new java.awt.Dimension(116, 35));
-        diagnoseMenu.setPreferredSize(new java.awt.Dimension(116, 35));
+        diagnoseMenu.setMaximumSize(new java.awt.Dimension(140, 35));
+        diagnoseMenu.setMinimumSize(new java.awt.Dimension(140, 35));
+        diagnoseMenu.setPreferredSize(new java.awt.Dimension(140, 35));
 
         vitalSignsMenuItem.setText("Fill Vital Signs");
         vitalSignsMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -388,9 +388,9 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         uploadPictureMenu.setText("Picture");
         uploadPictureMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         uploadPictureMenu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        uploadPictureMenu.setMaximumSize(new java.awt.Dimension(116, 35));
-        uploadPictureMenu.setMinimumSize(new java.awt.Dimension(116, 35));
-        uploadPictureMenu.setPreferredSize(new java.awt.Dimension(116, 35));
+        uploadPictureMenu.setMaximumSize(new java.awt.Dimension(140, 35));
+        uploadPictureMenu.setMinimumSize(new java.awt.Dimension(140, 35));
+        uploadPictureMenu.setPreferredSize(new java.awt.Dimension(140, 35));
         uploadPictureMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 uploadPictureMenuActionPerformed(evt);
@@ -410,9 +410,9 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         solutionMenu.setText("Solution");
         solutionMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         solutionMenu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        solutionMenu.setMaximumSize(new java.awt.Dimension(116, 35));
-        solutionMenu.setMinimumSize(new java.awt.Dimension(116, 35));
-        solutionMenu.setPreferredSize(new java.awt.Dimension(116, 35));
+        solutionMenu.setMaximumSize(new java.awt.Dimension(140, 35));
+        solutionMenu.setMinimumSize(new java.awt.Dimension(140, 35));
+        solutionMenu.setPreferredSize(new java.awt.Dimension(140, 35));
 
         solutionMenuItem.setText("Fill Solution");
         solutionMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -906,7 +906,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(viewPictureLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         cards.add(medicalPictureHistoryCard5, "card2");
