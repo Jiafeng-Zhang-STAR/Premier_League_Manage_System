@@ -330,7 +330,7 @@ public class AccountantAllocateSallaryJPanel extends javax.swing.JPanel {
     private void submitMatchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitMatchButtonActionPerformed
         // TODO add your handling code here:
         String TempSalary=enterjTextFieldSalary.getText();
-        if(this.containNumber(TempSalary)){
+        if(this.containNumber(TempSalary) && !this.containLetter(TempSalary)){
            if((!"".equals(TempSalary))&& (TempSalary!=null)&&(!" ".equals(TempSalary))){
             try{
                 Class.forName("com.mysql.cj.jdbc.Driver");

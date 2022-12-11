@@ -2142,13 +2142,13 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
             float weightFillVitalSignsTextFieldTemp = parseFloat(weightFillVitalSignsTextField.getText());
 
             
-            if(this.containNumber(bodyTemperatureFillVitalSignsTextField.getText())){
-                if(this.containNumber(plusRateInFillVitalSignsTextField.getText())){
-                    if(this.containNumber(breathingRateFillVitalSignsTextField.getText())){
-                        if(this.containNumber(bloodPressureFillVitalSignsTextField.getText())){
-                            if(this.containNumber(oxygenSaturationFillVitalSignsTextField.getText())){
-                                 if(this.containNumber(heightFillVitalSignsTextField.getText())){
-                                     if(this.containNumber(weightFillVitalSignsTextField.getText())){
+            if(this.containNumber(bodyTemperatureFillVitalSignsTextField.getText()) && !this.containLetter(bodyTemperatureFillVitalSignsTextField.getText())){
+                if(this.containNumber(plusRateInFillVitalSignsTextField.getText()) && !this.containLetter(plusRateInFillVitalSignsTextField.getText())){
+                    if(this.containNumber(breathingRateFillVitalSignsTextField.getText()) && !this.containLetter(breathingRateFillVitalSignsTextField.getText())){
+                        if(this.containNumber(bloodPressureFillVitalSignsTextField.getText()) && !this.containLetter(bloodPressureFillVitalSignsTextField.getText())){
+                            if(this.containNumber(oxygenSaturationFillVitalSignsTextField.getText()) && !this.containLetter(oxygenSaturationFillVitalSignsTextField.getText())){
+                                 if(this.containNumber(heightFillVitalSignsTextField.getText()) && !this.containLetter(heightFillVitalSignsTextField.getText())){
+                                     if(this.containNumber(weightFillVitalSignsTextField.getText()) && !this.containLetter(weightFillVitalSignsTextField.getText())){
  if(((bodyTemperatureFillVitalSignsTemp>-40)&&(bodyTemperatureFillVitalSignsTemp<60))&&((plusRateInFillVitalSignsTextFieldTemp>-1)&&(plusRateInFillVitalSignsTextFieldTemp<400))){
      if(((breathingRateFillVitalSignsTextFieldTemp>-1)&&(breathingRateFillVitalSignsTextFieldTemp<190))&&((bloodPressureFillVitalSignsTextFieldTemp>-1)&&(bloodPressureFillVitalSignsTextFieldTemp<280))){
          if(((oxygenSaturationFillVitalSignsTextFieldTemp>-1)&&(oxygenSaturationFillVitalSignsTextFieldTemp<110))&&((heightFillVitalSignsTextFieldTemp>20)&&(heightFillVitalSignsTextFieldTemp<300))){
@@ -2334,8 +2334,8 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
             
             
             
-            diseaseTypejComboBox.setSelectedIndex(-1);
-            detailDiseasejComboBox.setSelectedIndex(-1);
+            diseaseTypejComboBox.setSelectedIndex(0);
+            detailDiseasejComboBox.setSelectedIndex(0);
             mainSymptom1FilljTextPane.setText("");
             mainSymptom2FilljTextPane.setText("");
           
@@ -2541,15 +2541,15 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
             String resultComboBoxTemp = resultComboBox.getSelectedItem().toString();
             
             
-            medicine1ComboBox.setSelectedIndex(-1);
-            medicine2ComboBox.setSelectedIndex(-1);
-            medicine3ComboBox.setSelectedIndex(-1);
+            medicine1ComboBox.setSelectedIndex(0);
+            medicine2ComboBox.setSelectedIndex(0);
+            medicine3ComboBox.setSelectedIndex(0);
            
             additionalMedicinejTextPane.setText("");
             solutionjTextPane.setText("");
             
-            StatusComboBox.setSelectedIndex(-1);
-            resultComboBox.setSelectedIndex(-1);
+            StatusComboBox.setSelectedIndex(0);
+            resultComboBox.setSelectedIndex(0);
 
             try{
                 Class.forName("com.mysql.cj.jdbc.Driver");
