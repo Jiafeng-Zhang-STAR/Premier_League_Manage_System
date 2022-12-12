@@ -47,8 +47,8 @@
                   <Component id="nameTextField" max="32767" attributes="0"/>
                   <Component id="enterpriseComboBox" pref="160" max="32767" attributes="0"/>
                   <Component id="roleComboBox" max="32767" attributes="0"/>
-                  <Component id="clubComboBox" max="32767" attributes="0"/>
                   <Component id="genderComboBox" max="32767" attributes="0"/>
+                  <Component id="clubTextField" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="checkButton" min="-2" max="-2" attributes="0"/>
@@ -93,7 +93,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="clubComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="clubTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -208,16 +208,6 @@
         <Property name="text" type="java.lang.String" value="Club:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="clubComboBox">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
         <Property name="text" type="java.lang.String" value="Gender"/>
@@ -271,6 +261,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SubmitButtonActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="clubTextField">
     </Component>
   </SubComponents>
 </Form>
