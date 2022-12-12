@@ -58,6 +58,8 @@ public class CheckClubSponsorJPanel extends javax.swing.JPanel {
         btnAcceptSponsor = new javax.swing.JButton();
         btnReject = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 139, 69));
+
         tbMySponser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

@@ -82,6 +82,8 @@ public class AdminEditJPanel extends javax.swing.JPanel {
         deleteButton = new javax.swing.JButton();
         SaveButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 139, 69));
+
         userTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

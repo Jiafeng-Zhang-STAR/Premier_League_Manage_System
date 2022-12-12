@@ -61,6 +61,8 @@ public class RatePlayerJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         btnRate = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 139, 69));
+
         btnRatehome.setText("Rate hometeam");
         btnRatehome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

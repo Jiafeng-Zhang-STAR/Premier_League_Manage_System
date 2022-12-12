@@ -56,6 +56,8 @@ public class PlayerInfoJPanel extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         zipLabel = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 139, 69));
+
         jLabel1.setText("Username:");
 
         usernameLabel.setText("--------------------");
@@ -114,7 +116,7 @@ public class PlayerInfoJPanel extends javax.swing.JPanel {
                     .addComponent(NationLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(addressLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(zipLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addContainerGap(427, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,7 +153,7 @@ public class PlayerInfoJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(zipLabel))
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(416, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
     public void initializeInfo(){

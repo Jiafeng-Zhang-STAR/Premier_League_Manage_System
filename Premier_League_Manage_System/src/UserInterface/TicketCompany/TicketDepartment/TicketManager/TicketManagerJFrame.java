@@ -87,6 +87,8 @@ public class TicketManagerJFrame extends javax.swing.JFrame {
 
         TicketManagerSplitPane.setDividerLocation(100);
 
+        ControlPanel.setBackground(new java.awt.Color(61, 174, 72));
+
         jLabel4.setText("Account");
 
         lb_Account.setText(" ");
@@ -126,6 +128,8 @@ public class TicketManagerJFrame extends javax.swing.JFrame {
         );
 
         TicketManagerSplitPane.setLeftComponent(ControlPanel);
+
+        ManageTicketJPanel.setBackground(new java.awt.Color(0, 139, 69));
 
         tbMatchSearch.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

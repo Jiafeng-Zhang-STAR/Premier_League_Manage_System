@@ -46,6 +46,8 @@ public class CheckSponsorJPanel extends javax.swing.JPanel {
         tbMySponseredTeam = new javax.swing.JTable();
         btnPaySpondor = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 139, 69));
+
         tbMySponseredTeam.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

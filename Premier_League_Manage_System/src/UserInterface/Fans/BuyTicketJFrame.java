@@ -99,6 +99,8 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
 
         SplitPane.setDividerLocation(100);
 
+        ControlPanel.setBackground(new java.awt.Color(61, 174, 72));
+
         btnBookTicket.setText("BookTicket");
         btnBookTicket.setMargin(new java.awt.Insets(0, 0, 0, 0));
         btnBookTicket.addActionListener(new java.awt.event.ActionListener() {
@@ -171,6 +173,7 @@ public class BuyTicketJFrame extends javax.swing.JFrame {
 
         SplitPane.setLeftComponent(ControlPanel);
 
+        BookTicketJPanel.setBackground(new java.awt.Color(0, 139, 69));
         BookTicketJPanel.setPreferredSize(new java.awt.Dimension(423, 600));
 
         jLabel1.setText("Session Select");

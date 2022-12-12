@@ -67,6 +67,7 @@ public class CheckTicketJPanel extends javax.swing.JPanel {
         btnCancelBook = new javax.swing.JButton();
         btnRatePlayer = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 139, 69));
         setMaximumSize(new java.awt.Dimension(500, 600));
         setMinimumSize(new java.awt.Dimension(500, 600));
 

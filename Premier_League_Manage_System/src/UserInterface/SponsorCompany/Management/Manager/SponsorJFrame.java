@@ -75,6 +75,8 @@ public class SponsorJFrame extends javax.swing.JFrame {
 
         SponsorSplitPaneSplitPane.setDividerLocation(100);
 
+        jPanel1.setBackground(new java.awt.Color(61, 174, 72));
+
         jLabel4.setText("Account");
 
         lb_Account.setText(" ");

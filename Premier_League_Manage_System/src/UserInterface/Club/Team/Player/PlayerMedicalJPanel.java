@@ -63,6 +63,8 @@ public class PlayerMedicalJPanel extends javax.swing.JPanel {
         editDoneButton = new javax.swing.JButton();
         confirmEditButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 139, 69));
+
         PlayerMedicalTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -160,7 +162,7 @@ public class PlayerMedicalJPanel extends javax.swing.JPanel {
                                 .addComponent(appointComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(confirmButton))
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 663, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -204,7 +206,7 @@ public class PlayerMedicalJPanel extends javax.swing.JPanel {
                     .addComponent(deleteButton)
                     .addComponent(editDoneButton)
                     .addComponent(confirmEditButton))
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addGap(0, 320, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

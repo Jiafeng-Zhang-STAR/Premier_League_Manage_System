@@ -84,6 +84,8 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
 
         ClubManagerSplitPane.setDividerLocation(100);
 
+        jPanel1.setBackground(new java.awt.Color(61, 174, 72));
+
         jLabel4.setText("Account");
 
         lb_Account.setText(" ");
@@ -154,6 +156,8 @@ public class ClubManagerJFrame extends javax.swing.JFrame {
         );
 
         ClubManagerSplitPane.setLeftComponent(jPanel1);
+
+        ClubManagerViewJPanel.setBackground(new java.awt.Color(0, 139, 69));
 
         tbClubManagerOverview.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

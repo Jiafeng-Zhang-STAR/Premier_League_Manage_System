@@ -45,6 +45,8 @@ public class CheckTransferJPanel extends javax.swing.JPanel {
         tbMyTransfer = new javax.swing.JTable();
         btnSign = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 139, 69));
+
         tbMyTransfer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},

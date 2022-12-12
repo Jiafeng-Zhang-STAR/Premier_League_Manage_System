@@ -51,6 +51,8 @@ public class CoachMainJFrame extends javax.swing.JFrame {
 
         CoachSplitPane.setDividerLocation(100);
 
+        jPanel1.setBackground(new java.awt.Color(61, 174, 72));
+
         FormationButton.setText("Formation");
         FormationButton.setPreferredSize(new java.awt.Dimension(72, 23));
         FormationButton.addActionListener(new java.awt.event.ActionListener() {

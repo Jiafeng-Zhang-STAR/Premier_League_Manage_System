@@ -67,7 +67,7 @@ public class ClubManagerCreateJPanel extends javax.swing.JPanel {
         txtPassword = new javax.swing.JTextField();
         btnCreateSystemAdminCreatP = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(0, 139, 69));
 
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel14.setText("Zip");

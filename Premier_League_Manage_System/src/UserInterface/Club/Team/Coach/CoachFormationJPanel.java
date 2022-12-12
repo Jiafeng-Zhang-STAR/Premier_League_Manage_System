@@ -152,6 +152,8 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
         SubmitButton = new javax.swing.JButton();
         DeleteButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 139, 69));
+
         jLabel1.setText("Upcoming match:");
 
         UpcomingMatchLabel.setText("----------");

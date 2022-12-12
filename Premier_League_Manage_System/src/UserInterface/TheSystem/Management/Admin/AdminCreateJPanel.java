@@ -87,6 +87,8 @@ public class AdminCreateJPanel extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         SubmitButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 139, 69));
+
         jLabel1.setText("Username:");
 
         usernameTextField.addActionListener(new java.awt.event.ActionListener() {

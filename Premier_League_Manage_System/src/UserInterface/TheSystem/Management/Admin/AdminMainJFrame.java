@@ -48,6 +48,8 @@ public class AdminMainJFrame extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(61, 174, 72));
+
         jLabel1.setText("Username:");
 
         usernameLabel.setText("----------");
