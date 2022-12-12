@@ -357,7 +357,8 @@ public class TestMainJFrame extends javax.swing.JFrame {
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         // TODO add your handling code here:
-        
+        dispose();
+        new FansRegisterJFrame().setVisible(true);
     }//GEN-LAST:event_registerButtonActionPerformed
 
     /**
