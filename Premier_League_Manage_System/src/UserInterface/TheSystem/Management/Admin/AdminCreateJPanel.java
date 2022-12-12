@@ -345,6 +345,9 @@ public class AdminCreateJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(roleComboBox, "Nation can't contain number", "Warning", JOptionPane.WARNING_MESSAGE);
         }else if(this.containLetter(this.zipTextField.getText())){
             JOptionPane.showMessageDialog(roleComboBox, "Zip code can't contain letter", "Warning", JOptionPane.WARNING_MESSAGE);
+        }else if (String.valueOf(this.enterpriseComboBox.getSelectedItem()).equals("club") &&
+                String.valueOf(this.clubComboBox.getSelectedItem()).equals("na")) {
+            JOptionPane.showMessageDialog(roleComboBox, "Club invalid", "Warning", JOptionPane.WARNING_MESSAGE);
         }else{
             String userName = this.usernameTextField.getText();
             String passWord = this.PasswordField.getText();

@@ -16,6 +16,7 @@ import UserInterface.Club.Team.Coach.CoachMainJFrame;
 import UserInterface.Club.Team.Player.PlayerMainJFrame;
 import UserInterface.Fans.BuyTicketJFrame;
 import UserInterface.SponsorCompany.Management.Manager.SponsorJFrame;
+import UserInterface.TheSystem.Management.Admin.AdminMainJFrame;
 import UserInterface.TicketCompany.TicketDepartment.TicketManager.TicketManagerJFrame;
 //import UserInterface.Club.Team.Player.PlayerJFrame;
 ////导入Common的个人原始信息类 Import Common's personal original information class
@@ -344,6 +345,21 @@ public class TestMainJFrame extends javax.swing.JFrame {
                     person.setZip(zipTemp);
                     dispose();
                     new BuyTicketJFrame(person).setVisible(true);
+                }else if(enterpriseTypeTemp == 5 && roleTypeTemp == 2) {
+                    Person person = new Person();
+                    person.setUsername(userNameTemp);
+                    person.setPassword(passWordTemp);
+                    person.setEnterpriseType(enterpriseTypeTemp);
+                    person.setRoleType(roleTypeTemp);
+                    person.setClub(clubTemp);
+                    person.setName(nameTemp);
+                    person.setGender(genderTemp);
+                    person.setAge(ageTemp);
+                    person.setNation(nationTemp);
+                    person.setAddress(addressTemp);
+                    person.setZip(zipTemp);
+                    dispose();
+                    new AdminMainJFrame(person).setVisible(true);
                 }else{
                     JOptionPane.showMessageDialog(rootPane, "Invalid type");
                 }

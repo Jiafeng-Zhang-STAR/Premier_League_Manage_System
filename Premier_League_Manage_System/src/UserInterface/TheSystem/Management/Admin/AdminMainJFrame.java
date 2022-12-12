@@ -20,6 +20,11 @@ public class AdminMainJFrame extends javax.swing.JFrame {
     public AdminMainJFrame() {
         initComponents();
     }
+    public AdminMainJFrame(Person person) {
+        initComponents();
+        this.person = person;
+        this.usernameLabel.setText(this.person.getUsername());
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,7 +38,7 @@ public class AdminMainJFrame extends javax.swing.JFrame {
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        usernameLabel = new javax.swing.JLabel();
         CreateButton = new javax.swing.JButton();
         EditButton = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
@@ -45,7 +50,7 @@ public class AdminMainJFrame extends javax.swing.JFrame {
 
         jLabel1.setText("Username:");
 
-        jLabel2.setText("----------");
+        usernameLabel.setText("----------");
 
         CreateButton.setText("Create");
         CreateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +81,7 @@ public class AdminMainJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CreateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EditButton, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -88,7 +93,7 @@ public class AdminMainJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(usernameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(CreateButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -189,10 +194,10 @@ public class AdminMainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton CreateButton;
     private javax.swing.JButton EditButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton logoutButton;
+    private javax.swing.JLabel usernameLabel;
     // End of variables declaration//GEN-END:variables
 }

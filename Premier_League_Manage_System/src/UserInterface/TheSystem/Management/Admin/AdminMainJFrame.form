@@ -58,7 +58,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" pref="77" max="-2" attributes="0"/>
+                          <Component id="usernameLabel" min="-2" pref="77" max="-2" attributes="0"/>
                           <Component id="CreateButton" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
                           <Component id="EditButton" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
                           <Component id="logoutButton" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
@@ -73,7 +73,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="usernameLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="CreateButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -91,7 +91,7 @@
                 <Property name="text" type="java.lang.String" value="Username:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="usernameLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="----------"/>
               </Properties>
