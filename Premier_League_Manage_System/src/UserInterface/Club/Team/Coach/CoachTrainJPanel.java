@@ -707,7 +707,7 @@ public class CoachTrainJPanel extends javax.swing.JPanel {
                     String password = "abcd1234!";
                     Connection connection = DriverManager.getConnection(url, username, password);
                     Statement statement = connection.createStatement();
-                    String sql = "DELETE FROM training_plan WHERE date=\'" + this.SelectedDateLabel.getText() + "\'";
+                    String sql = "DELETE FROM training_plan WHERE date=\'" + this.SelectedDateLabel.getText() + "\' AND club = \'"+this.person.getClub()+"\'";
                     int resultSet = statement.executeUpdate(sql);
                     if (resultSet == 1) {
                         JOptionPane.showMessageDialog(SaveButton, "Delete Successful!", "Congratulations!", JOptionPane.PLAIN_MESSAGE);
@@ -739,7 +739,7 @@ public class CoachTrainJPanel extends javax.swing.JPanel {
                 String password = "abcd1234!";
                 Connection connection = DriverManager.getConnection(url, username, password);
                 Statement statement = connection.createStatement();
-                String sql = "INSERT INTO training_plan VALUES(\'" + this.SelectedDateLabel.getText() + "\',\'" + new_Value + "\')";
+                String sql = "INSERT INTO training_plan VALUES(\'" + this.SelectedDateLabel.getText() + "\',\'" + new_Value + "\',\'"+this.person.getClub()+"\')";
                 int resultSet = statement.executeUpdate(sql);
                 if (resultSet == 1) {
                     JOptionPane.showMessageDialog(SaveButton, "Add Successful!", "Congratulations!", JOptionPane.PLAIN_MESSAGE);
@@ -799,7 +799,20 @@ public class CoachTrainJPanel extends javax.swing.JPanel {
     private void DoneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DoneButtonActionPerformed
         // TODO add your handling code here:
         String new_Value = this.TrainingTextField.getText();
-        if (!old_Value.equals(new_Value)) {
+        if(new_Value.length()==0 &&old_Value.length()!=0){
+            int n = JOptionPane.showConfirmDialog(SaveButton, "There's still changes not be saved", "Warning", JOptionPane.YES_NO_OPTION);
+            if (n == 0) {
+                for (JLabel jLabel : calendarList) {
+                    jLabel.setEnabled(true);
+                }
+                this.TrainingTextField.setText("");
+                this.TrainingTextField.setEnabled(false);
+                this.EditTrainingButton.setEnabled(true);
+                this.SaveButton.setEnabled(false);
+                this.DoneButton.setEnabled(false);
+                old_Value = "";
+            }
+        }else if (!old_Value.equals(new_Value)) {
             int n = JOptionPane.showConfirmDialog(SaveButton, "There's still changes not be saved", "Warning", JOptionPane.YES_NO_OPTION);
             if (n == 0) {
                 for (JLabel jLabel : calendarList) {
@@ -886,7 +899,7 @@ public class CoachTrainJPanel extends javax.swing.JPanel {
             String password = "abcd1234!";
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM training_plan";
+            String sql = "SELECT * FROM training_plan WHERE club=\'"+this.person.getClub()+"\'";
             System.out.print(sql);
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {

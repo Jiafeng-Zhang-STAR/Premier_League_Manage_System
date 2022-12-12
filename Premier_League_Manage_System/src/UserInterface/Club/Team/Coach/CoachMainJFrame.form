@@ -64,7 +64,6 @@
                               <Component id="UsernameLabel" max="32767" attributes="0"/>
                           </Group>
                           <Component id="TrainingButton" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
-                          <Component id="MedicalButton" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
                           <Component id="LogoutButton" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="16" max="32767" attributes="0"/>
@@ -82,9 +81,7 @@
                       <Component id="FormationButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="TrainingButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="MedicalButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="396" max="32767" attributes="0"/>
+                      <EmptySpace pref="425" max="32767" attributes="0"/>
                       <Component id="LogoutButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -123,11 +120,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TrainingButtonActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="MedicalButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Medical"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="LogoutButton">
               <Properties>

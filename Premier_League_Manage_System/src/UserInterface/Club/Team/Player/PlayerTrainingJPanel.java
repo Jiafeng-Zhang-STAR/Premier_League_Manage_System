@@ -86,7 +86,7 @@ public class PlayerTrainingJPanel extends javax.swing.JPanel {
             String password = "abcd1234!";
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM training_plan";
+            String sql = "SELECT * FROM training_plan WHERE club=\'"+this.person.getClub()+"\'";
             System.out.print(sql);
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
