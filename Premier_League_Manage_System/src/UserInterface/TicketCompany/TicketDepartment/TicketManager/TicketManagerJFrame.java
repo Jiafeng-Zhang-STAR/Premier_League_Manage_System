@@ -291,14 +291,19 @@ public class TicketManagerJFrame extends javax.swing.JFrame {
         String homeTeam = model.getValueAt(selectedRowIndex , 1).toString();//获得选中的行的第2列的内容
         String awayTeam = model.getValueAt(selectedRowIndex , 2).toString();//获得选中的行的第2列的内容
         int price = Integer.parseInt(model.getValueAt(selectedRowIndex , 3).toString());//获得选中的行的第2列的内容
-        int oldAmount = Integer.parseInt(model.getValueAt(selectedRowIndex , 4).toString());//获得选中的行的第2列的内容
+        int oldAmount = 0;
+        
+        if(String.valueOf(model.getValueAt(selectedRowIndex , 4)).equals("null")){
+            oldAmount = 0;
+        }else{
+            oldAmount = Integer.parseInt(model.getValueAt(selectedRowIndex , 4).toString());
+        }
         int newAmount = Integer.parseInt(txtAmount.getText());//获得选中的行的第2列的内容
         int leftAmount = Integer.parseInt(model.getValueAt(selectedRowIndex , 5).toString());//获得选中的行的第2列的内容
         if(newAmount<oldAmount-leftAmount){
             JOptionPane.showMessageDialog(this, "There is an error that the new amount is less than sold out amount, please change it again.");
             return;
         }
-        
         try {
                 /* create jdbc connection */
                 Class.forName("com.mysql.cj.jdbc.Driver");
@@ -349,7 +354,7 @@ public class TicketManagerJFrame extends javax.swing.JFrame {
                 
                 statement.close();
                 connection.close();
-
+                populateTable();
                 /* 刷新表 */
             } catch (ClassNotFoundException| SQLException e) {
                 JOptionPane.showMessageDialog(this, "You need to check before set price.");

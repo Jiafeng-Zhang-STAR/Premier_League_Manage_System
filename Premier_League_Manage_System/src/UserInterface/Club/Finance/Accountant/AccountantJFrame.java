@@ -36,7 +36,7 @@ public class AccountantJFrame extends javax.swing.JFrame {
         initComponents();
         Team team = new Team(personTemp); //初始化Team对象 里面含有全部的医生 Initialize the Team object containing all the Doctors
         
-        int length = team.getDoctorCatalog().getDoctorCata().size();//计算catalog中有多少个医生 Calculate how many Doctors are in the catalog
+        int length = team.getAccountantCatalog().getAccountantCata().size();//计算catalog中有多少个医生 Calculate how many Doctors are in the catalog
         for(int i =0; i<length ; i++){
             Accountant accountantTemp = team.getAccountantCatalog().getAccountantCata().get(i);
             if(accountantTemp.getUsername().equals(personTemp.getUsername())){

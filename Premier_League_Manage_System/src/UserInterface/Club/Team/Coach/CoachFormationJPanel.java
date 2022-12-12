@@ -164,7 +164,7 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Formation:");
 
-        FormationComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "4-3-3", "4-4-2", "5-3-2", "3-5-2", "4-2-4", "4-5-1" }));
+        FormationComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "4-3-3", "4-4-2", "3-5-2" }));
         FormationComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FormationComboBoxActionPerformed(evt);
@@ -856,7 +856,7 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
             String password = "abcd1234!";
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM system_user_info WHERE club=\'" + this.person.getClub() + "\' AND role_type=\'2\'";
+            String sql = "SELECT * FROM system_user_info WHERE club=\'" + this.person.getClub() + "\' AND role_type=\'4\'";
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
                 playerList.add(String.valueOf(resultSet.getObject("username")));
@@ -866,7 +866,9 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
             connection.close();
         } catch (ClassNotFoundException | SQLException e) {
         }
+        System.out.println(String.valueOf(this.FormationComboBox.getSelectedItem()).equals("4-4-2"));
         switch (String.valueOf(this.FormationComboBox.getSelectedItem())) {
+            
             case "4-3-3" :
                 for (String name : playerList) {
                     this.ALWComboBox.addItem(name);
@@ -894,6 +896,7 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
                 this.AGKComboBox.setSelectedIndex(-1);
                 CardLayout card = (CardLayout) FormationMainjPanel.getLayout();
                 card.show(FormationMainjPanel, "FourThreeThree");
+                break;
                 
             case "4-4-2" :
                 for (String name : playerList) {
@@ -923,9 +926,7 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
                 CardLayout bcard = (CardLayout) FormationMainjPanel.getLayout();
                 bcard.show(FormationMainjPanel, "FourFourTwo");
             
-            case "5-3-2" :                
-                    CardLayout ccard = (CardLayout)FormationMainjPanel.getLayout();
-                    ccard.show(FormationMainjPanel, "FiveThreeTwo");
+                break;
                 
             case "3-5-2" :
                 for (String name : playerList) {
@@ -954,14 +955,7 @@ public class CoachFormationJPanel extends javax.swing.JPanel {
                 this.DGKComboBox.setSelectedIndex(-1);
                 CardLayout dcard = (CardLayout) FormationMainjPanel.getLayout();
                 dcard.show(FormationMainjPanel, "ThreeFiveTwo");
-            
-            case "4-2-4" :                
-                    CardLayout ecard = (CardLayout)FormationMainjPanel.getLayout();
-                    ecard.show(FormationMainjPanel, "FourTwoFour");
-                
-            case "4-5-1" :            
-                    CardLayout fcard = (CardLayout)FormationMainjPanel.getLayout();
-                    fcard.show(FormationMainjPanel, "FourFiveOne");
+                break;
                 
             default : {
             }

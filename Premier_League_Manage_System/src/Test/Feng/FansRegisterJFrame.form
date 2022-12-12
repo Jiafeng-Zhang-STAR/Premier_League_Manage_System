@@ -46,6 +46,7 @@
                                   <Component id="txtNation" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
                                   <Component id="txtZip" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
                                   <Component id="txtRealname" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="logoutButton" alignment="1" min="-2" pref="78" max="-2" attributes="0"/>
                               </Group>
                               <Component id="ccbGender" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -107,7 +108,10 @@
                   <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
-              <Component id="btnCreateSystemAdminCreatP" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnCreateSystemAdminCreatP" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="logoutButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -218,6 +222,14 @@
         <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="Nation"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="logoutButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Logout"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logoutButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
