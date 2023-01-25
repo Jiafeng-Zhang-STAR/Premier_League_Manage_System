@@ -35,7 +35,7 @@ public class AdminEditJPanel extends javax.swing.JPanel {
         this.nameTextField.setEnabled(false);
         this.enterComboBox.setEnabled(false);
         this.roleComboBox.setEnabled(false);
-        this.clubComboBox.setEnabled(false);
+        this.clubTextField.setEnabled(false);
         this.genderComboBox.setEnabled(false);
         this.ageTextField.setEnabled(false);
         this.nationTextField.setEnabled(false);
@@ -67,7 +67,6 @@ public class AdminEditJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         roleComboBox = new javax.swing.JComboBox<>();
         clubLabel = new javax.swing.JLabel();
-        clubComboBox = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         genderComboBox = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
@@ -81,6 +80,7 @@ public class AdminEditJPanel extends javax.swing.JPanel {
         EditButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         SaveButton = new javax.swing.JButton();
+        clubTextField = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(0, 139, 69));
 
@@ -194,8 +194,8 @@ public class AdminEditJPanel extends javax.swing.JPanel {
                             .addComponent(addressTextField)
                             .addComponent(passwordTextField)
                             .addComponent(enterComboBox, 0, 100, Short.MAX_VALUE)
-                            .addComponent(clubComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ageTextField)))
+                            .addComponent(ageTextField)
+                            .addComponent(clubTextField)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(EditButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -225,7 +225,7 @@ public class AdminEditJPanel extends javax.swing.JPanel {
                     .addComponent(roleComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(clubLabel)
-                    .addComponent(clubComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(clubTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -266,7 +266,7 @@ public class AdminEditJPanel extends javax.swing.JPanel {
         this.nameTextField.setEnabled(true);
         this.enterComboBox.setEnabled(true);
         this.roleComboBox.setEnabled(true);
-        this.clubComboBox.setEnabled(true);
+        this.clubTextField.setEnabled(true);
         this.genderComboBox.setEnabled(true);
         this.ageTextField.setEnabled(true);
         this.nationTextField.setEnabled(true);
@@ -307,11 +307,7 @@ public class AdminEditJPanel extends javax.swing.JPanel {
                 
                 String club = String.valueOf(resultSet.getObject("club"));
                 select_person.setClub(club);
-                for(int i = 0;i<this.clubComboBox.getItemCount();i++){
-                    if(club.equals(this.clubComboBox.getItemAt(i))){
-                        this.clubComboBox.setSelectedIndex(i);
-                    }
-                }
+                this.clubTextField.setText(club);
                 String gender = String.valueOf(resultSet.getObject("gender"));
                 int gender_person = Integer.parseInt(gender);
                 select_person.setGender(gender_person);
@@ -369,7 +365,7 @@ public class AdminEditJPanel extends javax.swing.JPanel {
                     this.nameTextField.setText("");
                     this.enterComboBox.setEnabled(false);
                     this.roleComboBox.setEnabled(false);
-                    this.clubComboBox.setEnabled(false);
+                    this.clubTextField.setEnabled(false);
                     this.genderComboBox.setEnabled(false);
                     this.ageTextField.setEnabled(false);
                     this.ageTextField.setText("");
@@ -397,36 +393,48 @@ public class AdminEditJPanel extends javax.swing.JPanel {
             this.roleComboBox.addItem("3");
             this.roleComboBox.addItem("4");
             this.roleComboBox.addItem("5");
-            this.clubComboBox.setEnabled(true);
+            this.clubTextField.setEnabled(true);
             
         }else if(String.valueOf(this.enterComboBox.getSelectedItem()).equals("5")){
             this.roleComboBox.removeAllItems();
             this.roleComboBox.addItem("1");
             this.roleComboBox.addItem("2");
-            this.clubComboBox.setSelectedItem("na");
-            this.clubComboBox.setEnabled(false);
+            this.clubTextField.setText("na");
+            this.clubTextField.setEnabled(false);
         
         }else{
             this.roleComboBox.removeAllItems();
             this.roleComboBox.addItem("1");
-            this.clubComboBox.setEnabled(true);
+            this.clubTextField.setText("na");
+            this.clubTextField.setEnabled(false);
         }
     }//GEN-LAST:event_enterComboBoxActionPerformed
 
     private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
         // TODO add your handling code here:
-        if (this.passwordTextField.getText().equals(this.select_person.getPassword())
+        if(this.passwordTextField.getText().length()==0
+                || this.nameTextField.getText().length()==0
+                || this.enterComboBox.getSelectedIndex()==-1
+                || this.roleComboBox.getSelectedIndex()==-1
+                || this.clubTextField.getText().length()==0
+                || this.genderComboBox.getSelectedIndex()==-1
+                || this.ageTextField.getText().length()==0
+                || this.addressTextField.getText().length()==0
+                || this.nationTextField.getText().length()==0
+                || this.zipTextField.getText().length()==0){
+            JOptionPane.showMessageDialog(enterComboBox, "Some fields is empty!", "WARNING", JOptionPane.ERROR_MESSAGE);
+        }else if(this.passwordTextField.getText().equals(this.select_person.getPassword())
                 && this.nameTextField.getText().equals(this.select_person.getName())
                 && Integer.parseInt(String.valueOf(this.enterComboBox.getSelectedItem())) == this.select_person.getEnterpriseType()
                 && Integer.parseInt(String.valueOf(this.roleComboBox.getSelectedItem())) == this.select_person.getRoleType()
-                && this.select_person.getClub().equals(String.valueOf(this.clubComboBox.getSelectedItem()))
+                && this.select_person.getClub().equals(this.clubTextField.getText())
                 && Integer.parseInt(String.valueOf(this.genderComboBox.getSelectedItem())) == this.select_person.getGender()
                 && this.select_person.getAge() == Integer.parseInt(String.valueOf(this.ageTextField.getText()))
                 && this.addressTextField.getText().equals(this.select_person.getAddress())
                 && this.nationTextField.getText().equals(this.select_person.getNation())
-                && this.zipTextField.getText().equals(this.select_person.getZip())) {
+                && this.zipTextField.getText().equals(this.select_person.getZip())){
             JOptionPane.showMessageDialog(enterComboBox, "Nothing changed!", "WARNING", JOptionPane.ERROR_MESSAGE);
-        } else if (this.containNumber(this.nameTextField.getText())) {
+        }else if (this.containNumber(this.nameTextField.getText())) {
             JOptionPane.showMessageDialog(enterComboBox, "Name can't contain number", "Warning", JOptionPane.ERROR_MESSAGE);
         } else if (this.containLetter(this.ageTextField.getText())) {
             JOptionPane.showMessageDialog(enterComboBox, "Age can't contain letter", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -437,7 +445,7 @@ public class AdminEditJPanel extends javax.swing.JPanel {
         } else if (this.containLetter(this.zipTextField.getText())) {
             JOptionPane.showMessageDialog(enterComboBox, "Zip code can't contain letter", "Warning", JOptionPane.WARNING_MESSAGE);
         } else if (Integer.parseInt(String.valueOf(this.enterComboBox.getSelectedItem()))==1 &&
-                String.valueOf(this.clubComboBox.getSelectedItem()).equals("na")) {
+                this.clubTextField.getText().equals("na")) {
             JOptionPane.showMessageDialog(enterComboBox, "Club invalid", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
             try {
@@ -452,7 +460,7 @@ public class AdminEditJPanel extends javax.swing.JPanel {
                         + "name=\'"+this.nameTextField.getText()+"\',"
                         + "enterprise_type=\'"+Integer.parseInt(String.valueOf(this.enterComboBox.getSelectedItem()))+"\',"
                         + "role_type = \'"+Integer.parseInt(String.valueOf(this.roleComboBox.getSelectedItem()))+"\',"
-                        + "club = \'"+String.valueOf(this.clubComboBox.getSelectedItem())+"\',"
+                        + "club = \'"+this.clubTextField.getText()+"\',"
                         + "gender = \'"+Integer.parseInt(String.valueOf(this.genderComboBox.getSelectedItem()))+"\',"
                         + "age = \'"+Integer.parseInt(String.valueOf(this.ageTextField.getText()))+"\',"
                         + "nation = \'"+this.nationTextField.getText()+"\',"
@@ -470,7 +478,7 @@ public class AdminEditJPanel extends javax.swing.JPanel {
                 this.nameTextField.setText("");
                 this.enterComboBox.setEnabled(false);
                 this.roleComboBox.setEnabled(false);
-                this.clubComboBox.setEnabled(false);
+                this.clubTextField.setEnabled(false);
                 this.genderComboBox.setEnabled(false);
                 this.ageTextField.setEnabled(false);
                 this.ageTextField.setText("");
@@ -501,7 +509,6 @@ public class AdminEditJPanel extends javax.swing.JPanel {
             Statement statement = connection.createStatement();
 
             String doc_sql = "SELECT * FROM system_user_info";
-            String club_sql = "SELECT DISTINCT club FROM system_user_info";
             ResultSet resultSet = statement.executeQuery(doc_sql);
             while (resultSet.next()) {
                 Object[] row = new Object[4];
@@ -510,13 +517,6 @@ public class AdminEditJPanel extends javax.swing.JPanel {
                 row[2] = resultSet.getObject("enterprise_type");
                 row[3] = resultSet.getObject("role_type");
                 model.addRow(row);
-            }
-            ResultSet club_resultSet = statement.executeQuery(club_sql);
-            while(club_resultSet.next()){
-                if(String.valueOf(club_resultSet.getObject("club")).length()!=0){
-                    this.clubComboBox.addItem((String) club_resultSet.getObject("club"));
-                }
-                
             }
             resultSet.close();
             statement.close();
@@ -552,8 +552,8 @@ public class AdminEditJPanel extends javax.swing.JPanel {
     private javax.swing.JButton SaveButton;
     private javax.swing.JTextField addressTextField;
     private javax.swing.JTextField ageTextField;
-    private javax.swing.JComboBox<String> clubComboBox;
     private javax.swing.JLabel clubLabel;
+    private javax.swing.JTextField clubTextField;
     private javax.swing.JButton deleteButton;
     private javax.swing.JComboBox<String> enterComboBox;
     private javax.swing.JComboBox<String> genderComboBox;

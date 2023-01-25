@@ -43,7 +43,6 @@ public class CoachMainJFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         UsernameLabel = new javax.swing.JLabel();
         TrainingButton = new javax.swing.JButton();
-        MedicalButton = new javax.swing.JButton();
         LogoutButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
@@ -73,8 +72,6 @@ public class CoachMainJFrame extends javax.swing.JFrame {
             }
         });
 
-        MedicalButton.setText("Medical");
-
         LogoutButton.setText("Logout");
         LogoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,7 +91,6 @@ public class CoachMainJFrame extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(UsernameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(TrainingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MedicalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
@@ -109,9 +105,7 @@ public class CoachMainJFrame extends javax.swing.JFrame {
                 .addComponent(FormationButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TrainingButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MedicalButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 396, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 425, Short.MAX_VALUE)
                 .addComponent(LogoutButton)
                 .addContainerGap())
         );
@@ -205,7 +199,6 @@ public class CoachMainJFrame extends javax.swing.JFrame {
     private javax.swing.JSplitPane CoachSplitPane;
     private javax.swing.JButton FormationButton;
     private javax.swing.JButton LogoutButton;
-    private javax.swing.JButton MedicalButton;
     private javax.swing.JButton TrainingButton;
     private javax.swing.JLabel UsernameLabel;
     private javax.swing.JLabel jLabel1;

@@ -608,7 +608,42 @@ DefaultTableModel model1 = (DefaultTableModel) matchFirstTable.getModel();
                 e.printStackTrace();
             }
         }
-         automaticMatchGenerationButton.setEnabled(false);
+        DefaultTableModel model1 = (DefaultTableModel) matchFirstTable.getModel();
+        model1.setRowCount(0);
+        
+        DefaultTableModel model2 = (DefaultTableModel) matchSecondTable.getModel();
+        model2.setRowCount(0);
+        
+        
+        
+        for(int i = 0; i < MatchCataFirstHalf.size();i++){
+                
+            Object[] row = new Object[4];
+
+            row[0] = MatchCataFirstHalf.get(i).match_away;
+
+            row[1] = MatchCataFirstHalf.get(i).match_home;
+
+            row[2] = MatchCataFirstHalf.get(i).date;
+
+            row[3] = MatchCataFirstHalf.get(i).referee;
+
+            model1.addRow(row);
+        }
+        for(int i = 0; i < MatchCataSecondHalf.size();i++){
+            Object[] row = new Object[4];
+
+            row[0] = MatchCataSecondHalf.get(i).match_away;
+
+            row[1] = MatchCataSecondHalf.get(i).match_home;
+
+            row[2] = MatchCataSecondHalf.get(i).date;
+
+            row[3] = MatchCataSecondHalf.get(i).referee;
+
+            model2.addRow(row);
+        } 
+        automaticMatchGenerationButton.setEnabled(false);
         beginYearjTextField.setEnabled(false);
         beginMonthjTextField.setEnabled(false);
         beginDayjTextField.setEnabled(false);
@@ -864,6 +899,7 @@ DefaultTableModel model1 = (DefaultTableModel) matchFirstTable.getModel();
 
                 String sql ="SELECT DISTINCT club FROM system_user_info WHERE "
                             + "(club IS NOT NULL) "
+                            + "AND (club !=\'na\') "
                             + "AND (club !=\'\');";
 
                 ResultSet resultSet = statement.executeQuery(sql);

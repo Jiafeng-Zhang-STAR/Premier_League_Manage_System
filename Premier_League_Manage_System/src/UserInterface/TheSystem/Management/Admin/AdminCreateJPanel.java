@@ -23,34 +23,14 @@ public class AdminCreateJPanel extends javax.swing.JPanel {
      */
     public AdminCreateJPanel() {
         initComponents();
-        this.clubComboBox.setEnabled(false);
+        this.clubTextField.setEnabled(false);
     }
     
     public AdminCreateJPanel(Person person) {
         this.person = person;
         initComponents();
-        this.clubComboBox.setEnabled(false);
-        initClub();
-    }
-    
-    public void initClub() {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
-            String username = "root";
-            String password = "abcd1234!";
-            Connection connection = DriverManager.getConnection(url, username, password);
-            Statement statement = connection.createStatement();
-            String sql = "SELECT DISTINCT club FROM system_user_info";
-            ResultSet resultSet = statement.executeQuery(sql);
-            while (resultSet.next()) {
-                this.clubComboBox.addItem((String) resultSet.getObject("club"));
-            }
-            resultSet.close();
-            statement.close();
-            connection.close();
-        } catch (ClassNotFoundException | SQLException e) {
-        }
+        this.clubTextField.setEnabled(false);
+        
     }
 
     /**
@@ -74,7 +54,6 @@ public class AdminCreateJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         roleComboBox = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        clubComboBox = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         genderComboBox = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
@@ -86,6 +65,7 @@ public class AdminCreateJPanel extends javax.swing.JPanel {
         zipTextField = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         SubmitButton = new javax.swing.JButton();
+        clubTextField = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(0, 139, 69));
 
@@ -182,8 +162,8 @@ public class AdminCreateJPanel extends javax.swing.JPanel {
                     .addComponent(nameTextField)
                     .addComponent(enterpriseComboBox, 0, 160, Short.MAX_VALUE)
                     .addComponent(roleComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(clubComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(genderComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(genderComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(clubTextField))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(checkButton)
                 .addContainerGap(313, Short.MAX_VALUE))
@@ -219,7 +199,7 @@ public class AdminCreateJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(clubComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(clubTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -292,24 +272,28 @@ public class AdminCreateJPanel extends javax.swing.JPanel {
             this.roleComboBox.addItem("coach");
             this.roleComboBox.addItem("player");
             this.roleComboBox.addItem("club manager");
-            this.clubComboBox.setEnabled(true);
+            this.clubTextField.setEnabled(true);
         }else if(this.enterpriseComboBox.getSelectedItem().equals("league")){
             this.roleComboBox.removeAllItems();
             this.roleComboBox.addItem("league manager");
-            this.clubComboBox.setEnabled(false);
+            this.clubTextField.setEnabled(false);
+            this.clubTextField.setText("na");
         }else if(this.enterpriseComboBox.getSelectedItem().equals("sponsor company")){
             this.roleComboBox.removeAllItems();
             this.roleComboBox.addItem("sponsor");
-            this.clubComboBox.setEnabled(false);
+            this.clubTextField.setEnabled(false);
+            this.clubTextField.setText("na");
         }else if(this.enterpriseComboBox.getSelectedItem().equals("ticket company")){
             this.roleComboBox.removeAllItems();
             this.roleComboBox.addItem("ticket manager");
-            this.clubComboBox.setEnabled(false);
+            this.clubTextField.setEnabled(false);
+            this.clubTextField.setText("na");
         }else if(this.enterpriseComboBox.getSelectedItem().equals("System Common")){
             this.roleComboBox.removeAllItems();
             this.roleComboBox.addItem("fan");
             this.roleComboBox.addItem("admin");
-            this.clubComboBox.setEnabled(false);
+            this.clubTextField.setEnabled(false);
+            this.clubTextField.setText("na");
         } 
     }//GEN-LAST:event_enterpriseComboBoxActionPerformed
 
@@ -348,13 +332,13 @@ public class AdminCreateJPanel extends javax.swing.JPanel {
         }else if(this.containLetter(this.zipTextField.getText())){
             JOptionPane.showMessageDialog(roleComboBox, "Zip code can't contain letter", "Warning", JOptionPane.WARNING_MESSAGE);
         }else if (String.valueOf(this.enterpriseComboBox.getSelectedItem()).equals("club") &&
-                String.valueOf(this.clubComboBox.getSelectedItem()).equals("na")) {
+                this.clubTextField.getText().equals("na")) {
             JOptionPane.showMessageDialog(roleComboBox, "Club invalid", "Warning", JOptionPane.WARNING_MESSAGE);
         }else{
             String userName = this.usernameTextField.getText();
             String passWord = this.PasswordField.getText();
             String name = this.nameTextField.getText();
-            String club = (String) this.clubComboBox.getSelectedItem();
+            String club = this.clubTextField.getText();
             String nation = this.NationTextField.getText();
             String address = this.addressTextField.getText();
             String zipcode = this.zipTextField.getText();
@@ -405,7 +389,7 @@ public class AdminCreateJPanel extends javax.swing.JPanel {
                 Connection connection = DriverManager.getConnection(url, username, password);
                 Statement statement = connection.createStatement();
                 String sql = "INSERT INTO system_user_info VALUES(\'"+userName+"\',\'"+passWord+"\',\'"+name+"\',\'"+enterprise_type+"\',\'"+role_type+"\',\'"+club+"\',\'"+gender+"\',\'"+age+"\',\'"+nation+"\',\'"+address+"\',\'"+zipcode+"\',null)";
-                String nonfansql = "INSERT INTO system_user_info VALUES(\'"+userName+"\',\'"+passWord+"\',\'"+name+"\',\'"+enterprise_type+"\',\'"+role_type+"\',null,\'"+gender+"\',\'"+age+"\',\'"+nation+"\',\'"+address+"\',\'"+zipcode+"\',null)";
+                String nonfansql = "INSERT INTO system_user_info VALUES(\'"+userName+"\',\'"+passWord+"\',\'"+name+"\',\'"+enterprise_type+"\',\'"+role_type+"\',\'na\',\'"+gender+"\',\'"+age+"\',\'"+nation+"\',\'"+address+"\',\'"+zipcode+"\',null)";
                 int result;
                 if(enterprise_type==1){
                     result = statement.executeUpdate(sql);
@@ -423,7 +407,7 @@ public class AdminCreateJPanel extends javax.swing.JPanel {
             this.PasswordField.setText("");
             this.NationTextField.setText("");
             this.roleComboBox.removeAllItems();
-            this.clubComboBox.setEnabled(false);
+            this.clubTextField.setEnabled(false);
             this.ageTextField.setText("");
             this.NationTextField.setText("");
             this.addressTextField.setText("");
@@ -460,7 +444,7 @@ public class AdminCreateJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField addressTextField;
     private javax.swing.JTextField ageTextField;
     private javax.swing.JButton checkButton;
-    private javax.swing.JComboBox<String> clubComboBox;
+    private javax.swing.JTextField clubTextField;
     private javax.swing.JComboBox<String> enterpriseComboBox;
     private javax.swing.JComboBox<String> genderComboBox;
     private javax.swing.JLabel jLabel1;

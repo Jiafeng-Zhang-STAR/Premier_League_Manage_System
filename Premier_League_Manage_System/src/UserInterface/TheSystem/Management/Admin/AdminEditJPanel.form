@@ -59,8 +59,8 @@
                           <Component id="addressTextField" max="32767" attributes="0"/>
                           <Component id="passwordTextField" max="32767" attributes="0"/>
                           <Component id="enterComboBox" pref="100" max="32767" attributes="0"/>
-                          <Component id="clubComboBox" max="32767" attributes="0"/>
                           <Component id="ageTextField" max="32767" attributes="0"/>
+                          <Component id="clubTextField" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
@@ -98,7 +98,7 @@
                   <Component id="roleComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="clubLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="clubComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="clubTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -247,16 +247,6 @@
         <Property name="text" type="java.lang.String" value="club:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="clubComboBox">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="text" type="java.lang.String" value="Gender:"/>
@@ -329,6 +319,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaveButtonActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="clubTextField">
     </Component>
   </SubComponents>
 </Form>

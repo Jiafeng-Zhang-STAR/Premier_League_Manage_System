@@ -223,7 +223,7 @@ public class PlayerMedicalJPanel extends javax.swing.JPanel {
                 Connection connection = DriverManager.getConnection(url, username, password);
                 Statement statement = connection.createStatement();
 
-                String delete_sql = "DELETE FROM appointment WHERE id=\'" + ID + "\'";
+                String delete_sql = "DELETE FROM club_diagnose_appointment WHERE id=\'" + ID + "\'";
                 int resultSet = statement.executeUpdate(delete_sql);
                 if (resultSet == 1) {
                     JOptionPane.showConfirmDialog(appointComboBox, "Delete Successful!", "Congratulations!", JOptionPane.DEFAULT_OPTION);
@@ -256,7 +256,7 @@ public class PlayerMedicalJPanel extends javax.swing.JPanel {
         String appoint_Date = ft.format(date);
         int appoint_ID;
         try {
-            int max_ID = 0;
+            String max_ID = null;
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/premierleague?zeroDateTimeBehavior=CONVERT_TO_NULL";
             String username = "root";
@@ -264,18 +264,21 @@ public class PlayerMedicalJPanel extends javax.swing.JPanel {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
 
-            String getID_sql = "SELECT MAX(id) as max_id FROM appointment";
+            String getID_sql = "SELECT MAX(id) as max_id FROM club_diagnose_appointment";
 
             ResultSet getID_resultSet = statement.executeQuery(getID_sql);
             while (getID_resultSet.next()) {
-                max_ID = Integer.parseInt(String.valueOf(getID_resultSet.getObject("max_id")));
+                max_ID = String.valueOf(getID_resultSet.getObject("max_id"));
             }
-            if (max_ID == 0) {
+            
+            if (max_ID.equals("null")) {
                 appoint_ID = 1;
+                
             } else {
-                appoint_ID = max_ID + 1;
+                appoint_ID = Integer.parseInt(max_ID) + 1;
             }
-            String appoint_sql = "INSERT INTO appointment VALUES(\'" + appoint_ID + "\',\'" + player_Name + "\',\'" + doc_Name + "\',\'" + appoint_Date + "\',\'0\',\'undiagnosed\')";
+            String appoint_sql = "INSERT INTO club_diagnose_appointment (id,player_id,doctor_id,date,status,result) VALUES(\'" + appoint_ID + "\',\'" + player_Name + "\',\'" + doc_Name + "\',\'" + appoint_Date + "\',\'undiagnosed\',\'undiagnosed\')";
+            System.out.println(appoint_sql);
             int appoint_result = statement.executeUpdate(appoint_sql);
             if (appoint_result == 1) {
                 JOptionPane.showConfirmDialog(appointComboBox, "Appoint Successful!", "Appoint Successful!", JOptionPane.DEFAULT_OPTION);
@@ -297,7 +300,7 @@ public class PlayerMedicalJPanel extends javax.swing.JPanel {
         }
         DefaultTableModel model = (DefaultTableModel) this.PlayerMedicalTable.getModel();
         String state = String.valueOf(model.getValueAt(selectedRowIndex, 3));
-        if (state.equals("diagnosed")) {
+        if (!state.equals("undiagnosed")) {
             JOptionPane.showConfirmDialog(appointComboBox, "This appointment can't be changed!", "Warning", JOptionPane.DEFAULT_OPTION);
             return;
         }
@@ -375,7 +378,7 @@ public class PlayerMedicalJPanel extends javax.swing.JPanel {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
 
-            String update_sql = "UPDATE appointment SET doctor=\'" + new_Doctor + "\', date=\'" + update_Date + "\' WHERE id=\'" + ID + "\'";
+            String update_sql = "UPDATE club_diagnose_appointment SET doctor_id=\'" + new_Doctor + "\', date=\'" + update_Date + "\' WHERE id=\'" + ID + "\'";
             int resultSet = statement.executeUpdate(update_sql);
             if (resultSet == 1) {
                 JOptionPane.showConfirmDialog(appointComboBox, "Edit Successful!", "Congratulations!", JOptionPane.DEFAULT_OPTION);
@@ -400,8 +403,10 @@ public class PlayerMedicalJPanel extends javax.swing.JPanel {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
 
-            String doc_sql = "SELECT * FROM system_user_info WHERE role_type='4' AND club=\'" + this.person.getClub() + "\'";
-            String appoint_sql = "SELECT * FROM appointment WHERE player=\'" + this.person.getUsername() + "\'";
+            String doc_sql = "SELECT * FROM system_user_info WHERE role_type='2' AND club=\'" + this.person.getClub() + "\'";
+            
+            String appoint_sql = "SELECT * FROM club_diagnose_appointment WHERE player_id=\'" + this.person.getUsername() + "\'";
+            System.out.println(appoint_sql);
             ResultSet docComboBox_resultSet = statement.executeQuery(doc_sql);
             while (docComboBox_resultSet.next()) {
                 this.appointComboBox.addItem(String.valueOf(docComboBox_resultSet.getObject("username")));
@@ -411,13 +416,11 @@ public class PlayerMedicalJPanel extends javax.swing.JPanel {
             while (appointTable_resultSet.next()) {
                 Object[] row = new Object[5];
                 row[0] = appointTable_resultSet.getObject("id");
-                row[1] = appointTable_resultSet.getObject("doctor");
+                row[1] = appointTable_resultSet.getObject("doctor_id");
                 row[2] = appointTable_resultSet.getObject("date");
-                if (Integer.parseInt(String.valueOf(appointTable_resultSet.getObject("state"))) == 0) {
-                    row[3] = "undiagnosed";
-                } else {
-                    row[3] = "diagnosed";
-                }
+                
+                row[3] = String.valueOf(appointTable_resultSet.getObject("status"));
+                
                 row[4] = appointTable_resultSet.getObject("result");
                 model.addRow(row);
             }

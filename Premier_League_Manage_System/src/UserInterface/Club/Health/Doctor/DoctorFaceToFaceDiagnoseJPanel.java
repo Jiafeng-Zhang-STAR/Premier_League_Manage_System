@@ -1019,6 +1019,12 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Weight :");
 
+        weightFillVitalSignsTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                weightFillVitalSignsTextFieldActionPerformed(evt);
+            }
+        });
+
         saveVitalSignsFillButton.setText("Save");
         justSetColor.add(saveVitalSignsFillButton);
         saveVitalSignsFillButton.setMaximumSize(new java.awt.Dimension(80, 28));
@@ -2111,7 +2117,7 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
     
     private void submitVitalSignsFillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitVitalSignsFillButtonActionPerformed
         // TODO add your handling code here:
-        if(this.appointmentHistoryID != 0){
+        if (this.appointmentHistoryID != 0) {
             bodyTemperatureFillVitalSignsTextField.setEnabled(true);
             plusRateInFillVitalSignsTextField.setEnabled(true);
             breathingRateFillVitalSignsTextField.setEnabled(true);
@@ -2124,98 +2130,101 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
             editVitalSignsFillButton.setEnabled(false);
             saveVitalSignsFillButton.setEnabled(true);
 
-            if(bodyTemperatureFillVitalSignsTextField.getText().length()==0 ||
-               plusRateInFillVitalSignsTextField.getText().length()==0 ||
-               breathingRateFillVitalSignsTextField.getText().length()==0 ||
-                bloodPressureFillVitalSignsTextField.getText().length()==0 ||
-                oxygenSaturationFillVitalSignsTextField.getText().length()==0 ||
-                heightFillVitalSignsTextField.getText().length()==0 ||
-                weightFillVitalSignsTextField.getText().length()==0
-                ){JOptionPane.showMessageDialog(submitVitalSignsFillButton, "Please fill the empty field");}
-            else{
-            float bodyTemperatureFillVitalSignsTemp = parseFloat(bodyTemperatureFillVitalSignsTextField.getText());
-            float plusRateInFillVitalSignsTextFieldTemp = parseFloat(plusRateInFillVitalSignsTextField.getText());
-            float breathingRateFillVitalSignsTextFieldTemp = parseFloat(breathingRateFillVitalSignsTextField.getText());
-            float bloodPressureFillVitalSignsTextFieldTemp = parseFloat(bloodPressureFillVitalSignsTextField.getText());
-            float oxygenSaturationFillVitalSignsTextFieldTemp = parseFloat(oxygenSaturationFillVitalSignsTextField.getText());
-            float heightFillVitalSignsTextFieldTemp = parseFloat(heightFillVitalSignsTextField.getText());
-            float weightFillVitalSignsTextFieldTemp = parseFloat(weightFillVitalSignsTextField.getText());
+            if (bodyTemperatureFillVitalSignsTextField.getText().length() == 0
+                    || plusRateInFillVitalSignsTextField.getText().length() == 0
+                    || breathingRateFillVitalSignsTextField.getText().length() == 0
+                    || bloodPressureFillVitalSignsTextField.getText().length() == 0
+                    || oxygenSaturationFillVitalSignsTextField.getText().length() == 0
+                    || heightFillVitalSignsTextField.getText().length() == 0
+                    || weightFillVitalSignsTextField.getText().length() == 0) {
+                JOptionPane.showMessageDialog(submitVitalSignsFillButton, "Please fill the empty field");
+            } else {
+                float bodyTemperatureFillVitalSignsTemp = parseFloat(bodyTemperatureFillVitalSignsTextField.getText());
+                float plusRateInFillVitalSignsTextFieldTemp = parseFloat(plusRateInFillVitalSignsTextField.getText());
+                float breathingRateFillVitalSignsTextFieldTemp = parseFloat(breathingRateFillVitalSignsTextField.getText());
+                float bloodPressureFillVitalSignsTextFieldTemp = parseFloat(bloodPressureFillVitalSignsTextField.getText());
+                float oxygenSaturationFillVitalSignsTextFieldTemp = parseFloat(oxygenSaturationFillVitalSignsTextField.getText());
+                float heightFillVitalSignsTextFieldTemp = parseFloat(heightFillVitalSignsTextField.getText());
+                float weightFillVitalSignsTextFieldTemp = parseFloat(weightFillVitalSignsTextField.getText());
 
-            
-            if(this.containNumber(bodyTemperatureFillVitalSignsTextField.getText()) && !this.containLetter(bodyTemperatureFillVitalSignsTextField.getText())){
-                if(this.containNumber(plusRateInFillVitalSignsTextField.getText()) && !this.containLetter(plusRateInFillVitalSignsTextField.getText())){
-                    if(this.containNumber(breathingRateFillVitalSignsTextField.getText()) && !this.containLetter(breathingRateFillVitalSignsTextField.getText())){
-                        if(this.containNumber(bloodPressureFillVitalSignsTextField.getText()) && !this.containLetter(bloodPressureFillVitalSignsTextField.getText())){
-                            if(this.containNumber(oxygenSaturationFillVitalSignsTextField.getText()) && !this.containLetter(oxygenSaturationFillVitalSignsTextField.getText())){
-                                 if(this.containNumber(heightFillVitalSignsTextField.getText()) && !this.containLetter(heightFillVitalSignsTextField.getText())){
-                                     if(this.containNumber(weightFillVitalSignsTextField.getText()) && !this.containLetter(weightFillVitalSignsTextField.getText())){
- if(((bodyTemperatureFillVitalSignsTemp>-40)&&(bodyTemperatureFillVitalSignsTemp<60))&&((plusRateInFillVitalSignsTextFieldTemp>-1)&&(plusRateInFillVitalSignsTextFieldTemp<400))){
-     if(((breathingRateFillVitalSignsTextFieldTemp>-1)&&(breathingRateFillVitalSignsTextFieldTemp<190))&&((bloodPressureFillVitalSignsTextFieldTemp>-1)&&(bloodPressureFillVitalSignsTextFieldTemp<280))){
-         if(((oxygenSaturationFillVitalSignsTextFieldTemp>-1)&&(oxygenSaturationFillVitalSignsTextFieldTemp<110))&&((heightFillVitalSignsTextFieldTemp>20)&&(heightFillVitalSignsTextFieldTemp<300))){
-             if((weightFillVitalSignsTextFieldTemp>5)&&(weightFillVitalSignsTextFieldTemp<400)){
-                                                 bodyTemperatureFillVitalSignsTextField.setText("");
-                                plusRateInFillVitalSignsTextField.setText("");
-                                breathingRateFillVitalSignsTextField.setText("");
-                                bloodPressureFillVitalSignsTextField.setText("");
-                                oxygenSaturationFillVitalSignsTextField.setText("");
-                                heightFillVitalSignsTextField.setText("");
-                                weightFillVitalSignsTextField.setText("");
-                                try{
-                                    Class.forName("com.mysql.cj.jdbc.Driver");
-                                    String url = "jdbc:mysql://localhost:3306/premierleague";
-                                    String username = "root";
-                                    String password = "abcd1234!";
-                                    Connection connection = DriverManager.getConnection(url, username, password);
-                                    Statement statement = connection.createStatement();
+                if (this.containNumber(bodyTemperatureFillVitalSignsTextField.getText()) && !this.containLetter(bodyTemperatureFillVitalSignsTextField.getText())) {
+                    if (this.containNumber(plusRateInFillVitalSignsTextField.getText()) && !this.containLetter(plusRateInFillVitalSignsTextField.getText())) {
+                        if (this.containNumber(breathingRateFillVitalSignsTextField.getText()) && !this.containLetter(breathingRateFillVitalSignsTextField.getText())) {
+                            if (this.containNumber(bloodPressureFillVitalSignsTextField.getText()) && !this.containLetter(bloodPressureFillVitalSignsTextField.getText())) {
+                                if (this.containNumber(oxygenSaturationFillVitalSignsTextField.getText()) && !this.containLetter(oxygenSaturationFillVitalSignsTextField.getText())) {
+                                    if (this.containNumber(heightFillVitalSignsTextField.getText()) && !this.containLetter(heightFillVitalSignsTextField.getText())) {
+                                        if (this.containNumber(weightFillVitalSignsTextField.getText()) && !this.containLetter(weightFillVitalSignsTextField.getText())) {
+                                            if (((bodyTemperatureFillVitalSignsTemp > -40) && (bodyTemperatureFillVitalSignsTemp < 60)) && ((plusRateInFillVitalSignsTextFieldTemp > -1) && (plusRateInFillVitalSignsTextFieldTemp < 400))) {
+                                                if (((breathingRateFillVitalSignsTextFieldTemp > -1) && (breathingRateFillVitalSignsTextFieldTemp < 190)) && ((bloodPressureFillVitalSignsTextFieldTemp > -1) && (bloodPressureFillVitalSignsTextFieldTemp < 280))) {
+                                                    if (((oxygenSaturationFillVitalSignsTextFieldTemp > -1) && (oxygenSaturationFillVitalSignsTextFieldTemp < 110)) && ((heightFillVitalSignsTextFieldTemp > 20) && (heightFillVitalSignsTextFieldTemp < 300))) {
+                                                        if ((weightFillVitalSignsTextFieldTemp > 5) && (weightFillVitalSignsTextFieldTemp < 400)) {
+                                                            bodyTemperatureFillVitalSignsTextField.setText("");
+                                                            plusRateInFillVitalSignsTextField.setText("");
+                                                            breathingRateFillVitalSignsTextField.setText("");
+                                                            bloodPressureFillVitalSignsTextField.setText("");
+                                                            oxygenSaturationFillVitalSignsTextField.setText("");
+                                                            heightFillVitalSignsTextField.setText("");
+                                                            weightFillVitalSignsTextField.setText("");
+                                                            try {
+                                                                Class.forName("com.mysql.cj.jdbc.Driver");
+                                                                String url = "jdbc:mysql://localhost:3306/premierleague";
+                                                                String username = "root";
+                                                                String password = "abcd1234!";
+                                                                Connection connection = DriverManager.getConnection(url, username, password);
+                                                                Statement statement = connection.createStatement();
 
-                                    String sql = "UPDATE club_diagnose_appointment SET "+
-                                                 "body_temperature=\'"+bodyTemperatureFillVitalSignsTemp+"\', "+
-                                                 "pluse_rate=\'"+plusRateInFillVitalSignsTextFieldTemp+"\', "+
-                                                 "breathing_rate=\'"+breathingRateFillVitalSignsTextFieldTemp+"\', "+
-                                                 "blood_pressure=\'"+bloodPressureFillVitalSignsTextFieldTemp+"\', "+
-                                                 "oxygen_saturation=\'"+oxygenSaturationFillVitalSignsTextFieldTemp+"\', "+
-                                                 "height=\'"+heightFillVitalSignsTextFieldTemp+"\', "+
-                                                 "weight=\'"+weightFillVitalSignsTextFieldTemp+"\' "+
-                                                 "WHERE id =\'" + this.appointmentHistoryID + "\'";
-                                    statement.executeUpdate(sql);
-                                    statement.close();
-                                    connection.close();
-                                }
-                                catch(ClassNotFoundException | SQLException e)
-                                {
-                                    e.printStackTrace();
-                                }
-             }
-             else
-             {
-                 JOptionPane.showMessageDialog(submitVitalSignsFillButton, "c cm kg and so on, Please enter correct value area! Too big or too small(oxy genSaturation<110 Temperature<60)");
-             }
-         }
-         else{
-         JOptionPane.showMessageDialog(submitVitalSignsFillButton, "c cm kg and so on, Please enter correct value area! Too big or too small oxy genSaturation<110 Temperature<60");
-         }
-     }
-     else{
-         JOptionPane.showMessageDialog(submitVitalSignsFillButton, "c cm kg and so on, Please enter correct value area! Too big or too small oxy genSaturation<110 Temperature<60");
-     }
- }
- else
- {
- JOptionPane.showMessageDialog(submitVitalSignsFillButton, "c cm kg and so on, Please enter correct value area! Too big or too small oxy genSaturation<110 Temperature<60");
- }
+                                                                String sql = "UPDATE club_diagnose_appointment SET "
+                                                                        + "body_temperature=\'" + bodyTemperatureFillVitalSignsTemp + "\', "
+                                                                        + "pluse_rate=\'" + plusRateInFillVitalSignsTextFieldTemp + "\', "
+                                                                        + "breathing_rate=\'" + breathingRateFillVitalSignsTextFieldTemp + "\', "
+                                                                        + "blood_pressure=\'" + bloodPressureFillVitalSignsTextFieldTemp + "\', "
+                                                                        + "oxygen_saturation=\'" + oxygenSaturationFillVitalSignsTextFieldTemp + "\', "
+                                                                        + "height=\'" + heightFillVitalSignsTextFieldTemp + "\', "
+                                                                        + "weight=\'" + weightFillVitalSignsTextFieldTemp + "\' "
+                                                                        + "WHERE id =\'" + this.appointmentHistoryID + "\'";
+                                                                statement.executeUpdate(sql);
+                                                                statement.close();
+                                                                connection.close();
+                                                            } catch (ClassNotFoundException | SQLException e) {
+                                                                e.printStackTrace();
+                                                            }
+                                                        } else {
+                                                            JOptionPane.showMessageDialog(submitVitalSignsFillButton, "bodyTemperature -40~60, plusRate -1~400, breathing rate -1~190, bloodPressure -1~280, oxygen Saturation -1~110, height 20~300, weight 5~400");
+                                                        }
+                                                    } else {
+                                                        JOptionPane.showMessageDialog(submitVitalSignsFillButton, "bodyTemperature -40~60, plusRate -1~400, breathing rate -1~190, bloodPressure -1~280, oxygen Saturation -1~110, height 20~300, weight 5~400");
+                                                    }
+                                                } else {
+                                                    JOptionPane.showMessageDialog(submitVitalSignsFillButton, "bodyTemperature -40~60, plusRate -1~400, breathing rate -1~190, bloodPressure -1~280, oxygen Saturation -1~110, height 20~300, weight 5~400");
+                                                }
+                                            } else {
+                                                JOptionPane.showMessageDialog(submitVitalSignsFillButton, "bodyTemperature -40~60, plusRate -1~400, breathing rate -1~190, bloodPressure -1~280, oxygen Saturation -1~110, height 20~300, weight 5~400");
+                                            }
 
+                                        } else {
+                                            JOptionPane.showMessageDialog(submitVitalSignsFillButton, "These enter must be numbers");
+                                        }
+                                    } else {
+                                        JOptionPane.showMessageDialog(submitVitalSignsFillButton, "These enter must be numbers");
                                     }
-                                     else{JOptionPane.showMessageDialog(submitVitalSignsFillButton, "These date must be numbers");}
-                                }else{JOptionPane.showMessageDialog(submitVitalSignsFillButton, "These date must be numbers");}
-                            }else{JOptionPane.showMessageDialog(submitVitalSignsFillButton, "These date must be numbers");}
-                        }else{JOptionPane.showMessageDialog(submitVitalSignsFillButton, "These date must be numbers");}
-                    }else{JOptionPane.showMessageDialog(submitVitalSignsFillButton, "These date must be numbers");}
-                }else{JOptionPane.showMessageDialog(submitVitalSignsFillButton, "These date must be numbers");}
-            }else{JOptionPane.showMessageDialog(submitVitalSignsFillButton, "These date must be numbers");}
-            
-            
-        }}
-        else{
+                                } else {
+                                    JOptionPane.showMessageDialog(submitVitalSignsFillButton, "These enter must be numbers");
+                                }
+                            } else {
+                                JOptionPane.showMessageDialog(submitVitalSignsFillButton, "These enter must be numbers");
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(submitVitalSignsFillButton, "These enter must be numbers");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(submitVitalSignsFillButton, "These enter must be numbers");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(submitVitalSignsFillButton, "These enter must be numbers");
+                }
+
+            }
+        } else {
             JOptionPane.showMessageDialog(submitVitalSignsFillButton, "Please select an appointment first!");
             bodyTemperatureFillVitalSignsTextField.setEnabled(true);
             plusRateInFillVitalSignsTextField.setEnabled(true);
@@ -2636,6 +2645,10 @@ public class DoctorFaceToFaceDiagnoseJPanel extends javax.swing.JPanel {
     private void uploadPictureMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadPictureMenuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_uploadPictureMenuActionPerformed
+
+    private void weightFillVitalSignsTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weightFillVitalSignsTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_weightFillVitalSignsTextFieldActionPerformed
 
 
     public static void setJPanelMenuBar(JPanel parent, JPanel child, JMenuBar menuBar) {
